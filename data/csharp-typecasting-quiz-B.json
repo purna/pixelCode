@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "section": "csharp-typecasting",
+    "level": "beginner",
+    "title": "C# Type Casting"
+  },
+  "questions": [
+    {
+      "id": "csharp-typecasting-b-01",
+      "type": "scored",
+      "prompt": "What is implicit casting?",
+      "options": [
+        "Converting types with parentheses",
+        "Automatic conversion from a smaller type to a larger compatible type",
+        "Parsing strings to numbers",
+        "Rounding decimals"
+      ],
+      "answerIndex": 1,
+      "explanation": "Implicit casting converts smaller types to larger compatible types automatically, with no data loss (e.g., int to long)."
+    },
+    {
+      "id": "csharp-typecasting-b-02",
+      "type": "insert",
+      "prompt": "What syntax is used for explicit casting?",
+      "template": "double d = 9.8;\nint i = _____ d;",
+      "options": [
+        "(int)",
+        "(int)s",
+        "(int)",
+        "(INT)"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-typecasting-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the lines to cast a double to an int",
+      "items": [
+        "double d = 9.8;",
+        "int i = (int)d;",
+        "Console.WriteLine(i);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare the double, cast it explicitly to int, then print the result."
+    },
+    {
+      "id": "csharp-typecasting-b-04",
+      "type": "scored",
+      "prompt": "Which class provides the ToInt32 conversion method?",
+      "options": [
+        "Math",
+        "Convert",
+        "Console",
+        "String"
+      ],
+      "answerIndex": 1,
+      "explanation": "System.Convert provides methods like Convert.ToInt32 for safe type conversions."
+    },
+    {
+      "id": "csharp-typecasting-b-05",
+      "type": "coderunner",
+      "prompt": "Parse the string \"42\" to an int using int.Parse and print it",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        string input = \"42\";\n        // Parse input here\n        \n    }\n}",
+      "expectedOutput": "42\n",
+      "outputPattern": "^42\\n$",
+      "requiredStrings": [
+        "int.Parse"
+      ]
+    },
+    {
+      "id": "csharp-typecasting-b-06",
+      "type": "scored",
+      "prompt": "What is the result of (int)9.8?",
+      "options": [
+        "10",
+        "9",
+        "9.8",
+        "Compile error"
+      ],
+      "answerIndex": 1,
+      "explanation": "Explicit casting truncates the decimal, so 9.8 becomes 9. Use Math.Round if rounding is needed."
+    },
+    {
+      "id": "csharp-typecasting-b-07",
+      "type": "insert",
+      "prompt": "Fill in the blank to convert a string to double",
+      "template": "double d = _____(\"3.14\");",
+      "options": [
+        "Convert.todouble",
+        "Convert.ToDoubles",
+        "Convert.ToDouble",
+        "CONVERT.TODOUBLE"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-typecasting-b-08",
+      "type": "scored",
+      "prompt": "Which method returns false instead of throwing on invalid input?",
+      "options": [
+        "int.Parse",
+        "Convert.ToInt32",
+        "int.TryParse",
+        "double.Parse"
+      ],
+      "answerIndex": 2,
+      "explanation": "int.TryParse returns a bool indicating success and outputs the result via an out parameter. Parse and Convert throw on failure."
+    },
+    {
+      "id": "csharp-typecasting-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange types from safest to least safe implicit cast: int -> long -> float -> double",
+      "items": [
+        "double",
+        "float",
+        "long",
+        "int"
+      ],
+      "solution": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "explanation": "int to long to float to double is the safest implicit casting order."
+    },
+    {
+      "id": "csharp-typecasting-b-10",
+      "type": "scored",
+      "prompt": "What syntax is required for explicit casting in C#?",
+      "options": [
+        "The cast keyword",
+        "Parentheses around the target type",
+        "A using directive",
+        "No special syntax"
+      ],
+      "answerIndex": 1,
+      "explanation": "Explicit casting uses parentheses: (targetType)variable. Example: (int)myDouble."
+    }
+  ]
+}

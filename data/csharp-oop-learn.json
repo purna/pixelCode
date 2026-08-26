@@ -1,0 +1,148 @@
+{
+  "section": "csharp-oop",
+  "title": "C# OOP Basics",
+  "slides": [
+    {
+      "title": "What Is Object-Oriented Programming",
+      "content": "OOP organizes software around objects that combine data and behavior. The four main pillars are encapsulation, inheritance, polymorphism, and abstraction.",
+      "example": "class Car { int Speed; void Accelerate() { } }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which of these is NOT a core OOP pillar?",
+        "options": [
+          "Compilation",
+          "Encapsulation",
+          "Polymorphism",
+          "Abstraction"
+        ],
+        "answer": "Compilation"
+      }
+    },
+    {
+      "title": "Objects and Classes",
+      "content": "A class is a blueprint. An object is an instance created from that blueprint with its own data.",
+      "example": "class Dog { public string Name; }\nDog d = new Dog();\nd.Name = \"Rex\";",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A _____ is created from a class using the new keyword.",
+        "placeholder": "_____",
+        "answer": "object",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Encapsulation Basics",
+      "content": "Encapsulation hides internal state and exposes only necessary operations through public methods or properties.",
+      "example": "class BankAccount\n{\n  private decimal balance;\n  public void Deposit(decimal amount) { balance += amount; }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the access modifier that hides the balance field: [?] decimal balance;",
+        "before": "decimal balance;",
+        "after": "",
+        "options": [
+          "private",
+          "public",
+          "static",
+          "protected"
+        ],
+        "answer": "private"
+      }
+    },
+    {
+      "title": "State and Behavior",
+      "content": "Objects store state in fields and expose behavior through methods. This keeps related data and logic together.",
+      "example": "class Circle\n{\n  double radius;\n  double Area() => Math.PI * radius * radius;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Add a field 'radius' and a method 'Diameter' that returns 2 * radius.",
+        "starterCode": "class Circle\n{\n  _____ radius;\n\n  double Diameter() => _____ * radius;\n}",
+        "expectedOutput": "Diameter returns 2 * radius.",
+        "outputPattern": "2\\s*\\*\\s*radius",
+        "requiredStrings": [
+          "Diameter",
+          "2 *",
+          "radius"
+        ],
+        "hints": [
+          "The field needs a type. Use double, the same type as radius in the example.",
+          "Diameter should equal 2 * radius. Fill the second blank with 2."
+        ]
+      }
+    },
+    {
+      "title": "Abstraction in OOP",
+      "content": "Abstraction exposes only essential features and hides complexity. Abstract classes and interfaces are common tools.",
+      "example": "abstract class Shape { public abstract double Area(); }\nclass Square : Shape { public override double Area() => Side * Side; }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Abstraction focuses on:",
+        "options": [
+          "What an object does",
+          "How an object works internally",
+          "Memory layout",
+          "Compilation speed"
+        ],
+        "answer": "What an object does"
+      }
+    },
+    {
+      "title": "Inheritance Basics",
+      "content": "Inheritance allows a derived class to reuse and extend a base class. It supports an is-a relationship.",
+      "example": "class Animal { public void Eat() { } }\nclass Cat : Animal { public void Meow() { } }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A Cat _____ Animal, so Cat inherits Eat().",
+        "placeholder": "_____",
+        "answer": "inherits",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Polymorphism Overview",
+      "content": "Polymorphism lets you treat different objects through a common interface. Overriding base methods enables runtime behavior selection.",
+      "example": "Shape s = new Square();\nConsole.WriteLine(s.Area());",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the keyword used to override a base method: public override double Area() [?]",
+        "before": "public ",
+        "after": " double Area()",
+        "options": [
+          "override",
+          "new",
+          "virtual",
+          "abstract"
+        ],
+        "answer": "override"
+      }
+    },
+    {
+      "title": "OOP Review",
+      "content": "OOP models real-world ideas as objects with state and behavior. Use encapsulation to protect data and inheritance to share logic.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Create a class Person with a public field Name and a method Greet that prints Hello, {Name}.",
+        "starterCode": "class Person\n{\n  public _____ Name;\n\n  void Greet()\n  {\n    _____\n  }\n}",
+        "expectedOutput": "Compiles with correct field and print.",
+        "outputPattern": "Console\\.WriteLine|Write\\(\\$|string",
+        "requiredStrings": [
+          "class",
+          "Person",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, Person, Console.WriteLine",
+          "When run, your code should output: Compiles with correct field and print."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "section": "csharp-forloop",
+  "title": "C# For Loops",
+  "slides": [
+    {
+      "title": "Introduction to Loops",
+      "content": "Loops repeat code multiple times. The for loop is used when you know how many times to iterate.",
+      "example": "for (int i = 0; i < 3; i++)\n{\n    Console.WriteLine(\"Hello\");\n}",
+      "exampleOutput": "Hello\nHello\nHello",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "When is a for loop most appropriate?",
+        "options": [
+          "Unknown iterations",
+          "Known number of iterations",
+          "Infinite loop",
+          "Event handling"
+        ],
+        "answer": "Known number of iterations"
+      }
+    },
+    {
+      "title": "For Loop Syntax",
+      "content": "A for loop has three parts: initialization, condition, and iteration. The loop continues while the condition is true.",
+      "example": "for (int i = 0; i < 5; i++)\n{\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "0\n1\n2\n3\n4",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the for loop initialization",
+        "before": "for (",
+        "after": "; i < 3; i++)",
+        "options": [
+          "int i = 0",
+          "int i = 1",
+          "int i = 3",
+          "i = 0"
+        ],
+        "answer": "int i = 0"
+      }
+    },
+    {
+      "title": "Counting Down",
+      "content": "You can count backwards by starting high and decrementing. Use i-- to decrease the counter.",
+      "example": "for (int i = 5; i > 0; i--)\n{\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "5\n4\n3\n2\n1",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the loop to count from 10 down to 5",
+        "placeholder": "_____",
+        "answer": "i--",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Foreach Loop",
+      "content": "The foreach loop iterates over every element in a collection. You cannot modify the collection during iteration.",
+      "example": "string[] colors = {\"red\", \"green\", \"blue\"};\nforeach (string color in colors)\n{\n    Console.WriteLine(color);\n}",
+      "exampleOutput": "red\ngreen\nblue",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "In foreach, what does 'color' represent?",
+        "options": [
+          "The index",
+          "The current element",
+          "The array length",
+          "The type"
+        ],
+        "answer": "The current element"
+      }
+    },
+    {
+      "title": "Loop Control",
+      "content": "Inside a loop, break exits immediately. Continue skips the rest of the current iteration and moves to the next.",
+      "example": "for (int i = 0; i < 5; i++)\n{\n    if (i == 2) continue;\n    if (i == 4) break;\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "0\n1\n3",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Choose the correct control statement to skip an iteration",
+        "before": "if (x == 0) ",
+        "after": ";",
+        "options": [
+          "continue",
+          "break",
+          "return",
+          "exit"
+        ],
+        "answer": "continue"
+      }
+    },
+    {
+      "title": "Nested Loops",
+      "content": "You can place loops inside other loops. The inner loop completes all iterations for each outer loop iteration.",
+      "example": "for (int i = 0; i < 3; i++)\n{\n    for (int j = 0; j < 2; j++)\n    {\n        Console.Write(i + \",\" + j + \" \");\n    }\n    Console.WriteLine();\n}",
+      "exampleOutput": "0,0 0,1 \n1,0 1,1 \n2,0 2,1 ",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A loop inside another loop is called a _____ loop",
+        "placeholder": "_____",
+        "answer": "nested",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Loop Variables Scope",
+      "content": "Variables declared in the for loop initialization exist only within the loop. They cannot be accessed outside.",
+      "example": "for (int i = 0; i < 3; i++)\n{\n    Console.WriteLine(i);\n}\n// Console.WriteLine(i); // Error!",
+      "exampleOutput": "0\n1\n2",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Where is the loop variable accessible?",
+        "options": [
+          "Inside the loop only",
+          "Everywhere in the method",
+          "Inside and outside",
+          "Nowhere"
+        ],
+        "answer": "Inside the loop only"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Use meaningful variable names. Avoid infinite loops by ensuring the condition eventually becomes false. Prefer foreach for simple collection iteration.",
+      "example": "for (int index = 0; index < items.Length; index++)\n{\n    Console.WriteLine(items[index]);\n}\n\nforeach (var item in items)\n{\n    Console.WriteLine(item);\n}",
+      "exampleOutput": "item0\nitem1\nitem0\nitem1",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Select the best loop for iterating all elements",
+        "before": "foreach (",
+        "after": " in collection)",
+        "options": [
+          "var item",
+          "int i",
+          "string s",
+          "object o"
+        ],
+        "answer": "var item"
+      }
+    },
+    {
+      "title": "Flow Builder: For Loop",
+      "content": "Use the Flow Builder to create a for loop that counts from 1 to 3.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow with a for loop from 1 to 3 that outputs the counter",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "for",
+              "variable": "i",
+              "start": "1",
+              "end": "3",
+              "direction": "Increasing",
+              "step": "1",
+              "body": [
+                {
+                  "id": "n2",
+                  "kind": "output",
+                  "expression": "i",
+                  "newline": true
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "for (i = 1; i <= 3; i += 1)\n{\n    output(i);\n}",
+        "blocksToShow": [
+          "for",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

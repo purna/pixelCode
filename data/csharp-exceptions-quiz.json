@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "section": "csharp-exceptions",
+    "level": "expert",
+    "title": "C# Exceptions"
+  },
+  "questions": [
+    {
+      "id": "csharp-exceptions-01",
+      "type": "scored",
+      "prompt": "Which keyword is used to handle exceptions in C#?",
+      "options": [
+        "catch",
+        "throw",
+        "try",
+        "exception"
+      ],
+      "answerIndex": 2,
+      "explanation": "The 'try' keyword defines a block of code to monitor for exceptions."
+    },
+    {
+      "id": "csharp-exceptions-02",
+      "type": "scored",
+      "prompt": "Which block always executes whether an exception occurs or not?",
+      "options": [
+        "catch",
+        "try",
+        "finally",
+        "throw"
+      ],
+      "answerIndex": 2,
+      "explanation": "The 'finally' block always runs after try/catch, regardless of whether an exception was thrown."
+    },
+    {
+      "id": "csharp-exceptions-03",
+      "type": "scored",
+      "prompt": "What is the purpose of the 'throw' keyword?",
+      "options": [
+        "To catch an exception",
+        "To raise an exception explicitly",
+        "To ignore an exception",
+        "To define a new class"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'throw' keyword explicitly raises an exception."
+    },
+    {
+      "id": "csharp-exceptions-04",
+      "type": "typing",
+      "prompt": "Fill in the blank to catch a generic exception.",
+      "blanks": [
+        "catch (Exception ex)"
+      ],
+      "template": "_____ { Console.WriteLine(ex.Message); }"
+    },
+    {
+      "id": "csharp-exceptions-05",
+      "type": "scored",
+      "prompt": "Which base class should all custom exceptions inherit from?",
+      "options": [
+        "Exception",
+        "ApplicationException",
+        "SystemException",
+        "BaseException"
+      ],
+      "answerIndex": 0,
+      "explanation": "Custom exceptions should inherit from Exception (or a more specific built-in exception class)."
+    },
+    {
+      "id": "csharp-exceptions-06",
+      "type": "dragorder",
+      "prompt": "Arrange the correct try-catch-finally structure.",
+      "items": [
+        "try",
+        "{",
+        "// code",
+        "}",
+        "catch (Exception ex)",
+        "{",
+        "// handle",
+        "}",
+        "finally",
+        "{",
+        "// cleanup",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "id": "csharp-exceptions-07",
+      "type": "coderunner",
+      "prompt": "Create a custom exception InvalidAgeException and throw it when age is negative.",
+      "starterCode": "using System;\n\npublic class InvalidAgeException : _____\n{\n    public InvalidAgeException(string message) : base(message) { }\n}\n\nclass Program\n{\n    static void ValidateAge(int age)\n    {\n        if (age < 0)\n        {\n            _____ new InvalidAgeException(\"Age cannot be negative\");\n        }\n    }\n\n    static void Main()\n    {\n        try\n        {\n            ValidateAge(-5);\n        }\n        catch (InvalidAgeException ex)\n        {\n            Console.WriteLine(ex.Message);\n        }\n    }\n}",
+      "expectedOutput": "Age cannot be negative",
+      "outputPattern": "Age cannot be negative",
+      "requiredStrings": [
+        "Exception",
+        "InvalidAgeException"
+      ]
+    },
+    {
+      "id": "csharp-exceptions-08",
+      "type": "scored",
+      "prompt": "Can you have multiple catch blocks for different exception types?",
+      "options": [
+        "No",
+        "Yes",
+        "Only two",
+        "Only if they are related"
+      ],
+      "answerIndex": 1,
+      "explanation": "Multiple catch blocks can be stacked to handle specific exception types before the generic Exception catch."
+    },
+    {
+      "id": "csharp-exceptions-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to rethrow the current exception preserving the stack trace.",
+      "template": "catch (Exception) { Log(); _____; }",
+      "options": [
+        "throw;",
+        "throw;3",
+        "throw;2",
+        "throw;s"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-exceptions-10",
+      "type": "scored",
+      "prompt": "What is the difference between 'throw ex' and 'throw' inside a catch block?",
+      "options": [
+        "They are identical",
+        "'throw ex' resets the stack trace, 'throw' preserves it",
+        "'throw' creates a new exception",
+        "There is no difference"
+      ],
+      "answerIndex": 1,
+      "explanation": "Using 'throw;' preserves the original stack trace, while 'throw ex;' resets it to the current line."
+    }
+  ]
+}

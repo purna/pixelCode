@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "section": "csharp-switch",
+    "level": "beginner",
+    "title": "C# Switch"
+  },
+  "questions": [
+    {
+      "id": "csharp-switch-01",
+      "type": "scored",
+      "prompt": "Which keyword starts a switch statement?",
+      "options": [
+        "switch",
+        "case",
+        "select",
+        "match"
+      ],
+      "answerIndex": 0,
+      "explanation": "The switch keyword tests a variable against multiple case values."
+    },
+    {
+      "id": "csharp-switch-02",
+      "type": "scored",
+      "prompt": "What keyword defines a branch inside a switch?",
+      "options": [
+        "case",
+        "branch",
+        "option",
+        "path"
+      ],
+      "answerIndex": 0,
+      "explanation": "Each possible value is written as case value:"
+    },
+    {
+      "id": "csharp-switch-03",
+      "type": "scored",
+      "prompt": "What keyword ends each case block to prevent fall-through?",
+      "options": [
+        "break",
+        "stop",
+        "end",
+        "return"
+      ],
+      "answerIndex": 0,
+      "explanation": "break exits the switch. Without it, execution falls through to the next case."
+    },
+    {
+      "id": "csharp-switch-04",
+      "type": "dragorder",
+      "prompt": "Arrange the switch statement parts",
+      "items": [
+        "switch",
+        "(day)",
+        "{",
+        "case 1:",
+        "Console.WriteLine(\"Mon\");",
+        "break;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "explanation": "A switch statement uses switch(expression) { case value: ... break; }."
+    },
+    {
+      "id": "csharp-switch-05",
+      "type": "scored",
+      "prompt": "What happens if no case matches and there is no default?",
+      "options": [
+        "Nothing executes",
+        "An error occurs",
+        "The first case runs",
+        "The program crashes"
+      ],
+      "answerIndex": 0,
+      "explanation": "If no case matches and default is absent, the switch block completes without executing any case."
+    },
+    {
+      "id": "csharp-switch-06",
+      "type": "scored",
+      "prompt": "Which keyword handles unmatched values?",
+      "options": [
+        "default",
+        "else",
+        "otherwise",
+        "fallback"
+      ],
+      "answerIndex": 0,
+      "explanation": "The default case runs when no other case matches."
+    },
+    {
+      "id": "csharp-switch-07",
+      "type": "insert",
+      "prompt": "Write the exact keyword required after each case value",
+      "template": "case 1 _____\n    Console.WriteLine(\"One\");\n    break;",
+      "options": [
+        ":",
+        ":",
+        ":s",
+        ":3"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-switch-08",
+      "type": "coderunner",
+      "prompt": "Write a switch that prints 'Fri' when day == 5",
+      "starterCode": "int day = 5;\n// Write your switch below\n",
+      "expectedOutput": "Fri",
+      "outputPattern": "^Fri$",
+      "requiredStrings": [
+        "switch",
+        "case 5"
+      ]
+    },
+    {
+      "id": "csharp-switch-09",
+      "type": "scored",
+      "prompt": "Can multiple cases share the same code block?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with if",
+        "Only with ternary"
+      ],
+      "answerIndex": 0,
+      "explanation": "You can stack case labels before a single block to share code between cases."
+    },
+    {
+      "id": "csharp-switch-10",
+      "type": "scored",
+      "prompt": "What type is typically used in a switch expression?",
+      "options": [
+        "int, string, or bool",
+        "only int",
+        "only string",
+        "only bool"
+      ],
+      "answerIndex": 0,
+      "explanation": "Switch works with integral types, string, char, and enums. Switch expressions support many more types."
+    }
+  ]
+}

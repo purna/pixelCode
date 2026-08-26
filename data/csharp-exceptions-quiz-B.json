@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-exceptions",
+    "level": "expert",
+    "title": "C# Exceptions"
+  },
+  "questions": [
+    {
+      "id": "csharp-exceptions-b-01",
+      "type": "scored",
+      "prompt": "Code that may throw is placed in:",
+      "options": [
+        "try",
+        "using",
+        "fixed",
+        "lock"
+      ],
+      "answerIndex": 0,
+      "explanation": "try wraps risky code."
+    },
+    {
+      "id": "csharp-exceptions-b-02",
+      "type": "scored",
+      "prompt": "The block that always runs, whether or not an exception occurs, is:",
+      "options": [
+        "catch",
+        "finally",
+        "throw",
+        "else"
+      ],
+      "answerIndex": 1,
+      "explanation": "finally executes regardless."
+    },
+    {
+      "id": "csharp-exceptions-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to throw an exception",
+      "blanks": [
+        "throw new ArgumentException(\"bad\")"
+      ],
+      "template": "______;",
+      "explanation": "throw creates and raises an exception."
+    },
+    {
+      "id": "csharp-exceptions-b-04",
+      "type": "scored",
+      "prompt": "catch(Exception e) catches:",
+      "options": [
+        "Only ArgumentException",
+        "Any exception derived from Exception",
+        "Compile errors",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "All exceptions derive from Exception."
+    },
+    {
+      "id": "csharp-exceptions-b-05",
+      "type": "coderunner",
+      "prompt": "Wrap int.Parse('abc') in try/catch and on catch print 'caught'",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "caught\n",
+      "outputPattern": "^caught\\n$",
+      "explanation": "Parse fails and catch handles it.",
+      "requiredStrings": [
+        "int.Parse"
+      ]
+    },
+    {
+      "id": "csharp-exceptions-b-06",
+      "type": "scored",
+      "prompt": "Multiple catch blocks are evaluated:",
+      "options": [
+        "From most general to most specific",
+        "From most specific to most general",
+        "Randomly",
+        "Only the last"
+      ],
+      "answerIndex": 1,
+      "explanation": "Order specific-to-general; otherwise a compile error."
+    },
+    {
+      "id": "csharp-exceptions-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange a correct try/catch/finally",
+      "items": [
+        "try { int x = int.Parse(\"a\"); }",
+        "catch (FormatException) { Console.WriteLine(\"bad\"); }",
+        "finally { Console.WriteLine(\"done\"); }"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "try then catch then finally."
+    },
+    {
+      "id": "csharp-exceptions-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to rethrow the current exception",
+      "blanks": [
+        "throw"
+      ],
+      "template": "catch (Exception e) { Log(e); ______; }",
+      "explanation": "Bare throw preserves the stack trace."
+    },
+    {
+      "id": "csharp-exceptions-b-09",
+      "type": "scored",
+      "prompt": "Custom exceptions should derive from:",
+      "options": [
+        "System.Exception",
+        "System.Object",
+        "System.String",
+        "System.Math"
+      ],
+      "answerIndex": 0,
+      "explanation": "Custom exceptions extend Exception (often ApplicationException is discouraged)."
+    },
+    {
+      "id": "csharp-exceptions-b-10",
+      "type": "coderunner",
+      "prompt": "Write a method SafeDiv(int a,int b) that returns 0 if b==0 else a/b, call SafeDiv(5,0) and print the result",
+      "starterCode": "using System;\nclass Program {\n  static int SafeDiv(int a, int b) { if (b == 0) return 0; return a / b; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "0\n",
+      "outputPattern": "^0\\n$",
+      "explanation": "Guards against divide-by-zero.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

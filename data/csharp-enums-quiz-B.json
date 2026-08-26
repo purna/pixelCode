@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-enums",
+    "level": "expert",
+    "title": "C# Enums"
+  },
+  "questions": [
+    {
+      "id": "csharp-enums-b-01",
+      "type": "scored",
+      "prompt": "By default, the underlying type of an enum is:",
+      "options": [
+        "int",
+        "byte",
+        "string",
+        "long only"
+      ],
+      "answerIndex": 0,
+      "explanation": "Enums default to Int32."
+    },
+    {
+      "id": "csharp-enums-b-02",
+      "type": "scored",
+      "prompt": "Enum member values by default start at:",
+      "options": [
+        "1",
+        "0 and increment",
+        "The size of int",
+        "Random"
+      ],
+      "answerIndex": 1,
+      "explanation": "First member is 0, then increments by 1."
+    },
+    {
+      "id": "csharp-enums-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an enum of days",
+      "blanks": [
+        "enum Day { Mon, Tue, Wed }"
+      ],
+      "template": "______",
+      "explanation": "enum defines a distinct value type."
+    },
+    {
+      "id": "csharp-enums-b-04",
+      "type": "scored",
+      "prompt": "To convert a string to an enum you use:",
+      "options": [
+        "Enum.Parse",
+        "int.Parse",
+        "ToString",
+        "Convert.ToEnum"
+      ],
+      "answerIndex": 0,
+      "explanation": "Enum.Parse converts from string."
+    },
+    {
+      "id": "csharp-enums-b-05",
+      "type": "coderunner",
+      "prompt": "Declare enum Color { Red=1, Green=2, Blue=3 } and print (int)Color.Green",
+      "starterCode": "using System;\nenum Color { Red = 1, Green = 2, Blue = 3 }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "2\n",
+      "outputPattern": "^2\\n$",
+      "explanation": "Cast to int yields 2.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-enums-b-06",
+      "type": "scored",
+      "prompt": "Enum.HasFlag is used to test:",
+      "options": [
+        "String equality",
+        "Bitwise flag combinations",
+        "Array length",
+        "Loop count"
+      ],
+      "answerIndex": 1,
+      "explanation": "HasFlag checks bitwise flags."
+    },
+    {
+      "id": "csharp-enums-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange an enum with explicit bit flags",
+      "items": [
+        "[Flags]",
+        "enum Perms { Read=1, Write=2, Execute=4 }",
+        "Perms p = Perms.Read | Perms.Write;",
+        "if (p.HasFlag(Perms.Read)) { }"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Flags attribute + bitwise combination."
+    },
+    {
+      "id": "csharp-enums-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a byte-backed enum",
+      "blanks": [
+        "enum B : byte { A, B, C }"
+      ],
+      "template": "______",
+      "explanation": "Underlying type can be byte."
+    },
+    {
+      "id": "csharp-enums-b-09",
+      "type": "scored",
+      "prompt": "Enum.GetNames returns:",
+      "options": [
+        "The numeric values",
+        "The member names as strings",
+        "The count",
+        "The type"
+      ],
+      "answerIndex": 1,
+      "explanation": "GetNames yields the name array."
+    },
+    {
+      "id": "csharp-enums-b-10",
+      "type": "coderunner",
+      "prompt": "Declare enum Level { Low=10, Mid=20, High=30 } and print Enum.GetName(typeof(Level), 20)",
+      "starterCode": "using System;\nenum Level { Low = 10, Mid = 20, High = 30 }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Mid\n",
+      "outputPattern": "^Mid\\n$",
+      "explanation": "GetName maps value to name.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

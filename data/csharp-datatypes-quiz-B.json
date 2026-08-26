@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-datatypes",
+    "level": "beginner",
+    "title": "C# Data Types"
+  },
+  "questions": [
+    {
+      "id": "csharp-datatypes-b-01",
+      "type": "scored",
+      "prompt": "Which C# type represents true or false values?",
+      "options": [
+        "int",
+        "string",
+        "bool",
+        "double"
+      ],
+      "answerIndex": 2,
+      "explanation": "bool is the C# type for Boolean values (true or false)."
+    },
+    {
+      "id": "csharp-datatypes-b-02",
+      "type": "insert",
+      "prompt": "What is the default value of a bool variable in C#?",
+      "template": "The default value is _____.",
+      "options": [
+        "True",
+        "false",
+        "FALSE",
+        "TRUE"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-datatypes-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange these types from smallest to largest memory footprint",
+      "items": [
+        "double",
+        "string",
+        "char",
+        "int"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "explanation": "char (2 bytes) < int (4 bytes) < double (8 bytes) < string (reference, larger overhead)."
+    },
+    {
+      "id": "csharp-datatypes-b-04",
+      "type": "scored",
+      "prompt": "Which type is best for storing the value 3.14?",
+      "options": [
+        "int",
+        "double",
+        "char",
+        "bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "double is a 64-bit floating-point type suitable for decimal values."
+    },
+    {
+      "id": "csharp-datatypes-b-05",
+      "type": "coderunner",
+      "prompt": "Declare an int, double, bool, and string, then print their default values",
+      "starterCode": "class Program\n{\n    static void Main()\n    {\n        // Declare variables here\n        \n    }\n}",
+      "expectedOutput": "0\n0\nFalse\n",
+      "outputPattern": "^0\\n0\\nFalse\\n$",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-datatypes-b-06",
+      "type": "scored",
+      "prompt": "How many bytes does a char occupy in C#?",
+      "options": [
+        "1 byte",
+        "2 bytes",
+        "4 bytes",
+        "8 bytes"
+      ],
+      "answerIndex": 1,
+      "explanation": "char is a Unicode character that occupies 2 bytes (16 bits)."
+    },
+    {
+      "id": "csharp-datatypes-b-07",
+      "type": "insert",
+      "prompt": "What is the default value of a string reference variable?",
+      "template": "The default value is _____.",
+      "options": [
+        "nulls",
+        "NULL",
+        "null",
+        "Null"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-datatypes-b-08",
+      "type": "scored",
+      "prompt": "Which type stores single text characters?",
+      "options": [
+        "string",
+        "char",
+        "int",
+        "bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "char stores a single Unicode character. string stores a sequence of characters."
+    },
+    {
+      "id": "csharp-datatypes-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the default values for these types: int, bool, string, char",
+      "items": [
+        "0",
+        "false",
+        "null",
+        "'\\0'"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "int defaults to 0, bool to false, string to null, and char to '\\0'."
+    },
+    {
+      "id": "csharp-datatypes-b-10",
+      "type": "scored",
+      "prompt": "How many bytes does an int use in C#?",
+      "options": [
+        "2 bytes",
+        "4 bytes",
+        "8 bytes",
+        "Depends on OS"
+      ],
+      "answerIndex": 1,
+      "explanation": "int is a 32-bit signed integer and always uses 4 bytes."
+    }
+  ]
+}

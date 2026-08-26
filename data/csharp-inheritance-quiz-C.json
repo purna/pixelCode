@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-inheritance",
+    "level": "intermediate",
+    "title": "C# Inheritance"
+  },
+  "questions": [
+    {
+      "id": "csharp-inheritance-c-01",
+      "type": "scored",
+      "prompt": "The root of all C# class hierarchies is:",
+      "options": [
+        "System.Base",
+        "System.Object (object)",
+        "System.Class",
+        "System.Type"
+      ],
+      "answerIndex": 1,
+      "explanation": "Every class ultimately derives from object."
+    },
+    {
+      "id": "csharp-inheritance-c-02",
+      "type": "scored",
+      "prompt": "To allow overriding, a base method must be marked:",
+      "options": [
+        "static",
+        "virtual",
+        "sealed",
+        "private"
+      ],
+      "answerIndex": 1,
+      "explanation": "virtual enables overriding."
+    },
+    {
+      "id": "csharp-inheritance-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to mark a method as overridable",
+      "blanks": [
+        "public virtual void Speak()"
+      ],
+      "template": "______ { }",
+      "explanation": "virtual permits overriding."
+    },
+    {
+      "id": "csharp-inheritance-c-04",
+      "type": "scored",
+      "prompt": "The 'is' operator tests:",
+      "options": [
+        "Assignment",
+        "Whether an object is of a given type",
+        "Looping",
+        "Casting"
+      ],
+      "answerIndex": 1,
+      "explanation": "is checks type compatibility."
+    },
+    {
+      "id": "csharp-inheritance-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Shape { public virtual int Area(){return 0;} } and class Square : Shape { public int S; public override int Area(){return S*S;} }, print new Square(){S=5}.Area()",
+      "starterCode": "using System;\nclass Shape { public virtual int Area() { return 0; } }\nclass Square : Shape { public int S; public override int Area() { return S * S; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "25\n",
+      "outputPattern": "^25\\n$",
+      "explanation": "Override returns 25.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-inheritance-c-06",
+      "type": "scored",
+      "prompt": "An abstract class:",
+      "options": [
+        "Can be instantiated",
+        "Cannot be instantiated directly",
+        "Has no methods",
+        "Is the same as a struct"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract classes require a concrete subclass."
+    },
+    {
+      "id": "csharp-inheritance-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange to upcast a derived object to its base",
+      "items": [
+        "Dog d = new Dog();",
+        "Animal a = d;",
+        "class Animal { }",
+        "class Dog : Animal { }"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "explanation": "Deriving then assigning to base variable."
+    },
+    {
+      "id": "csharp-inheritance-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a class that cannot be inherited",
+      "blanks": [
+        "sealed class Lock"
+      ],
+      "template": "______ { }",
+      "explanation": "sealed prevents derivation."
+    },
+    {
+      "id": "csharp-inheritance-c-09",
+      "type": "scored",
+      "prompt": "Hiding a base member with 'new' is called:",
+      "options": [
+        "Overriding",
+        "Shadowing/hiding",
+        "Sealing",
+        "Abstracting"
+      ],
+      "answerIndex": 1,
+      "explanation": "new hides an inherited member rather than overriding."
+    },
+    {
+      "id": "csharp-inheritance-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Base { public string Tag='B'; } and class Sub : Base { public string Tag='S'; } then print ((Base)new Sub()).Tag",
+      "starterCode": "using System;\nclass Base { public string Tag = \"B\"; }\nclass Sub : Base { public new string Tag = \"S\"; }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "B\n",
+      "outputPattern": "^B\\n$",
+      "explanation": "Upcast reveals base's hidden Tag.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

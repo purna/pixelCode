@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "section": "csharp-classmembers",
+    "level": "intermediate",
+    "title": "C# Class Members"
+  },
+  "questions": [
+    {
+      "id": "csharp-classmembers-b-01",
+      "type": "scored",
+      "prompt": "Which of these is NOT a class member?",
+      "options": [
+        "Field",
+        "Method",
+        "Property",
+        "Namespace"
+      ],
+      "answerIndex": 3,
+      "explanation": "Namespaces are not members of a class."
+    },
+    {
+      "id": "csharp-classmembers-b-02",
+      "type": "scored",
+      "prompt": "A const field must be:",
+      "options": [
+        "Assigned in a constructor",
+        "Initialized at declaration and is compile-time constant",
+        "Static only at runtime",
+        "Mutable"
+      ],
+      "answerIndex": 1,
+      "explanation": "const values are set at declaration and cannot change."
+    },
+    {
+      "id": "csharp-classmembers-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a readonly int field",
+      "blanks": [
+        "readonly int id"
+      ],
+      "template": "______;",
+      "explanation": "readonly can be set only at declaration or in a constructor."
+    },
+    {
+      "id": "csharp-classmembers-b-04",
+      "type": "scored",
+      "prompt": "A static member belongs to:",
+      "options": [
+        "Each instance",
+        "The type itself",
+        "The base class only",
+        "The garbage collector"
+      ],
+      "answerIndex": 1,
+      "explanation": "static members are shared across all instances."
+    },
+    {
+      "id": "csharp-classmembers-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Config with public static string AppName='Quiz' and print Config.AppName",
+      "starterCode": "using System;\nclass Config {\n  public static string AppName = \"Quiz\";\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Quiz\n",
+      "outputPattern": "^Quiz\\n$",
+      "explanation": "Access the static field via the type name.",
+      "requiredStrings": [
+        "Width"
+      ]
+    },
+    {
+      "id": "csharp-classmembers-b-06",
+      "type": "scored",
+      "prompt": "An event is typically used for:",
+      "options": [
+        "Storage",
+        "Publishing notifications to subscribers",
+        "Looping",
+        "Casting"
+      ],
+      "answerIndex": 1,
+      "explanation": "Events enable the observer/publisher-subscriber pattern."
+    },
+    {
+      "id": "csharp-classmembers-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange to declare a field, property, and method",
+      "items": [
+        "class A {",
+        "  private int x;",
+        "  public int X { get { return x; } set { x = value; } }",
+        "  public void M() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "Standard member ordering is flexible but consistent."
+    },
+    {
+      "id": "csharp-classmembers-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a constant PI",
+      "blanks": [
+        "const double PI = 3.14159"
+      ],
+      "template": "______;",
+      "explanation": "const requires a compile-time constant value."
+    },
+    {
+      "id": "csharp-classmembers-b-09",
+      "type": "scored",
+      "prompt": "Indexers allow a class to be accessed like:",
+      "options": [
+        "A method",
+        "An array",
+        "A namespace",
+        "A loop"
+      ],
+      "answerIndex": 1,
+      "explanation": "Indexers enable array-like indexing on objects."
+    },
+    {
+      "id": "csharp-classmembers-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Bag with a private List<int> items and Add(int v), and Count property returning items.Count, then Add 7 and print Count",
+      "starterCode": "using System;\nusing System.Collections.Generic;\nclass Bag {\n  private List<int> items = new List<int>();\n  public void Add(int v) { items.Add(v); }\n  public int Count { get { return items.Count; } }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "1\n",
+      "outputPattern": "^1\\n$",
+      "explanation": "Add one item and read Count.",
+      "requiredStrings": [
+        "List<int>",
+        "Add("
+      ]
+    }
+  ]
+}

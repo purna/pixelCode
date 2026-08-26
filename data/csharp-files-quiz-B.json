@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-files",
+    "level": "expert",
+    "title": "C# Files"
+  },
+  "questions": [
+    {
+      "id": "csharp-files-b-01",
+      "type": "scored",
+      "prompt": "To read all text from a file simply, use:",
+      "options": [
+        "File.ReadAllText",
+        "StreamReader.Begin",
+        "FileInfo.Delete",
+        "Path.Combine"
+      ],
+      "answerIndex": 0,
+      "explanation": "File.ReadAllText loads entire content."
+    },
+    {
+      "id": "csharp-files-b-02",
+      "type": "scored",
+      "prompt": "To append a line to a file use:",
+      "options": [
+        "File.AppendAllText",
+        "File.ReadAllText",
+        "Directory.Create",
+        "File.Move"
+      ],
+      "answerIndex": 0,
+      "explanation": "AppendAllText adds without overwriting."
+    },
+    {
+      "id": "csharp-files-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to write text to a file",
+      "blanks": [
+        "File.WriteAllText(\"a.txt\", \"hi\")"
+      ],
+      "template": "______;",
+      "explanation": "WriteAllText creates/overwrites the file."
+    },
+    {
+      "id": "csharp-files-b-04",
+      "type": "scored",
+      "prompt": "For large files, the recommended approach is:",
+      "options": [
+        "ReadAllText",
+        "StreamReader/StreamWriter with using",
+        "Thread.Sleep",
+        "goto"
+      ],
+      "answerIndex": 1,
+      "explanation": "Streams reduce memory use and need disposal."
+    },
+    {
+      "id": "csharp-files-b-05",
+      "type": "coderunner",
+      "prompt": "Write the text 'Hello' to 'out.txt' using File.WriteAllText, then read it back and print it",
+      "starterCode": "using System;\nusing System.IO;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Hello\n",
+      "outputPattern": "^Hello\\n$",
+      "explanation": "Write then ReadAllText.",
+      "requiredStrings": [
+        "StreamWriter"
+      ]
+    },
+    {
+      "id": "csharp-files-b-06",
+      "type": "scored",
+      "prompt": "Path.Combine is used to:",
+      "options": [
+        "Delete files",
+        "Safely join path segments",
+        "Read bytes",
+        "Encrypt"
+      ],
+      "answerIndex": 1,
+      "explanation": "Combine handles separators per platform."
+    },
+    {
+      "id": "csharp-files-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange correct streaming file write",
+      "items": [
+        "using (var w = new StreamWriter(\"f.txt\")) {",
+        "  w.WriteLine(\"line\");",
+        "}",
+        "Console.WriteLine(\"done\");"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "using ensures disposal/flush."
+    },
+    {
+      "id": "csharp-files-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to check if a file exists",
+      "blanks": [
+        "File.Exists(\"f.txt\")"
+      ],
+      "template": "if (______) { }",
+      "explanation": "Exists returns a bool."
+    },
+    {
+      "id": "csharp-files-b-09",
+      "type": "scored",
+      "prompt": "FileStream operates on:",
+      "options": [
+        "Strings only",
+        "Bytes",
+        "XML",
+        "JSON"
+      ],
+      "answerIndex": 1,
+      "explanation": "FileStream is byte-oriented."
+    },
+    {
+      "id": "csharp-files-b-10",
+      "type": "coderunner",
+      "prompt": "Read all lines from 'data.txt' created with File.WriteAllLines(new[]{\"a\",\"b\"}), then print the line count",
+      "starterCode": "using System;\nusing System.IO;\nclass Program {\n  static void Main() {\n    File.WriteAllLines(\"data.txt\", new[]{\"a\",\"b\"});\n    ______\n  }\n}",
+      "expectedOutput": "2\n",
+      "outputPattern": "^2\\n$",
+      "explanation": "ReadAllLines then Length.",
+      "requiredStrings": [
+        "StreamWriter"
+      ]
+    }
+  ]
+}

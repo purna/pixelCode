@@ -1,0 +1,147 @@
+{
+  "section": "csharp-classmembers",
+  "title": "C# Class Members",
+  "slides": [
+    {
+      "title": "What Are Class Members",
+      "content": "Class members are the fields, methods, properties, and other members declared inside a class.",
+      "example": "class Person\n{\n  public string Name;\n  public void Greet() { }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which of these is a class member?",
+        "options": [
+          "A method inside a class",
+          "A using directive",
+          "A namespace",
+          "A loop"
+        ],
+        "answer": "A method inside a class"
+      }
+    },
+    {
+      "title": "Fields",
+      "content": "Fields store data for each object. They can be any type and are typically private or public depending on encapsulation needs.",
+      "example": "class Counter\n{\n  public int Count;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A variable declared inside a class is called a _____.",
+        "placeholder": "_____",
+        "answer": "field",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Methods",
+      "content": "Methods define behavior. They can accept parameters, return values, and be called on object instances.",
+      "example": "class Calculator\n{\n  public int Add(int a, int b) { return a + b; }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the keyword that returns a value from a method: public int Add(int a, int b) { [?] a + b; }",
+        "before": "{ ",
+        "after": " a + b; }",
+        "options": [
+          "return",
+          "void",
+          "break",
+          "yield"
+        ],
+        "answer": "return"
+      }
+    },
+    {
+      "title": "Properties",
+      "content": "Properties expose fields with get and set accessors. They allow validation and controlled access while looking like fields.",
+      "example": "class User\n{\n  private int age;\n  public int Age\n  {\n    get { return age; }\n    set { if (value >= 0) age = value; }\n  }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write a property Name with a getter that returns _name and a setter that assigns it.",
+        "starterCode": "private string _name;\npublic string Name\n{\n  _____ { return _____; }\n  _____ { _name = value; }\n}",
+        "expectedOutput": "Compiles with get and set.",
+        "outputPattern": "get|set",
+        "requiredStrings": [
+          "get",
+          "set"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: get, set",
+          "When run, your code should output: Compiles with get and set."
+        ]
+      }
+    },
+    {
+      "title": "Static Members",
+      "content": "Static members belong to the class itself, not instances. Use them for shared data or utility methods.",
+      "example": "class Logger\n{\n  public static void Log(string msg)\n  {\n    Console.WriteLine(msg);\n  }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "How do you call a static method?",
+        "options": [
+          "ClassName.Method()",
+          "instance.Method()",
+          "this.Method()",
+          "base.Method()"
+        ],
+        "answer": "ClassName.Method()"
+      }
+    },
+    {
+      "title": "Instance vs Static",
+      "content": "Instance members require an object. Static members are accessed through the class type directly.",
+      "example": "class Settings\n{\n  public static string AppName = \"Quiz3\";\n  public int Id;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the access: Console.WriteLine(Settings._____);",
+        "placeholder": "_____",
+        "answer": "AppName",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Access Modifiers",
+      "content": "public, private, protected, and internal control visibility. private is the default for class members.",
+      "example": "class Box\n{\n  private int width; // hidden\n  public int Height;  // exposed\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the most restrictive access modifier: [?] int width;",
+        "before": "int width;",
+        "after": "",
+        "options": [
+          "private",
+          "public",
+          "protected",
+          "internal"
+        ],
+        "answer": "private"
+      }
+    },
+    {
+      "title": "Class Members Review",
+      "content": "Fields store state, methods define behavior, properties control access, and static members belong to the class.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Declare a static field Counter and a static method Increment that increases it by one.",
+        "starterCode": "class Tracker\n{\n  public static int _____;\n\n  public static void _____()\n  {\n    Counter++;\n  }\n}",
+        "expectedOutput": "Counter, Increment",
+        "outputPattern": "Counter|Increment",
+        "requiredStrings": [
+          "class",
+          "static",
+          "public"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, static, public",
+          "When run, your code should output: Counter, Increment"
+        ]
+      }
+    }
+  ]
+}

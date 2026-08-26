@@ -1,0 +1,145 @@
+{
+  "section": "csharp-methodoverloading",
+  "title": "C# Method Overloading",
+  "slides": [
+    {
+      "title": "What Is Method Overloading",
+      "content": "Method overloading lets you define multiple methods with the same name but different parameter lists within the same class.",
+      "example": "void Print(int x) { }\nvoid Print(string s) { }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is the same in overloaded methods?",
+        "options": [
+          "The method name",
+          "The parameter types",
+          "The return type",
+          "The method body"
+        ],
+        "answer": "The method name"
+      }
+    },
+    {
+      "title": "Parameter Differences",
+      "content": "Overloaded methods must differ by parameter count, type, or order. The return type alone is not enough to overload.",
+      "example": "int Get() => 0;\nstring Get() => \"A\"; // compile error",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "To overload by return type alone is _____.",
+        "placeholder": "_____",
+        "answer": "invalid",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Compile-Time Polymorphism",
+      "content": "The compiler selects the correct overload at compile time based on the arguments passed. This is also called static polymorphism.",
+      "example": "void Greet(string name) { }\nvoid Greet(string name, int age) { }\nGreet(\"Alice\"); // first overload",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the term for overload resolution at compile time: [?] polymorphism",
+        "before": "",
+        "after": " polymorphism",
+        "options": [
+          "Compile-time",
+          "Runtime",
+          "Dynamic",
+          "Late"
+        ],
+        "answer": "Compile-time"
+      }
+    },
+    {
+      "title": "Common Overload Patterns",
+      "content": "A common pattern provides a full method and a simplified one with fewer parameters, often using optional or params.",
+      "example": "void Log(string msg, int level) { }\nvoid Log(string msg) => Log(msg, 0);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the overload so calling Add(5) returns 5 + 1 = 6.",
+        "starterCode": "int Add(int x, int y) => x + y;\nint Add(int x) => Add(x, _____);",
+        "expectedOutput": "6",
+        "outputPattern": "6",
+        "requiredStrings": [
+          "x + 1",
+          "x, 1"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: x + 1, x, 1",
+          "When run, your code should output: 6"
+        ]
+      }
+    },
+    {
+      "title": "Optional Parameters vs Overloading",
+      "content": "Optional parameters provide default values. Overloading is clearer when defaults depend on complex logic.",
+      "example": "void Connect(string url, int port = 80) { }\nvoid Connect(string url) => Connect(url, 443);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which approach is better when default behavior is complex?",
+        "options": [
+          "Method overloading",
+          "Optional parameters",
+          "params",
+          "var"
+        ],
+        "answer": "Method overloading"
+      }
+    },
+    {
+      "title": "Params Keyword",
+      "content": "The params keyword allows a variable number of arguments. It is not overloading by itself but can complement it.",
+      "example": "void Sum(params int[] numbers)\n{\n  int total = 0;\n  foreach (int n in numbers) total += n;\n  Console.WriteLine(total);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the parameter declaration: void Sum(_____ int[] numbers)",
+        "placeholder": "_____",
+        "answer": "params",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Ambiguous Overloads",
+      "content": "If two overloads could match, the compiler may report ambiguity. Exact matches are preferred over conversions.",
+      "example": "void Process(int x) { }\nvoid Process(double x) { }\nProcess(5); // calls int overload",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the reason the compiler picks int over double for Process(5): [?]",
+        "before": "",
+        "after": "",
+        "options": [
+          "Exact match",
+          "Implicit conversion",
+          "params",
+          "Optional param"
+        ],
+        "answer": "Exact match"
+      }
+    },
+    {
+      "title": "Method Overloading Review",
+      "content": "Overloading improves readability by using one method name for related operations. Keep overloads intuitive and consistent.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write two overloads named Display: one takes a string, one takes an int. Each prints its value.",
+        "starterCode": "void Display(string s)\n{\n  _____\n}\n\nvoid Display(int n)\n{\n  _____\n}",
+        "expectedOutput": "Compiles and prints correctly.",
+        "outputPattern": "Console\\.WriteLine",
+        "requiredStrings": [
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: Console.WriteLine",
+          "When run, your code should output: Compiles and prints correctly."
+        ]
+      }
+    }
+  ]
+}

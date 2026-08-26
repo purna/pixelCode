@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "section": "csharp-conditions",
+    "level": "beginner",
+    "title": "C# Conditions"
+  },
+  "questions": [
+    {
+      "id": "csharp-conditions-01",
+      "type": "scored",
+      "prompt": "Which keyword starts a conditional block?",
+      "options": [
+        "if",
+        "when",
+        "check",
+        "cond"
+      ],
+      "answerIndex": 0,
+      "explanation": "The if keyword is used to test a condition and execute code when it is true."
+    },
+    {
+      "id": "csharp-conditions-02",
+      "type": "scored",
+      "prompt": "What follows the if keyword?",
+      "options": [
+        "A condition in parentheses",
+        "A block",
+        "A variable",
+        "A return statement"
+      ],
+      "answerIndex": 0,
+      "explanation": "The syntax is if (condition). The condition must evaluate to a bool."
+    },
+    {
+      "id": "csharp-conditions-03",
+      "type": "scored",
+      "prompt": "What keyword provides an alternative block when the if is false?",
+      "options": [
+        "else",
+        "otherwise",
+        "elif",
+        "catch"
+      ],
+      "answerIndex": 0,
+      "explanation": "The else keyword runs when the if condition evaluates to false."
+    },
+    {
+      "id": "csharp-conditions-04",
+      "type": "dragorder",
+      "prompt": "Arrange the if-else statement correctly",
+      "items": [
+        "if (x > 0)",
+        "{",
+        "Console.WriteLine(\"Positive\");",
+        "}",
+        "else",
+        "{",
+        "Console.WriteLine(\"Not positive\");",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "explanation": "The if block and else block must each be enclosed in braces when containing multiple statements."
+    },
+    {
+      "id": "csharp-conditions-05",
+      "type": "scored",
+      "prompt": "What keyword allows additional conditions after an if?",
+      "options": [
+        "else if",
+        "elif",
+        "elseif",
+        "else"
+      ],
+      "answerIndex": 0,
+      "explanation": "else if adds another condition to test when the previous if or else if was false."
+    },
+    {
+      "id": "csharp-conditions-06",
+      "type": "insert",
+      "prompt": "Write the ternary operator symbol",
+      "template": "result = condition ? valueIfTrue : valueIfFalse;  // uses _____",
+      "options": [
+        "?s",
+        "?",
+        "?",
+        "?3"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-conditions-07",
+      "type": "scored",
+      "prompt": "In a ternary operator, what separates the true and false results?",
+      "options": [
+        ":",
+        ";",
+        ",",
+        "->"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ternary operator uses ? for the true branch and : for the false branch."
+    },
+    {
+      "id": "csharp-conditions-08",
+      "type": "scored",
+      "prompt": "Which form is more concise: if-else or ternary?",
+      "options": [
+        "ternary",
+        "if-else",
+        "switch",
+        "equal"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ternary operator is a shorthand for simple if-else assignments."
+    },
+    {
+      "id": "csharp-conditions-09",
+      "type": "coderunner",
+      "prompt": "Use an if statement to print 'Adult' when age >= 18",
+      "starterCode": "int age = 20;\n// Write your if below\n",
+      "expectedOutput": "Adult",
+      "outputPattern": "^Adult$",
+      "requiredStrings": [
+        "if",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-conditions-10",
+      "type": "scored",
+      "prompt": "What happens if no condition in an if-else if chain is true?",
+      "options": [
+        "The else block runs if present",
+        "Nothing runs",
+        "An error occurs",
+        "The first if runs"
+      ],
+      "answerIndex": 0,
+      "explanation": "If none of the conditions are true, the else block executes. If there is no else, nothing runs."
+    }
+  ]
+}

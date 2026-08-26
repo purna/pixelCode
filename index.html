@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>C# Quiz</title>
+<meta name="theme-color" content="#1E2340">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+
+  <header class="header">
+    <div class="header-top">
+      <p class="eyebrow">Learn C#</p>
+      <div class="header-actions">
+        <button class="icon-btn" id="helpBtn" aria-label="How it works" title="How it works">❔</button>
+        <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">⚙️</button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle night mode" title="Toggle night mode">🌙</button>
+      </div>
+    </div>
+    <h1>C# Quiz</h1>
+    <div id="overallProgress" class="overall-progress">
+      <div class="overall-progress-header">
+        <span class="overall-progress-label">Overall Progress</span>
+        <span class="overall-progress-score" id="overallScore">0%</span>
+      </div>
+      <div class="overall-progress-bar">
+        <div class="overall-progress-fill" id="overallProgressFill"></div>
+      </div>
+      <p class="overall-progress-hint" id="overallProgressHint">Complete quizzes to earn achievements</p>
+    </div>
+     <div id="timerDisplay" class="timer-display hidden">
+       <span class="timer-dot"></span>
+       <span class="timer" id="timer">05:00</span>
+     </div>
+     <div id="pqTimerDisplay" class="timer-display timer-pq hidden">
+       <span class="timer-dot"></span>
+       <span class="timer" id="pqTimer">00:30</span>
+     </div>
+  </header>
+
+  <!-- SETTINGS MODAL -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content">
+      <div class="modal-head">
+        <h2>Settings</h2>
+        <button class="btn-close" id="closeSettings" aria-label="Close settings">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="settings-section">
+          <h3>Timer</h3>
+          <p class="settings-hint">Set a countdown for each attempt. The quiz auto-submits at 00:00.</p>
+
+          <label class="settings-row" for="timerEnabled">
+            <span>Enable quiz timer</span>
+            <input type="checkbox" id="timerEnabled" checked>
+          </label>
+
+          <label class="settings-label" for="timerMinutes">Duration (minutes)</label>
+          <input type="range" id="timerMinutes" min="0" max="20" value="5" step="1">
+          <span id="timerMinutesValue" style="font-family: var(--font-mono); font-weight: 600; color: var(--accent);">5 min</span>
+          <p class="settings-hint">Drag to set quiz duration. Recommended: 5–10 minutes for 10–15 questions.</p>
+        </div>
+
+        <div class="settings-section">
+          <h3>Per-question timer</h3>
+          <p class="settings-hint">A separate countdown for each drag-and-drop question. The question locks when time runs out.</p>
+
+          <label class="settings-row" for="pqTimerEnabled">
+            <span>Enable per-question timer</span>
+            <input type="checkbox" id="pqTimerEnabled">
+          </label>
+
+          <label class="settings-label" for="pqTimerSeconds">Seconds per question</label>
+          <input type="number" id="pqTimerSeconds" min="10" max="300" value="30">
+          <p class="settings-hint">Recommended: 30 seconds for pyramids.</p>
+        </div>
+
+        <div class="settings-section">
+          <h3>Reset progress</h3>
+          <p class="settings-hint">Clear all saved quiz results, completion badges, and overall progress from this browser. This cannot be undone.</p>
+          <button class="btn btn-danger" id="resetSettings">Reset all progress</button>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancelSettings">Cancel</button>
+        <button class="btn" id="saveSettings">Save settings</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESET CONFIRM MODAL -->
+  <div id="resetConfirmModal" class="modal hidden">
+    <div class="modal-content" style="max-width: 400px;">
+      <div class="modal-head">
+        <h2>Reset all progress?</h2>
+        <button class="btn-close" id="closeResetConfirm" aria-label="Close">✕</button>
+      </div>
+      <p style="margin: 0 0 1rem; line-height: 1.6;">This will permanently delete:</p>
+      <ul style="margin: 0 0 1rem; padding-left: 1.25rem; line-height: 1.8;">
+        <li>All quiz scores and completion badges</li>
+        <li>Overall progress</li>
+        <li>Timer preferences</li>
+      </ul>
+      <p style="margin: 0 0 1.25rem; color: var(--bad); font-weight: 600;">This action cannot be undone.</p>
+      <div class="modal-actions">
+        <button class="btn btn-secondary" id="cancelReset">Cancel</button>
+        <button class="btn" id="confirmReset" style="background: var(--bad);">Yes, reset everything</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TUTORIAL -->
+  <main id="tutorialScreen">
+    <p class="tutorial-kicker">Before you start</p>
+    <h2 class="tutorial-title">How this quiz works</h2>
+    <p class="tutorial-lede">Four things worth knowing before your first attempt.</p>
+
+    <div class="tutorial-steps">
+      <div class="tutorial-step">
+        <span class="step-num">1</span>
+        <div>
+          <h3>Pick a topic</h3>
+          <p>Choose a topic grouped by difficulty: Beginner, Intermediate, or Expert.</p>
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <span class="step-num">2</span>
+        <div>
+          <h3>Learn or Quiz</h3>
+          <p>Each topic has a Learn section with interactive exercises, or you can jump straight into the quiz.</p>
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <span class="step-num">3</span>
+        <div>
+          <h3>Navigate freely</h3>
+          <p>Select an option, drag lines into order, type an answer, or run code, then use Previous / Next to move around. The bar at the top tracks your progress.
+        </div>
+      </div>
+      <div class="tutorial-step">
+        <span class="step-num">4</span>
+        <div>
+          <h3>Timer &amp; results</h3>
+          <p>A countdown is on by default (⚙️ Settings to adjust or turn it off). Finish or run out of time and you'll see your score plus a full review with explanations.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tutorial-actions">
+      <button class="btn" id="startPracticing">Got it — let's start</button>
+    </div>
+  </main>
+
+  <!-- SECTION SELECTION -->
+  <main id="sectionSelection" class="hidden">
+    <section>
+      <h2>Choose a topic to begin</h2>
+
+      <h3 class="level-group-title">Beginner</h3>
+      <div class="section-select">
+        <div class="section-card" data-section="csharp-intro" data-level="beginner">
+          <span class="section-mark">In</span>
+          <h3>C# Intro</h3>
+          <p>What C# is and what it can do</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-intro">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-intro">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-syntax" data-level="beginner">
+          <span class="section-mark">Sy</span>
+          <h3>C# Syntax</h3>
+          <p>Basic structure and statements</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-syntax">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-syntax">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-output" data-level="beginner">
+          <span class="section-mark">Ou</span>
+          <h3>C# Output</h3>
+          <p>Printing text to the console</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-output">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-output">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-comments" data-level="beginner">
+          <span class="section-mark">Co</span>
+          <h3>C# Comments</h3>
+          <p>Single and multi-line comments</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-comments">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-comments">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-variables" data-level="beginner">
+          <span class="section-mark">Va</span>
+          <h3>C# Variables</h3>
+          <p>Declaring and using variables</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-variables">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-variables">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-datatypes" data-level="beginner">
+          <span class="section-mark">DT</span>
+          <h3>C# Data Types</h3>
+          <p>int, double, bool, string, char</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-datatypes">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-datatypes">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-typecasting" data-level="beginner">
+          <span class="section-mark">TC</span>
+          <h3>C# Type Casting</h3>
+          <p>Implicit and explicit conversion</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-typecasting">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-typecasting">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-userinput" data-level="beginner">
+          <span class="section-mark">UI</span>
+          <h3>C# User Input</h3>
+          <p>Reading input from the console</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-userinput">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-userinput">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-operators" data-level="beginner">
+          <span class="section-mark">Op</span>
+          <h3>C# Operators</h3>
+          <p>Arithmetic, logical, comparison</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-operators">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-operators">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-math" data-level="beginner">
+          <span class="section-mark">Ma</span>
+          <h3>C# Math</h3>
+          <p>Math methods and properties</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-math">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-math">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-strings" data-level="beginner">
+          <span class="section-mark">St</span>
+          <h3>C# Strings</h3>
+          <p>String methods and properties</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-strings">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-strings">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-booleans" data-level="beginner">
+          <span class="section-mark">Bo</span>
+          <h3>C# Booleans</h3>
+          <p>True/false logic values</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-booleans">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-booleans">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-conditions" data-level="beginner">
+          <span class="section-mark">If</span>
+          <h3>C# If...Else</h3>
+          <p>Conditional statements</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-conditions">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-conditions">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-switch" data-level="beginner">
+          <span class="section-mark">Sw</span>
+          <h3>C# Switch</h3>
+          <p>Switch case statements</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-switch">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-switch">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-whileloop" data-level="beginner">
+          <span class="section-mark">Wh</span>
+          <h3>C# While Loop</h3>
+          <p>Repeat while condition is true</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-whileloop">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-whileloop">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-forloop" data-level="beginner">
+          <span class="section-mark">Fo</span>
+          <h3>C# For Loop</h3>
+          <p>For and foreach loops</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-forloop">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-forloop">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-breakcontinue" data-level="beginner">
+          <span class="section-mark">Br</span>
+          <h3>C# Break/Continue</h3>
+          <p>Control loop execution</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-breakcontinue">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-breakcontinue">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-arrays" data-level="beginner">
+          <span class="section-mark">Ar</span>
+          <h3>C# Arrays</h3>
+          <p>Store multiple values</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-arrays">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-arrays">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-methods" data-level="beginner">
+          <span class="section-mark">Me</span>
+          <h3>C# Methods</h3>
+          <p>Reusable blocks of code</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-methods">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-methods">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-methodparams" data-level="beginner">
+          <span class="section-mark">MP</span>
+          <h3>C# Method Parameters</h3>
+          <p>Parameters and return values</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-methodparams">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-methodparams">Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="level-group-title">Intermediate</h3>
+      <div class="section-select">
+        <div class="section-card" data-section="csharp-arrays-multi" data-level="intermediate">
+          <span class="section-mark">MA</span>
+          <h3>Multidimensional Arrays</h3>
+          <p>2D and 3D arrays</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-arrays-multi">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-arrays-multi">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-methodoverloading" data-level="intermediate">
+          <span class="section-mark">MO</span>
+          <h3>C# Method Overloading</h3>
+          <p>Same name, different parameters</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-methodoverloading">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-methodoverloading">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-oop" data-level="intermediate">
+          <span class="section-mark">OO</span>
+          <h3>C# OOP</h3>
+          <p>Object-oriented programming</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-oop">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-oop">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-classes" data-level="intermediate">
+          <span class="section-mark">Cl</span>
+          <h3>C# Classes/Objects</h3>
+          <p>Creating classes and objects</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-classes">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-classes">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-classmembers" data-level="intermediate">
+          <span class="section-mark">CM</span>
+          <h3>C# Class Members</h3>
+          <p>Fields, methods, properties</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-classmembers">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-classmembers">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-constructors" data-level="intermediate">
+          <span class="section-mark">Cn</span>
+          <h3>C# Constructors</h3>
+          <p>Special class initialization</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-constructors">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-constructors">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-accessmodifiers" data-level="intermediate">
+          <span class="section-mark">AM</span>
+          <h3>C# Access Modifiers</h3>
+          <p>public, private, protected</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-accessmodifiers">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-accessmodifiers">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-properties" data-level="intermediate">
+          <span class="section-mark">Pr</span>
+          <h3>C# Properties</h3>
+          <p>get and set accessors</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-properties">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-properties">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-inheritance" data-level="intermediate">
+          <span class="section-mark">In</span>
+          <h3>C# Inheritance</h3>
+          <p>Reuse code from parent classes</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-inheritance">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-inheritance">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-polymorphism" data-level="intermediate">
+          <span class="section-mark">Po</span>
+          <h3>C# Polymorphism</h3>
+          <p>Many forms, one interface</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-polymorphism">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-polymorphism">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-collections" data-level="intermediate">
+          <span class="section-mark">Co</span>
+          <h3>C# Collections</h3>
+          <p>List, Dictionary, and other generic collections</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-collections">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-collections">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-generics" data-level="intermediate">
+          <span class="section-mark">Ge</span>
+          <h3>C# Generics</h3>
+          <p>Generic types and methods for type-safe code reuse</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-generics">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-generics">Quiz</button>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="level-group-title">Expert</h3>
+      <div class="section-select">
+        <div class="section-card" data-section="csharp-abstraction" data-level="expert">
+          <span class="section-mark">Ab</span>
+          <h3>C# Abstraction</h3>
+          <p>Hide implementation details</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-abstraction">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-abstraction">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-interfaces" data-level="expert">
+          <span class="section-mark">If</span>
+          <h3>C# Interface</h3>
+          <p>Define contracts for classes</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-interfaces">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-interfaces">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-enums" data-level="expert">
+          <span class="section-mark">En</span>
+          <h3>C# Enums</h3>
+          <p>Enumerations for named constants</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-enums">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-enums">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-files" data-level="expert">
+          <span class="section-mark">Fi</span>
+          <h3>C# Files</h3>
+          <p>Reading and writing files</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-files">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-files">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-exceptions" data-level="expert">
+          <span class="section-mark">Ex</span>
+          <h3>C# Exceptions</h3>
+          <p>Try, catch, finally blocks</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-exceptions">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-exceptions">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-linq" data-level="expert">
+          <span class="section-mark">Li</span>
+          <h3>C# LINQ</h3>
+          <p>Query collections with LINQ syntax and methods</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-linq">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-linq">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-async" data-level="expert">
+          <span class="section-mark">As</span>
+          <h3>C# Async/Await</h3>
+          <p>Asynchronous programming with async and await</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-async">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-async">Quiz</button>
+          </div>
+        </div>
+        <div class="section-card" data-section="csharp-delegates" data-level="expert">
+          <span class="section-mark">De</span>
+          <h3>C# Delegates &amp; Events</h3>
+          <p>Delegate types, lambdas, and event handling</p>
+          <span class="completion-badge"></span>
+          <div class="section-actions">
+            <button class="btn btn-secondary learn-btn" data-section="csharp-delegates">Learn</button>
+            <button class="btn quiz-btn" data-section="csharp-delegates">Quiz</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- LEARN -->
+  <main id="learnScreen" class="hidden">
+    <div class="learn-header">
+      <h2 id="learnTitle"></h2>
+      <p class="learn-progress" id="learnProgress"></p>
+    </div>
+    <div class="learn-content">
+      <h3 id="learnSlideTitle"></h3>
+      <p id="learnSlideContent"></p>
+      <pre id="learnSlideExample"></pre>
+      <p id="learnSlideOutput" class="learn-output"></p>
+    </div>
+    <div id="exerciseContainer" class="exercise-container hidden">
+      <div class="exercise-card">
+        <p id="exercisePrompt" class="exercise-prompt"></p>
+        <div id="exerciseArea"></div>
+        <button id="exerciseCheckBtn" class="btn exercise-check-btn">Check Answer</button>
+        <p id="exerciseFeedback" class="exercise-feedback"></p>
+      </div>
+    </div>
+    <div class="navigation">
+      <button class="btn btn-secondary" id="learnPrevBtn">Previous</button>
+      <button class="btn btn-secondary" id="learnSkipBtn">Skip to Quiz</button>
+      <button class="btn" id="learnNextBtn">Next</button>
+    </div>
+  </main>
+
+  <!-- QUIZ -->
+  <main id="quizContainer" class="hidden">
+    <div class="progress-bar"><div class="progress-fill" id="progressBar"></div></div>
+    <p class="progress-label" id="progressLabel"></p>
+    <div id="questionContainer"></div>
+    <div class="navigation">
+      <button class="btn btn-secondary" id="prevBtn">Previous</button>
+      <button class="btn" id="nextBtn">Next</button>
+    </div>
+  </main>
+
+  <!-- RESULTS -->
+  <main id="resultsContainer" class="hidden"></main>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 Assessment Quiz — practice tool, not an official test.</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+<script src="script.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function (err) {
+      console.warn('ServiceWorker registration failed:', err);
+    });
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+{
+  "section": "csharp-methodparams",
+  "title": "C# Method Parameters",
+  "slides": [
+    {
+      "title": "Parameters and Arguments",
+      "content": "Parameters are placeholders in the method definition. Arguments are the real values passed when calling the method.",
+      "example": "void Add(int a, int b) // a, b are parameters\n{\n    Console.WriteLine(a + b);\n}\n\nAdd(3, 4); // 3, 4 are arguments",
+      "exampleOutput": "7",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "In `PrintName(\"Alice\")`, \"Alice\" is a:",
+        "options": [
+          "Parameter",
+          "Argument",
+          "Variable",
+          "Type"
+        ],
+        "answer": "Argument"
+      }
+    },
+    {
+      "title": "Return Values",
+      "content": "The return type defines what the method gives back. Use return to send a value, or void for no return.",
+      "example": "int Square(int x)\n{\n    return x * x;\n}\n\nint result = Square(5); // 25",
+      "exampleOutput": "25",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the return type",
+        "before": "______ GetName()",
+        "after": "{ return \"Alice\"; }",
+        "options": [
+          "string",
+          "void",
+          "int",
+          "bool"
+        ],
+        "answer": "string"
+      }
+    },
+    {
+      "title": "Named Arguments",
+      "content": "Named arguments let you specify which parameter gets which value by writing the parameter name.",
+      "example": "void SetProfile(string name, int age)\n{\n    Console.WriteLine(name + \" - \" + age);\n}\n\nSetProfile(age: 25, name: \"Bob\");\nSetProfile(\"Alice\", 30);",
+      "exampleOutput": "Bob - 25\nAlice - 30",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Named arguments use the _____ name",
+        "placeholder": "_____",
+        "answer": "parameter",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Default Parameters",
+      "content": "Default parameters have preset values. You can omit them when calling, and the default is used.",
+      "example": "void Log(string message, bool showTime = true)\n{\n    if (showTime)\n        Console.WriteLine(DateTime.Now + \" \" + message);\n    else\n        Console.WriteLine(message);\n}\n\nLog(\"Hello\");\nLog(\"Hi\", false);",
+      "exampleOutput": "26/08/2026 10:50:51 Hello\nHi",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which parameter is optional?",
+        "options": [
+          "message",
+          "showTime",
+          "Both",
+          "Neither"
+        ],
+        "answer": "showTime"
+      }
+    },
+    {
+      "title": "Multiple Parameters",
+      "content": "Methods can take any number of parameters. Separate them with commas in the definition and call.",
+      "example": "void Sum(int a, int b, int c)\n{\n    Console.WriteLine(a + b + c);\n}\n\nSum(1, 2, 3); // 6\nSum(10, 20, 30); // 60",
+      "exampleOutput": "6\n60",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the three-parameter call",
+        "before": "Sum(",
+        "after": ");",
+        "options": [
+          "1, 2, 3",
+          "\"1\", \"2\", \"3\"",
+          "1 2 3",
+          "1; 2; 3"
+        ],
+        "answer": "1, 2, 3"
+      }
+    },
+    {
+      "title": "Parameter Types",
+      "content": "Parameters can be value types, reference types, arrays, or even other methods. The type must be specified.",
+      "example": "void PrintNames(string[] names)\n{\n    foreach (string name in names)\n    {\n        Console.WriteLine(name);\n    }\n}\n\nPrintNames(new string[] {\"A\", \"B\"});",
+      "exampleOutput": "A\nB",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "An array parameter uses _____ brackets",
+        "placeholder": "_____",
+        "answer": "square",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Optional and Required",
+      "content": "Parameters with default values are optional. Those without defaults are required. Optional parameters must come after required ones.",
+      "example": "void CreateUser(string name, int age = 18, string city = \"Unknown\")\n{\n    Console.WriteLine(name + \" \" + age + \" \" + city);\n}\n\nCreateUser(\"Alice\");\nCreateUser(\"Bob\", 25);\nCreateUser(\"Charlie\", 30, \"NYC\");",
+      "exampleOutput": "Alice 18 Unknown\nBob 25 Unknown\nCharlie 30 NYC",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which parameter is required?",
+        "options": [
+          "age",
+          "city",
+          "name",
+          "All optional"
+        ],
+        "answer": "name"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Use meaningful parameter names. Keep parameter count reasonable. Prefer named arguments for clarity with many parameters.",
+      "example": "// Clear and readable\nSendEmail(to: \"alice@example.com\", subject: \"Hello\", body: \"Hi there\");\n\n// Order does not matter with named args\nSendEmail(body: \"Hi there\", to: \"alice@example.com\", subject: \"Hello\");",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Call the method using a named argument: `SetValue(count: 42)`",
+        "starterCode": "void SetValue(int count, string label)\n{\n    Console.WriteLine(label + \": \" + count);\n}\n\nSetValue(______: 42, label: \"Items\");",
+        "expectedOutput": "Items: 42\n",
+        "outputPattern": "^Items: 42\\n$",
+        "requiredStrings": [
+          "count"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: count",
+          "When run, your code should output: Items: 42"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Method Parameters",
+      "content": "Use the Flow Builder to call a method with named-like arguments.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that calls SetValue with count=42 and label='Items'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "call",
+              "procedureName": "SetValue",
+              "arguments": "count: 42, label: \"Items\""
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "SetValue(count: 42, label: \"Items\");",
+        "blocksToShow": [
+          "call"
+        ],
+        "flowExample": {
+          "name": "Call Method",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "count",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "count",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "42"
+              },
+              {
+                "id": "ex3",
+                "kind": "call",
+                "procedureName": "ShowScore",
+                "arguments": "count"
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

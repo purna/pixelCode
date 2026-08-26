@@ -1,0 +1,141 @@
+{
+  "meta": {
+    "section": "csharp-polymorphism",
+    "level": "intermediate",
+    "title": "C# Polymorphism"
+  },
+  "questions": [
+    {
+      "id": "csharp-polymorphism-01",
+      "type": "scored",
+      "prompt": "What is polymorphism?",
+      "options": [
+        "The practice of creating multiple classes with the same name",
+        "The ability of an object to take many forms, where a base class reference can point to derived class objects and call overridden methods",
+        "The process of converting one data type to another",
+        "A way to hide methods in a class hierarchy"
+      ],
+      "answerIndex": 1,
+      "explanation": "Polymorphism is the ability of an object to take on many forms. In C#, it is achieved through virtual/override methods and base class references. A base class reference pointing to a derived class object will call the derived class's overridden methods."
+    },
+    {
+      "id": "csharp-polymorphism-02",
+      "type": "insert",
+      "prompt": "Which keyword must be placed on a base class method to allow it to be overridden in a derived class?",
+      "template": "public _____ void DoWork() { }",
+      "options": [
+        "override",
+        "abstract",
+        "static",
+        "virtual"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-polymorphism-03",
+      "type": "scored",
+      "prompt": "Which keyword is used in a derived class method to replace a virtual base class method?",
+      "options": [
+        "new",
+        "virtual",
+        "override",
+        "base"
+      ],
+      "answerIndex": 2,
+      "explanation": "The 'override' keyword is used in a derived class to indicate that a method replaces the virtual implementation from the base class. This enables the runtime to call the most derived version."
+    },
+    {
+      "id": "csharp-polymorphism-04",
+      "type": "scored",
+      "prompt": "Given: Animal a = new Dog(); a.Speak(); where Speak is virtual in Animal and overridden in Dog. What prints?",
+      "options": [
+        "Animal Speak",
+        "Dog Speak",
+        "Nothing",
+        "Compilation error"
+      ],
+      "answerIndex": 1,
+      "explanation": "With a virtual method overridden in Dog, a base class reference pointing to a Dog instance will call Dog's override at runtime. This is the core of polymorphism: the most derived implementation runs."
+    },
+    {
+      "id": "csharp-polymorphism-05",
+      "type": "insert",
+      "prompt": "Complete the declaration to hide a base class method named 'Show' in the derived class.",
+      "template": "public _____ void Show() { }",
+      "options": [
+        "virtual",
+        "override",
+        "static",
+        "new"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-polymorphism-06",
+      "type": "scored",
+      "prompt": "What is the difference between 'override' and 'new'?",
+      "options": [
+        "There is no difference; both are the same",
+        "'override' performs compile-time polymorphism; 'new' performs runtime polymorphism",
+        "'override' provides runtime polymorphism; 'new' hides a method at compile-time",
+        "'override' is for fields; 'new' is for methods"
+      ],
+      "answerIndex": 2,
+      "explanation": "'override' enables runtime (dynamic) polymorphism\u2014the most derived implementation is called based on the actual object type. 'new' simply hides the base method at compile-time\u2014it is selected based on the reference type, not the object type."
+    },
+    {
+      "id": "csharp-polymorphism-07",
+      "type": "coderunner",
+      "prompt": "Run the code and determine which method is called for each object. Fill in the expected outputs.",
+      "starterCode": "public class Shape\n{\n    public virtual void Draw() { Console.WriteLine(\"Drawing a shape\"); }\n}\n\npublic class Circle : Shape\n{\n    public override void Draw() { Console.WriteLine(\"Drawing a circle\"); }\n}\n\nShape[] shapes = { new Shape(), new Circle() };\nforeach (var s in shapes)\n    s.Draw();",
+      "expectedOutput": "Drawing a shape\nDrawing a circle",
+      "outputPattern": "Drawing a shape\\nDrawing a circle",
+      "requiredStrings": [
+        "override",
+        "Draw()"
+      ]
+    },
+    {
+      "id": "csharp-polymorphism-08",
+      "type": "scored",
+      "prompt": "What is the output? (Code: Base has a virtual DoWork printing 'Base Method'; Derived overrides it printing 'Derived Method', calls DoWork() in its constructor, and Main calls d.DoWork() again): new Derived() then d.DoWork()",
+      "options": [
+        "Base Constructor\nDerived Method\nBase Method",
+        "Base Constructor\nDerived Method\nDerived Method",
+        "Derived Constructor\nBase Method\nDerived Method",
+        "Compilation error"
+      ],
+      "answerIndex": 1,
+      "explanation": "Creating Derived() first runs the Base constructor ('Base Constructor'). Then the Derived constructor body calls DoWork()\u2014since it is virtual and overridden, 'Derived Method' prints. Finally, d.DoWork() in Main again calls the override ('Derived Method'). Output: Base Constructor, then Derived Method twice."
+    },
+    {
+      "id": "csharp-polymorphism-09",
+      "type": "dragorder",
+      "prompt": "Order by what gets called first at runtime when using a virtual method: the base implementation or the derived override.",
+      "items": [
+        "Derived override runs",
+        "Base implementation runs",
+        "base.DoWork() is called from within override",
+        "Virtual dispatch selects the most derived method"
+      ],
+      "solution": [
+        3,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "csharp-polymorphism-10",
+      "type": "coderunner",
+      "prompt": "Complete the Animal class hierarchy to demonstrate polymorphism with a list of animals. Each animal type should produce a different sound.",
+      "starterCode": "using System;\nusing System.Collections.Generic;\n\npublic abstract class Animal\n{\n    public abstract void MakeSound();\n}\n\npublic class Dog : Animal\n{\n    public _____ MakeSound()\n    {\n        Console.WriteLine(\"Woof\");\n    }\n}\n\npublic class Cat : Animal\n{\n    public override void MakeSound()\n    {\n        Console.WriteLine(\"Meow\");\n    }\n}\n\nvar animals = new List<Animal> { new Dog(), new Cat() };\nforeach (var a in animals)\n    a.MakeSound();",
+      "expectedOutput": "Woof\nMeow",
+      "outputPattern": "Woof\\nMeow",
+      "requiredStrings": [
+        "new Dog()",
+        "new Cat()"
+      ]
+    }
+  ]
+}

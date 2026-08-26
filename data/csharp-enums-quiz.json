@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "section": "csharp-enums",
+    "level": "expert",
+    "title": "C# Enums"
+  },
+  "questions": [
+    {
+      "id": "csharp-enums-01",
+      "type": "scored",
+      "prompt": "Which keyword is used to declare an enum in C#?",
+      "options": [
+        "enum",
+        "struct",
+        "class",
+        "constant"
+      ],
+      "answerIndex": 0,
+      "explanation": "The 'enum' keyword declares an enumeration type, which is a distinct value type."
+    },
+    {
+      "id": "csharp-enums-02",
+      "type": "scored",
+      "prompt": "What is the default underlying type of an enum in C#?",
+      "options": [
+        "short",
+        "int",
+        "long",
+        "byte"
+      ],
+      "answerIndex": 1,
+      "explanation": "By default, the underlying type of an enum is int. You can specify other integral types explicitly."
+    },
+    {
+      "id": "csharp-enums-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an enum named Status.",
+      "blanks": [
+        "enum Status"
+      ],
+      "template": "public _____ Status { Active, Inactive };"
+    },
+    {
+      "id": "csharp-enums-04",
+      "type": "scored",
+      "prompt": "How do you cast an enum value to its underlying integer?",
+      "options": [
+        "(int)status",
+        "status.ToInt32()",
+        "Convert.ToInt32(status)",
+        "status.asInt()"
+      ],
+      "answerIndex": 0,
+      "explanation": "You can explicitly cast an enum to its underlying integral type using standard C# casting syntax."
+    },
+    {
+      "id": "csharp-enums-05",
+      "type": "scored",
+      "prompt": "Which underlying type can be specified for an enum?",
+      "options": [
+        "string",
+        "byte",
+        "double",
+        "bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "Enum underlying types must be integral types: byte, sbyte, short, ushort, int, uint, long, or ulong."
+    },
+    {
+      "id": "csharp-enums-06",
+      "type": "dragorder",
+      "prompt": "Arrange the correct enum declaration with explicit values.",
+      "items": [
+        "public enum Priority",
+        "{",
+        "Low = 1,",
+        "Medium = 2,",
+        "High = 3",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "csharp-enums-07",
+      "type": "coderunner",
+      "prompt": "Declare an enum Color with Red=1, Green=2, Blue=3. Print the value of Green.",
+      "starterCode": "using System;\n\npublic enum Color\n{\n    Red = 1,\n    Green = 2,\n    Blue = 3\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Color c = Color.Green;\n        Console.WriteLine(_____);\n    }\n}",
+      "expectedOutput": "2",
+      "outputPattern": "2",
+      "requiredStrings": [
+        "(int)Color.Green"
+      ]
+    },
+    {
+      "id": "csharp-enums-08",
+      "type": "scored",
+      "prompt": "What does Enum.Parse() do?",
+      "options": [
+        "Converts an integer to an enum",
+        "Converts a string to an enum value",
+        "Compares two enums",
+        "Iterates over enum values"
+      ],
+      "answerIndex": 1,
+      "explanation": "Enum.Parse() converts a string representation of an enum name or numeric value to its corresponding enum value."
+    },
+    {
+      "id": "csharp-enums-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to get all values from an enum.",
+      "blanks": [
+        "Enum.GetValues(typeof(Day))"
+      ],
+      "template": "foreach (Day d in _____) {}"
+    },
+    {
+      "id": "csharp-enums-10",
+      "type": "scored",
+      "prompt": "Which attribute is commonly used to provide a user-friendly description for an enum value?",
+      "options": [
+        "[Description]",
+        "[Display]",
+        "[Value]",
+        "[EnumValue]"
+      ],
+      "answerIndex": 1,
+      "explanation": "The [Display] attribute (from System.ComponentModel.DataAnnotations) is commonly used to provide a friendly name or description for enum values."
+    }
+  ]
+}

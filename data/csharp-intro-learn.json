@@ -1,0 +1,134 @@
+{
+  "section": "csharp-intro",
+  "title": "Introduction to C#",
+  "slides": [
+    {
+      "title": "What is C#?",
+      "content": "C# (pronounced 'C Sharp') is a modern, object-oriented programming language developed by Microsoft. It is designed to be simple, efficient, and type-safe.",
+      "example": "",
+      "exampleOutput": ""
+    },
+    {
+      "title": "History and Versions",
+      "content": "C# was first released in 2002 as version 1.0. It has evolved through many versions, now at C# 12, with regular updates adding new features.",
+      "example": "",
+      "exampleOutput": ""
+    },
+    {
+      "title": "What Can C# Do?",
+      "content": "C# is used for web and mobile apps, desktop software, video games with Unity, and cloud services. It is a versatile language for many platforms.",
+      "example": "",
+      "exampleOutput": ""
+    },
+    {
+      "title": ".NET Ecosystem",
+      "content": ".NET Framework runs only on Windows, while .NET (formerly .NET Core) is cross-platform and open-source. .NET 5 and later unify these into a single platform.",
+      "example": "",
+      "exampleOutput": ""
+    },
+    {
+      "title": "The CLR and JIT Compiler",
+      "content": "The Common Language Runtime (CLR) manages code execution, and the JIT compiler converts bytecode to native machine code at runtime. Together, they provide memory management and security.",
+      "example": "",
+      "exampleOutput": ""
+    },
+    {
+      "title": "Your First C# Program",
+      "content": "A C# program starts with a class containing a Main method, which is the entry point where execution begins.",
+      "example": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Hello, World!\");\n    }\n}",
+      "exampleOutput": "Hello, World!",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Fill in the blank with the method that writes a line of text to the console.",
+        "before": "Console.",
+        "after": "(\"Hello World!\");",
+        "options": [
+          "WriteLine",
+          "Print",
+          "Write",
+          "Output"
+        ],
+        "answer": "WriteLine"
+      }
+    },
+    {
+      "title": "Namespaces and using Directives",
+      "content": "Namespaces organize code into logical groups, and the 'using' directive brings those names into your file so you can use them directly.",
+      "example": "using System;\n\nSystem.Console.WriteLine(\"Hello, World!\");",
+      "exampleOutput": "Hello, World!",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Fill in the blank with the keyword used to bring a namespace into scope.",
+        "before": "",
+        "after": "System;",
+        "options": [
+          "using",
+          "#include",
+          "import",
+          "require"
+        ],
+        "answer": "using"
+      }
+    },
+    {
+      "title": "Classes and the Main Method",
+      "content": "A class defines the structure and behavior of objects, and Main is the static method where the program starts running.",
+      "example": "class Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Starting...\");\n    }\n}",
+      "exampleOutput": "Starting...",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the code to create a simple program that prints Starting...",
+        "starterCode": "class Program\n{\n    static void Main()\n    {\n        _____(\"Starting...\")\n    }\n}",
+        "expectedOutput": "Starting...",
+        "outputPattern": "Starting\\.\\.\\.",
+        "requiredStrings": [
+          "class",
+          "static"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, static",
+          "When run, your code should output: Starting..."
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Hello World",
+      "content": "Use the Flow Builder to drag an Output block and print 'Hello, World!'. This is your first step in thinking about code as a flow of instructions.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that outputs 'Hello, World!'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "output",
+              "expression": "\"Hello, World!\"",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "output(\"Hello, World!\");",
+        "blocksToShow": [
+          "output"
+        ],
+        "flowExample": {
+          "name": "Hello World",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "output",
+                "expression": "\"Hello, World!\"",
+                "newline": true
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

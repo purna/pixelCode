@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "section": "csharp-accessmodifiers",
+    "level": "intermediate",
+    "title": "C# Access Modifiers"
+  },
+  "questions": [
+    {
+      "id": "csharp-accessmodifiers-c-01",
+      "type": "scored",
+      "prompt": "The default access for a class member (no modifier) is:",
+      "options": [
+        "public",
+        "private",
+        "internal",
+        "protected"
+      ],
+      "answerIndex": 1,
+      "explanation": "Class members default to private."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-02",
+      "type": "scored",
+      "prompt": "To expose data safely while keeping the field hidden, use a:",
+      "options": [
+        "public field",
+        "property with get/set",
+        "namespace",
+        "goto"
+      ],
+      "answerIndex": 1,
+      "explanation": "Properties encapsulate field access."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a class only usable within its assembly",
+      "blanks": [
+        "internal class Helper"
+      ],
+      "template": "______ { }",
+      "explanation": "internal restricts the type to the assembly."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-04",
+      "type": "scored",
+      "prompt": "A public method in an internal class is effectively accessible:",
+      "options": [
+        "Everywhere",
+        "Only within the assembly (class limits it)",
+        "Nowhere",
+        "Globally"
+      ],
+      "answerIndex": 1,
+      "explanation": "The less accessible member (the class) bounds the method."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Account with private decimal Balance=100 and public void Deposit(decimal a){Balance+=a;} and public decimal Get(){return Balance;} then deposit 25 and print Get()",
+      "starterCode": "using System;\nclass Account {\n  private decimal Balance = 100;\n  public void Deposit(decimal a) { Balance += a; }\n  public decimal Get() { return Balance; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "125\n",
+      "outputPattern": "^125\\n$",
+      "explanation": "Encapsulated balance mutated via public method.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-accessmodifiers-c-06",
+      "type": "scored",
+      "prompt": "Which modifier allows access only within the program text of the containing type?",
+      "options": [
+        "private",
+        "internal",
+        "protected",
+        "public"
+      ],
+      "answerIndex": 0,
+      "explanation": "private is confined to the declaring type."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange to expose a private field via a property",
+      "items": [
+        "class P {",
+        "  private int n;",
+        "  public int N { get { return n; } set { n = value; } }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Property wraps the private field."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to restrict a member to the containing class and derived classes",
+      "blanks": [
+        "protected int id"
+      ],
+      "template": "______;",
+      "explanation": "protected enables subclass access."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-09",
+      "type": "scored",
+      "prompt": "Accessibility of a member is limited by the:",
+      "options": [
+        "Less accessible of the type or member",
+        "More accessible one",
+        "Compiler only",
+        "Namespace"
+      ],
+      "answerIndex": 0,
+      "explanation": "The containing type bounds member visibility."
+    },
+    {
+      "id": "csharp-accessmodifiers-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Sensor with protected int Reading=42 and a public int Read(){return Reading;} in a derived class print Read via base, then print from outside using public method",
+      "starterCode": "using System;\nclass Sensor {\n  protected int Reading = 42;\n  public int Read() { return Reading; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "42\n",
+      "outputPattern": "^42\\n$",
+      "explanation": "Public Read exposes protected value.",
+      "requiredStrings": [
+        "private",
+        "protected",
+        "internal",
+        "public"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "section": "csharp-output",
+    "level": "beginner",
+    "title": "C# Output"
+  },
+  "questions": [
+    {
+      "id": "csharp-output-c-01",
+      "type": "scored",
+      "prompt": "What is the key difference between Console.Write and Console.WriteLine?",
+      "options": [
+        "No difference",
+        "WriteLine adds a newline; Write does not",
+        "Write is for numbers only",
+        "WriteLine is deprecated"
+      ],
+      "answerIndex": 1,
+      "explanation": "WriteLine appends a newline after output. Write keeps the cursor on the same line."
+    },
+    {
+      "id": "csharp-output-c-02",
+      "type": "scored",
+      "prompt": "Which escape sequence represents a backslash in a string?",
+      "options": [
+        "\\\\",
+        "/",
+        "|",
+        ":"
+      ],
+      "answerIndex": 0,
+      "explanation": "The \\\\ escape sequence inserts a literal backslash character."
+    },
+    {
+      "id": "csharp-output-c-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to create a new line",
+      "template": "Console.WriteLine(\"First Line______Second Line\");",
+      "options": [
+        "\\\\n",
+        "\\\\N",
+        "\\\\ns",
+        "\\\\n"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-output-c-04",
+      "type": "scored",
+      "prompt": "What does the \\r escape sequence do?",
+      "options": [
+        "Adds a newline",
+        "Moves the cursor to the beginning of the line",
+        "Adds a tab",
+        "Adds a space"
+      ],
+      "answerIndex": 1,
+      "explanation": "\\r is a carriage return that moves the cursor to the beginning of the current line."
+    },
+    {
+      "id": "csharp-output-c-05",
+      "type": "coderunner",
+      "prompt": "Print: Name\\tAge using a tab escape",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Print with tab\n        \n    }\n}",
+      "expectedOutput": "Name\tAge\n",
+      "outputPattern": "^Name\\tAge\\n$",
+      "requiredStrings": [
+        "WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-output-c-06",
+      "type": "dragorder",
+      "prompt": "Arrange to build a formatted sentence using concatenation",
+      "items": [
+        "string name = \"Bob\";",
+        "int age = 25;",
+        "Console.WriteLine(name + \" is \" + age);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare variables first, then concatenate them in the WriteLine call."
+    },
+    {
+      "id": "csharp-output-c-07",
+      "type": "scored",
+      "prompt": "What does the $ prefix before a string do?",
+      "options": [
+        "Escapes characters",
+        "Enables string interpolation",
+        "Creates a verbatim string",
+        "Converts to uppercase"
+      ],
+      "answerIndex": 1,
+      "explanation": "$ enables string interpolation, allowing {expression} placeholders inside the string."
+    },
+    {
+      "id": "csharp-output-c-08",
+      "type": "scored",
+      "prompt": "How do you include a double quote inside a string literal?",
+      "options": [
+        "Just type it",
+        "Escape it with \\\\\"",
+        "Use single quotes",
+        "Use curly braces"
+      ],
+      "answerIndex": 1,
+      "explanation": "Use the escape sequence \\\" to include a literal double quote inside a string."
+    },
+    {
+      "id": "csharp-output-c-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to print text on the same line as previous output",
+      "template": "Console.WriteLine(\"Hello \");\n______(\"World\");",
+      "options": [
+        "Console.write",
+        "CONSOLE.WRITE",
+        "Console.Write",
+        "Console.Writes"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-output-c-10",
+      "type": "scored",
+      "prompt": "Which method can concatenate strings automatically with +?",
+      "options": [
+        "Console.WriteLine",
+        "String.Concat",
+        "String.Format",
+        "Both B and C"
+      ],
+      "answerIndex": 3,
+      "explanation": "Both WriteLine and String.Concat/Format can concatenate strings. The + operator also works for concatenation."
+    }
+  ]
+}

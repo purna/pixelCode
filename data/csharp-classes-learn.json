@@ -1,0 +1,146 @@
+{
+  "section": "csharp-classes",
+  "title": "C# Classes",
+  "slides": [
+    {
+      "title": "Defining a Class",
+      "content": "A class groups related data and behavior. Use the class keyword followed by a name and braces.",
+      "example": "class Car\n{\n  public string Model;\n  public void Drive() { Console.WriteLine(\"Driving\"); }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which keyword defines a class in C#?",
+        "options": [
+          "class",
+          "struct",
+          "object",
+          "type"
+        ],
+        "answer": "class"
+      }
+    },
+    {
+      "title": "Creating Objects",
+      "content": "Use the new keyword to create an instance of a class. The object holds its own copy of instance fields.",
+      "example": "Car myCar = new Car();\nmyCar.Model = \"Toyota\";",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Create a Dog object named dog: Dog dog = new _____();",
+        "placeholder": "_____",
+        "answer": "Dog",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Accessing Members",
+      "content": "Use the dot operator to access fields and methods on an object instance.",
+      "example": "Car c = new Car();\nc.Model = \"Ford\";\nc.Drive();",
+      "exampleOutput": "Driving",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the correct operator to call a method: myCar [ ? ] Drive();",
+        "before": "myCar ",
+        "after": " Drive();",
+        "options": [
+          ".",
+          "->",
+          "::",
+          ":"
+        ],
+        "answer": "."
+      }
+    },
+    {
+      "title": "Multiple Objects",
+      "content": "You can create many objects from one class. Each object is independent and has its own state.",
+      "example": "Car car1 = new Car();\nCar car2 = new Car();\ncar1.Model = \"A\";\ncar2.Model = \"B\";",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Create two Person objects and set their Name fields to different values.",
+        "starterCode": "Person p1 = new _____();\nPerson p2 = new _____();\np1.Name = \"Alice\";\np2.Name = \"Bob\";",
+        "expectedOutput": "Compiles with two Person instances.",
+        "outputPattern": "Person",
+        "requiredStrings": [
+          "new Person()"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: new Person()",
+          "When run, your code should output: Compiles with two Person instances."
+        ]
+      }
+    },
+    {
+      "title": "Constructors",
+      "content": "Constructors run when an object is created. They initialize state and have the same name as the class.",
+      "example": "class Box\n{\n  public int Width;\n  public Box(int width) { Width = width; }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is special about a constructor name?",
+        "options": [
+          "It must match the class name",
+          "It must be Init",
+          "It must be lowercase",
+          "It must return void explicitly"
+        ],
+        "answer": "It must match the class name"
+      }
+    },
+    {
+      "title": "Default Constructor",
+      "content": "If no constructor is defined, C# provides a parameterless default constructor that initializes fields to default values.",
+      "example": "class Book { public string Title; }\nBook b = new Book(); // default constructor",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "C# supplies a parameterless constructor if you define _____ constructors.",
+        "placeholder": "_____",
+        "answer": "no",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Object References",
+      "content": "Class variables store references, not the object itself. Assigning one variable to another copies the reference.",
+      "example": "Car a = new Car();\nCar b = a; // both refer to same Car",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag what Car variables store: Car c = new Car(); [?]",
+        "before": "Car c = new Car(); ",
+        "after": "",
+        "options": [
+          "A reference",
+          "A copy of the object",
+          "A struct value",
+          "An interface"
+        ],
+        "answer": "A reference"
+      }
+    },
+    {
+      "title": "Classes Review",
+      "content": "Classes define object blueprints. Use constructors to initialize objects and access members with the dot operator.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Define a class Laptop with a constructor that takes a string brand and stores it in a field Brand.",
+        "starterCode": "class Laptop\n{\n  public string _____;\n\n  public Laptop(string brand)\n  {\n    _____ = brand;\n  }\n}",
+        "expectedOutput": "Brand, Brand",
+        "outputPattern": "Brand",
+        "requiredStrings": [
+          "class",
+          "Laptop",
+          "Brand"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, Laptop, Brand",
+          "When run, your code should output: Brand, Brand"
+        ]
+      }
+    }
+  ]
+}

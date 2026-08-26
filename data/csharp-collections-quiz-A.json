@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "section": "csharp-collections",
+    "level": "intermediate",
+    "title": "C# Collections"
+  },
+  "questions": [
+    {
+      "id": "csharp-collections-a-01",
+      "type": "scored",
+      "prompt": "What does the Count property of a List<T> return?",
+      "options": [
+        "The maximum index",
+        "The number of elements stored",
+        "The allocated capacity",
+        "The first element"
+      ],
+      "answerIndex": 1,
+      "explanation": "Count is the number of items actually in the list."
+    },
+    {
+      "id": "csharp-collections-a-02",
+      "type": "scored",
+      "prompt": "Which statement creates an empty, type-safe list of integers?",
+      "options": [
+        "var list = new List<int>();",
+        "int[] list = new int[0];",
+        "var list = new List();",
+        "List<int> list;"
+      ],
+      "answerIndex": 0,
+      "explanation": "new List<int>() creates an empty generic list of ints."
+    },
+    {
+      "id": "csharp-collections-a-03",
+      "type": "insert",
+      "prompt": "Complete the code to create an empty list of integers.",
+      "template": "var list = _______;",
+      "options": [
+        "new List<int>()",
+        "List<int>",
+        "new int[]",
+        "ArrayList"
+      ],
+      "answerIndex": 0,
+      "explanation": "Use new List<int>() with the element type."
+    },
+    {
+      "id": "csharp-collections-a-04",
+      "type": "typing",
+      "prompt": "A Dictionary<TKey, TValue> stores items as ______ pairs.",
+      "template": "A Dictionary<TKey, TValue> stores items as ______ pairs.",
+      "blanks": [
+        "key/value"
+      ],
+      "explanation": "Each entry maps a unique key to a value."
+    },
+    {
+      "id": "csharp-collections-a-05",
+      "type": "scored",
+      "prompt": "Looking up a key that does not exist in a Dictionary throws:",
+      "options": [
+        "IndexOutOfRangeException",
+        "KeyNotFoundException",
+        "NullReferenceException",
+        "ArgumentNullException"
+      ],
+      "answerIndex": 1,
+      "explanation": "Reading a missing key throws KeyNotFoundException."
+    },
+    {
+      "id": "csharp-collections-a-06",
+      "type": "dragorder",
+      "prompt": "Drag these lines into the order a program needs them.",
+      "items": [
+        "var list = new List<int>();",
+        "list.Add(5);",
+        "Console.WriteLine(list[0]);"
+      ],
+      "solution": [0, 1, 2],
+      "explanation": "Declare, add, then read."
+    },
+    {
+      "id": "csharp-collections-a-07",
+      "type": "coderunner",
+      "prompt": "Complete the loop so it adds each number to sum and the program prints 6.",
+      "starterCode": "var nums = new List<int> { 1, 2, 3 };\nint sum = 0;\nforeach (_______ in nums)\n  sum _______;\nConsole.WriteLine(sum);",
+      "expectedOutput": "6",
+      "outputPattern": "sum.*\\+.*n",
+      "requiredStrings": [
+        "sum",
+        "nums"
+      ],
+      "hints": [
+        "foreach (var n in nums) iterates each element.",
+        "sum += n adds each value to the running total."
+      ]
+    },
+    {
+      "id": "csharp-collections-a-08",
+      "type": "scored",
+      "prompt": "Which method removes the first occurrence of a value from a List<T>?",
+      "options": [
+        "RemoveAt",
+        "Remove",
+        "Clear",
+        "Delete"
+      ],
+      "answerIndex": 1,
+      "explanation": "Remove(x) removes the first match of x."
+    }
+  ]
+}

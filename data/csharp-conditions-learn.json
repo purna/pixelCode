@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "section": "csharp-conditions",
+    "level": "beginner",
+    "title": "C# Conditions"
+  },
+  "slides": [
+    {
+      "title": "If Statement Basics",
+      "content": "An if statement runs code only when a condition is true. The condition must evaluate to a bool.",
+      "example": "int score = 75;\nif (score >= 60)\n{\n    Console.WriteLine(\"Pass\");\n}",
+      "exampleOutput": "Pass",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "When does an if block execute?",
+        "options": [
+          "When the condition is true",
+          "When the condition is false",
+          "Always",
+          "Never"
+        ],
+        "answer": "When the condition is true"
+      }
+    },
+    {
+      "title": "If-Else",
+      "content": "The else block provides an alternative path when the if condition is false.",
+      "example": "int temp = 10;\nif (temp > 20)\n    Console.WriteLine(\"Warm\");\nelse\n    Console.WriteLine(\"Cold\");",
+      "exampleOutput": "Cold",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the else line",
+        "before": "if (x > 0)\n    Console.WriteLine(\"Positive\");\n",
+        "after": "\n    Console.WriteLine(\"Non-positive\");",
+        "options": [
+          "else",
+          "elseif",
+          "catch",
+          "finally"
+        ],
+        "answer": "else"
+      }
+    },
+    {
+      "title": "Else If",
+      "content": "Use else if to chain multiple conditions. They are checked in order until one is true.",
+      "example": "int grade = 85;\nif (grade >= 90)\n    Console.WriteLine(\"A\");\nelse if (grade >= 80)\n    Console.WriteLine(\"B\");\nelse\n    Console.WriteLine(\"C\");",
+      "exampleOutput": "B",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The keyword for additional conditions is _____",
+        "placeholder": "_____",
+        "answer": "else if",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Nested Conditions",
+      "content": "You can place an if inside another if to check multiple related conditions.",
+      "example": "bool member = true;\nint age = 22;\nif (member)\n{\n    if (age >= 18)\n        Console.WriteLine(\"Allowed\");\n}",
+      "exampleOutput": "Allowed",
+      "exercise": {
+        "type": "code",
+        "prompt": "Print 'Special' only when both isMember and isVIP are true",
+        "starterCode": "bool isMember = true;\nbool isVIP = true;\n// Write your nested if below\n",
+        "expectedOutput": "Special",
+        "outputPattern": "^Special$",
+        "requiredStrings": [
+          "if",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: if, Console.WriteLine",
+          "When run, your code should output: Special"
+        ]
+      }
+    },
+    {
+      "title": "Ternary Operator",
+      "content": "The ternary operator is a compact if-else for simple assignments or returns.",
+      "example": "int num = -3;\nstring sign = num >= 0 ? \"Positive\" : \"Negative\";\nConsole.WriteLine(sign);",
+      "exampleOutput": "Negative",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The ternary uses ? and _____",
+        "placeholder": "_____",
+        "answer": ":",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Boolean Conditions",
+      "content": "Conditions can be bool variables, comparisons, or method calls that return bool.",
+      "example": "bool isOnline = true;\nif (isOnline)\n    Console.WriteLine(\"Chat enabled\");",
+      "exampleOutput": "Chat enabled",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which of these is a valid condition?",
+        "options": [
+          "age >= 18",
+          "if",
+          "Console.WriteLine",
+          "int"
+        ],
+        "answer": "age >= 18"
+      }
+    },
+    {
+      "title": "Switch Expression Basics",
+      "content": "Switch expressions evaluate an input and return a result based on matching patterns. They use the => syntax.",
+      "example": "int day = 2;\nstring name = day switch\n{\n    1 => \"Mon\",\n    2 => \"Tue\",\n    _ => \"Unknown\"\n};\nConsole.WriteLine(name);",
+      "exampleOutput": "Tue",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the switch expression pattern",
+        "before": "int x = 1;\nstring label = x switch\n{\n    1 => \"One\",\n    2 => \"Two\",\n",
+        "after": " => \"Other\"\n};\nConsole.WriteLine(label);",
+        "options": [
+          "_",
+          "default",
+          "else",
+          "3"
+        ],
+        "answer": "_"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Keep conditions simple and readable. Use braces for all blocks to avoid errors. Prefer switch expressions over long else if chains.",
+      "example": "string status = score >= 60 ? \"Pass\" : \"Fail\";\nConsole.WriteLine(status);",
+      "exampleOutput": "Pass",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use a ternary to set label to 'Even' or 'Odd' for int n = 7",
+        "starterCode": "int n = 7;\n// Write your ternary below\n",
+        "expectedOutput": "Odd",
+        "outputPattern": "^Odd$",
+        "requiredStrings": [
+          "?",
+          ":"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: ?, :",
+          "When run, your code should output: Odd"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: If-Else",
+      "content": "Use the Flow Builder to create an if-else that prints 'Pass' or 'Fail'.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares int score = 75, then if score >= 60 outputs 'Pass' else outputs 'Fail'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "score",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "score",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "75"
+            },
+            {
+              "id": "n3",
+              "kind": "if",
+              "condition": "score >= 60",
+              "body": [
+                {
+                  "id": "n4",
+                  "kind": "output",
+                  "expression": "\"Pass\"",
+                  "newline": true
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int score;\nscore = 75;\nif (score >= 60)\n{\n    output(\"Pass\");\n}",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "if",
+          "output"
+        ],
+        "flowExample": {
+          "name": "If-Else",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "score",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "score",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "75"
+              },
+              {
+                "id": "ex3",
+                "kind": "if",
+                "condition": "score >= 60",
+                "body": [
+                  {
+                    "id": "ex4",
+                    "kind": "output",
+                    "expression": "\"Pass\"",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

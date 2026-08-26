@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-booleans",
+    "level": "beginner",
+    "title": "C# Booleans B"
+  },
+  "questions": [
+    {
+      "id": "booleans-b-01",
+      "type": "scored",
+      "prompt": "What type stores true or false in C#?",
+      "options": [
+        "bool",
+        "boolean",
+        "int",
+        "string"
+      ],
+      "answerIndex": 0,
+      "explanation": "The bool keyword declares boolean variables."
+    },
+    {
+      "id": "booleans-b-02",
+      "type": "insert",
+      "prompt": "What is the result of 7 > 3?",
+      "template": "bool r = 7 > 3;  // r is _____",
+      "options": [
+        "FALSE",
+        "TRUE",
+        "False",
+        "true"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "booleans-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the boolean expression evaluation.",
+      "items": [
+        "3 > 1",
+        "&&",
+        "2 < 5",
+        "true"
+      ],
+      "solution": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "explanation": "(3 > 1) && (2 < 5) evaluates to true because both comparisons are true."
+    },
+    {
+      "id": "booleans-b-04",
+      "type": "scored",
+      "prompt": "What does !false evaluate to?",
+      "options": [
+        "false",
+        "true",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 1,
+      "explanation": "! negates a bool. !false becomes true."
+    },
+    {
+      "id": "booleans-b-05",
+      "type": "coderunner",
+      "prompt": "Create a bool isPositive set to x > 0 where x = 5 and print it.",
+      "starterCode": "int x = 5;\n// create bool isPositive\n",
+      "expectedOutput": "true",
+      "outputPattern": "^true$",
+      "requiredStrings": [
+        "is",
+        "switch"
+      ]
+    },
+    {
+      "id": "booleans-b-06",
+      "type": "scored",
+      "prompt": "Which operator returns true if either operand is true?",
+      "options": [
+        "&&",
+        "||",
+        "!",
+        "^"
+      ],
+      "answerIndex": 1,
+      "explanation": "|| is the logical OR operator."
+    },
+    {
+      "id": "booleans-b-07",
+      "type": "insert",
+      "prompt": "What is the exact keyword for a boolean variable?",
+      "template": "_____ isReady = false;",
+      "options": [
+        "bool",
+        "integer",
+        "str",
+        "boolean"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "booleans-b-08",
+      "type": "scored",
+      "prompt": "What is the result of 4 == 4?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "0"
+      ],
+      "answerIndex": 0,
+      "explanation": "4 equals 4, so == returns true."
+    },
+    {
+      "id": "booleans-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange to evaluate if age is at least 18.",
+      "items": [
+        "int age = 20;",
+        "bool adult = age >= 18;",
+        "Console.WriteLine(adult);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": ">= checks if age is greater than or equal to 18."
+    },
+    {
+      "id": "booleans-b-10",
+      "type": "scored",
+      "prompt": "What does true || false evaluate to?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 0,
+      "explanation": "Logical OR returns true if at least one operand is true."
+    }
+  ]
+}

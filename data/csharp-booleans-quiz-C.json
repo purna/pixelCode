@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "section": "csharp-booleans",
+    "level": "beginner",
+    "title": "C# Booleans C"
+  },
+  "questions": [
+    {
+      "id": "booleans-c-01",
+      "type": "scored",
+      "prompt": "Which values can a bool hold?",
+      "options": [
+        "true and false",
+        "0 and 1",
+        "yes and no",
+        "on and off"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# bools are strictly true or false, lowercase."
+    },
+    {
+      "id": "booleans-c-02",
+      "type": "insert",
+      "prompt": "What is the result of 5 != 5?",
+      "template": "bool r = 5 != 5;  // r is _____",
+      "options": [
+        "false",
+        "TRUE",
+        "True",
+        "FALSE"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "booleans-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange to check if a number is between 1 and 10.",
+      "items": [
+        "int n = 5;",
+        "bool inRange = n > 1 && n < 10;",
+        "Console.WriteLine(inRange);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Use && to combine two comparisons."
+    },
+    {
+      "id": "booleans-c-04",
+      "type": "scored",
+      "prompt": "What does the && operator require?",
+      "options": [
+        "Both true",
+        "Either true",
+        "Neither true",
+        "Always false"
+      ],
+      "answerIndex": 0,
+      "explanation": "&& returns true only when both operands are true."
+    },
+    {
+      "id": "booleans-c-05",
+      "type": "coderunner",
+      "prompt": "Create a bool canVote set to age >= 18 where age = 16 and print it.",
+      "starterCode": "int age = 16;\n// create bool canVote\n",
+      "expectedOutput": "false",
+      "outputPattern": "^false$",
+      "requiredStrings": [
+        "bool",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "booleans-c-06",
+      "type": "scored",
+      "prompt": "What is the result of !(5 > 3)?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 1,
+      "explanation": "5 > 3 is true, so !true is false."
+    },
+    {
+      "id": "booleans-c-07",
+      "type": "insert",
+      "prompt": "What is the symbol for logical OR?",
+      "template": "bool r = true _____ false;",
+      "options": [
+        "=",
+        "==",
+        "||",
+        "==="
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "booleans-c-08",
+      "type": "scored",
+      "prompt": "What type does 10 < 20 return?",
+      "options": [
+        "bool",
+        "int",
+        "double",
+        "string"
+      ],
+      "answerIndex": 0,
+      "explanation": "Comparison operators always return a bool."
+    },
+    {
+      "id": "booleans-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange these boolean values and operators.",
+      "items": [
+        "true",
+        "||",
+        "false"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "true || false evaluates to true."
+    },
+    {
+      "id": "booleans-c-10",
+      "type": "scored",
+      "prompt": "Which keyword declares a boolean variable?",
+      "options": [
+        "bool",
+        "boolean",
+        "Bool",
+        "Boolean"
+      ],
+      "answerIndex": 0,
+      "explanation": "Use the lowercase bool keyword."
+    }
+  ]
+}

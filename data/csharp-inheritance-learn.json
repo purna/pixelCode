@@ -1,0 +1,147 @@
+{
+  "section": "csharp-inheritance",
+  "title": "C# Inheritance",
+  "slides": [
+    {
+      "title": "What Is Inheritance?",
+      "content": "Inheritance lets one class (the derived class) reuse, extend, and modify the behavior of another class (the base class). It promotes code reuse and models 'is-a' relationships, like a Dog is an Animal. The derived class gets all the base class's fields and methods automatically.",
+      "example": "public class Animal\n{\n    public string Name;\n    public void Sleep() { Console.WriteLine(\"Sleeping\"); }\n}\n\n// Dog inherits from Animal\npublic class Dog : Animal\n{   // Dog gets Name field and Sleep() method\n}\n\nvar d = new Dog();\nd.Name = \"Rex\";\nd.Sleep();",
+      "exampleOutput": "Sleeping",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "If 'Dog : Animal', what relationship does this represent?",
+        "options": [
+          "Dog has an Animal",
+          "Dog is an Animal",
+          "Dog uses Animal",
+          "Dog creates Animal"
+        ],
+        "answer": "Dog is an Animal"
+      }
+    },
+    {
+      "title": "The Base and Derived Classes",
+      "content": "The base class (or parent/superclass) is the class being inherited from. The derived class (or child/subclass) is the one doing the inheriting. In C#, you use the colon syntax: 'class Derived : Base'. A class can have only ONE base class (no multiple inheritance).",
+      "example": "public class Vehicle  // base class\n{\n    public string Brand;\n}\n\npublic class Car : Vehicle  // derived class\n{\n    public int Doors;\n}\n\nvar car = new Car();\ncar.Brand = \"Toyota\";  // inherited\ncar.Doors = 4;         // own",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Which syntax correctly declares Car inheriting from Vehicle?",
+        "before": "",
+        "after": "",
+        "options": [
+          "class Car : Vehicle { }",
+          "class Car extends Vehicle { }",
+          "class Car : Vehicle()",
+          "class Car inherits Vehicle { }"
+        ],
+        "answer": "class Car : Vehicle { }"
+      }
+    },
+    {
+      "title": "Calling the Base Constructor",
+      "content": "When you create an object of the derived class, its constructor implicitly calls a base class constructor. You can use ': base(args)' to explicitly choose which base constructor runs. If the base class only has a parameterized constructor, you must call it explicitly.",
+      "example": "public class Animal\n{\n    public string Name;\n    public Animal(string name) { Name = name; }\n}\n\npublic class Dog : Animal\n{\n    public string Breed;\n    // Must call base(name) explicitly\n    public Dog(string name, string breed) : base(name)\n    {\n        Breed = breed;\n    }\n}\n\nvar d = new Dog(\"Rex\", \"Labrador\");",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "To explicitly call a base class constructor, use ': _____' in the derived constructor declaration.",
+        "placeholder": "_____",
+        "answer": "base(args)",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Virtual and Override",
+      "content": "By default, a method in a derived class with the same name as a base method hides it (using 'new'). To truly override it\u2014changing its behavior in the derived class\u2014mark the base method 'virtual' and the derived method 'override'. This enables polymorphism.",
+      "example": "public class Animal\n{\n    public virtual void Speak() { Console.WriteLine(\"Animal\"); }\n}\n\npublic class Dog : Animal\n{\n    public override void Speak() { Console.WriteLine(\"Woof\"); }\n}\n\nvar a = new Dog();\na.Speak();  // prints 'Woof'",
+      "exampleOutput": "Woof",
+      "exercise": {
+        "type": "code",
+        "prompt": "Mark the Cat class's MakeSound method to override the base class version.",
+        "starterCode": "public class Animal\n{\n    public virtual void MakeSound() { Console.WriteLine(\"Generic\"); }\n}\n\npublic class Cat : Animal\n{\n    _____ MakeSound()\n    {\n        Console.WriteLine(\"Meow\");\n    }\n}\n\nnew Cat().MakeSound();",
+        "expectedOutput": "Meow",
+        "outputPattern": "Meow",
+        "requiredStrings": [
+          "class",
+          "virtual",
+          "public"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, virtual, public",
+          "When run, your code should output: Meow"
+        ]
+      }
+    },
+    {
+      "title": "Constructor Execution Order",
+      "content": "When you create a derived class object, initialization runs from the top down: base class field initializers and constructor first, then derived class field initializers and constructor body. This ensures the base object is fully formed before the derived class extends it.",
+      "example": "public class Base\n{\n    public Base() { Console.WriteLine(\"Base ctor\"); }\n}\n\npublic class Derived : Base\n{\n    public Derived() { Console.WriteLine(\"Derived ctor\"); }\n}\n\nvar d = new Derived();",
+      "exampleOutput": "Base ctor\nDerived ctor",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Which runs first when you instantiate a derived class?",
+        "before": "",
+        "after": "",
+        "options": [
+          "Derived class constructor body",
+          "Base class constructor body",
+          "Derived class field initializers",
+          "Base class field initializers"
+        ],
+        "answer": "Base class field initializers"
+      }
+    },
+    {
+      "title": "Sealed Classes and Methods",
+      "content": "You can prevent a class from being inherited by marking it 'sealed'. You can also prevent a method from being overridden further by marking an override 'sealed'. This is useful for security and to preserve implementation invariants.",
+      "example": "public sealed class DatabaseConnection\n{\n    public string ConnectionString;\n    // Cannot be derived from - sealed\n}\n\n// This would NOT compile:\n// public class MyConn : DatabaseConnection { }\n\npublic class Logger\n{\n    public virtual void Log() { }\n}\n\npublic class FileLogger : Logger\n{\n    public sealed override void Log() { }\n    // Cannot override Log() further\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What keyword prevents a class from being inherited?",
+        "options": [
+          "override",
+          "sealed",
+          "virtual",
+          "static"
+        ],
+        "answer": "sealed"
+      }
+    },
+    {
+      "title": "Inheritance and Member Access",
+      "content": "A derived class inherits public, protected, internal, and protected internal members from its base class. Private members are inherited in the sense that they exist in the object, but they are not accessible by name from the derived class. Constructors are never inherited directly.",
+      "example": "public class Animal\n{\n    public void PublicMethod() { }\n    protected void ProtectedMethod() { }\n    private void PrivateMethod() { }\n}\n\npublic class Dog : Animal\n{\n    public void Test()\n    {\n        PublicMethod();     // OK\n        ProtectedMethod();  // OK\n        // PrivateMethod();  // ERROR!\n    }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Private members from the base class are NOT accessible in the derived class because they have _____ access.",
+        "placeholder": "_____",
+        "answer": "private",
+        "caseSensitive": true
+      }
+    },
+    {
+      "title": "The Object Class (Ultimate Base)",
+      "content": "Every class in C# implicitly inherits from the 'object' class. This means all classes have access to methods like ToString(), Equals(), and GetHashCode(). You can override these methods in your class to provide custom behavior.",
+      "example": "public class Point\n{\n    public int X, Y;\n    public override string ToString()\n    {\n        return $\"({X}, {Y})\";\n    }\n}\n\nvar p = new Point { X = 3, Y = 4 };\nConsole.WriteLine(p.ToString());",
+      "exampleOutput": "(3, 4)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Override ToString in the Person class to return 'Name: <name>'.",
+        "starterCode": "public class Person\n{\n    public string Name;\n\n    _____ string ToString()\n    {\n        return \"Name: \" + _____;\n    }\n}\n\nvar p = new Person { Name = \"Eve\" };\nConsole.WriteLine(p);",
+        "expectedOutput": "Name: Eve",
+        "outputPattern": "Name: Eve",
+        "requiredStrings": [
+          "override",
+          "ToString"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: override, ToString",
+          "When run, your code should output: Name: Eve"
+        ]
+      }
+    }
+  ]
+}

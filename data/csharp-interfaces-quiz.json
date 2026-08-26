@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-interfaces",
+    "level": "expert",
+    "title": "C# Interfaces"
+  },
+  "questions": [
+    {
+      "id": "csharp-interfaces-01",
+      "type": "scored",
+      "prompt": "Which keyword is used to declare an interface in C#?",
+      "options": [
+        "interface",
+        "abstract",
+        "class",
+        "struct"
+      ],
+      "answerIndex": 0,
+      "explanation": "Interfaces are declared using the 'interface' keyword. They define a contract of members without implementation."
+    },
+    {
+      "id": "csharp-interfaces-02",
+      "type": "scored",
+      "prompt": "By default, interface members are implicitly _____ and _____.",
+      "options": [
+        "public and abstract",
+        "private and sealed",
+        "protected and virtual",
+        "internal and static"
+      ],
+      "answerIndex": 0,
+      "explanation": "Interface members are implicitly public and abstract. You cannot use access modifiers on interface members."
+    },
+    {
+      "id": "csharp-interfaces-03",
+      "type": "scored",
+      "prompt": "Can a class implement multiple interfaces in C#?",
+      "options": [
+        "No",
+        "Yes, using commas",
+        "Yes, but only two",
+        "Only if they are in the same namespace"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# supports multiple interface implementation via comma-separated interface names after the colon."
+    },
+    {
+      "id": "csharp-interfaces-04",
+      "type": "typing",
+      "prompt": "Fill in the blank: class Dog : _____, _____",
+      "blanks": [
+        "IAnimal, IDomesticated"
+      ],
+      "template": "class Dog : _____, _____"
+    },
+    {
+      "id": "csharp-interfaces-05",
+      "type": "scored",
+      "prompt": "What is a key difference between an interface and an abstract class?",
+      "options": [
+        "Interfaces can have fields",
+        "Abstract classes support multiple inheritance",
+        "Interfaces cannot contain method implementations (before C# 8)",
+        "Abstract classes cannot have constructors"
+      ],
+      "answerIndex": 2,
+      "explanation": "Interfaces define only member signatures (prior to C# 8 default implementations), while abstract classes can provide concrete implementations."
+    },
+    {
+      "id": "csharp-interfaces-06",
+      "type": "dragorder",
+      "prompt": "Arrange the correct interface declaration and implementation.",
+      "items": [
+        "public interface IWorker",
+        "{",
+        "void Work();",
+        "}",
+        "public class Employee : IWorker",
+        "{",
+        "public void Work()",
+        "{",
+        "Console.WriteLine(\"Working...\");",
+        "}",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "csharp-interfaces-07",
+      "type": "scored",
+      "prompt": "Which of the following can an interface contain in C# (pre-C# 8)?",
+      "options": [
+        "Fields",
+        "Methods, properties, events, indexers",
+        "Constructors",
+        "Destructors"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interfaces can declare methods, properties, events, and indexers, but not fields, constructors, or destructors."
+    },
+    {
+      "id": "csharp-interfaces-08",
+      "type": "coderunner",
+      "prompt": "Declare an interface ILogger with a Log method, and implement it in a ConsoleLogger class.",
+      "starterCode": "using System;\n\npublic interface ILogger\n{\n    void Log(_____ message);\n}\n\npublic class ConsoleLogger : ILogger\n{\n    public void Log(string message)\n    {\n        _____\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        ILogger logger = new ConsoleLogger();\n        logger.Log(\"Hello\");\n    }\n}",
+      "expectedOutput": "Hello",
+      "outputPattern": "Hello",
+      "requiredStrings": [
+        "string"
+      ]
+    },
+    {
+      "id": "csharp-interfaces-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to implement two interfaces.",
+      "blanks": [
+        "IEnumerable, IDisposable"
+      ],
+      "template": "class MyClass : _____, _____"
+    },
+    {
+      "id": "csharp-interfaces-10",
+      "type": "scored",
+      "prompt": "When should you prefer an interface over an abstract class?",
+      "options": [
+        "When you need method implementations",
+        "When you need multiple inheritance of type",
+        "When you need protected members",
+        "When you need fields"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interfaces allow a class to inherit behavior from multiple sources, solving the single-inheritance limitation of abstract classes."
+    }
+  ]
+}

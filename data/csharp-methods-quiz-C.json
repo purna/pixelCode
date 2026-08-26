@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "section": "csharp-methods",
+    "level": "beginner",
+    "title": "Methods Quiz C"
+  },
+  "questions": [
+    {
+      "id": "csharp-methods-c-01",
+      "type": "scored",
+      "prompt": "Which part of a method declaration is optional?",
+      "options": [
+        "Return type",
+        "Method name",
+        "Parameters",
+        "Access modifier"
+      ],
+      "answerIndex": 2,
+      "explanation": "Parameters are optional. A method can be declared with empty parentheses or no parentheses at all if it takes no arguments."
+    },
+    {
+      "id": "csharp-methods-c-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: _____ Multiply(int x, int y) { return x * y; }",
+      "template": "_____ Multiply(int x, int y) { return x * y; }",
+      "options": [
+        "Public int",
+        "PUBLIC INT",
+        "public ints",
+        "public int"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-methods-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange the pieces of the method declaration: public int Add(int a, int b) { return a + b; }",
+      "items": [
+        "public",
+        "int",
+        "Add",
+        "(",
+        "int a",
+        ",",
+        "int b",
+        ")",
+        "{",
+        "return a + b;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "csharp-methods-c-04",
+      "type": "scored",
+      "prompt": "What is a method signature?",
+      "options": [
+        "The full method code",
+        "The method name plus parameter types",
+        "The return type only",
+        "The access modifier and name"
+      ],
+      "answerIndex": 1,
+      "explanation": "A method signature consists of the method name and the types of its parameters (not the return type)."
+    },
+    {
+      "id": "csharp-methods-c-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: void Greet() { _____ \"Hello, World!\"; }",
+      "template": "void Greet() { _____ \"Hello, World!\"; }",
+      "options": [
+        "Console.writeline",
+        "Console.WriteLine",
+        "Console.WriteLines",
+        "CONSOLE.WRITELINE"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-methods-c-06",
+      "type": "coderunner",
+      "prompt": "Write a method named IsEven that takes an int and returns true if it is even. Call it with 4 and print the result.",
+      "starterCode": "_____ IsEven(int n)\n{\n    _____ (n % 2 == 0);\n}\n\nConsole.WriteLine(_____(4));",
+      "expectedOutput": "True",
+      "outputPattern": "True",
+      "requiredStrings": [
+        "string",
+        "Greet()",
+        "Greet()"
+      ]
+    },
+    {
+      "id": "csharp-methods-c-07",
+      "type": "scored",
+      "prompt": "When does a method's code start executing?",
+      "options": [
+        "When the program starts",
+        "When it is called",
+        "When it is defined",
+        "When the class is loaded"
+      ],
+      "answerIndex": 1,
+      "explanation": "Method code runs only when the method is called. Definition alone does not execute it."
+    },
+    {
+      "id": "csharp-methods-c-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: int GetNumber() { _____ 42; }",
+      "template": "int GetNumber() { _____ 42; }",
+      "options": [
+        "RETURN",
+        "return",
+        "returns",
+        "Return"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-methods-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the steps of a method call with arguments.",
+      "items": [
+        "Call method with args",
+        "Pass values to parameters",
+        "Execute body",
+        "Compute result",
+        "Return value"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-methods-c-10",
+      "type": "scored",
+      "prompt": "Can two methods in the same class have the same name?",
+      "options": [
+        "No, names must be unique",
+        "Yes, if they have different parameter types",
+        "Yes, if one is static and one is not",
+        "Only in abstract classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Method overloading allows multiple methods with the same name as long as their parameter lists differ."
+    }
+  ]
+}

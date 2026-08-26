@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "section": "csharp-generics",
+    "level": "intermediate",
+    "title": "C# Generics"
+  },
+  "questions": [
+    {
+      "id": "csharp-generics-01",
+      "type": "scored",
+      "prompt": "What do generics give you?",
+      "options": [
+        "Runtime type checking only",
+        "Type safety with code reuse",
+        "Automatic casting",
+        "Faster execution"
+      ],
+      "answerIndex": 1,
+      "explanation": "Generics let one implementation work for many types with compile-time type safety."
+    },
+    {
+      "id": "csharp-generics-02",
+      "type": "scored",
+      "prompt": "A generic method's type parameter is:",
+      "options": [
+        "Fixed to int",
+        "Chosen by the caller at compile time",
+        "Always string",
+        "Ignored by the compiler"
+      ],
+      "answerIndex": 1,
+      "explanation": "The caller (or the compiler) supplies the type for T."
+    },
+    {
+      "id": "csharp-generics-03",
+      "type": "insert",
+      "prompt": "Complete the constraint.",
+      "template": "void Process<T>(T item) where T : _____",
+      "options": [
+        "class",
+        "struct",
+        "new()",
+        "object"
+      ],
+      "answerIndex": 0,
+      "explanation": "where T : class requires a reference type."
+    },
+    {
+      "id": "csharp-generics-04",
+      "type": "typing",
+      "prompt": "The 'where' clause adds a _____ to a type parameter.",
+      "template": "The 'where' clause adds a _____ to a type parameter.",
+      "blanks": [
+        "constraint"
+      ],
+      "explanation": "Constraints restrict which types T can be."
+    },
+    {
+      "id": "csharp-generics-05",
+      "type": "scored",
+      "prompt": "The new() constraint requires T to:",
+      "options": [
+        "be a class",
+        "be a struct",
+        "have a public parameterless constructor",
+        "be numeric"
+      ],
+      "answerIndex": 2,
+      "explanation": "new() lets you write new T() inside the method."
+    },
+    {
+      "id": "csharp-generics-06",
+      "type": "dragorder",
+      "prompt": "Arrange the steps to use a generic method:",
+      "items": [
+        "Call the method with a type argument",
+        "The compiler uses (or infers) T",
+        "The JIT runs the type-specific version",
+        "The typed result is returned"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "The caller picks T; the compiler and JIT specialize the method."
+    },
+    {
+      "id": "csharp-generics-07",
+      "type": "coderunner",
+      "prompt": "Complete the method to return the default value of T.",
+      "starterCode": "public static T GetDefault<T>()\n{\n  return _____;\n}",
+      "expectedOutput": "(default value of T)",
+      "outputPattern": "default",
+      "requiredStrings": [
+        "default(T)"
+      ],
+      "hints": [
+        "Use the default keyword with T.",
+        "default(T) is null for reference types, 0 for numerics."
+      ]
+    },
+    {
+      "id": "csharp-generics-08",
+      "type": "scored",
+      "prompt": "default(T) returns null for:",
+      "options": [
+        "all types",
+        "reference types only",
+        "value types only",
+        "numeric types"
+      ],
+      "answerIndex": 1,
+      "explanation": "For reference types, default(T) is null."
+    }
+  ]
+}

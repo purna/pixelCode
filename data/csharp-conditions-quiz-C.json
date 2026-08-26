@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "section": "csharp-conditions",
+    "level": "beginner",
+    "title": "C# Conditions C"
+  },
+  "questions": [
+    {
+      "id": "conditions-c-01",
+      "type": "scored",
+      "prompt": "What symbol surrounds an if condition?",
+      "options": [
+        "{ }",
+        "( )",
+        "[ ]",
+        "< >"
+      ],
+      "answerIndex": 1,
+      "explanation": "Conditions in if statements are enclosed in parentheses."
+    },
+    {
+      "id": "conditions-c-02",
+      "type": "insert",
+      "prompt": "Write the exact keyword for the false branch.",
+      "template": "if (x) { }\n_____ { }",
+      "options": [
+        "else",
+        "If",
+        "while",
+        "IF"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "conditions-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange a nested if to check age and membership.",
+      "items": [
+        "if (age >= 18)",
+        "{",
+        "if (isMember)",
+        "{ Console.WriteLine(\"Member\"); }",
+        "else",
+        "{ Console.WriteLine(\"Guest\"); }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "explanation": "Nested ifs allow checking multiple related conditions."
+    },
+    {
+      "id": "conditions-c-04",
+      "type": "scored",
+      "prompt": "In a ternary, what follows the condition?",
+      "options": [
+        ":",
+        "?",
+        ";",
+        ","
+      ],
+      "answerIndex": 1,
+      "explanation": "The ? symbol introduces the true branch in a ternary operator."
+    },
+    {
+      "id": "conditions-c-05",
+      "type": "coderunner",
+      "prompt": "Use an if-else to print 'Hot' when temp >= 30.",
+      "starterCode": "int temp = 35;\n// write if-else\n",
+      "expectedOutput": "Hot",
+      "outputPattern": "^Hot$",
+      "requiredStrings": [
+        "if",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "conditions-c-06",
+      "type": "scored",
+      "prompt": "What is the result of 10 > 5 ? 1 : 0?",
+      "options": [
+        "1",
+        "0",
+        "true",
+        "false"
+      ],
+      "answerIndex": 0,
+      "explanation": "Since 10 > 5 is true, the ternary returns 1."
+    },
+    {
+      "id": "conditions-c-07",
+      "type": "typing",
+      "prompt": "Write the exact keyword for a multi-way condition chain.",
+      "blanks": [
+        "else if"
+      ],
+      "template": "if (a) { }\n_____ (b) { }\n_____ (c) { }"
+    },
+    {
+      "id": "conditions-c-08",
+      "type": "scored",
+      "prompt": "Which form can replace a simple if-return?",
+      "options": [
+        "ternary",
+        "switch",
+        "while",
+        "for"
+      ],
+      "answerIndex": 0,
+      "explanation": "A ternary operator is concise for simple conditional assignments."
+    },
+    {
+      "id": "conditions-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange a switch expression returning a string.",
+      "items": [
+        "string day = dayNum == 1",
+        "? \"Mon\"",
+        ": \"Other\"",
+        ";"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Switch expressions use => or ternary-like syntax for concise mapping."
+    },
+    {
+      "id": "conditions-c-10",
+      "type": "scored",
+      "prompt": "Can an if statement exist without braces for a single line?",
+      "options": [
+        "Yes",
+        "No",
+        "Only in C# 10+",
+        "Only with else"
+      ],
+      "answerIndex": 0,
+      "explanation": "Single-statement if blocks can omit braces, though braces are recommended."
+    }
+  ]
+}

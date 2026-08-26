@@ -1,0 +1,243 @@
+{
+  "section": "csharp-datatypes",
+  "title": "C# Data Types",
+  "slides": [
+    {
+      "title": "Introduction to Data Types",
+      "content": "C# is a statically typed language, meaning every variable must have a declared type. Common types include int for integers, double for decimals, bool for true/false, string for text, and char for single characters.",
+      "example": "int age = 30;\ndouble price = 19.99;\nbool isActive = true;\nstring name = \"Alice\";\nchar letter = 'A';",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which keyword declares a variable that can hold 'Hello'?",
+        "options": [
+          "int",
+          "string",
+          "char",
+          "bool"
+        ],
+        "answer": "string"
+      }
+    },
+    {
+      "title": "Numeric Types",
+      "content": "C# provides several numeric types. int stores 32-bit whole numbers, double stores 64-bit floating-point numbers, and decimal is used for financial calculations requiring high precision.",
+      "example": "int count = 100;\ndouble ratio = 3.14;\ndecimal money = 99.95m;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What keyword declares a 64-bit floating-point number?",
+        "placeholder": "_____",
+        "answer": "double",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Boolean Type",
+      "content": "The bool type represents truth values and can only be true or false. It is commonly used in conditional statements and loops.",
+      "example": "bool isFinished = false;\nif (isFinished) {\n    Console.WriteLine(\"Done\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What is the default value of an uninitialized bool variable?",
+        "placeholder": "_____",
+        "answer": "false",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "String and Char",
+      "content": "string represents text as a sequence of Unicode characters, while char represents a single Unicode character. Strings use double quotes, and chars use single quotes.",
+      "example": "string greeting = \"Hello, World!\";\nchar firstLetter = 'H';",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the declaration of a char variable.",
+        "before": "char grade = ",
+        "after": ";",
+        "options": [
+          "'A'",
+          "\"A\"",
+          "A",
+          "'A"
+        ],
+        "answer": "'A'"
+      }
+    },
+    {
+      "title": "Type Sizes and Ranges",
+      "content": "Each C# type has a fixed size regardless of platform. int is 4 bytes, double is 8 bytes, and char is 2 bytes. You can use sizeof(int) to verify sizes at compile time.",
+      "example": "Console.WriteLine(sizeof(int));    // 4\nConsole.WriteLine(sizeof(double)); // 8\nConsole.WriteLine(sizeof(char));   // 2",
+      "exampleOutput": "4\n8\n2\n",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "How many bytes does a char use?",
+        "options": [
+          "1 byte",
+          "2 bytes",
+          "4 bytes",
+          "8 bytes"
+        ],
+        "answer": "2 bytes"
+      }
+    },
+    {
+      "title": "Default Values",
+      "content": "In C#, fields (class-level variables) are automatically initialized to default values: numeric types to 0, bool to false, char to '\\0', and reference types like string to null.",
+      "example": "class Example {\n    int number;      // 0\n    bool flag;       // false\n    string text;     // null\n    char symbol;     // '\\0'\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is the default value of an uninitialized string field?",
+        "options": [
+          "\"\"",
+          "null",
+          "False",
+          "0"
+        ],
+        "answer": "null"
+      }
+    },
+    {
+      "title": "Declaring Variables",
+      "content": "Use the var keyword for implicit typing when the compiler can infer the type from the initializer. You can also declare multiple variables of the same type in one statement.",
+      "example": "var age = 25;\nvar price = 9.99;\nint x = 1, y = 2, z = 3;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Declare an int named 'score' with value 100 and a string named 'player' with value \"Hero\".",
+        "starterCode": "class Program {\n    static void Main() {\n        // Write your code here\n        \n    }\n}",
+        "expectedOutput": "",
+        "outputPattern": "",
+        "requiredStrings": [
+          "int",
+          "string",
+          "double",
+          "bool"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: int, string, double, bool",
+          "Check that your code uses the required keywords listed in the exercise."
+        ]
+      }
+    },
+    {
+      "title": "Practice: Data Types",
+      "content": "Combine what you learned: declare variables of different types, understand their defaults, and print them. This prepares you for type casting and user input.",
+      "example": "int lives = 3;\ndouble speed = 5.5;\nbool alive = true;\nConsole.WriteLine(lives);",
+      "exampleOutput": "3",
+      "exercise": {
+        "type": "code",
+        "prompt": "Declare variables for an int 'level', a double 'health', and a bool 'hasKey'. Initialize them to 1, 100.5, and false respectively.",
+        "starterCode": "class Program {\n    static void Main() {\n        // Declare and initialize variables here\n        \n    }\n}",
+        "expectedOutput": "",
+        "outputPattern": "",
+        "requiredStrings": [
+          "int",
+          "string",
+          "double",
+          "bool"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: int, string, double, bool",
+          "Check that your code uses the required keywords listed in the exercise."
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Data Types",
+      "content": "Drag Declare blocks to create variables of different types, then output one of them.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares int count, double price, and bool active, then outputs count",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "count",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "declare",
+              "name": "price",
+              "dataType": "Real",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n3",
+              "kind": "declare",
+              "name": "active",
+              "dataType": "Boolean",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n4",
+              "kind": "assign",
+              "name": "count",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "10"
+            },
+            {
+              "id": "n5",
+              "kind": "output",
+              "expression": "count",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int count;\ndouble price;\nbool active;\ncount = 10;\noutput(count);",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

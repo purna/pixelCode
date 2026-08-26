@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-classes",
+    "level": "intermediate",
+    "title": "C# Classes"
+  },
+  "questions": [
+    {
+      "id": "csharp-classes-c-01",
+      "type": "scored",
+      "prompt": "An object of a class is allocated on the:",
+      "options": [
+        "Stack always",
+        "Heap (as a reference type)",
+        "Registry",
+        "Cache only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Class instances are reference types allocated on the managed heap."
+    },
+    {
+      "id": "csharp-classes-c-02",
+      "type": "scored",
+      "prompt": "Which is a valid class member?",
+      "options": [
+        "Only methods",
+        "Fields, methods, properties, events, etc.",
+        "Only loops",
+        "Only using directives"
+      ],
+      "answerIndex": 1,
+      "explanation": "Classes can contain many kinds of members."
+    },
+    {
+      "id": "csharp-classes-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to create an instance of class Timer",
+      "blanks": [
+        "Timer t = new Timer()"
+      ],
+      "template": "______;",
+      "explanation": "new allocates the instance."
+    },
+    {
+      "id": "csharp-classes-c-04",
+      "type": "scored",
+      "prompt": "The 'partial' keyword allows a class to be:",
+      "options": [
+        "Deleted",
+        "Split across multiple files",
+        "Made static",
+        "Made sealed"
+      ],
+      "answerIndex": 1,
+      "explanation": "partial lets one class be defined in several files."
+    },
+    {
+      "id": "csharp-classes-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Book with public string Title and int Pages, and a method Info() returning Pages as string, then print Info() for 120 pages",
+      "starterCode": "using System;\nclass Book {\n  public string Title;\n  public int Pages;\n  public string Info() { return Pages.ToString(); }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "120\n",
+      "outputPattern": "^120\\n$",
+      "explanation": "Set Pages and call Info().",
+      "requiredStrings": [
+        "new Counter()"
+      ]
+    },
+    {
+      "id": "csharp-classes-c-06",
+      "type": "scored",
+      "prompt": "A sealed class cannot be:",
+      "options": [
+        "Instantiated",
+        "Inherited from",
+        "Compiled",
+        "Used"
+      ],
+      "answerIndex": 1,
+      "explanation": "sealed prevents other classes from deriving from it."
+    },
+    {
+      "id": "csharp-classes-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange to define a nested class",
+      "items": [
+        "class Outer {",
+        "  class Inner { }",
+        "}",
+        "Outer.Inner x;"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Inner is declared inside Outer."
+    },
+    {
+      "id": "csharp-classes-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an abstract class Shape",
+      "blanks": [
+        "abstract class Shape"
+      ],
+      "template": "______ { }",
+      "explanation": "abstract classes cannot be instantiated directly."
+    },
+    {
+      "id": "csharp-classes-c-09",
+      "type": "scored",
+      "prompt": "Object is the:",
+      "options": [
+        "Base class of all C# types",
+        "A struct",
+        "A keyword only",
+        "None of these"
+      ],
+      "answerIndex": 0,
+      "explanation": "All types derive directly or indirectly from System.Object."
+    },
+    {
+      "id": "csharp-classes-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Product with public string Name and decimal Price, and method Label() returning Name+':'+Price, then print Label() for 'Pen',2.5m",
+      "starterCode": "using System;\nclass Product {\n  public string Name;\n  public decimal Price;\n  public string Label() { return Name + \":\" + Price; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Pen:2.5\n",
+      "outputPattern": "^Pen:2\\.5\\n$",
+      "explanation": "Set fields then call Label().",
+      "requiredStrings": [
+        "class Product"
+      ]
+    }
+  ]
+}

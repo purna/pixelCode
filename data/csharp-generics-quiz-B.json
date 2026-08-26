@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "section": "csharp-generics",
+    "level": "intermediate",
+    "title": "C# Generics"
+  },
+  "questions": [
+    {
+      "id": "csharp-generics-b-01",
+      "type": "scored",
+      "prompt": "What do generics give you?",
+      "options": [
+        "Runtime type checking only",
+        "Type safety with code reuse",
+        "Automatic casting",
+        "Faster execution"
+      ],
+      "answerIndex": 1,
+      "explanation": "Generics let one implementation work for many types with compile-time type safety."
+    },
+    {
+      "id": "csharp-generics-b-02",
+      "type": "scored",
+      "prompt": "A generic method's type parameter is:",
+      "options": [
+        "Fixed to int",
+        "Chosen by the caller at compile time",
+        "Always string",
+        "Ignored by the compiler"
+      ],
+      "answerIndex": 1,
+      "explanation": "The caller (or the compiler) supplies the type for T."
+    },
+    {
+      "id": "csharp-generics-b-03",
+      "type": "scored",
+      "prompt": "where T : struct means T must be:",
+      "options": [
+        "a reference type",
+        "a value type",
+        "newable",
+        "numeric"
+      ],
+      "answerIndex": 1,
+      "explanation": "struct restricts T to value types like int, bool, DateTime."
+    },
+    {
+      "id": "csharp-generics-b-04",
+      "type": "insert",
+      "prompt": "Complete the return type.",
+      "template": "public static _____ Echo<T>(T input)",
+      "options": [
+        "void",
+        "T",
+        "async",
+        "static"
+      ],
+      "answerIndex": 1,
+      "explanation": "A generic method can return its own type parameter T."
+    },
+    {
+      "id": "csharp-generics-b-05",
+      "type": "typing",
+      "prompt": "A generic class is parameterized by a _____ parameter.",
+      "template": "A generic class is parameterized by a _____ parameter.",
+      "blanks": [
+        "type"
+      ],
+      "explanation": "The type parameter is fixed per instantiation."
+    },
+    {
+      "id": "csharp-generics-b-06",
+      "type": "scored",
+      "prompt": "Box<int> and Box<string> are:",
+      "options": [
+        "the same type",
+        "different types",
+        "invalid",
+        "both object"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each instantiation of a generic class is a distinct type."
+    },
+    {
+      "id": "csharp-generics-b-07",
+      "type": "coderunner",
+      "prompt": "Store a value and look it up by key.",
+      "starterCode": "var d = new Dictionary<string, int>();\nd[\"x\"] = 1;\nbool has = d._____(\"x\");",
+      "expectedOutput": "true",
+      "outputPattern": "ContainsKey",
+      "requiredStrings": [
+        "ContainsKey"
+      ],
+      "hints": [
+        "Dictionary<TKey,TValue> maps keys to values.",
+        "Use ContainsKey(\"x\") to test whether a key exists."
+      ]
+    },
+    {
+      "id": "csharp-generics-b-08",
+      "type": "scored",
+      "prompt": "The new() constraint requires T to:",
+      "options": [
+        "be a class",
+        "be a struct",
+        "have a public parameterless constructor",
+        "be numeric"
+      ],
+      "answerIndex": 2,
+      "explanation": "new() lets you write new T() inside the method."
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "section": "csharp-syntax",
+  "title": "C# Syntax",
+  "slides": [
+    {
+      "title": "Basic Structure of a C# Program",
+      "content": "A C# program consists of one or more classes. Each program needs at least one class with a Main method that serves as the entry point when the application runs.",
+      "example": "class Program\n{\n    static void Main()\n    {\n        // code goes here\n    }\n}",
+      "exampleOutput": ""
+    },
+    {
+      "title": "Statements and Semicolons",
+      "content": "Every statement in C# ends with a semicolon. This tells the compiler where one instruction ends and the next begins.",
+      "example": "int x = 5;\nx = x + 1;\nConsole.WriteLine(x);",
+      "exampleOutput": "6"
+    },
+    {
+      "title": "Case Sensitivity",
+      "content": "C# is case-sensitive, meaning variable, method, and class names must match their declarations exactly. 'Name' and 'name' are two different identifiers.",
+      "example": "string Name = \"Alice\";\nConsole.WriteLine(Name);\nConsole.WriteLine(name);",
+      "exampleOutput": "Alice\n(compiler error)"
+    },
+    {
+      "title": "Comments",
+      "content": "Use comments to explain code. Single-line comments start with //, while multi-line comments are wrapped in /* and */.",
+      "example": "// This is a single-line comment\n/* This is a\n   multi-line comment */\nConsole.WriteLine(\"Hello\");",
+      "exampleOutput": "Hello"
+    },
+    {
+      "title": "Blocks and Braces",
+      "content": "Braces {} define a block of code. Blocks group statements together and are used for class bodies, method bodies, and control structures.",
+      "example": "if (true)\n{\n    Console.WriteLine(\"Inside the block\");\n    Console.WriteLine(\"Still inside\");\n}",
+      "exampleOutput": "Inside the block\nStill inside"
+    },
+    {
+      "title": "The Main Method Entry Point",
+      "content": "The Main method is where program execution begins. It must be static and is usually declared inside a Program class.",
+      "example": "class Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Starting here\");\n    }\n}",
+      "exampleOutput": "Starting here"
+    },
+    {
+      "title": "Using System and Console.WriteLine",
+      "content": "The using System directive imports the System namespace so you can use Console.WriteLine to print output without typing the full namespace path.",
+      "example": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine(\"Hello World\");\n    }\n}",
+      "exampleOutput": "Hello World"
+    },
+    {
+      "title": "Keywords vs Identifiers",
+      "content": "Keywords are reserved words like class and void. Identifiers are names you choose for variables, methods, and classes. Identifiers cannot be keywords.",
+      "example": "class MyClass\n{\n    static void Main()\n    {\n        int myNumber = 42;\n        Console.WriteLine(myNumber);\n    }\n}",
+      "exampleOutput": "42"
+    },
+    {
+      "title": "Flow Builder: Statements",
+      "content": "Drag blocks to declare an int x, assign it 5, then output x. Each block is one statement.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares x, assigns 5, and outputs x",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "x",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "x",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "5"
+            },
+            {
+              "id": "n3",
+              "kind": "output",
+              "expression": "x",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int x;\nx = 5;\noutput(x);",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

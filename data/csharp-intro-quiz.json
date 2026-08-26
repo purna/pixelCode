@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-intro",
+    "level": "beginner",
+    "title": "Introduction to C#"
+  },
+  "questions": [
+    {
+      "id": "csharp-intro-01",
+      "type": "scored",
+      "prompt": "What is C#?",
+      "options": [
+        "A markup language",
+        "A general-purpose, object-oriented programming language by Microsoft",
+        "A database system",
+        "An operating system"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# is a modern, general-purpose, object-oriented programming language developed by Microsoft."
+    },
+    {
+      "id": "csharp-intro-02",
+      "type": "scored",
+      "prompt": "Which runtime executes C# code?",
+      "options": [
+        "JVM",
+        "CLR (Common Language Runtime)",
+        "V8",
+        "Python interpreter"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# programs run on the CLR, the virtual machine component of .NET that manages execution."
+    },
+    {
+      "id": "csharp-intro-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to write the minimal entry point method",
+      "template": "______(string[] args) { }",
+      "options": [
+        "static void Mains",
+        "STATIC VOID MAIN",
+        "Static void main",
+        "static void Main"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-intro-04",
+      "type": "scored",
+      "prompt": "What does .NET provide to C# developers?",
+      "options": [
+        "Only a code editor",
+        "A framework/libraries, runtime, and tooling for building apps",
+        "A hardware chip",
+        "An internet browser"
+      ],
+      "answerIndex": 1,
+      "explanation": ".NET is a platform that provides libraries, a runtime (CLR), and tooling for building many kinds of applications."
+    },
+    {
+      "id": "csharp-intro-05",
+      "type": "scored",
+      "prompt": "Which of these is the correct minimal first program structure?",
+      "options": [
+        "print('hi')",
+        "using System; class Program { static void Main() { Console.WriteLine(\"Hi\"); } }",
+        "<html>Hi</html>",
+        "def main(): print('Hi')"
+      ],
+      "answerIndex": 1,
+      "explanation": "A C# console app needs a class with a static Main method and uses Console.WriteLine for output."
+    },
+    {
+      "id": "csharp-intro-06",
+      "type": "coderunner",
+      "prompt": "Write a program that prints the text: Hello, C#!",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    // Print the greeting\n    ______\n  }\n}",
+      "expectedOutput": "Hello, C#!\n",
+      "outputPattern": "^Hello, C#!\\n$",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-intro-07",
+      "type": "dragorder",
+      "prompt": "Arrange the code to create a valid first program",
+      "items": [
+        "using System;",
+        "class Program {",
+        "  static void Main() {",
+        "    Console.WriteLine(\"Hi\");",
+        "  }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "explanation": "Using directive, class declaration, Main method, the write statement, and closing braces."
+    },
+    {
+      "id": "csharp-intro-08",
+      "type": "scored",
+      "prompt": "C# was first released in which year?",
+      "options": [
+        "1995",
+        "2000",
+        "2010",
+        "1985"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# was unveiled by Microsoft in 2000."
+    },
+    {
+      "id": "csharp-intro-09",
+      "type": "scored",
+      "prompt": "Which company created and maintains C#?",
+      "options": [
+        "Oracle",
+        "Microsoft",
+        "Apple",
+        "Google"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# was created by Microsoft and is standardized by ECMA and ISO."
+    },
+    {
+      "id": "csharp-intro-10",
+      "type": "insert",
+      "prompt": "Fill in the blank to import the System namespace",
+      "template": "______;",
+      "options": [
+        "using System",
+        "using Systems",
+        "USING SYSTEM",
+        "Using system"
+      ],
+      "answerIndex": 0
+    }
+  ]
+}

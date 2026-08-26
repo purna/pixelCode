@@ -1,0 +1,245 @@
+{
+  "meta": {
+    "section": "csharp-switch",
+    "level": "beginner",
+    "title": "C# Switch"
+  },
+  "slides": [
+    {
+      "title": "Switch Statement",
+      "content": "A switch statement tests a single variable against multiple possible values using case labels.",
+      "example": "int level = 2;\nswitch (level)\n{\n    case 1:\n        Console.WriteLine(\"Easy\");\n        break;\n    case 2:\n        Console.WriteLine(\"Medium\");\n        break;\n}",
+      "exampleOutput": "Medium",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which keyword begins a switch?",
+        "options": [
+          "switch",
+          "case",
+          "if",
+          "select"
+        ],
+        "answer": "switch"
+      }
+    },
+    {
+      "title": "Case and Break",
+      "content": "Each case labels a value. break exits the switch so execution does not fall through to the next case.",
+      "example": "int color = 1;\nswitch (color)\n{\n    case 1:\n        Console.WriteLine(\"Red\");\n        break;\n}",
+      "exampleOutput": "Red",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Each case ends with _____",
+        "placeholder": "_____",
+        "answer": "break",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Default Case",
+      "content": "The default case handles any value that does not match an explicit case.",
+      "example": "int pet = 3;\nswitch (pet)\n{\n    case 1:\n        Console.WriteLine(\"Dog\");\n        break;\n    default:\n        Console.WriteLine(\"Other\");\n        break;\n}",
+      "exampleOutput": "Other",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the default line",
+        "before": "switch (x)\n{\n    case 1:\n        Console.WriteLine(\"One\");\n        break;\n",
+        "after": ":\n        Console.WriteLine(\"Unknown\");\n        break;\n}",
+        "options": [
+          "default",
+          "else",
+          "case",
+          "other"
+        ],
+        "answer": "default"
+      }
+    },
+    {
+      "title": "Multiple Cases",
+      "content": "You can stack multiple case labels before one block to execute the same code for different values.",
+      "example": "int day = 6;\nswitch (day)\n{\n    case 6:\n    case 7:\n        Console.WriteLine(\"Weekend\");\n        break;\n    default:\n        Console.WriteLine(\"Weekday\");\n}",
+      "exampleOutput": "Weekend",
+      "exercise": {
+        "type": "code",
+        "prompt": "Print 'Vowel' for both case 'a' and case 'e'",
+        "starterCode": "char letter = 'a';\n// Write your switch below\n",
+        "expectedOutput": "Vowel",
+        "outputPattern": "^Vowel$",
+        "requiredStrings": [
+          "switch"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: switch",
+          "When run, your code should output: Vowel"
+        ]
+      }
+    },
+    {
+      "title": "Switch Expressions",
+      "content": "Switch expressions return a value directly using =>. They replace verbose switch statements for simple mappings.",
+      "example": "int size = 2;\nstring label = size switch\n{\n    1 => \"Small\",\n    2 => \"Medium\",\n    _ => \"Large\"\n};\nConsole.WriteLine(label);",
+      "exampleOutput": "Medium",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The discard pattern in switch expressions uses _____",
+        "placeholder": "_____",
+        "answer": "_",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Pattern Matching",
+      "content": "Switch expressions support type patterns, letting you branch based on type or property values.",
+      "example": "object obj = 42;\nstring result = obj switch\n{\n    int i => $\"int: {i}\",\n    string s => $\"str: {s}\",\n    _ => \"unknown\"\n};\nConsole.WriteLine(result);",
+      "exampleOutput": "int: 42",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does _ represent in a switch expression?",
+        "options": [
+          "A discard/default case",
+          "A variable name",
+          "A type cast",
+          "An operator"
+        ],
+        "answer": "A discard/default case"
+      }
+    },
+    {
+      "title": "When Clauses",
+      "content": "Use when to add extra conditions to a case or switch arm beyond simple equality.",
+      "example": "int score = 85;\nstring grade = score switch\n{\n    int n when n >= 90 => \"A\",\n    int n when n >= 80 => \"B\",\n    _ => \"C\"\n};\nConsole.WriteLine(grade);",
+      "exampleOutput": "B",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the when clause pattern",
+        "before": "int x = 10;\nstring label = x switch\n{\n    int n _____ n > 0 => \"Pos\",\n    _ => \"Non\"\n};\nConsole.WriteLine(label);",
+        "after": "",
+        "options": [
+          "when",
+          "where",
+          "if",
+          "while"
+        ],
+        "answer": "when"
+      }
+    },
+    {
+      "title": "Switch Best Practices",
+      "content": "Prefer switch expressions for value mappings. Always include a default or discard case to handle unexpected input.",
+      "example": "int option = 3;\nstring action = option switch\n{\n    1 => \"Save\",\n    2 => \"Load\",\n    _ => \"Invalid\"\n};\nConsole.WriteLine(action);",
+      "exampleOutput": "Invalid",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use a switch expression to return 'Even' or 'Odd' for int n = 4",
+        "starterCode": "int n = 4;\n// Write your switch expression below\n",
+        "expectedOutput": "Even",
+        "outputPattern": "^Even$",
+        "requiredStrings": [
+          "switch"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: switch",
+          "When run, your code should output: Even"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Switch",
+      "content": "Use the Flow Builder to create a switch statement that maps a number to text.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that switches on level=2 and outputs 'Medium'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "level",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "level",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "2"
+            },
+            {
+              "id": "n3",
+              "kind": "switch",
+              "expression": "level",
+              "caseValue": "2",
+              "isDefault": false,
+              "body": [
+                {
+                  "id": "n4",
+                  "kind": "output",
+                  "expression": "\"Medium\"",
+                  "newline": true
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int level;\nlevel = 2;\nswitch (level)\n{\n    case 2:\n        output(\"Medium\");\n        break;\n}",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output",
+          "switch"
+        ],
+        "flowExample": {
+          "name": "Switch",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "level",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "level",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "2"
+              },
+              {
+                "id": "ex3",
+                "kind": "switch",
+                "expression": "level",
+                "caseValue": "2",
+                "isDefault": false,
+                "body": [
+                  {
+                    "id": "ex4",
+                    "kind": "output",
+                    "expression": "\"Medium\"",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "section": "csharp-async",
+    "level": "expert",
+    "title": "C# Async/Await"
+  },
+  "questions": [
+    {
+      "id": "csharp-async-b-01",
+      "type": "scored",
+      "prompt": "What does the async modifier allow in a method?",
+      "options": [
+        "Run the method on a background thread",
+        "Use await to pause and resume",
+        "Make the method run in parallel",
+        "Allocate a Task object"
+      ],
+      "answerIndex": 1,
+      "explanation": "async enables the await operator inside a method."
+    },
+    {
+      "id": "csharp-async-b-02",
+      "type": "scored",
+      "prompt": "Awaiting a Task<T> yields:",
+      "options": [
+        "T",
+        "Task<T>",
+        "void",
+        "Task"
+      ],
+      "answerIndex": 0,
+      "explanation": "await unwraps Task<T> to its result T."
+    },
+    {
+      "id": "csharp-async-b-03",
+      "type": "scored",
+      "prompt": "ConfigureAwait(false) is mainly used in:",
+      "options": [
+        "UI event handlers",
+        "Library code",
+        "Async Main",
+        "Loop bodies"
+      ],
+      "answerIndex": 1,
+      "explanation": "It avoids capturing the calling context, which is preferred in library code."
+    },
+    {
+      "id": "csharp-async-b-04",
+      "type": "scored",
+      "prompt": "Task.WhenAll does:",
+      "options": [
+        "Runs tasks sequentially",
+        "Waits for all tasks to finish",
+        "Returns the first result",
+        "Cancels remaining tasks"
+      ],
+      "answerIndex": 1,
+      "explanation": "It awaits every Task passed to it and completes when all finish."
+    },
+    {
+      "id": "csharp-async-b-05",
+      "type": "insert",
+      "prompt": "Complete the line to await and receive the value.",
+      "template": "int x = _____ GetValueAsync();",
+      "options": [
+        "await",
+        "return",
+        "yield",
+        "new"
+      ],
+      "answerIndex": 0,
+      "explanation": "await suspends until the Task finishes and yields its int result."
+    },
+    {
+      "id": "csharp-async-b-06",
+      "type": "typing",
+      "prompt": "______ pauses the method until the Task finishes.",
+      "template": "______ pauses the method until the Task finishes.",
+      "blanks": [
+        "await"
+      ],
+      "explanation": "await pauses the async method without blocking the thread."
+    },
+    {
+      "id": "csharp-async-b-07",
+      "type": "coderunner",
+      "prompt": "Return a value from an async Task<int> method.",
+      "starterCode": "static async Task<int> Compute()\n{\n  await Task.Delay(10);\n  return _____;\n}",
+      "expectedOutput": "42",
+      "outputPattern": "return 42",
+      "requiredStrings": [
+        "return",
+        "42"
+      ],
+      "hints": [
+        "Return an integer literal.",
+        "The expected result is 42."
+      ]
+    },
+    {
+      "id": "csharp-async-b-08",
+      "type": "scored",
+      "prompt": "Which Main signature allows await?",
+      "options": [
+        "static void Main()",
+        "static int Main()",
+        "static async Task Main()",
+        "static Task Main()"
+      ],
+      "answerIndex": 2,
+      "explanation": "static async Task Main supports await (C# 7.1+)."
+    }
+  ]
+}

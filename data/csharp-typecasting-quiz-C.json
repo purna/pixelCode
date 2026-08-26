@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-typecasting",
+    "level": "beginner",
+    "title": "C# Type Casting"
+  },
+  "questions": [
+    {
+      "id": "csharp-typecasting-c-01",
+      "type": "scored",
+      "prompt": "What does implicit casting mean in C#?",
+      "options": [
+        "You must use the cast keyword",
+        "The compiler automatically converts a smaller type to a larger compatible type",
+        "You parse a string",
+        "You round a decimal"
+      ],
+      "answerIndex": 1,
+      "explanation": "Implicit casting is automatic conversion from a smaller type to a larger compatible type with no data loss."
+    },
+    {
+      "id": "csharp-typecasting-c-02",
+      "type": "insert",
+      "prompt": "Fill in the blank for the cast operator",
+      "template": "int i = 5;\ndouble d = _____ i;",
+      "options": [
+        "(double)",
+        "(double)s",
+        "(DOUBLE)",
+        "(double)"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-typecasting-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these lines to convert a string to an int safely",
+      "items": [
+        "string s = \"123\";",
+        "int result;",
+        "bool ok = int.TryParse(s, out result);",
+        "Console.WriteLine(result);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "TryParse attempts the conversion and returns a bool. If successful, result contains the parsed value."
+    },
+    {
+      "id": "csharp-typecasting-c-04",
+      "type": "scored",
+      "prompt": "Which method converts a string to an int without throwing exceptions?",
+      "options": [
+        "int.Parse",
+        "Convert.ToInt32",
+        "int.TryParse",
+        "Math.ToInt"
+      ],
+      "answerIndex": 2,
+      "explanation": "int.TryParse returns a bool indicating success. Parse and Convert throw exceptions on invalid input."
+    },
+    {
+      "id": "csharp-typecasting-c-05",
+      "type": "coderunner",
+      "prompt": "Cast the double 3.7 to an int using explicit casting and print the result",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        double d = 3.7;\n        // Cast and print\n        \n    }\n}",
+      "expectedOutput": "3\n",
+      "outputPattern": "^3\\n$",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-typecasting-c-06",
+      "type": "scored",
+      "prompt": "What happens when casting a long value that exceeds int.MaxValue?",
+      "options": [
+        "It rounds",
+        "It overflows and may produce unexpected results",
+        "It throws an exception automatically",
+        "It converts to double"
+      ],
+      "answerIndex": 1,
+      "explanation": "Unchecked context: overflow is silent and wraps. Checked context throws OverflowException."
+    },
+    {
+      "id": "csharp-typecasting-c-07",
+      "type": "insert",
+      "prompt": "Fill in the blank to parse a string to an integer",
+      "template": "int n = _____(\"10\");",
+      "options": [
+        "int.Parses",
+        "int.Parse",
+        "Int.parse",
+        "INT.PARSE"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-typecasting-c-08",
+      "type": "scored",
+      "prompt": "What does Convert.ToInt32 handle that int.Parse does not?",
+      "options": [
+        "Strings only",
+        "Null inputs (returns 0)",
+        "Negative numbers",
+        "Hex strings"
+      ],
+      "answerIndex": 1,
+      "explanation": "Convert.ToInt32(null) returns 0. int.Parse(null) throws an ArgumentNullException."
+    },
+    {
+      "id": "csharp-typecasting-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the casting order from widest to narrowest",
+      "items": [
+        "double",
+        "float",
+        "long",
+        "int"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "double > float > long > int in terms of range and precision for implicit casting."
+    },
+    {
+      "id": "csharp-typecasting-c-10",
+      "type": "scored",
+      "prompt": "What is truncation in type casting?",
+      "options": [
+        "Rounding to the nearest whole number",
+        "Dropping the decimal portion without rounding",
+        "Converting to string",
+        "Expanding the number"
+      ],
+      "answerIndex": 1,
+      "explanation": "Truncation removes the fractional part. (int)9.9 becomes 9, not 10."
+    }
+  ]
+}

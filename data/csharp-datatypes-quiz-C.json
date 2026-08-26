@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-datatypes",
+    "level": "beginner",
+    "title": "C# Data Types"
+  },
+  "questions": [
+    {
+      "id": "csharp-datatypes-c-01",
+      "type": "scored",
+      "prompt": "Which C# type is used to store whole numbers like -5, 0, or 42?",
+      "options": [
+        "double",
+        "int",
+        "bool",
+        "string"
+      ],
+      "answerIndex": 1,
+      "explanation": "int is used for 32-bit signed integers. double is for decimals, bool for true/false, and string for text."
+    },
+    {
+      "id": "csharp-datatypes-c-02",
+      "type": "insert",
+      "prompt": "What is the default value of an unassigned int field?",
+      "template": "The default value is _____.",
+      "options": [
+        "1",
+        "0",
+        "0",
+        "03"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-datatypes-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these numeric types from smallest to largest",
+      "items": [
+        "double",
+        "int",
+        "long",
+        "short"
+      ],
+      "solution": [
+        3,
+        2,
+        1,
+        0
+      ],
+      "explanation": "short (2 bytes) < int (4 bytes) < long (8 bytes) < double (8 bytes)."
+    },
+    {
+      "id": "csharp-datatypes-c-04",
+      "type": "scored",
+      "prompt": "Which type represents sequences of characters (text)?",
+      "options": [
+        "char",
+        "string",
+        "int",
+        "bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "string represents a sequence of characters. char is a single character."
+    },
+    {
+      "id": "csharp-datatypes-c-05",
+      "type": "coderunner",
+      "prompt": "Declare variables of type int, double, and bool, initialize them, and print each on its own line",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Declare, initialize, and print\n        \n    }\n}",
+      "expectedOutput": "5\n3.14\nTrue\n",
+      "outputPattern": "^5\\n3\\.14\\nTrue\\n$",
+      "requiredStrings": [
+        "init"
+      ]
+    },
+    {
+      "id": "csharp-datatypes-c-06",
+      "type": "scored",
+      "prompt": "What is the size of a double in C#?",
+      "options": [
+        "4 bytes",
+        "8 bytes",
+        "16 bytes",
+        "Depends on platform"
+      ],
+      "answerIndex": 1,
+      "explanation": "double is a 64-bit floating-point type, so it uses 8 bytes."
+    },
+    {
+      "id": "csharp-datatypes-c-07",
+      "type": "insert",
+      "prompt": "What is the default value of a char variable?",
+      "template": "The default value is _____.",
+      "options": [
+        "'\\0'",
+        "'\\0's",
+        "'\\0'",
+        "'\\0'3"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-datatypes-c-08",
+      "type": "scored",
+      "prompt": "Which type can hold the value null by default in C#?",
+      "options": [
+        "int",
+        "bool",
+        "string",
+        "char"
+      ],
+      "answerIndex": 2,
+      "explanation": "string is a reference type and defaults to null. int, bool, and char are value types with non-null defaults."
+    },
+    {
+      "id": "csharp-datatypes-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange these types from smallest to largest default memory usage",
+      "items": [
+        "char",
+        "int",
+        "double",
+        "string"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "char (2 bytes) < int (4 bytes) < double (8 bytes) < string (reference type with object header)."
+    },
+    {
+      "id": "csharp-datatypes-c-10",
+      "type": "scored",
+      "prompt": "Which of these is a value type in C#?",
+      "options": [
+        "string",
+        "int",
+        "array",
+        "class"
+      ],
+      "answerIndex": 1,
+      "explanation": "int is a value type stored on the stack (usually). string, arrays, and classes are reference types."
+    }
+  ]
+}

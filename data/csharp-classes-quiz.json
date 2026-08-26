@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-classes",
+    "level": "intermediate",
+    "title": "C# Classes and Objects"
+  },
+  "questions": [
+    {
+      "id": "csharp-classes-01",
+      "type": "scored",
+      "prompt": "How do you create an object (instance) of a class Book?",
+      "options": [
+        "Book b;",
+        "Book b = new Book();",
+        "new Book b;",
+        "Book() b;"
+      ],
+      "answerIndex": 1,
+      "explanation": "Instantiation uses the new keyword: Book b = new Book();"
+    },
+    {
+      "id": "csharp-classes-02",
+      "type": "scored",
+      "prompt": "What keyword allocates an object on the managed heap?",
+      "options": [
+        "malloc",
+        "new",
+        "create",
+        "alloc"
+      ],
+      "answerIndex": 1,
+      "explanation": "The new operator creates an instance and invokes a constructor."
+    },
+    {
+      "id": "csharp-classes-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to define an empty class Student",
+      "blanks": [
+        "class Student {}"
+      ],
+      "template": "______"
+    },
+    {
+      "id": "csharp-classes-04",
+      "type": "scored",
+      "prompt": "Can you create multiple objects from one class?",
+      "options": [
+        "No, only one",
+        "Yes, each is an independent instance",
+        "Only with static",
+        "Only in structs"
+      ],
+      "answerIndex": 1,
+      "explanation": "A class is a template; you can instantiate as many independent objects as you need."
+    },
+    {
+      "id": "csharp-classes-05",
+      "type": "coderunner",
+      "prompt": "Define class Counter with a public int Value=5 and print it for a new object",
+      "starterCode": "using System;\nclass Counter {\n  public int Value = 5;\n}\nclass Program {\n  static void Main() {\n    Counter c = new Counter();\n    ______\n  }\n}",
+      "expectedOutput": "5\n",
+      "outputPattern": "^5\\n$",
+      "requiredStrings": [
+        "new Counter()"
+      ]
+    },
+    {
+      "id": "csharp-classes-06",
+      "type": "scored",
+      "prompt": "What is the default access level of a class member if none is specified?",
+      "options": [
+        "public",
+        "private",
+        "internal",
+        "protected"
+      ],
+      "answerIndex": 1,
+      "explanation": "Class members default to private when no modifier is given."
+    },
+    {
+      "id": "csharp-classes-07",
+      "type": "dragorder",
+      "prompt": "Arrange code to define a class and create two objects",
+      "items": [
+        "class Point { public int X; }",
+        "Point p1 = new Point();",
+        "Point p2 = new Point();",
+        "p1.X = 1;"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Define class, instantiate two objects, then set a field."
+    },
+    {
+      "id": "csharp-classes-08",
+      "type": "scored",
+      "prompt": "What is a constructor?",
+      "options": [
+        "A method that returns a value",
+        "A special method with the class name used to initialize objects",
+        "A static field",
+        "An operator"
+      ],
+      "answerIndex": 1,
+      "explanation": "A constructor has the same name as the class and initializes new instances."
+    },
+    {
+      "id": "csharp-classes-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to call a no-arg constructor",
+      "blanks": [
+        "new Logger()"
+      ],
+      "template": "Logger log = ______;"
+    },
+    {
+      "id": "csharp-classes-10",
+      "type": "scored",
+      "prompt": "Two objects of the same class share:",
+      "options": [
+        "The same field values automatically",
+        "The same type/method definitions, but separate field data",
+        "Nothing",
+        "The same memory address"
+      ],
+      "answerIndex": 1,
+      "explanation": "Objects share the type's members but each has its own field storage."
+    }
+  ]
+}

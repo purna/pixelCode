@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-inheritance",
+    "level": "intermediate",
+    "title": "C# Inheritance"
+  },
+  "questions": [
+    {
+      "id": "csharp-inheritance-b-01",
+      "type": "scored",
+      "prompt": "Inheritance is denoted with the colon in:",
+      "options": [
+        "class Dog : Animal",
+        "class Dog extends Animal",
+        "class Dog inherits Animal",
+        "Dog -> Animal"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# uses colon to indicate a base class."
+    },
+    {
+      "id": "csharp-inheritance-b-02",
+      "type": "scored",
+      "prompt": "A derived class can access:",
+      "options": [
+        "Only its own members",
+        "Public/protected base members",
+        "All private base members",
+        "Nothing from base"
+      ],
+      "answerIndex": 1,
+      "explanation": "public and protected base members are accessible to subclasses."
+    },
+    {
+      "id": "csharp-inheritance-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare Cat inheriting Animal",
+      "blanks": [
+        "class Cat : Animal"
+      ],
+      "template": "______ { }",
+      "explanation": "Colon marks the base class."
+    },
+    {
+      "id": "csharp-inheritance-b-04",
+      "type": "scored",
+      "prompt": "C# supports:",
+      "options": [
+        "Multiple class inheritance",
+        "Single class inheritance only",
+        "No inheritance",
+        "Infinite inheritance"
+      ],
+      "answerIndex": 1,
+      "explanation": "A class can have only one direct base class."
+    },
+    {
+      "id": "csharp-inheritance-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Animal { public string Name; } and class Dog : Animal { }, then set d.Name='Rex' and print it",
+      "starterCode": "using System;\nclass Animal { public string Name; }\nclass Dog : Animal { }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Rex\n",
+      "outputPattern": "^Rex\\n$",
+      "explanation": "Dog inherits Name from Animal.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-inheritance-b-06",
+      "type": "scored",
+      "prompt": "The 'base' keyword refers to:",
+      "options": [
+        "The derived class",
+        "The base class instance/members",
+        "A static field",
+        "The method"
+      ],
+      "answerIndex": 1,
+      "explanation": "base accesses base class members."
+    },
+    {
+      "id": "csharp-inheritance-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange a base and derived class with an overridden method",
+      "items": [
+        "class A { public virtual void F() { } }",
+        "class B : A {",
+        "  public override void F() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "B overrides virtual F from A."
+    },
+    {
+      "id": "csharp-inheritance-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to call the base version of a method",
+      "blanks": [
+        "base.F()"
+      ],
+      "template": "public override void F() { ______; }",
+      "explanation": "base invokes the parent implementation."
+    },
+    {
+      "id": "csharp-inheritance-b-09",
+      "type": "scored",
+      "prompt": "A sealed method prevents:",
+      "options": [
+        "Inheritance",
+        "Further overriding in subclasses",
+        "Compilation",
+        "Usage"
+      ],
+      "answerIndex": 1,
+      "explanation": "sealed override blocks further overriding."
+    },
+    {
+      "id": "csharp-inheritance-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Vehicle { public int Wheels=4; } and class Bike : Vehicle { public int Wheels=2; } then print new Bike().Wheels",
+      "starterCode": "using System;\nclass Vehicle { public int Wheels = 4; }\nclass Bike : Vehicle { public int Wheels = 2; }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "2\n",
+      "outputPattern": "^2\\n$",
+      "explanation": "Bike's own Wheels hides base (would warn but works).",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

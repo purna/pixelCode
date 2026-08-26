@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "section": "csharp-math",
+    "level": "beginner",
+    "title": "C# Math C"
+  },
+  "questions": [
+    {
+      "id": "math-c-01",
+      "type": "scored",
+      "prompt": "What does Math.Round(2.3) return?",
+      "options": [
+        "2",
+        "3",
+        "2.0",
+        "3.0"
+      ],
+      "answerIndex": 0,
+      "explanation": "Math.Round rounds to the nearest integer. 2.3 rounds down to 2."
+    },
+    {
+      "id": "math-c-02",
+      "type": "insert",
+      "prompt": "What method finds the smaller of two values?",
+      "template": "double smaller = _____(4.5, 3.2);",
+      "options": [
+        "Math.min",
+        "MATH.MIN",
+        "Math.Mins",
+        "Math.Min"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "math-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these to compute 4 squared.",
+      "items": [
+        "Math.Pow(4, 2)",
+        "Math.Sqrt(4)",
+        "Math.Round(4)",
+        "Math.Max(4, 2)"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Math.Pow(4, 2) computes 4 raised to the power of 2."
+    },
+    {
+      "id": "math-c-04",
+      "type": "scored",
+      "prompt": "What does Math.Sqrt(25) return?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "25"
+      ],
+      "answerIndex": 1,
+      "explanation": "The square root of 25 is 5."
+    },
+    {
+      "id": "math-c-05",
+      "type": "coderunner",
+      "prompt": "Use Math.Max and Math.Min to print the larger and smaller of 9 and 14.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        int a = 9;\n        int b = 14;\n        // print larger then smaller\n        \n    }\n}",
+      "expectedOutput": "14\n9\n",
+      "outputPattern": "^14\\n9\\n$",
+      "requiredStrings": [
+        "Math.Max",
+        "Math.Min"
+      ]
+    },
+    {
+      "id": "math-c-06",
+      "type": "scored",
+      "prompt": "What does Math.Pow(5, 0) return?",
+      "options": [
+        "0",
+        "1",
+        "5",
+        "Error"
+      ],
+      "answerIndex": 1,
+      "explanation": "Any non-zero number raised to the power of 0 equals 1."
+    },
+    {
+      "id": "math-c-07",
+      "type": "insert",
+      "prompt": "What is the return type of Math.Sqrt?",
+      "template": "Math.Sqrt returns a _____.",
+      "options": [
+        "str",
+        "boolean",
+        "double",
+        "integer"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "math-c-08",
+      "type": "scored",
+      "prompt": "What is Math.Min(100, 100)?",
+      "options": [
+        "0",
+        "100",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 1,
+      "explanation": "When values are equal, Math.Min returns that value."
+    },
+    {
+      "id": "math-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange these to compute the square root of 144.",
+      "items": [
+        "Math.Sqrt(144)",
+        "Math.Pow(144, 2)",
+        "Math.Round(144)",
+        "Math.Max(144, 12)"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Math.Sqrt(144) returns 12."
+    },
+    {
+      "id": "math-c-10",
+      "type": "scored",
+      "prompt": "Which Math method is used for exponentiation?",
+      "options": [
+        "Math.Sqrt",
+        "Math.Pow",
+        "Math.Exp",
+        "Math.Log"
+      ],
+      "answerIndex": 1,
+      "explanation": "Math.Pow(base, exponent) computes exponentiation."
+    }
+  ]
+}

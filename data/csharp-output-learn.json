@@ -1,0 +1,182 @@
+{
+  "section": "csharp-output",
+  "title": "C# Output",
+  "slides": [
+    {
+      "title": "Writing to the Console",
+      "content": "Console.WriteLine outputs text followed by a new line. Console.Write outputs text without moving to a new line.",
+      "example": "Console.WriteLine(\"Hello\");\nConsole.Write(\"World\");",
+      "exampleOutput": "Hello\nWorld",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method prints text and moves to the next line?",
+        "options": [
+          "Console.WriteLine()",
+          "Console.Write()",
+          "Console.Read()",
+          "Console.ReadLine()"
+        ],
+        "answer": "Console.WriteLine()"
+      }
+    },
+    {
+      "title": "Formatting Output",
+      "content": "You can embed variables directly in strings using string interpolation with the $ prefix and curly braces.",
+      "example": "string name = \"Alice\";\nConsole.WriteLine($\"Hello, {name}!\");",
+      "exampleOutput": "Hello, Alice!",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the interpolation syntax to print the age variable: Console.WriteLine($\"Age: {_____}\");",
+        "placeholder": "_____",
+        "answer": "age",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Escape Sequences",
+      "content": "Escape sequences use a backslash to insert special characters like newlines and tabs into strings.",
+      "example": "Console.WriteLine(\"Line 1\\nLine 2\");\nConsole.WriteLine(\"Tab\\tHere\");",
+      "exampleOutput": "Line 1\nLine 2\nTab\tHere",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the correct escape sequence to print a tab character: Console.WriteLine(\"A[?]B\");",
+        "before": "A",
+        "after": "B\");",
+        "options": [
+          "\\t",
+          "\\n",
+          "\\r",
+          "\\\\"
+        ],
+        "answer": "\\t"
+      }
+    },
+    {
+      "title": "Placeholders and Composite Formatting",
+      "content": "String.Format and composite formatting use numbered placeholders {0}, {1} to insert values in order.",
+      "example": "Console.WriteLine(\"{0} + {1} = {2}\", 2, 3, 5);",
+      "exampleOutput": "2 + 3 = 5",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "In \"{0} + {1} = {2}\", what does {1} refer to?",
+        "options": [
+          "The second argument",
+          "The first argument",
+          "The third argument",
+          "A literal string"
+        ],
+        "answer": "The second argument"
+      }
+    },
+    {
+      "title": "Combining Text and Variables",
+      "content": "String concatenation joins strings with +. Interpolation is usually cleaner and less error-prone.",
+      "example": "int x = 10;\nConsole.WriteLine(\"x is \" + x);\nConsole.WriteLine($\"x is {x}\");",
+      "exampleOutput": "x is 10\nx is 10",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write a Console.WriteLine using string interpolation to print: Result: 42",
+        "starterCode": "int result = 42;\nConsole.WriteLine(_____);",
+        "expectedOutput": "Result: 42",
+        "outputPattern": "Result: 42",
+        "requiredStrings": [
+          "$"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: $",
+          "When run, your code should output: Result: 42"
+        ]
+      }
+    },
+    {
+      "title": "Verbatim String Literals",
+      "content": "Verbatim strings start with @ and preserve whitespace and backslashes. They are useful for file paths.",
+      "example": "Console.WriteLine(@\"C:\\\\Users\\\\Docs\\\\file.txt\");",
+      "exampleOutput": "C:\\Users\\Docs\\file.txt",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A verbatim string starts with the @ symbol. Complete: string path = @\"_____\\file.txt\";",
+        "placeholder": "_____",
+        "answer": "C:\\Users",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Printing Without Newlines",
+      "content": "Console.Write stays on the same line. Use Console.WriteLine() only when you want to advance to the next line.",
+      "example": "Console.Write(\"Loading...\");\nThread.Sleep(1000);\nConsole.WriteLine(\" Done!\");",
+      "exampleOutput": "Loading... Done!",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method keeps the cursor on the same line?",
+        "options": [
+          "Console.Write()",
+          "Console.WriteLine()",
+          "Console.WriteLine() with empty string",
+          "Both Write and WriteLine"
+        ],
+        "answer": "Console.Write()"
+      }
+    },
+    {
+      "title": "Output Review",
+      "content": "C# offers Write, WriteLine, interpolation, placeholders, escape sequences, and verbatim strings for output.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Print an escaped newline followed by a tab: first line, then indented second line.",
+        "starterCode": "Console.WriteLine(\"First line_____Second line\");\nConsole.WriteLine(\"Indented\");",
+        "expectedOutput": "First line\n\tSecond line\nIndented",
+        "outputPattern": "First line\\n\\tSecond line\\nIndented",
+        "requiredStrings": [
+          "\\n",
+          "\\t"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: \\n, \\t",
+          "When run, your code should output: First line, \tSecond line, Indented"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Output",
+      "content": "Use the Flow Builder to create an output that prints a greeting with a newline.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that outputs 'Hello, World!' with a newline",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "output",
+              "expression": "\"Hello, World!\"",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "output(\"Hello, World!\");",
+        "blocksToShow": [
+          "output"
+        ],
+        "flowExample": {
+          "name": "Hello World",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "output",
+                "expression": "\"Hello, World!\"",
+                "newline": true
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

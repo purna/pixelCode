@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "section": "csharp-linq",
+    "level": "expert",
+    "title": "C# LINQ"
+  },
+  "questions": [
+    {
+      "id": "csharp-linq-b-01",
+      "type": "scored",
+      "prompt": "LINQ queries can be written against objects that implement:",
+      "options": [
+        "IDisposable",
+        "IEnumerable<T>",
+        "IComparable",
+        "IEquatable<T>"
+      ],
+      "answerIndex": 1,
+      "explanation": "LINQ operates on IEnumerable<T>."
+    },
+    {
+      "id": "csharp-linq-b-02",
+      "type": "scored",
+      "prompt": "Which method filters a sequence based on a condition?",
+      "options": [
+        "Select",
+        "Where",
+        "OrderBy",
+        "First"
+      ],
+      "answerIndex": 1,
+      "explanation": "Where keeps elements where the predicate is true."
+    },
+    {
+      "id": "csharp-linq-b-03",
+      "type": "scored",
+      "prompt": "When is a LINQ query actually executed?",
+      "options": [
+        "When it is written",
+        "When it is enumerated",
+        "After ToList is called",
+        "Immediately on assignment"
+      ],
+      "answerIndex": 1,
+      "explanation": "LINQ uses deferred execution; it runs when enumerated."
+    },
+    {
+      "id": "csharp-linq-b-04",
+      "type": "typing",
+      "prompt": "Calling ______ forces a deferred LINQ query to run and produce a collection.",
+      "template": "Calling ______ forces a deferred LINQ query to run and produce a collection.",
+      "blanks": [
+        "ToList"
+      ],
+      "explanation": "ToList() materializes the query into a concrete List."
+    },
+    {
+      "id": "csharp-linq-b-05",
+      "type": "scored",
+      "prompt": "FirstOrDefault on an empty sequence returns:",
+      "options": [
+        "Throws InvalidOperationException",
+        "null",
+        "default(T)",
+        "0"
+      ],
+      "answerIndex": 2,
+      "explanation": "FirstOrDefault returns default(T) instead of throwing on empty."
+    },
+    {
+      "id": "csharp-linq-b-06",
+      "type": "coderunner",
+      "prompt": "Complete the code to print how many words have length > 3.",
+      "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nint n = words.Where(_______).Count();\nConsole.WriteLine(n);",
+      "expectedOutput": "2",
+      "outputPattern": "w => w\\.Length",
+      "requiredStrings": [
+        "Length"
+      ],
+      "hints": [
+        "Keep words where w.Length > 3.",
+        "Count() returns the number of matching elements."
+      ]
+    },
+    {
+      "id": "csharp-linq-b-07",
+      "type": "insert",
+      "prompt": "Complete: get the shortest word by length.",
+      "template": "var best = words._______(w => w.Length).FirstOrDefault();",
+      "options": [
+        "OrderBy",
+        "Where",
+        "Select",
+        "First"
+      ],
+      "answerIndex": 0,
+      "explanation": "OrderBy sorts by length; FirstOrDefault picks the first (shortest)."
+    },
+    {
+      "id": "csharp-linq-b-08",
+      "type": "scored",
+      "prompt": "Which using directive lets you call Where/Select on a List?",
+      "options": [
+        "using System;",
+        "using System.Collections.Generic;",
+        "using System.Linq;",
+        "using System.Text;"
+      ],
+      "answerIndex": 2,
+      "explanation": "LINQ extension methods live in System.Linq."
+    }
+  ]
+}

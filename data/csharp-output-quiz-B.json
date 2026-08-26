@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-output",
+    "level": "beginner",
+    "title": "C# Output"
+  },
+  "questions": [
+    {
+      "id": "csharp-output-b-01",
+      "type": "scored",
+      "prompt": "Which method prints text without appending a newline?",
+      "options": [
+        "Console.WriteLine",
+        "Console.Write",
+        "Console.Print",
+        "Console.Output"
+      ],
+      "answerIndex": 1,
+      "explanation": "Console.Write outputs text without adding a newline, keeping the cursor on the same line."
+    },
+    {
+      "id": "csharp-output-b-02",
+      "type": "scored",
+      "prompt": "What does Console.WriteLine(\"Test\") output?",
+      "options": [
+        "Test",
+        "Test followed by a newline",
+        "Nothing",
+        "Test followed by a space"
+      ],
+      "answerIndex": 1,
+      "explanation": "WriteLine prints the text and then appends a newline character."
+    },
+    {
+      "id": "csharp-output-b-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to write Hello without a newline",
+      "template": "______(\"Hello\");",
+      "options": [
+        "Console.write",
+        "Console.Write",
+        "Console.Writes",
+        "CONSOLE.WRITE"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-output-b-04",
+      "type": "scored",
+      "prompt": "Which escape sequence creates a new line in the output?",
+      "options": [
+        "\\\\t",
+        "\\\\n",
+        "\\\\b",
+        "\\\\r"
+      ],
+      "answerIndex": 1,
+      "explanation": "The \\n escape sequence inserts a newline (line feed) in the output."
+    },
+    {
+      "id": "csharp-output-b-05",
+      "type": "coderunner",
+      "prompt": "Print: Hello Alice using string interpolation",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        string name = \"Alice\";\n        // Print using interpolation\n        \n    }\n}",
+      "expectedOutput": "Hello Alice\n",
+      "outputPattern": "^Hello Alice\\n$",
+      "requiredStrings": [
+        "WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-output-b-06",
+      "type": "dragorder",
+      "prompt": "Arrange the code to print Hello then World on separate lines",
+      "items": [
+        "Console.WriteLine(\"Hello\");",
+        "Console.WriteLine(\"World\");"
+      ],
+      "solution": [
+        0,
+        1
+      ],
+      "explanation": "Each WriteLine call prints on its own line."
+    },
+    {
+      "id": "csharp-output-b-07",
+      "type": "scored",
+      "prompt": "What symbol is used for string interpolation in C#?",
+      "options": [
+        "&",
+        "$",
+        "#",
+        "@"
+      ],
+      "answerIndex": 1,
+      "explanation": "The $ prefix before a string enables string interpolation, allowing expressions inside { }."
+    },
+    {
+      "id": "csharp-output-b-08",
+      "type": "scored",
+      "prompt": "In Console.WriteLine(\"{0} {1}\", a, b), what does {0} refer to?",
+      "options": [
+        "The 0th index",
+        "The first argument after the format string",
+        "A tab",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "{0} is replaced by the first argument (a), {1} by the second (b)."
+    },
+    {
+      "id": "csharp-output-b-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to insert a tab character",
+      "template": "Console.WriteLine(\"Name______Age\");",
+      "options": [
+        "\\\\T",
+        "\\\\t",
+        "\\\\t",
+        "\\\\ts"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-output-b-10",
+      "type": "scored",
+      "prompt": "What does Console.Write do compared to Console.WriteLine?",
+      "options": [
+        "Nothing",
+        "Writes text without a newline",
+        "Writes numbers only",
+        "Writes to a file"
+      ],
+      "answerIndex": 1,
+      "explanation": "Console.Write outputs text without adding a newline, so the cursor stays on the same line."
+    }
+  ]
+}

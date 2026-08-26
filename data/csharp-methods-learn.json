@@ -1,0 +1,199 @@
+{
+  "section": "csharp-methods",
+  "title": "C# Methods",
+  "slides": [
+    {
+      "title": "What Are Methods",
+      "content": "Methods are reusable blocks of code that perform a specific task. They help organize logic and avoid repetition.",
+      "example": "void SayHello()\n{\n    Console.WriteLine(\"Hello!\");\n}\n\nSayHello();\nSayHello();",
+      "exampleOutput": "Hello!\nHello!",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Why use methods?",
+        "options": [
+          "To slow down code",
+          "To reuse code",
+          "To use more memory",
+          "To confuse readers"
+        ],
+        "answer": "To reuse code"
+      }
+    },
+    {
+      "title": "Defining Methods",
+      "content": "A method needs an access modifier, return type, name, parameters, and a body in curly braces.",
+      "example": "public int Add(int a, int b)\n{\n    int sum = a + b;\n    return sum;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the method signature",
+        "before": "public ",
+        "after": " Calculate(int x, int y)",
+        "options": [
+          "int",
+          "void",
+          "string",
+          "bool"
+        ],
+        "answer": "int"
+      }
+    },
+    {
+      "title": "Method Return Types",
+      "content": "A method can return a value using the return keyword. The type must match the declared return type.",
+      "example": "int Multiply(int a, int b)\n{\n    return a * b;\n}\n\nint result = Multiply(3, 4); // 12",
+      "exampleOutput": "12",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Use return to send back a value: `return a + b;` - the method must not be _____",
+        "placeholder": "_____",
+        "answer": "void",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Void Methods",
+      "content": "Void methods perform actions but do not return a value. They use return; only to exit early.",
+      "example": "void PrintSum(int a, int b)\n{\n    Console.WriteLine(a + b);\n}\n\nPrintSum(5, 3); // 8",
+      "exampleOutput": "8",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does void mean?",
+        "options": [
+          "No parameters",
+          "No return value",
+          "Private method",
+          "Static method"
+        ],
+        "answer": "No return value"
+      }
+    },
+    {
+      "title": "Calling Methods",
+      "content": "Call a method by its name followed by parentheses. Pass arguments that match the parameter types.",
+      "example": "void Greet(string name)\n{\n    Console.WriteLine(\"Hi, \" + name);\n}\n\nGreet(\"Alice\");\nGreet(\"Bob\");",
+      "exampleOutput": "Hi, Alice\nHi, Bob",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the method call",
+        "before": "ShowScore(",
+        "after": ");",
+        "options": [
+          "95",
+          "score",
+          "int",
+          "\"95\""
+        ],
+        "answer": "95"
+      }
+    },
+    {
+      "title": "Method Overloading",
+      "content": "Multiple methods can share the same name if they have different parameter lists. This is called overloading.",
+      "example": "void Print(int num) { Console.WriteLine(num); }\nvoid Print(string text) { Console.WriteLine(text); }\nvoid Print(int a, int b) { Console.WriteLine(a + b); }\n\nPrint(10);      // 10\nPrint(\"Hi\");   // Hi\nPrint(2, 3);   // 5",
+      "exampleOutput": "10\nHi\n5",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Same name, different parameters is called _____",
+        "placeholder": "_____",
+        "answer": "overloading",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Parameters and Arguments",
+      "content": "Parameters are variables in the method definition. Arguments are the actual values passed when calling.",
+      "example": "void SetAge(int age) // age is a parameter\n{\n    Console.WriteLine(age);\n}\n\nSetAge(25); // 25 is an argument",
+      "exampleOutput": "25",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "In `Add(3, 4)`, 3 and 4 are:",
+        "options": [
+          "Parameters",
+          "Arguments",
+          "Variables",
+          "Types"
+        ],
+        "answer": "Arguments"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Use meaningful method names. Keep methods short and focused. Return values instead of printing when possible.",
+      "example": "int GetArea(int width, int height)\n{\n    return width * height;\n}\n\nint area = GetArea(5, 4);\nConsole.WriteLine(area); // 20",
+      "exampleOutput": "20",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write a method Square that returns the square of an int, then call it with 6",
+        "starterCode": "int Square(int x)\n{\n    // return x squared\n    ______;\n}\n\nint result = Square(6);\nConsole.WriteLine(result);",
+        "expectedOutput": "36\n",
+        "outputPattern": "^36\\n$",
+        "requiredStrings": [
+          "return"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: return",
+          "When run, your code should output: 36"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Methods",
+      "content": "Use the Flow Builder to call a method with arguments.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that calls ShowScore(95)",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "call",
+              "procedureName": "ShowScore",
+              "arguments": "95"
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "ShowScore(95);",
+        "blocksToShow": [
+          "call"
+        ],
+        "flowExample": {
+          "name": "Call Method",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "count",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "count",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "42"
+              },
+              {
+                "id": "ex3",
+                "kind": "call",
+                "procedureName": "ShowScore",
+                "arguments": "count"
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+{
+  "meta": {
+    "section": "csharp-switch",
+    "level": "beginner",
+    "title": "C# Switch C"
+  },
+  "questions": [
+    {
+      "id": "switch-c-01",
+      "type": "scored",
+      "prompt": "Which keyword defines unmatched cases in a switch?",
+      "options": [
+        "default",
+        "else",
+        "otherwise",
+        "fallback"
+      ],
+      "answerIndex": 0,
+      "explanation": "The default keyword handles values that do not match any case."
+    },
+    {
+      "id": "switch-c-02",
+      "type": "insert",
+      "prompt": "What keyword starts a switch block?",
+      "template": "_____ (day) { case 1: ... }",
+      "options": [
+        "switch",
+        "whle",
+        "IF",
+        "If"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "switch-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange a switch that prints the name of a number.",
+      "items": [
+        "switch (num)",
+        "{",
+        "case 1:",
+        "Console.WriteLine(\"One\");",
+        "break;",
+        "default:",
+        "Console.WriteLine(\"Unknown\");",
+        "break;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "explanation": "A switch tests the expression and executes the matching case."
+    },
+    {
+      "id": "switch-c-04",
+      "type": "scored",
+      "prompt": "What happens if you omit break in a case?",
+      "options": [
+        "Fall-through to next case",
+        "Compile error",
+        "Nothing",
+        "Runtime error"
+      ],
+      "answerIndex": 0,
+      "explanation": "Without break, execution falls through to the next case."
+    },
+    {
+      "id": "switch-c-05",
+      "type": "coderunner",
+      "prompt": "Write a switch that prints 'Wed' when day == 3.",
+      "starterCode": "int day = 3;\n// write switch below\n",
+      "expectedOutput": "Wed",
+      "outputPattern": "^Wed$",
+      "requiredStrings": [
+        "switch"
+      ]
+    },
+    {
+      "id": "switch-c-06",
+      "type": "scored",
+      "prompt": "Can switch expressions use strings?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with ToString",
+        "Only with int"
+      ],
+      "answerIndex": 0,
+      "explanation": "Switch works with string types as well as integral types and enums."
+    },
+    {
+      "id": "switch-c-07",
+      "type": "insert",
+      "prompt": "Write the exact keyword required after a case value.",
+      "template": "case 2 _____\n    Console.WriteLine(\"Two\");",
+      "options": [
+        ":",
+        ":3",
+        ":s",
+        ":"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "switch-c-08",
+      "type": "scored",
+      "prompt": "What is the purpose of the default case?",
+      "options": [
+        "Handle unmatched values",
+        "Exit the switch",
+        "Repeat the last case",
+        "Start the switch"
+      ],
+      "answerIndex": 0,
+      "explanation": "default runs when no case matches."
+    },
+    {
+      "id": "switch-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange these switch parts in order.",
+      "items": [
+        "switch",
+        "(",
+        "day",
+        ")",
+        "{",
+        "case 1:",
+        "..."
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "explanation": "switch (expression) { case value: ... }"
+    },
+    {
+      "id": "switch-c-10",
+      "type": "scored",
+      "prompt": "Which statement ends a case block?",
+      "options": [
+        "break;",
+        "return;",
+        "end;",
+        "stop;"
+      ],
+      "answerIndex": 0,
+      "explanation": "break; exits the switch block."
+    }
+  ]
+}

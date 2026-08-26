@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "section": "csharp-strings",
+    "level": "beginner",
+    "title": "C# Strings C"
+  },
+  "questions": [
+    {
+      "id": "strings-c-01",
+      "type": "scored",
+      "prompt": "What is the length of \"\" (empty string)?",
+      "options": [
+        "0",
+        "1",
+        "null",
+        "Error"
+      ],
+      "answerIndex": 0,
+      "explanation": "An empty string has zero characters, so Length is 0."
+    },
+    {
+      "id": "strings-c-02",
+      "type": "insert",
+      "prompt": "What method converts a string to lowercase?",
+      "template": "string lower = \"ABC\"._____;",
+      "options": [
+        ".TOLOWER()",
+        ".ToLower()s",
+        ".tolower()",
+        ".ToLower()"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "strings-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these to build \"A-B-C\" using concatenation.",
+      "items": [
+        "string s = \"A\";",
+        "s += \"-\";",
+        "s += \"B\";",
+        "s += \"-\";",
+        "s += \"C\";",
+        "Console.WriteLine(s);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "explanation": "Concatenate each piece with += to build the final string."
+    },
+    {
+      "id": "strings-c-04",
+      "type": "scored",
+      "prompt": "What does \"Hello World\".Substring(0, 5) return?",
+      "options": [
+        "Hello",
+        "World",
+        "Hello World",
+        "H"
+      ],
+      "answerIndex": 0,
+      "explanation": "Substring(0, 5) extracts 5 characters starting at index 0, giving \"Hello\"."
+    },
+    {
+      "id": "strings-c-05",
+      "type": "coderunner",
+      "prompt": "Use string interpolation to print \"User: Alice, Age: 30\".",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        string name = \"Alice\";\n        int age = 30;\n        // use interpolation to print User: Alice, Age: 30\n        \n    }\n}",
+      "expectedOutput": "User: Alice, Age: 30",
+      "outputPattern": "^User: Alice, Age: 30$",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "strings-c-06",
+      "type": "scored",
+      "prompt": "Which method replaces a substring within a string?",
+      "options": [
+        ".Replace()",
+        ".Substitute()",
+        ".Swap()",
+        ".Change()"
+      ],
+      "answerIndex": 0,
+      "explanation": "Replace(oldValue, newValue) returns a new string with replacements made."
+    },
+    {
+      "id": "strings-c-07",
+      "type": "insert",
+      "prompt": "What property returns the number of characters?",
+      "template": "\"Quiz\"._____ == 4;",
+      "options": [
+        "Length",
+        "LENGTH",
+        "Lengths",
+        "Length"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "strings-c-08",
+      "type": "scored",
+      "prompt": "What is \"test\".ToUpper()?",
+      "options": [
+        "TEST",
+        "test",
+        "Test",
+        "Error"
+      ],
+      "answerIndex": 0,
+      "explanation": "ToUpper converts all characters to uppercase."
+    },
+    {
+      "id": "strings-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange these to compare two strings for equality.",
+      "items": [
+        "string a = \"abc\";",
+        "string b = \"abc\";",
+        "bool same = a == b;",
+        "Console.WriteLine(same);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Use == to compare strings for equality."
+    },
+    {
+      "id": "strings-c-10",
+      "type": "scored",
+      "prompt": "Can you change a string character by index after creation?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with ToCharArray",
+        "Only with StringBuilder"
+      ],
+      "answerIndex": 1,
+      "explanation": "Strings are immutable in C#. You cannot change characters by index."
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "section": "csharp-methodparams",
+    "level": "beginner",
+    "title": "C# Method Parameters"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodparams-01",
+      "type": "scored",
+      "prompt": "What are values passed to a method called?",
+      "options": [
+        "Parameters",
+        "Arguments",
+        "Variables",
+        "Types"
+      ],
+      "answerIndex": 1,
+      "explanation": "Arguments are the actual values passed to a method. Parameters are the variables in the definition."
+    },
+    {
+      "id": "csharp-methodparams-02",
+      "type": "scored",
+      "prompt": "Which keyword is used to send a value back from a method?",
+      "options": [
+        "exit",
+        "break",
+        "return",
+        "send"
+      ],
+      "answerIndex": 2,
+      "explanation": "The return keyword sends a value back to the caller."
+    },
+    {
+      "id": "csharp-methodparams-03",
+      "type": "insert",
+      "prompt": "Complete the method with a return value",
+      "template": "int GetValue()\n{\n    int x = 5;\n    ______ x;\n}",
+      "options": [
+        "break",
+        "continue",
+        "return",
+        "throw"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-methodparams-04",
+      "type": "scored",
+      "prompt": "What is a default parameter?",
+      "options": [
+        "A parameter with no type",
+        "A parameter with a preset value",
+        "A required parameter",
+        "A static parameter"
+      ],
+      "answerIndex": 1,
+      "explanation": "A default parameter has a value assigned in the definition, making it optional when calling."
+    },
+    {
+      "id": "csharp-methodparams-05",
+      "type": "dragorder",
+      "prompt": "Arrange the method with a default parameter",
+      "items": [
+        "void Greet(string name = \"Guest\")",
+        "{",
+        "Console.WriteLine(name);",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Default parameters are assigned in the parameter list using =."
+    },
+    {
+      "id": "csharp-methodparams-06",
+      "type": "scored",
+      "prompt": "Named arguments allow you to:",
+      "options": [
+        "Skip parameters",
+        "Specify arguments by parameter name",
+        "Change parameter order",
+        "Use any type"
+      ],
+      "answerIndex": 1,
+      "explanation": "Named arguments let you specify which parameter gets which value by name."
+    },
+    {
+      "id": "csharp-methodparams-07",
+      "type": "coderunner",
+      "prompt": "Call the method using a named argument for the second parameter",
+      "starterCode": "void SetInfo(string name, int age)\n{\n    Console.WriteLine(name + \" is \" + age);\n}\n\nSetInfo(age: 30, name: \"Bob\");",
+      "expectedOutput": "Bob is 30\n",
+      "outputPattern": "^Bob is 30\\n$",
+      "requiredStrings": [
+        "SetInfo("
+      ]
+    },
+    {
+      "id": "csharp-methodparams-08",
+      "type": "scored",
+      "prompt": "If a method returns int, what must the return statement provide?",
+      "options": [
+        "A string",
+        "An int value",
+        "Nothing",
+        "A bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "The return value type must match the declared return type."
+    },
+    {
+      "id": "csharp-methodparams-09",
+      "type": "insert",
+      "prompt": "Complete the named argument call",
+      "template": "Draw(height: 10, ______: 20);",
+      "options": [
+        "width2",
+        "width3",
+        "widths",
+        "width"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-methodparams-10",
+      "type": "scored",
+      "prompt": "How many values can a return statement send back?",
+      "options": [
+        "One",
+        "Multiple",
+        "Zero only",
+        "Depends on method"
+      ],
+      "answerIndex": 0,
+      "explanation": "A single return statement sends back exactly one value. Use tuples or out params for multiple values."
+    }
+  ]
+}

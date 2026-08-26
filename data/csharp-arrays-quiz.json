@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "section": "csharp-arrays",
+    "level": "beginner",
+    "title": "C# Arrays"
+  },
+  "questions": [
+    {
+      "id": "csharp-arrays-01",
+      "type": "scored",
+      "prompt": "How do you declare an array of 5 integers?",
+      "options": [
+        "int arr[5];",
+        "int[] arr = new int[5];",
+        "int arr = new int[5];",
+        "array int[5];"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# uses `int[] arr = new int[5];` to declare an array of 5 integers."
+    },
+    {
+      "id": "csharp-arrays-02",
+      "type": "scored",
+      "prompt": "What is the index of the first element in a C# array?",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "Depends on size"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# arrays are zero-indexed, so the first element is at index 0."
+    },
+    {
+      "id": "csharp-arrays-03",
+      "type": "insert",
+      "prompt": "Complete the array declaration with initialization",
+      "template": "int[] numbers = ______;",
+      "options": [
+        "NEW INT[] {1, 2, 3}",
+        "new int[] {1, 2, 3}",
+        "new int[] {1, 2, 3}s",
+        "New int[] {1, 2, 3}"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-arrays-04",
+      "type": "scored",
+      "prompt": "What does `Array.Length` return?",
+      "options": [
+        "The last index",
+        "The number of elements",
+        "The array type",
+        "The memory size"
+      ],
+      "answerIndex": 1,
+      "explanation": "Length returns the total number of elements in the array."
+    },
+    {
+      "id": "csharp-arrays-05",
+      "type": "coderunner",
+      "prompt": "Declare a string array with 3 names and print the second one (index 1)",
+      "starterCode": "string[] names = {\"Alice\", \"Bob\", \"Charlie\"};\n// Print the second name\nConsole.WriteLine(______);",
+      "expectedOutput": "Bob\n",
+      "outputPattern": "^Bob\\n$",
+      "requiredStrings": [
+        "names[1]"
+      ]
+    },
+    {
+      "id": "csharp-arrays-06",
+      "type": "dragorder",
+      "prompt": "Arrange the code to find array length",
+      "items": [
+        "int[] arr = {1, 2, 3};",
+        "int len = arr.Length;",
+        "Console.WriteLine(len);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare array, get Length property, then print it."
+    },
+    {
+      "id": "csharp-arrays-07",
+      "type": "scored",
+      "prompt": "Which loop is best for iterating over an array when you need the index?",
+      "options": [
+        "foreach",
+        "for",
+        "while",
+        "do-while"
+      ],
+      "answerIndex": 1,
+      "explanation": "The for loop provides the index variable, making it ideal when you need array indices."
+    },
+    {
+      "id": "csharp-arrays-08",
+      "type": "scored",
+      "prompt": "What happens if you access an index beyond the array bounds?",
+      "options": [
+        "Returns null",
+        "Returns 0",
+        "Throws IndexOutOfRangeException",
+        "Creates a new element"
+      ],
+      "answerIndex": 2,
+      "explanation": "Accessing an invalid index throws an IndexOutOfRangeException at runtime."
+    },
+    {
+      "id": "csharp-arrays-09",
+      "type": "insert",
+      "prompt": "Complete the foreach loop for the array",
+      "template": "foreach (______ num in numbers)",
+      "options": [
+        "INT NUM",
+        "int nums",
+        "Int num",
+        "int num"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-arrays-10",
+      "type": "scored",
+      "prompt": "How do you declare and initialize a 2D array with 2 rows and 3 columns?",
+      "options": [
+        "int[,] arr = new int[2,3];",
+        "int[][] arr = new int[2][3];",
+        "int[2][3] arr;",
+        "array int[2,3];"
+      ],
+      "answerIndex": 0,
+      "explanation": "Multidimensional arrays use commas: `int[,] arr = new int[2,3];`"
+    }
+  ]
+}

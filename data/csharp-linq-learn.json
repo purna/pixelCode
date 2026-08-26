@@ -1,0 +1,114 @@
+{
+  "section": "csharp-linq",
+  "title": "C# LINQ",
+  "slides": [
+    {
+      "title": "What Is LINQ?",
+      "content": "LINQ (Language Integrated Query) lets you query collections with SQL-like syntax directly in C#. It works on any type that implements IEnumerable<T>.",
+      "example": "var evens = numbers.Where(n => n % 2 == 0);",
+      "exampleOutput": "A sequence of the even numbers.",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "LINQ queries operate on types that implement:",
+        "options": [
+          "IDisposable",
+          "IEnumerable<T>",
+          "IComparable",
+          "IEquatable"
+        ],
+        "answer": "IEnumerable<T>"
+      }
+    },
+    {
+      "title": "Query Syntax vs Method Syntax",
+      "content": "LINQ has two styles: method syntax (numbers.Where(...)) and query syntax (from n in numbers where ... select n). Both compile to the same code.",
+      "example": "var a = numbers.Where(n => n > 5);\nvar b = from n in numbers\n        where n > 5\n        select n;",
+      "exampleOutput": "a and b produce the same result.",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the query-syntax clause that filters items.",
+        "before": "from n in numbers ",
+        "after": " select n;",
+        "options": [
+          "where n > 5",
+          "select n",
+          "group n by n",
+          "orderby n"
+        ],
+        "answer": "where n > 5"
+      }
+    },
+    {
+      "title": "Filtering with Where",
+      "content": "Where keeps elements that match a condition (a lambda returning bool). It does not change the originals — it returns a new sequence.",
+      "example": "var words = new List<string> { \"cat\", \"dog\", \"fish\" };\nvar longs = words.Where(w => w.Length > 3);\nConsole.WriteLine(longs.Count());",
+      "exampleOutput": "1",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the code to count words longer than 3 characters.",
+        "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nint n = words.Where(_______).Count();\nConsole.WriteLine(n);",
+        "expectedOutput": "2",
+        "outputPattern": "Length > 3",
+        "requiredStrings": [
+          "w =>",
+          "Length"
+        ],
+        "hints": [
+          "The lambda takes each word (w) and returns true when it should be kept.",
+          "Compare w.Length to 3, keeping only longer words."
+        ]
+      }
+    },
+    {
+      "title": "Transforming with Select",
+      "content": "Select projects each element to a new shape (e.g. to uppercase, or to a single field). It returns one output element per input element.",
+      "example": "var caps = words.Select(w => w.ToUpper());",
+      "exampleOutput": "An uppercase version of each word.",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "If Select is applied to a list of 5 elements, the result contains:",
+        "options": [
+          "5 elements",
+          "1 element",
+          "6 elements",
+          "0 elements"
+        ],
+        "answer": "5 elements"
+      }
+    },
+    {
+      "title": "Common LINQ Methods",
+      "content": "First/FirstOrDefault returns one item; OrderBy sorts; Distinct removes duplicates; Any/All test conditions; Count sums. They chain together fluently.",
+      "example": "var best = words.OrderBy(w => w.Length).FirstOrDefault();\nvar anyLong = words.Any(w => w.Length > 3);",
+      "exampleOutput": "best = shortest word; anyLong = true/false.",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The method that returns true if at least one element matches is _____ (lambda).",
+        "placeholder": "_____",
+        "answer": "Any",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Chaining and Deferred Execution",
+      "content": "LINQ uses deferred execution: the query runs only when you enumerate it. Chaining methods returns IEnumerables you can keep combining until you finally consume them.",
+      "example": "var query = words.Where(w => w.Length > 3)\n                .Select(w => w.ToUpper())\n                .OrderBy(w => w);\nvar list = query.ToList();",
+      "exampleOutput": "Materializes a sorted, uppercase list of long words.",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the chain so it returns a List of uppercase 4+ char words.",
+        "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nvar result = words._______(w => w.Length >= 4)\n                 ._______(w => w.ToUpper())\n                 ._______();\nConsole.WriteLine(result.Count);",
+        "expectedOutput": "2",
+        "outputPattern": "Where.*Select.*ToList",
+        "requiredStrings": [
+          "ToList",
+          "ToUpper"
+        ],
+        "hints": [
+          "You need Where (filter), Select (project), then a call that builds the List.",
+          "The final method is ToList(), which forces the query to run."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-operators",
+    "level": "beginner",
+    "title": "C# Operators"
+  },
+  "questions": [
+    {
+      "id": "operators-01",
+      "type": "scored",
+      "prompt": "What does the += operator do?",
+      "options": [
+        "Adds 1",
+        "Adds and assigns",
+        "Compares values",
+        "Multiplies and assigns"
+      ],
+      "answerIndex": 1,
+      "explanation": "The += operator is an addition assignment operator. It adds the right operand to the left and stores the result in the left variable."
+    },
+    {
+      "id": "operators-02",
+      "type": "insert",
+      "prompt": "What is the modulo operator symbol in C#?",
+      "template": "The modulo operator is _____.",
+      "options": [
+        "%",
+        "=",
+        "===",
+        "=="
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "operators-03",
+      "type": "dragorder",
+      "prompt": "Arrange these operators by precedence from highest to lowest: *, ==, &&, +.",
+      "items": [
+        "+",
+        "==",
+        "&&",
+        "*"
+      ],
+      "solution": [
+        3,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "operators-04",
+      "type": "scored",
+      "prompt": "Which operator checks if two values are equal?",
+      "options": [
+        "=",
+        "==",
+        "!=",
+        "==="
+      ],
+      "answerIndex": 1,
+      "explanation": "== is the equality operator. = is assignment, != is inequality, and === does not exist in C#."
+    },
+    {
+      "id": "operators-05",
+      "type": "coderunner",
+      "prompt": "Calculate the total of 5 items each costing 20 using +=, then print the total.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        int total = 0;\n        int price = 20;\n        // Use += to add price to total 5 times\n        \n        Console.WriteLine(total);\n    }\n}",
+      "expectedOutput": "100\n",
+      "outputPattern": "^100\\n$",
+      "requiredStrings": [
+        "*",
+        "total ="
+      ]
+    },
+    {
+      "id": "operators-06",
+      "type": "scored",
+      "prompt": "What does the ++ operator do?",
+      "options": [
+        "Adds 2",
+        "Increments by 1",
+        "Decrements by 1",
+        "Multiplies by 2"
+      ],
+      "answerIndex": 1,
+      "explanation": "The ++ operator increments a variable by 1. -- decrements by 1."
+    },
+    {
+      "id": "operators-07",
+      "type": "insert",
+      "prompt": "What is the symbol for logical AND in C#?",
+      "template": "The logical AND operator is _____.",
+      "options": [
+        "&&",
+        "=",
+        "==",
+        "==="
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "operators-08",
+      "type": "scored",
+      "prompt": "Which operator checks if two values are NOT equal?",
+      "options": [
+        "==",
+        "!=",
+        "!==",
+        "<>"
+      ],
+      "answerIndex": 1,
+      "explanation": "!= is the inequality operator in C#. <> is not used."
+    },
+    {
+      "id": "operators-09",
+      "type": "dragorder",
+      "prompt": "Arrange these operators in order of precedence (highest first): %, +, ==, ||.",
+      "items": [
+        "==",
+        "||",
+        "%",
+        "+"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "operators-10",
+      "type": "scored",
+      "prompt": "What does || mean?",
+      "options": [
+        "Logical AND",
+        "Logical OR",
+        "Bitwise OR",
+        "Comparison"
+      ],
+      "answerIndex": 1,
+      "explanation": "|| is the logical OR operator. It returns true if either operand is true."
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-oop",
+    "level": "intermediate",
+    "title": "C# Object-Oriented Programming"
+  },
+  "questions": [
+    {
+      "id": "csharp-oop-b-01",
+      "type": "scored",
+      "prompt": "Which is NOT one of the four pillars of OOP?",
+      "options": [
+        "Encapsulation",
+        "Inheritance",
+        "Polymorphism",
+        "Compilation"
+      ],
+      "answerIndex": 3,
+      "explanation": "The pillars are encapsulation, abstraction, inheritance, polymorphism."
+    },
+    {
+      "id": "csharp-oop-b-02",
+      "type": "scored",
+      "prompt": "Encapsulation is primarily achieved in C# using:",
+      "options": [
+        "public fields only",
+        "Access modifiers and properties",
+        "Global variables",
+        "goto statements"
+      ],
+      "answerIndex": 1,
+      "explanation": "Access modifiers and properties hide and control data access."
+    },
+    {
+      "id": "csharp-oop-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a class named Animal",
+      "blanks": [
+        "class Animal"
+      ],
+      "template": "______ { }",
+      "explanation": "The class keyword defines a reference type."
+    },
+    {
+      "id": "csharp-oop-b-04",
+      "type": "scored",
+      "prompt": "Abstraction means:",
+      "options": [
+        "Hiding complex details behind a simple interface",
+        "Copying code",
+        "Making everything public",
+        "Using only structs"
+      ],
+      "answerIndex": 0,
+      "explanation": "Abstraction exposes only essential features."
+    },
+    {
+      "id": "csharp-oop-b-05",
+      "type": "coderunner",
+      "prompt": "Create a class Counter with a public int Count and a method Increment() that adds 1, then increment and print Count",
+      "starterCode": "using System;\nclass Counter {\n  public int Count = 0;\n  public void Increment() { Count++; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "1\n",
+      "outputPattern": "^1\\n$",
+      "explanation": "Instantiate Counter, call Increment, print Count.",
+      "requiredStrings": [
+        "new Dog()"
+      ]
+    },
+    {
+      "id": "csharp-oop-b-06",
+      "type": "scored",
+      "prompt": "A reference type in C# is typically:",
+      "options": [
+        "class",
+        "int",
+        "double",
+        "enum"
+      ],
+      "answerIndex": 0,
+      "explanation": "Classes are reference types; int/double/enum are value types."
+    },
+    {
+      "id": "csharp-oop-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange lines to instantiate an object correctly",
+      "items": [
+        "Car c = new Car();",
+        "c.Drive();",
+        "class Car { public void Drive() { } }"
+      ],
+      "solution": [
+        2,
+        0,
+        1
+      ],
+      "explanation": "Define the class, create the instance, then call the method."
+    },
+    {
+      "id": "csharp-oop-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to create an object of class Person",
+      "blanks": [
+        "Person p = new Person()"
+      ],
+      "template": "______;",
+      "explanation": "The new operator allocates the object."
+    },
+    {
+      "id": "csharp-oop-b-09",
+      "type": "scored",
+      "prompt": "Polymorphism allows:",
+      "options": [
+        "One interface, many implementations",
+        "Only one class",
+        "No inheritance",
+        "Removing methods"
+      ],
+      "answerIndex": 0,
+      "explanation": "Polymorphism lets one interface be used for different underlying types."
+    },
+    {
+      "id": "csharp-oop-b-10",
+      "type": "coderunner",
+      "prompt": "Create class Point with public int X,Y and a method Sum() returning X+Y, then print p.Sum() for (3,4)",
+      "starterCode": "using System;\nclass Point {\n  public int X, Y;\n  public int Sum() { return X + Y; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "7\n",
+      "outputPattern": "^7\\n$",
+      "explanation": "Set X=3, Y=4 and call Sum().",
+      "requiredStrings": [
+        "class Point",
+        "public int X",
+        "public int Y"
+      ]
+    }
+  ]
+}

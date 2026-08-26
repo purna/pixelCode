@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "section": "csharp-polymorphism",
+    "level": "intermediate",
+    "title": "C# Polymorphism"
+  },
+  "questions": [
+    {
+      "id": "csharp-polymorphism-b-01",
+      "type": "scored",
+      "prompt": "Runtime polymorphism in C# is achieved via:",
+      "options": [
+        "Method hiding",
+        "Virtual/override methods",
+        "Static methods",
+        "Constants"
+      ],
+      "answerIndex": 1,
+      "explanation": "virtual/override dispatch at runtime by object type."
+    },
+    {
+      "id": "csharp-polymorphism-b-02",
+      "type": "scored",
+      "prompt": "When a base reference points to a derived object, the called override is determined by:",
+      "options": [
+        "The reference type",
+        "The actual object type at runtime",
+        "The compiler only",
+        "Random"
+      ],
+      "answerIndex": 1,
+      "explanation": "Virtual dispatch uses the runtime type."
+    },
+    {
+      "id": "csharp-polymorphism-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to override a base method",
+      "blanks": [
+        "public override void Draw()"
+      ],
+      "template": "______ { }",
+      "explanation": "override implements a virtual method."
+    },
+    {
+      "id": "csharp-polymorphism-b-04",
+      "type": "scored",
+      "prompt": "Polymorphism lets you treat different types through a:",
+      "options": [
+        "Single base interface/type",
+        "Separate compiler",
+        "Global variable",
+        "switch only"
+      ],
+      "answerIndex": 0,
+      "explanation": "A common base type enables uniform handling."
+    },
+    {
+      "id": "csharp-polymorphism-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Animal { public virtual string Sound(){return \"?\";} } and Dog:Cat? No: Dog:Animal { public override string Sound(){return \"Woof\";} } then print ((Animal)new Dog()).Sound()",
+      "starterCode": "using System;\nclass Animal { public virtual string Sound() { return \"?\"; } }\nclass Dog : Animal { public override string Sound() { return \"Woof\"; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Woof\n",
+      "outputPattern": "^Woof\\n$",
+      "explanation": "Virtual dispatch picks Dog's override.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-polymorphism-b-06",
+      "type": "scored",
+      "prompt": "The 'as' operator performs:",
+      "options": [
+        "A numeric cast",
+        "A safe cast returning null on failure",
+        "A loop",
+        "A boxing only"
+      ],
+      "answerIndex": 1,
+      "explanation": "as returns null if the cast is invalid."
+    },
+    {
+      "id": "csharp-polymorphism-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange polymorphic dispatch",
+      "items": [
+        "Animal a = new Cat();",
+        "class Animal { public virtual void T(){} }",
+        "class Cat : Animal { public override void T(){} }",
+        "a.T();"
+      ],
+      "solution": [
+        1,
+        2,
+        0,
+        3
+      ],
+      "explanation": "Base variable, derived object, virtual call."
+    },
+    {
+      "id": "csharp-polymorphism-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a method that must be overridden",
+      "blanks": [
+        "public abstract void Render()"
+      ],
+      "template": "______;",
+      "explanation": "abstract forces override in subclasses."
+    },
+    {
+      "id": "csharp-polymorphism-b-09",
+      "type": "scored",
+      "prompt": "Overloading is an example of:",
+      "options": [
+        "Runtime polymorphism",
+        "Compile-time (static) polymorphism",
+        "No polymorphism",
+        "Encapsulation"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overload resolution occurs at compile time."
+    },
+    {
+      "id": "csharp-polymorphism-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Figure { public virtual int Get(){return 0;} } and Circle:Figure { public override int Get(){return 1;} }, store Circle in Figure f and print f.Get()",
+      "starterCode": "using System;\nclass Figure { public virtual int Get() { return 0; } }\nclass Circle : Figure { public override int Get() { return 1; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "1\n",
+      "outputPattern": "^1\\n$",
+      "explanation": "Runtime dispatch returns 1.",
+      "requiredStrings": [
+        "new Dog()",
+        "new Cat()"
+      ]
+    }
+  ]
+}

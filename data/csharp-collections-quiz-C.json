@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "section": "csharp-collections",
+    "level": "intermediate",
+    "title": "C# Collections"
+  },
+  "questions": [
+    {
+      "id": "csharp-collections-c-01",
+      "type": "insert",
+      "prompt": "Complete the code to create an empty list of integers.",
+      "template": "var list = _______;",
+      "options": [
+        "new List<int>()",
+        "List<int>",
+        "new int[]",
+        "ArrayList"
+      ],
+      "answerIndex": 0,
+      "explanation": "Use new List<int>() with the element type."
+    },
+    {
+      "id": "csharp-collections-c-02",
+      "type": "scored",
+      "prompt": "A foreach loop over a List yields the elements in:",
+      "options": [
+        "Random order",
+        "Insertion order",
+        "Reverse order",
+        "Sorted order"
+      ],
+      "answerIndex": 1,
+      "explanation": "A List preserves insertion order."
+    },
+    {
+      "id": "csharp-collections-c-03",
+      "type": "typing",
+      "prompt": "To read every value in a Dictionary, iterate its ______ collection.",
+      "template": "To read every value in a Dictionary, iterate its ______ collection.",
+      "blanks": [
+        "Values"
+      ],
+      "explanation": ".Values gives the value collection; .Keys gives the keys."
+    },
+    {
+      "id": "csharp-collections-c-04",
+      "type": "scored",
+      "prompt": "Which is NOT a standard List<T> method?",
+      "options": [
+        "Find",
+        "IndexOf",
+        "AddRange",
+        "Push"
+      ],
+      "answerIndex": 3,
+      "explanation": "Push is a Stack method, not a List method."
+    },
+    {
+      "id": "csharp-collections-c-05",
+      "type": "insert",
+      "prompt": "Complete the call to add a key/value pair to a dictionary.",
+      "template": "dict._______(\"key\", 42);",
+      "options": [
+        "Add",
+        "TryAdd",
+        "Set",
+        "Insert"
+      ],
+      "answerIndex": 0,
+      "explanation": "Add(key, value) inserts a key/value pair."
+    },
+    {
+      "id": "csharp-collections-c-06",
+      "type": "dragorder",
+      "prompt": "Drag these lines into the order a program needs them.",
+      "items": [
+        "var list = new List<int>();",
+        "list.Add(5);",
+        "Console.WriteLine(list[0]);"
+      ],
+      "solution": [0, 1, 2],
+      "explanation": "Declare, add, then read."
+    },
+    {
+      "id": "csharp-collections-c-07",
+      "type": "coderunner",
+      "prompt": "Complete the loop so it adds each number to sum and the program prints 6.",
+      "starterCode": "var nums = new List<int> { 1, 2, 3 };\nint sum = 0;\nforeach (_______ in nums)\n  sum _______;\nConsole.WriteLine(sum);",
+      "expectedOutput": "6",
+      "outputPattern": "sum.*\\+.*n",
+      "requiredStrings": [
+        "sum",
+        "nums"
+      ],
+      "hints": [
+        "foreach (var n in nums) iterates each element.",
+        "sum += n adds each value to the running total."
+      ]
+    },
+    {
+      "id": "csharp-collections-c-08",
+      "type": "scored",
+      "prompt": "Which namespace contains List<T> and Dictionary<TKey,TValue>?",
+      "options": [
+        "System",
+        "System.Collections",
+        "System.Collections.Generic",
+        "System.Linq"
+      ],
+      "answerIndex": 2,
+      "explanation": "Generic collections live in System.Collections.Generic."
+    }
+  ]
+}

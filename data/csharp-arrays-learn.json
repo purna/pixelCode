@@ -1,0 +1,282 @@
+{
+  "section": "csharp-arrays",
+  "title": "C# Arrays",
+  "slides": [
+    {
+      "title": "What Are Arrays",
+      "content": "Arrays store multiple values of the same type in a single variable. They have a fixed size once created.",
+      "example": "string[] fruits = new string[3];\nfruits[0] = \"Apple\";\nfruits[1] = \"Banana\";\nfruits[2] = \"Cherry\";\nConsole.WriteLine(fruits[1]);",
+      "exampleOutput": "Banana",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Arrays store values of _____ type(s)",
+        "options": [
+          "Multiple",
+          "One",
+          "Any",
+          "No"
+        ],
+        "answer": "One"
+      }
+    },
+    {
+      "title": "Declaring Arrays",
+      "content": "Use square brackets to declare an array type. The `new` keyword creates the array in memory.",
+      "example": "int[] scores = new int[5];\ndouble[] temps = { 20.5, 21.0, 19.8 };\nstring[] names = new string[] { \"A\", \"B\", \"C\" };",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the array declaration",
+        "before": "int[] numbers = ",
+        "after": ";",
+        "options": [
+          "new int[4]",
+          "new int(4)",
+          "int[4]",
+          "new array[4]"
+        ],
+        "answer": "new int[4]"
+      }
+    },
+    {
+      "title": "Accessing Elements",
+      "content": "Array elements are accessed by index in square brackets. Indices start at 0.",
+      "example": "int[] values = { 10, 20, 30, 40 };\nConsole.WriteLine(values[0]); // 10\nConsole.WriteLine(values[2]); // 30\nvalues[1] = 25;\nConsole.WriteLine(values[1]); // 25",
+      "exampleOutput": "10\n30\n25",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Access the third element: `values[_____]`",
+        "placeholder": "_____",
+        "answer": "2",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Array.Length",
+      "content": "The Length property returns the total number of elements. It is useful for loops and bounds checking.",
+      "example": "int[] numbers = { 5, 10, 15, 20 };\nConsole.WriteLine(numbers.Length); // 4\nfor (int i = 0; i < numbers.Length; i++)\n{\n    Console.WriteLine(numbers[i]);\n}",
+      "exampleOutput": "4\n5\n10\n15\n20",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does `array.Length` return for a 3-element array?",
+        "options": [
+          "2",
+          "3",
+          "4",
+          "Undefined"
+        ],
+        "answer": "3"
+      }
+    },
+    {
+      "title": "Foreach with Arrays",
+      "content": "Foreach simplifies iteration when you only need the value, not the index. It is read-only for the element.",
+      "example": "int[] numbers = { 1, 2, 3 };\nforeach (int n in numbers)\n{\n    Console.WriteLine(n * 2);\n}",
+      "exampleOutput": "2\n4\n6",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the foreach loop variable",
+        "before": "foreach (",
+        "after": " n in numbers)",
+        "options": [
+          "int",
+          "var",
+          "integer",
+          "num"
+        ],
+        "answer": "int"
+      }
+    },
+    {
+      "title": "Multidimensional Arrays",
+      "content": "Use commas in brackets for multidimensional arrays. Access elements with multiple indices.",
+      "example": "int[,] matrix = { {1, 2}, {3, 4}, {5, 6} };\nConsole.WriteLine(matrix[0, 1]); // 2\nConsole.WriteLine(matrix[2, 0]); // 5",
+      "exampleOutput": "2\n5",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A 2D array uses _____ brackets with a comma",
+        "placeholder": "_____",
+        "answer": "two",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Common Array Methods",
+      "content": "The Array class provides useful methods like Sort, Reverse, and IndexOf for common operations.",
+      "example": "int[] nums = { 3, 1, 4, 1, 5 };\nArray.Sort(nums);\nArray.Reverse(nums);\nConsole.WriteLine(nums[0]); // 5\nConsole.WriteLine(Array.IndexOf(nums, 3)); // -1",
+      "exampleOutput": "5\n-1",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method sorts an array in place?",
+        "options": [
+          "Array.Sort",
+          "Array.Reverse",
+          "Array.Length",
+          "Array.IndexOf"
+        ],
+        "answer": "Array.Sort"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Always check bounds before accessing. Use foreach for simple reading. Prefer List<T> for dynamic sizes.",
+      "example": "int[] data = { 1, 2, 3 };\n// Check bounds\nif (index >= 0 && index < data.Length)\n{\n    Console.WriteLine(data[index]);\n}\n// Prefer foreach for reading\nforeach (int value in data)\n{\n    Console.WriteLine(value);\n}",
+      "exampleOutput": "1\n2\n3",
+      "exercise": {
+        "type": "code",
+        "prompt": "Create an array with 3 integers and print each using foreach",
+        "starterCode": "int[] numbers = { 10, 20, 30 };\nforeach (int n in numbers)\n{\n    // Print each number\n    ______;\n}",
+        "expectedOutput": "10\n20\n30\n",
+        "outputPattern": "^10\\n20\\n30\\n$",
+        "requiredStrings": [
+          "foreach",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: foreach, Console.WriteLine",
+          "When run, your code should output: 10, 20, 30"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Arrays and Foreach",
+      "content": "Use the Flow Builder to declare an array and loop through it with foreach.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares int[] numbers = {1,2,3} then foreach outputs each number",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "numbers",
+              "dataType": "Integer",
+              "structure": "Array",
+              "size": "3"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "numbers",
+              "dataType": "Integer",
+              "structure": "Array",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "1"
+            },
+            {
+              "id": "n3",
+              "kind": "assign",
+              "name": "numbers",
+              "dataType": "Integer",
+              "structure": "Array",
+              "index": "1",
+              "row": "0",
+              "col": "0",
+              "expression": "2"
+            },
+            {
+              "id": "n4",
+              "kind": "assign",
+              "name": "numbers",
+              "dataType": "Integer",
+              "structure": "Array",
+              "index": "2",
+              "row": "0",
+              "col": "0",
+              "expression": "3"
+            },
+            {
+              "id": "n5",
+              "kind": "foreach",
+              "variable": "n",
+              "collection": "numbers",
+              "body": [
+                {
+                  "id": "n6",
+                  "kind": "output",
+                  "expression": "n",
+                  "newline": true
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int[] numbers = new int[3];\nnumbers[0] = 1;\nnumbers[1] = 2;\nnumbers[2] = 3;\nforeach (var n in numbers)\n{\n    output(n);\n}",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "foreach",
+          "output"
+        ],
+        "flowExample": {
+          "name": "Foreach",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "colors",
+                "dataType": "String",
+                "structure": "Array",
+                "size": "3"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "colors",
+                "dataType": "String",
+                "structure": "Array",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "\"red\""
+              },
+              {
+                "id": "ex3",
+                "kind": "assign",
+                "name": "colors",
+                "dataType": "String",
+                "structure": "Array",
+                "index": "1",
+                "row": "0",
+                "col": "0",
+                "expression": "\"green\""
+              },
+              {
+                "id": "ex4",
+                "kind": "assign",
+                "name": "colors",
+                "dataType": "String",
+                "structure": "Array",
+                "index": "2",
+                "row": "0",
+                "col": "0",
+                "expression": "\"blue\""
+              },
+              {
+                "id": "ex5",
+                "kind": "foreach",
+                "variable": "color",
+                "collection": "colors",
+                "body": [
+                  {
+                    "id": "ex6",
+                    "kind": "output",
+                    "expression": "color",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

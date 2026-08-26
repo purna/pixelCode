@@ -1,0 +1,145 @@
+{
+  "section": "csharp-polymorphism",
+  "title": "C# Polymorphism",
+  "slides": [
+    {
+      "title": "What Is Polymorphism?",
+      "content": "Polymorphism means 'many forms.' In C#, it allows a base class reference to point to objects of different derived types, and when you call a virtual method, the correct derived version runs based on the actual object type\u2014selected at runtime (dynamic dispatch).",
+      "example": "public class Animal { public virtual void Speak() { Console.WriteLine(\"Animal\"); } }\npublic class Dog : Animal { public override void Speak() { Console.WriteLine(\"Woof\"); } }\npublic class Cat : Animal { public override void Speak() { Console.WriteLine(\"Meow\"); } }\n\nAnimal[] animals = { new Dog(), new Cat() };\nforeach (var a in animals)\n    a.Speak();",
+      "exampleOutput": "Woof\nMeow",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does 'polymorphism' enable?",
+        "options": [
+          "Calling the same method name on different object types with different behavior",
+          "Creating classes with identical names",
+          "Converting types without casting",
+          "Hiding all methods in a class"
+        ],
+        "answer": "Calling the same method name on different object types with different behavior"
+      }
+    },
+    {
+      "title": "Virtual Methods",
+      "content": "A 'virtual' method in a base class provides a default implementation that derived classes can replace. The base method must be marked 'virtual' for it to be overridden. When called through a base reference, the runtime decides which implementation to run.",
+      "example": "public class Animal\n{\n    public virtual void Move()\n    {\n        Console.WriteLine(\"Animal moves\");\n    }\n}\n\nvar a = new Animal();\na.Move();  // prints 'Animal moves'",
+      "exampleOutput": "Animal moves",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Mark this method as overridable in derived classes: 'public _____ void Fly() { }'",
+        "placeholder": "_____",
+        "answer": "virtual",
+        "caseSensitive": true
+      }
+    },
+    {
+      "title": "Override Keyword",
+      "content": "The 'override' keyword in a derived class method replaces the implementation of a virtual method from the base class. It must have the same signature (name, parameters, return type) and the method it overrides must be virtual, abstract, or itself an override.",
+      "example": "public class Dog : Animal\n{\n    public override void Move()\n    {\n        Console.WriteLine(\"Dog runs\");\n    }\n}\n\nAnimal a = new Dog();\na.Move();  // prints 'Dog runs' - not 'Animal moves'",
+      "exampleOutput": "Dog runs",
+      "exercise": {
+        "type": "code",
+        "prompt": "Override the Greet method in the Student class to print 'Hello, I am a student'.",
+        "starterCode": "public class Person\n{\n    public virtual void Greet() { Console.WriteLine(\"Hello\"); }\n}\n\npublic class Student : Person\n{\n    _____ void Greet()\n    {\n        Console.WriteLine(\"_____\");\n    }\n}\n\nPerson p = new Student();\np.Greet();",
+        "expectedOutput": "Hello, I am a student",
+        "outputPattern": "Hello, I am a student",
+        "requiredStrings": [
+          "class",
+          "virtual",
+          "public"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, virtual, public",
+          "When run, your code should output: Hello, I am a student"
+        ]
+      }
+    },
+    {
+      "title": "Base Class References and Runtime Dispatch",
+      "content": "When you call a virtual method through a base class reference, the runtime uses the actual object's type to decide which method to call. This is the heart of polymorphism\u2014the most derived override always wins, regardless of the reference type.",
+      "example": "Animal a = new Dog();  // base ref, derived object\na.Speak();  // Calls Dog.Speak(), not Animal.Speak()\n\na = new Cat();\na.Speak();  // Now calls Cat.Speak()",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Animal a = new Dog(); a.Speak(); \u2014 if Speak is virtual+override, which version runs?",
+        "options": [
+          "Animal's Speak",
+          "Dog's Speak",
+          "Compiler error",
+          "Neither\u2014calls a default"
+        ],
+        "answer": "Dog's Speak"
+      }
+    },
+    {
+      "title": "Method Hiding with 'new'",
+      "content": "If a derived class defines a method with the same name and signature as a non-virtual base method, it hides the base method. Use 'new' to explicitly indicate hiding. Unlike override, this is resolved at compile-time by the reference type, not the object type.",
+      "example": "public class Animal\n{\n    public void Speak() { Console.WriteLine(\"Animal\"); }\n}\n\npublic class Dog : Animal\n{\n    public new void Speak() { Console.WriteLine(\"Woof\"); }\n}\n\nAnimal a = new Dog();\na.Speak();  // prints 'Animal' (compile-time!)\n\nDog d = new Dog();\nd.Speak();  // prints 'Woof'",
+      "exampleOutput": "Animal",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Which keyword is used to hide (not override) a base class method?",
+        "before": "",
+        "after": "",
+        "options": [
+          "override",
+          "new",
+          "virtual",
+          "base"
+        ],
+        "answer": "new"
+      }
+    },
+    {
+      "title": "Abstract Methods and Classes",
+      "content": "An abstract method has no implementation in the base class\u2014it is just a signature. The base class must be 'abstract'. Derived classes MUST override abstract methods. This enforces a contract that all derived classes implement the method.",
+      "example": "public abstract class Animal\n{\n    public string Name;\n    public abstract void MakeSound(); // no body\n}\n\npublic class Dog : Animal\n{\n    public override void MakeSound() { Console.WriteLine(\"Woof\"); }\n}\n\nAnimal a = new Dog();\na.MakeSound();  // Woof",
+      "exampleOutput": "Woof",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "An abstract class _____ be instantiated directly.",
+        "placeholder": "_____",
+        "answer": "cannot",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "The base Keyword in Overrides",
+      "content": "Inside an override, you can call the base class's virtual implementation using 'base.Method()'. This lets you extend the base behavior rather than completely replacing it\u2014useful for chaining behavior in a hierarchy.",
+      "example": "public class Dog : Animal\n{\n    public override void Move()\n    {\n        base.Move();  // Call Animal.Move()\n        Console.WriteLine(\"and then runs\");\n    }\n}\n\nAnimal a = new Dog();\na.Move();  // 'Animal moves' then 'and then runs'",
+      "exampleOutput": "Animal moves\nand then runs",
+      "exercise": {
+        "type": "code",
+        "prompt": "In the override, call the base class implementation first, then add extra behavior.",
+        "starterCode": "public class Logger\n{\n    public virtual void Log(string msg) { Console.WriteLine(msg); }\n}\n\npublic class TimestampLogger : Logger\n{\n    public override void Log(string msg)\n    {\n        base.Log(_____);\n        Console.WriteLine(\"---\");\n    }\n}\n\nnew TimestampLogger().Log(\"Hello\");",
+        "expectedOutput": "Hello\n---",
+        "outputPattern": "Hello\\n---",
+        "requiredStrings": [
+          "base",
+          "Greet"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: base, Greet",
+          "When run, your code should output: Hello, ---"
+        ]
+      }
+    },
+    {
+      "title": "Polymorphism in Collections",
+      "content": "Polymorphism shines when processing collections of related objects. You can store different derived types in a single array or list of the base type, then iterate and call virtual methods\u2014the correct override runs for each object.",
+      "example": "public abstract class Shape\n{\n    public abstract double Area();\n}\n\npublic class Circle : Shape\n{\n    private double r;\n    public Circle(double radius) { r = radius; }\n    public override double Area() { return 3.14159 * r * r; }\n}\n\nList<Shape> shapes = new List<Shape>();\nshapes.Add(new Circle(2.0));\nforeach (var s in shapes)\n    Console.WriteLine(s.Area());",
+      "exampleOutput": "12.56636",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "When iterating a List<Animal> containing Dogs and Cats with a virtual MakeSound, what happens?",
+        "options": [
+          "All objects call Animal's MakeSound",
+          "Each object calls its own overridden MakeSound",
+          "Compilation error",
+          "Runtime exception"
+        ],
+        "answer": "Each object calls its own overridden MakeSound"
+      }
+    }
+  ]
+}

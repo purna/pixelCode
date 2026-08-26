@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "section": "csharp-strings",
+    "level": "beginner",
+    "title": "C# Strings"
+  },
+  "questions": [
+    {
+      "id": "csharp-strings-01",
+      "type": "scored",
+      "prompt": "Which keyword declares a string variable in C#?",
+      "options": [
+        "string",
+        "String",
+        "char",
+        "StringBuilder"
+      ],
+      "answerIndex": 0,
+      "explanation": "Use the lowercase 'string' keyword to declare a string variable. StringBuilder is for mutable strings, and char is for single characters."
+    },
+    {
+      "id": "csharp-strings-02",
+      "type": "scored",
+      "prompt": "What is the result of \"Hello\".Length?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "Error"
+      ],
+      "answerIndex": 1,
+      "explanation": "The string 'Hello' has 5 characters, so Length returns 5."
+    },
+    {
+      "id": "csharp-strings-03",
+      "type": "insert",
+      "prompt": "Write the exact return value of \"ABC\".ToUpper()",
+      "template": "string result = \"ABC\".ToUpper();  // result equals _____",
+      "options": [
+        "ABC",
+        "ABC!",
+        "ABC3",
+        "abc"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-strings-04",
+      "type": "scored",
+      "prompt": "Which method converts a string to lowercase?",
+      "options": [
+        ".ToLower()",
+        ".LowerCase()",
+        ".toLowerCase()",
+        ".lower()"
+      ],
+      "answerIndex": 0,
+      "explanation": "Use the ToLower() method to convert a string to lowercase."
+    },
+    {
+      "id": "csharp-strings-05",
+      "type": "scored",
+      "prompt": "What does string concatenation with + do?",
+      "options": [
+        "Combines two strings",
+        "Adds numbers",
+        "Compares strings",
+        "Creates a substring"
+      ],
+      "answerIndex": 0,
+      "explanation": "The + operator concatenates (joins) two or more strings together."
+    },
+    {
+      "id": "csharp-strings-06",
+      "type": "dragorder",
+      "prompt": "Arrange the string interpolation syntax in correct order",
+      "items": [
+        "Write a string",
+        "Use $ prefix",
+        "Insert {variable}",
+        "Close quote"
+      ],
+      "solution": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "explanation": "String interpolation starts with $ before the opening quote, then inserts expressions inside {} braces."
+    },
+    {
+      "id": "csharp-strings-07",
+      "type": "scored",
+      "prompt": "In \"Hello\"[1], what value is returned?",
+      "options": [
+        "H",
+        "e",
+        "l",
+        "Error"
+      ],
+      "answerIndex": 1,
+      "explanation": "String indexing is zero-based, so index 1 returns 'e'."
+    },
+    {
+      "id": "csharp-strings-08",
+      "type": "insert",
+      "prompt": "Write the exact result of \"a\" + \"b\"",
+      "template": "Console.WriteLine(\"a\" + \"b\");  // prints _____",
+      "options": [
+        "ab",
+        "Ab",
+        "AB",
+        "abs"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-strings-09",
+      "type": "coderunner",
+      "prompt": "Write code to print the length of the string \"Quiz\"",
+      "starterCode": "string s = \"Quiz\";\n// Write your code below\n",
+      "expectedOutput": "4",
+      "outputPattern": "^4$",
+      "requiredStrings": [
+        "Length"
+      ]
+    },
+    {
+      "id": "csharp-strings-10",
+      "type": "scored",
+      "prompt": "Which symbol starts a string interpolation in C#?",
+      "options": [
+        "$",
+        "@",
+        "#",
+        "&"
+      ],
+      "answerIndex": 0,
+      "explanation": "The $ symbol before a string literal enables string interpolation, allowing expressions like {name} inside braces."
+    }
+  ]
+}

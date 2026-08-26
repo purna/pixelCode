@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-methodoverloading",
+    "level": "intermediate",
+    "title": "C# Method Overloading"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodoverloading-b-01",
+      "type": "scored",
+      "prompt": "Which of the following does NOT create a valid overload?",
+      "options": [
+        "Different number of parameters",
+        "Different parameter types",
+        "Different parameter order",
+        "Different return type only"
+      ],
+      "answerIndex": 3,
+      "explanation": "Overloads must differ in parameter list; return type alone is not enough."
+    },
+    {
+      "id": "csharp-methodoverloading-b-02",
+      "type": "scored",
+      "prompt": "Method overloading is also known as:",
+      "options": [
+        "Runtime polymorphism",
+        "Compile-time polymorphism",
+        "Encapsulation",
+        "Composition"
+      ],
+      "answerIndex": 1,
+      "explanation": "The compiler resolves the correct overload at compile time."
+    },
+    {
+      "id": "csharp-methodoverloading-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an overload of Print that accepts a string",
+      "blanks": [
+        "static void Print(string s)"
+      ],
+      "template": "______ { Console.WriteLine(s); }",
+      "explanation": "A parameter of type string differentiates this overload from an int version."
+    },
+    {
+      "id": "csharp-methodoverloading-b-04",
+      "type": "scored",
+      "prompt": "Can constructors be overloaded in C#?",
+      "options": [
+        "No",
+        "Yes",
+        "Only in structs",
+        "Only static constructors"
+      ],
+      "answerIndex": 1,
+      "explanation": "Constructors can be overloaded just like ordinary methods."
+    },
+    {
+      "id": "csharp-methodoverloading-b-05",
+      "type": "coderunner",
+      "prompt": "Implement overloads Multiply(int a, int b) and Multiply(int a, int b, int c) returning their product, then print Multiply(2,3,4)",
+      "starterCode": "using System;\nclass Program {\n  static int Multiply(int a, int b) { return a * b; }\n  static int Multiply(int a, int b, int c) { return a * b * c; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "24\n",
+      "outputPattern": "^24\\n$",
+      "explanation": "The three-argument overload should be chosen and produce 24.",
+      "requiredStrings": [
+        "Add(1)"
+      ]
+    },
+    {
+      "id": "csharp-methodoverloading-b-06",
+      "type": "scored",
+      "prompt": "Named and optional arguments are often used as an alternative to:",
+      "options": [
+        "Inheritance",
+        "Multiple overloads",
+        "Properties",
+        "Interfaces"
+      ],
+      "answerIndex": 1,
+      "explanation": "Optional parameters can reduce the need for many overloads."
+    },
+    {
+      "id": "csharp-methodoverloading-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange these lines to define two valid overloads",
+      "items": [
+        "class Logger {",
+        "  void Log(string m) { }",
+        "  void Log(string m, int level) { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "The second overload adds an extra parameter."
+    },
+    {
+      "id": "csharp-methodoverloading-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank for an overload that takes a params array",
+      "blanks": [
+        "static int Sum(params int[] nums)"
+      ],
+      "template": "______ { int t=0; foreach(var n in nums) t+=n; return t; }",
+      "explanation": "The params keyword allows a variable number of arguments."
+    },
+    {
+      "id": "csharp-methodoverloading-b-09",
+      "type": "scored",
+      "prompt": "When multiple overloads could match, the compiler chooses:",
+      "options": [
+        "The first declared",
+        "The most specific (best) match",
+        "A random one",
+        "The last declared"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overload resolution picks the most specific applicable overload."
+    },
+    {
+      "id": "csharp-methodoverloading-b-10",
+      "type": "coderunner",
+      "prompt": "Implement Greet(string name) returning 'Hi name' and Greet() returning 'Hi there', then print Greet('Sam')",
+      "starterCode": "using System;\nclass Program {\n  static string Greet(string name) { return \"Hi \" + name; }\n  static string Greet() { return \"Hi there\"; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Hi Sam\n",
+      "outputPattern": "^Hi Sam\\n$",
+      "explanation": "The single-string overload should be invoked.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

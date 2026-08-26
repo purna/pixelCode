@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-methodoverloading",
+    "level": "intermediate",
+    "title": "C# Method Overloading"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodoverloading-c-01",
+      "type": "scored",
+      "prompt": "Overloaded methods must share the same:",
+      "options": [
+        "Return type",
+        "Name",
+        "Parameter list",
+        "Access modifier"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overloads share a name but differ in parameters."
+    },
+    {
+      "id": "csharp-methodoverloading-c-02",
+      "type": "scored",
+      "prompt": "Can two methods with the same name and parameters but different return types coexist?",
+      "options": [
+        "Yes",
+        "No, this is a compile error",
+        "Only in interfaces",
+        "Only if async"
+      ],
+      "answerIndex": 1,
+      "explanation": "Signature excludes return type, so this is not allowed."
+    },
+    {
+      "id": "csharp-methodoverloading-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for an overload that accepts a double",
+      "blanks": [
+        "static double Area(double r)"
+      ],
+      "template": "______ { return 3.14 * r * r; }",
+      "explanation": "Using double differentiates this from an int overload."
+    },
+    {
+      "id": "csharp-methodoverloading-c-04",
+      "type": "scored",
+      "prompt": "ref and out parameters affect overload resolution. Two methods differing only by ref vs out are:",
+      "options": [
+        "Valid overloads",
+        "Not valid overloads",
+        "Valid only in structs",
+        "Valid only for strings"
+      ],
+      "answerIndex": 0,
+      "explanation": "ref and out are part of the signature, so they can distinguish overloads."
+    },
+    {
+      "id": "csharp-methodoverloading-c-05",
+      "type": "coderunner",
+      "prompt": "Implement Max(int a, int b) and Max(int a, int b, int c) returning the largest, then print Max(4,9,2)",
+      "starterCode": "using System;\nclass Program {\n  static int Max(int a, int b) { return a > b ? a : b; }\n  static int Max(int a, int b, int c) { return Max(Max(a,b), c); }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "9\n",
+      "outputPattern": "^9\\n$",
+      "explanation": "The three-argument overload should return 9.",
+      "requiredStrings": [
+        "Add(1)"
+      ]
+    },
+    {
+      "id": "csharp-methodoverloading-c-06",
+      "type": "scored",
+      "prompt": "Operator overloading lets you define behavior for:",
+      "options": [
+        "Only methods",
+        "Built-in operators like + on your types",
+        "Access modifiers",
+        "Namespaces"
+      ],
+      "answerIndex": 1,
+      "explanation": "Operators such as + can be overloaded for custom types."
+    },
+    {
+      "id": "csharp-methodoverloading-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange these lines to create overloads differing by parameter order",
+      "items": [
+        "class Calc {",
+        "  void Show(int a, string b) { }",
+        "  void Show(string b, int a) { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Swapping parameter order yields a valid overload."
+    },
+    {
+      "id": "csharp-methodoverloading-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank for an overload accepting a list of strings",
+      "blanks": [
+        "static void Print(List<string> items)"
+      ],
+      "template": "______ { foreach(var i in items) Console.WriteLine(i); }",
+      "explanation": "A different parameter type creates the overload."
+    },
+    {
+      "id": "csharp-methodoverloading-c-09",
+      "type": "scored",
+      "prompt": "Which is true about overload resolution with optional parameters?",
+      "options": [
+        "Optional params are ignored",
+        "A call may match an overload with defaults",
+        "Overloads are disabled",
+        "Only one overload is allowed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Calls can bind to overloads that provide default values."
+    },
+    {
+      "id": "csharp-methodoverloading-c-10",
+      "type": "coderunner",
+      "prompt": "Implement Concat(string a, string b) and Concat(string a, string b, string c) returning joined strings, then print Concat('a','b','c')",
+      "starterCode": "using System;\nclass Program {\n  static string Concat(string a, string b) { return a + b; }\n  static string Concat(string a, string b, string c) { return a + b + c; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "abc\n",
+      "outputPattern": "^abc\\n$",
+      "explanation": "The three-string overload should be used.",
+      "requiredStrings": [
+        "Concat("
+      ]
+    }
+  ]
+}

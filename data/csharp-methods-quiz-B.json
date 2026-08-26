@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "section": "csharp-methods",
+    "level": "beginner",
+    "title": "Methods Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-methods-b-01",
+      "type": "scored",
+      "prompt": "What defines a method in C#?",
+      "options": [
+        "A variable that stores data",
+        "A reusable block of code that performs a task",
+        "A class that inherits from another",
+        "A loop structure"
+      ],
+      "answerIndex": 1,
+      "explanation": "A method is a reusable block of code that performs a specific task and can be called from elsewhere."
+    },
+    {
+      "id": "csharp-methods-b-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: _____ void PrintMessage() { Console.WriteLine(\"Hello\"); }",
+      "template": "_____ void PrintMessage() { Console.WriteLine(\"Hello\"); }",
+      "options": [
+        "PUBLIC",
+        "publics",
+        "public",
+        "Public"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-methods-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the parts of a method declaration in correct order.",
+      "items": [
+        "Access modifier",
+        "Return type",
+        "Method name",
+        "Parameters",
+        "Method body"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-methods-b-04",
+      "type": "scored",
+      "prompt": "How do you call a method named Calculate with no parameters?",
+      "options": [
+        "Calculate;",
+        "Calculate[]",
+        "Calculate()",
+        "call Calculate"
+      ],
+      "answerIndex": 2,
+      "explanation": "Methods are called using their name followed by parentheses, even if there are no parameters."
+    },
+    {
+      "id": "csharp-methods-b-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: _____ SayHello() { Console.WriteLine(\"Hi\"); }",
+      "template": "_____ SayHello() { Console.WriteLine(\"Hi\"); }",
+      "options": [
+        "Void",
+        "voids",
+        "void",
+        "VOID"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-methods-b-06",
+      "type": "coderunner",
+      "prompt": "Write a method named Add that takes two int parameters and returns their sum. Then call it with 3 and 4 and print the result.",
+      "starterCode": "_____ Add(int a, int b)\n{\n    _____ a + b;\n}\n\nConsole.WriteLine(_____(3, 4));",
+      "expectedOutput": "7",
+      "outputPattern": "7",
+      "requiredStrings": [
+        "string",
+        "Greet()",
+        "Greet()"
+      ]
+    },
+    {
+      "id": "csharp-methods-b-07",
+      "type": "scored",
+      "prompt": "Which keyword is used to return a value from a method?",
+      "options": [
+        "give",
+        "return",
+        "send",
+        "exit"
+      ],
+      "answerIndex": 1,
+      "explanation": "The return keyword sends a value back to the caller and exits the method."
+    },
+    {
+      "id": "csharp-methods-b-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: int Add(int a, int b) { _____ a + b; }",
+      "template": "int Add(int a, int b) { _____ a + b; }",
+      "options": [
+        "RETURN",
+        "return",
+        "Return",
+        "returns"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-methods-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the lifecycle of a method call.",
+      "items": [
+        "Define method",
+        "Call method",
+        "Execute body",
+        "Return value",
+        "Continue after call"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-methods-b-10",
+      "type": "scored",
+      "prompt": "Can a method have no return type?",
+      "options": [
+        "No, all methods must return a value",
+        "Yes, using the void keyword",
+        "Only constructors can",
+        "Only static methods can"
+      ],
+      "answerIndex": 1,
+      "explanation": "Methods with no return value use the void keyword instead of a data type."
+    }
+  ]
+}

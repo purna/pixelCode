@@ -1,0 +1,160 @@
+{
+  "meta": {
+    "section": "csharp-forloop",
+    "level": "beginner",
+    "title": "For Loops Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-forloop-b-01",
+      "type": "scored",
+      "prompt": "How many expressions are in the header of a standard for loop?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 2,
+      "explanation": "A standard for loop header contains three expressions separated by semicolons: initialization, condition, and iterator."
+    },
+    {
+      "id": "csharp-forloop-b-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (_____ i = 0; i < 5; i++) { Console.WriteLine(i); }",
+      "template": "for (_____ i = 0; i < 5; i++) { Console.WriteLine(i); }",
+      "options": [
+        "integer",
+        "int",
+        "boolean",
+        "str"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-forloop-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the for loop header parts in execution order.",
+      "items": [
+        "Initialization",
+        "Condition check",
+        "Body execution",
+        "Iterator/Update"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-forloop-b-04",
+      "type": "scored",
+      "prompt": "Which part of the for loop header runs first?",
+      "options": [
+        "Condition",
+        "Iterator",
+        "Initialization",
+        "Body"
+      ],
+      "answerIndex": 2,
+      "explanation": "The initialization expression runs once before the first condition check."
+    },
+    {
+      "id": "csharp-forloop-b-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; _____ i < 10; i++) { ... }",
+      "template": "for (int i = 0; _____ i < 10; i++) { ... }",
+      "options": [
+        ";",
+        ";",
+        ";3",
+        ";s"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-forloop-b-06",
+      "type": "coderunner",
+      "prompt": "Write a for loop that calculates the sum of integers from 1 to 5 and prints the result.",
+      "starterCode": "int sum = 0;\n// Write your for loop here\nConsole.WriteLine(sum);",
+      "expectedOutput": "15",
+      "outputPattern": "15",
+      "requiredStrings": [
+        "for",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-forloop-b-07",
+      "type": "scored",
+      "prompt": "What happens if the condition expression is omitted from a for loop?",
+      "options": [
+        "The loop runs once",
+        "The loop never runs",
+        "The loop becomes infinite",
+        "A compile error occurs"
+      ],
+      "answerIndex": 2,
+      "explanation": "Omitting the condition is equivalent to true, creating an infinite loop unless a break is used."
+    },
+    {
+      "id": "csharp-forloop-b-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; i < 5; _____++) { ... }",
+      "template": "for (int i = 0; i < 5; _____++) { ... }",
+      "options": [
+        "is",
+        "i3",
+        "I",
+        "i"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-forloop-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the complete for loop syntax in order.",
+      "items": [
+        "for",
+        "(",
+        "int i = 0",
+        ";",
+        "i < 5",
+        ";",
+        "i++",
+        ")",
+        "{",
+        "// body",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "csharp-forloop-b-10",
+      "type": "scored",
+      "prompt": "Can you omit the iterator expression from a for loop?",
+      "options": [
+        "No, it is required",
+        "Yes, but you must update inside the body",
+        "Yes, and it becomes infinite",
+        "Only if the body is empty"
+      ],
+      "answerIndex": 1,
+      "explanation": "The iterator is optional. If omitted, you must manually update the loop variable inside the body to avoid an infinite loop."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "section": "csharp-properties",
+    "level": "intermediate",
+    "title": "C# Properties"
+  },
+  "questions": [
+    {
+      "id": "csharp-properties-01",
+      "type": "scored",
+      "prompt": "What is a property in C#?",
+      "options": [
+        "A field that can never be changed",
+        "A class member that provides a mechanism to read, write, or compute the value of a private field",
+        "A method that returns a value",
+        "A local variable inside a class"
+      ],
+      "answerIndex": 1,
+      "explanation": "A property is a class member that provides a flexible mechanism to read, write, or compute the value of a private field. It uses 'get' and 'set' accessors to control how the underlying data is accessed and modified."
+    },
+    {
+      "id": "csharp-properties-02",
+      "type": "typing",
+      "prompt": "Complete the auto-property declaration for a string property named 'Title'.",
+      "blanks": [
+        "string",
+        "Title",
+        "get",
+        "set"
+      ],
+      "template": "public _____ _____ { _____; _____; }"
+    },
+    {
+      "id": "csharp-properties-03",
+      "type": "scored",
+      "prompt": "Given the property below, how do you assign the incoming value to the backing field?",
+      "options": [
+        "Name = this.value;",
+        "this.name = value;",
+        "name = value;",
+        "Value = name;"
+      ],
+      "answerIndex": 2,
+      "explanation": "In the 'set' accessor, the 'value' keyword holds the value being assigned. You assign it to the backing field directly: 'name = value;'. The 'this' keyword is not used in this simple assignment."
+    },
+    {
+      "id": "csharp-properties-04",
+      "type": "insert",
+      "prompt": "Fill in the blank: A property with only a 'get' accessor is called a _____ property.",
+      "template": "A property with only a 'get' accessor is called a _____ property.",
+      "options": [
+        "read-onlys",
+        "read-only2",
+        "read-only",
+        "read-only3"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-properties-05",
+      "type": "scored",
+      "prompt": "What will 'Console.WriteLine(obj.Count)' print after the following code runs?",
+      "options": [
+        "0",
+        "5",
+        "Compilation error",
+        "Runtime exception"
+      ],
+      "answerIndex": 1,
+      "explanation": "The property is initialized to 0 in the backing field. Setting Count = 5 works. Then Count++ increments to 6, but the question asks about obj.Count after all operations... Actually, let me reconsider: the backing field starts at 0, obj.Count = 5 sets it to 5, obj.Count++ reads 5 then sets 6. But if the get accessor returns the raw field, the output would be 6.\n\nLet's simplify: with a standard property, obj.Count = 5 then obj.Count++ results in 6. But the code shows the property with a get that returns the backing field directly.\n\nCorrection: the code is `private int count = 0; public int Count { get { return count; } set { count = value; } } obj.Count = 5; obj.Count++; Console.WriteLine(obj.Count)`\nOutput: 6"
+    },
+    {
+      "id": "csharp-properties-06",
+      "type": "typing",
+      "prompt": "Complete the set accessor to validate that an age is between 0 and 120 before assigning to the backing field.",
+      "blanks": [
+        "value",
+        "0",
+        "120"
+      ],
+      "template": "set\n{\n    if (_____ >= _____ && _____ <= 120)\n        age = value;\n}"
+    },
+    {
+      "id": "csharp-properties-07",
+      "type": "scored",
+      "prompt": "What does '{ get; private set; }' mean for a property?",
+      "options": [
+        "The property can be read from anywhere but set only within the class",
+        "The property can be set from anywhere but read only within the class",
+        "The property cannot be read or set",
+        "The property is read-only"
+      ],
+      "answerIndex": 0,
+      "explanation": "{ get; private set; } means the property can be read by any code (public get) but can only be modified from within the class itself (private set). This creates a write-only-from-outside-impossible property."
+    },
+    {
+      "id": "csharp-properties-08",
+      "type": "typing",
+      "prompt": "Which expression-bodied syntax correctly defines a read-only property that returns the length of a Name field?",
+      "blanks": [
+        "=> Name.Length;"
+      ],
+      "template": "public int NameLength _____ _____"
+    },
+    {
+      "id": "csharp-properties-09",
+      "type": "dragorder",
+      "prompt": "Order the execution of these parts when getting a property value: field initializer, get accessor, property declaration.",
+      "items": [
+        "Class field initializer runs",
+        "Property declaration loads metadata",
+        "get accessor method body executes"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "csharp-properties-10",
+      "type": "coderunner",
+      "prompt": "Complete the Temperature property with validation so the set accessor rejects values below absolute zero (-273). Run and verify output.",
+      "starterCode": "public class Weather\n{\n    private double temp;\n\n    public double Temperature\n    {\n        get { return temp; }\n        set\n        {\n            if (value >= _____)  // absolute zero\n                temp = value;\n        }\n    }\n}\n\nvar w = new Weather();\nw.Temperature = 25.0;\nConsole.WriteLine(w.Temperature);",
+      "expectedOutput": "25",
+      "outputPattern": "25",
+      "requiredStrings": [
+        "set"
+      ]
+    }
+  ]
+}

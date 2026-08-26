@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-operators",
+    "level": "beginner",
+    "title": "C# Operators C"
+  },
+  "questions": [
+    {
+      "id": "operators-c-01",
+      "type": "scored",
+      "prompt": "What is the result of 7 / 2 in integer arithmetic?",
+      "options": [
+        "3.5",
+        "3",
+        "4",
+        "2"
+      ],
+      "answerIndex": 1,
+      "explanation": "Integer division truncates the decimal, so 7 / 2 = 3."
+    },
+    {
+      "id": "operators-c-02",
+      "type": "insert",
+      "prompt": "What operator combines addition and assignment?",
+      "template": "x _____ 5;",
+      "options": [
+        "+=s",
+        "+=",
+        "+=3",
+        "+="
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "operators-c-03",
+      "type": "scored",
+      "prompt": "Which expression computes a - b * c?",
+      "options": [
+        "a - b * c",
+        "a * b - c",
+        "b * c - a",
+        "a - c * b"
+      ],
+      "answerIndex": 0,
+      "explanation": "a - b * c follows operator precedence: multiplication before subtraction."
+    },
+    {
+      "id": "operators-c-04",
+      "type": "scored",
+      "prompt": "What does 10 % 3 evaluate to?",
+      "options": [
+        "1",
+        "3",
+        "0",
+        "2"
+      ],
+      "answerIndex": 0,
+      "explanation": "10 divided by 3 is 3 with remainder 1."
+    },
+    {
+      "id": "operators-c-05",
+      "type": "coderunner",
+      "prompt": "Use decrement (--) to reduce a value from 10 to 8 and print it.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        int x = 10;\n        // decrement twice\n        \n        Console.WriteLine(x);\n    }\n}",
+      "expectedOutput": "8\n",
+      "outputPattern": "^8\\n$",
+      "requiredStrings": [
+        "*",
+        "total ="
+      ]
+    },
+    {
+      "id": "operators-c-06",
+      "type": "scored",
+      "prompt": "Which operator checks strict equality in C#?",
+      "options": [
+        "=",
+        "==",
+        "===",
+        "equals()"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# uses == for equality. There is no === operator."
+    },
+    {
+      "id": "operators-c-07",
+      "type": "insert",
+      "prompt": "What symbol represents logical AND?",
+      "template": "_____ (a && b)",
+      "options": [
+        "==",
+        "&&",
+        "===",
+        "="
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "operators-c-08",
+      "type": "scored",
+      "prompt": "What is true && false?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 1,
+      "explanation": "Logical AND requires both sides to be true. true && false = false."
+    },
+    {
+      "id": "operators-c-09",
+      "type": "scored",
+      "prompt": "Which expression computes (a + b) / c?",
+      "options": [
+        "(a + b) / c",
+        "a + b / c",
+        "(a / b) + c",
+        "a + (b / c)"
+      ],
+      "answerIndex": 0,
+      "explanation": "Parentheses force addition before division."
+    },
+    {
+      "id": "operators-c-10",
+      "type": "scored",
+      "prompt": "What does x++ do?",
+      "options": [
+        "Adds 1 to x",
+        "Adds 2 to x",
+        "Multiplies x by 2",
+        "Does nothing"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ++ operator increments x by 1."
+    }
+  ]
+}

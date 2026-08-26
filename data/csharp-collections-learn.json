@@ -1,0 +1,137 @@
+{
+  "section": "csharp-collections",
+  "title": "C# Collections",
+  "slides": [
+    {
+      "title": "Why Use Collections?",
+      "content": "Arrays have a fixed size set at creation. Collections grow and shrink automatically as you add and remove items, which is usually what you want.",
+      "example": "int[] fixedSize = new int[3];\nvar list = new List<int>();\nlist.Add(1); list.Add(2);",
+      "exampleOutput": "list grows to hold 2 items; fixedSize stays length 3.",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which statement about arrays is TRUE?",
+        "options": [
+          "The size can change after creation",
+          "The size is fixed at creation time",
+          "They always start empty",
+          "They store only strings"
+        ],
+        "answer": "The size is fixed at creation time"
+      }
+    },
+    {
+      "title": "Creating a List",
+      "content": "List<T> stores strongly-typed items you can index from 0. T is the element type, so a List<int> only accepts integers.",
+      "example": "var numbers = new List<int> { 1, 2, 3 };\nnumbers.Add(4);\nConsole.WriteLine(numbers[0]);",
+      "exampleOutput": "1",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the line to create an empty list of strings.",
+        "before": "var names = _______();",
+        "after": "",
+        "options": [
+          "new List<string>",
+          "new string[]",
+          "new Dictionary<string>",
+          "List<string>"
+        ],
+        "answer": "new List<string>"
+      }
+    },
+    {
+      "title": "List Methods",
+      "content": "Add appends one item, Remove removes the first match, Count is the number of items, and IndexOf returns an item's position (-1 if absent).",
+      "example": "var names = new List<string> { \"Ada\", \"Ben\" };\nnames.Add(\"Cara\");\nConsole.WriteLine(names.Count);\nConsole.WriteLine(names.IndexOf(\"Ben\"));",
+      "exampleOutput": "3\n0",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the code so it prints the number of items in the list.",
+        "starterCode": "var colors = new List<string> { \"red\", \"green\" };\ncolors.Add(\"blue\");\nConsole.WriteLine(_______);",
+        "expectedOutput": "3",
+        "outputPattern": "colors\\.Count",
+        "requiredStrings": [
+          "colors",
+          "Count"
+        ],
+        "hints": [
+          "Use the property that returns how many items are stored.",
+          "The property is named Count, just like Length on arrays."
+        ]
+      }
+    },
+    {
+      "title": "Iterating a List",
+      "content": "Use a foreach loop to read every element in order without managing an index.",
+      "example": "foreach (var n in numbers)\n  Console.WriteLine(n);",
+      "exampleOutput": "Prints each value on its own line.",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The loop that reads each element of a collection is a _____ loop.",
+        "placeholder": "_____",
+        "answer": "foreach",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Dictionary<TKey, TValue>",
+      "content": "A Dictionary maps unique keys to values. Use it when you look something up by a key instead of by position.",
+      "example": "var counts = new Dictionary<string, int>();\ncounts[\"apple\"] = 3;\nConsole.WriteLine(counts[\"apple\"]);",
+      "exampleOutput": "3",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the line to declare a dictionary mapping strings to ints.",
+        "before": "var ages = _______();",
+        "after": "",
+        "options": [
+          "new Dictionary<string, int>",
+          "new Dictionary<int, string>",
+          "new List<string, int>",
+          "new Dictionary<string>"
+        ],
+        "answer": "new Dictionary<string, int>"
+      }
+    },
+    {
+      "title": "Dictionary Access and Safety",
+      "content": "Reading a missing key throws KeyNotFoundException. Use ContainsKey first, or TryGetValue to get the value and a success flag safely.",
+      "example": "if (counts.ContainsKey(\"pear\"))\n  Console.WriteLine(counts[\"pear\"]);\nif (counts.TryGetValue(\"pear\", out int v))\n  Console.WriteLine(v);",
+      "exampleOutput": "Prints only when a value is present.",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the code so it prints the count only when the key exists.",
+        "starterCode": "var counts = new Dictionary<string, int> { [\"x\"] = 5 };\nint n;\nif (counts._______(\"x\", out n))\n  Console.WriteLine(_______);",
+        "expectedOutput": "5",
+        "outputPattern": "TryGetValue",
+        "requiredStrings": [
+          "TryGetValue",
+          "n"
+        ],
+        "hints": [
+          "The method returns true when the key is found and outputs the value.",
+          "Use TryGetValue with an out variable, then print that variable."
+        ]
+      }
+    },
+    {
+      "title": "Choosing a Collection",
+      "content": "Use a List<T> when you access items by position. Use a Dictionary<TKey,TValue> when you look up by key. Both grow automatically and are type-safe.",
+      "example": "var todo = new List<string>();            // ordered, by index\nvar byId = new Dictionary<int, string>();   // by key",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the code to count how many 'a' letters are in the list.",
+        "starterCode": "var letters = new List<char> { 'a', 'b', 'a', 'c' };\nint count = 0;\nforeach (var ch in letters)\n  if (ch == _______) count++;\nConsole.WriteLine(count);",
+        "expectedOutput": "2",
+        "outputPattern": "'a'",
+        "requiredStrings": [
+          "foreach",
+          "count"
+        ],
+        "hints": [
+          "Compare ch against the character literal 'a'.",
+          "A character literal uses single quotes, e.g. 'a'."
+        ]
+      }
+    }
+  ]
+}

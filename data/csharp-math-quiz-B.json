@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "section": "csharp-math",
+    "level": "beginner",
+    "title": "C# Math B"
+  },
+  "questions": [
+    {
+      "id": "math-b-01",
+      "type": "scored",
+      "prompt": "What does Math.Min(10, 5) return?",
+      "options": [
+        "10",
+        "5",
+        "0",
+        "-1"
+      ],
+      "answerIndex": 1,
+      "explanation": "Math.Min returns the smaller of two values. 5 is less than 10."
+    },
+    {
+      "id": "math-b-02",
+      "type": "insert",
+      "prompt": "What method returns the square root of a number?",
+      "template": "double root = _____(16);",
+      "options": [
+        "Math.Sqrts",
+        "MATH.SQRT",
+        "Math.sqrt",
+        "Math.Sqrt"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "math-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange these Math methods: Round, Max, Min, Sqrt, Pow.",
+      "items": [
+        "Pow",
+        "Sqrt",
+        "Round",
+        "Max",
+        "Min"
+      ],
+      "solution": [
+        3,
+        4,
+        2,
+        1,
+        0
+      ],
+      "explanation": "Max and Min compare values, Round rounds, Sqrt finds roots, Pow raises to power."
+    },
+    {
+      "id": "math-b-04",
+      "type": "scored",
+      "prompt": "What does Math.Pow(3, 2) return?",
+      "options": [
+        "5",
+        "6",
+        "9",
+        "8"
+      ],
+      "answerIndex": 2,
+      "explanation": "Math.Pow(3, 2) computes 3 raised to the power of 2, which equals 9."
+    },
+    {
+      "id": "math-b-05",
+      "type": "coderunner",
+      "prompt": "Use Math.Round to round 2.7 to the nearest integer and print it.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Round 2.7 and print\n        \n    }\n}",
+      "expectedOutput": "3",
+      "outputPattern": "^3$",
+      "requiredStrings": [
+        "Math.Max",
+        "Math.Min"
+      ]
+    },
+    {
+      "id": "math-b-06",
+      "type": "scored",
+      "prompt": "What is the square root of 81?",
+      "options": [
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "answerIndex": 2,
+      "explanation": "Math.Sqrt(81) = 9 because 9 * 9 = 81."
+    },
+    {
+      "id": "math-b-07",
+      "type": "insert",
+      "prompt": "What method rounds a number to the nearest integer?",
+      "template": "double r = _____(3.5);",
+      "options": [
+        "MATH.ROUND",
+        "Math.round",
+        "Math.Rounds",
+        "Math.Round"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "math-b-08",
+      "type": "scored",
+      "prompt": "What does Math.Max(-5, -10) return?",
+      "options": [
+        "-5",
+        "-10",
+        "0",
+        "5"
+      ],
+      "answerIndex": 0,
+      "explanation": "Math.Max returns the larger (less negative) of two numbers. -5 is greater than -10."
+    },
+    {
+      "id": "math-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange to compute the larger of 7 and 12.",
+      "items": [
+        "Math.Max(7, 12)",
+        "Math.Min(7, 12)",
+        "Math.Pow(7, 12)",
+        "Math.Sqrt(12)"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Math.Max directly returns the larger value."
+    },
+    {
+      "id": "math-b-10",
+      "type": "scored",
+      "prompt": "What does Math.Pow return?",
+      "options": [
+        "int",
+        "double",
+        "float",
+        "long"
+      ],
+      "answerIndex": 1,
+      "explanation": "Math.Pow returns a double because power operations can produce non-integer results."
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-abstraction",
+    "level": "expert",
+    "title": "C# Abstraction"
+  },
+  "questions": [
+    {
+      "id": "csharp-abstraction-b-01",
+      "type": "scored",
+      "prompt": "Abstraction in C# is primarily provided by:",
+      "options": [
+        "Abstract classes and interfaces",
+        "Only structs",
+        "Only enums",
+        "Global functions"
+      ],
+      "answerIndex": 0,
+      "explanation": "Abstract classes and interfaces define contracts without full implementation."
+    },
+    {
+      "id": "csharp-abstraction-b-02",
+      "type": "scored",
+      "prompt": "An abstract method in an abstract class:",
+      "options": [
+        "Has a body",
+        "Has no body and must be overridden",
+        "Is static",
+        "Is sealed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract methods declare a signature only."
+    },
+    {
+      "id": "csharp-abstraction-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an abstract class with an abstract method",
+      "blanks": [
+        "public abstract class Shape { public abstract double Area(); }"
+      ],
+      "template": "______",
+      "explanation": "Abstract class holds abstract member."
+    },
+    {
+      "id": "csharp-abstraction-b-04",
+      "type": "scored",
+      "prompt": "You cannot instantiate an abstract class because:",
+      "options": [
+        "It has too many methods",
+        "It may have unimplemented abstract members",
+        "It is static",
+        "It is sealed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract members must be implemented by a concrete subclass."
+    },
+    {
+      "id": "csharp-abstraction-b-05",
+      "type": "coderunner",
+      "prompt": "Create abstract class Animal { public abstract string Sound(); } and class Cow:Animal { public override string Sound(){return \"Moo\";} }, print new Cow().Sound()",
+      "starterCode": "using System;\nabstract class Animal { public abstract string Sound(); }\nclass Cow : Animal { public override string Sound() { return \"Moo\"; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Moo\n",
+      "outputPattern": "^Moo\\n$",
+      "explanation": "Concrete subclass implements abstraction.",
+      "requiredStrings": [
+        "abstract class Animal",
+        "abstract string Sound"
+      ]
+    },
+    {
+      "id": "csharp-abstraction-b-06",
+      "type": "scored",
+      "prompt": "Compared to interfaces, abstract classes can also provide:",
+      "options": [
+        "Only signatures",
+        "Shared state and implemented members",
+        "No inheritance",
+        "Multiple base classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract classes can hold fields and concrete methods."
+    },
+    {
+      "id": "csharp-abstraction-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange an abstract base and concrete derived type",
+      "items": [
+        "abstract class Vehicle { public abstract void Start(); }",
+        "class Car : Vehicle {",
+        "  public override void Start() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Car fulfills the abstract contract."
+    },
+    {
+      "id": "csharp-abstraction-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to require a subclass to implement a property",
+      "blanks": [
+        "public abstract int Size { get; }"
+      ],
+      "template": "______",
+      "explanation": "Abstract properties are also contracts."
+    },
+    {
+      "id": "csharp-abstraction-b-09",
+      "type": "scored",
+      "prompt": "The Dependency Inversion Principle encourages depending on:",
+      "options": [
+        "Concrete classes",
+        "Abstractions (interfaces/abstract classes)",
+        "Globals",
+        "Singletons only"
+      ],
+      "answerIndex": 1,
+      "explanation": "High-level modules should depend on abstractions."
+    },
+    {
+      "id": "csharp-abstraction-b-10",
+      "type": "coderunner",
+      "prompt": "Create abstract class Calculator { public abstract int Compute(int a,int b); } and class Add:Calculator { public override int Compute(int a,int b){return a+b;} }, print new Add().Compute(3,7)",
+      "starterCode": "using System;\nabstract class Calculator { public abstract int Compute(int a, int b); }\nclass Add : Calculator { public override int Compute(int a, int b) { return a + b; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "10\n",
+      "outputPattern": "^10\\n$",
+      "explanation": "Implementation returns the sum.",
+      "requiredStrings": [
+        "abstract class Calculator",
+        "abstract int Compute"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "section": "csharp-syntax",
+    "level": "beginner",
+    "title": "C# Syntax \u2014 Beginner"
+  },
+  "questions": [
+    {
+      "id": "syn-b-01",
+      "type": "scored",
+      "prompt": "Which directive is used at the top of a C# file to access types in the System namespace without fully qualifying them?",
+      "options": [
+        "using System;",
+        "#include System",
+        "import System",
+        "namespace System"
+      ],
+      "answerIndex": 0,
+      "explanation": "The using System; directive imports the System namespace, allowing you to write Console.WriteLine instead of System.Console.WriteLine."
+    },
+    {
+      "id": "syn-b-02",
+      "type": "scored",
+      "prompt": "What character is used to terminate most statements in C#?",
+      "options": [
+        ";",
+        ":",
+        ".",
+        ","
+      ],
+      "answerIndex": 0,
+      "explanation": "A semicolon (;) ends a statement in C#. Blocks of code use braces {} instead."
+    },
+    {
+      "id": "syn-b-03",
+      "type": "scored",
+      "prompt": "Which of the following statements about C# is true?",
+      "options": [
+        "C# is case-sensitive, so 'name' and 'Name' are different identifiers",
+        "C# ignores case for all identifiers",
+        "C# requires identifiers to start with a digit",
+        "C# identifiers cannot use underscores"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# is case-sensitive. The identifiers 'name' and 'Name' refer to two distinct variables."
+    },
+    {
+      "id": "syn-b-04",
+      "type": "scored",
+      "prompt": "Which of the following is a valid user-defined identifier and NOT a C# keyword?",
+      "options": [
+        "PlayerScore",
+        "class",
+        "return",
+        "int"
+      ],
+      "answerIndex": 0,
+      "explanation": "PlayerScore is a valid identifier. class, return, and int are reserved keywords and cannot be used as variable or class names."
+    },
+    {
+      "id": "syn-b-05",
+      "type": "insert",
+      "prompt": "Complete the declaration of the Main method entry point.",
+      "template": "class Program\n{\n    _____\n    {\n        // code here\n    }\n}",
+      "options": [
+        "static void Main(string[] args)",
+        "STATIC VOID MAIN(STRING[] ARGS)",
+        "static void Main(string[] args)s",
+        "Static void main(string[] args)"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "syn-b-06",
+      "type": "insert",
+      "prompt": "Fill in the blank to print text to the console.",
+      "template": "_____(\"Hello!\");",
+      "options": [
+        "Console.WriteLines",
+        "Console.writeline",
+        "CONSOLE.WRITELINE",
+        "Console.WriteLine"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "syn-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange the following lines in the correct order to form a minimal C# program that prints 'Hi'. Include the comment line.",
+      "items": [
+        "// Entry point",
+        "using System;",
+        "class Program",
+        "{",
+        "static void Main()",
+        "{",
+        "Console.WriteLine(\"Hi\");",
+        "}",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "syn-b-08",
+      "type": "dragorder",
+      "prompt": "Arrange the statements inside Main in the correct order to print 'Start' then 'End'.",
+      "items": [
+        "Console.WriteLine(\"Start\");",
+        "Console.WriteLine(\"End\");",
+        "// End of method"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "syn-b-09",
+      "type": "coderunner",
+      "prompt": "Write a complete C# program that prints: Hello, World!",
+      "starterCode": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        // Write your code here\n        \n    }\n}",
+      "expectedOutput": "Hello, World!",
+      "outputPattern": "Hello, World!",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "syn-b-10",
+      "type": "coderunner",
+      "prompt": "Write a C# program that declares an int variable named 'score' (a valid identifier, not a C# keyword) with value 10 and prints it.",
+      "starterCode": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        // Declare and print\n        \n    }\n}",
+      "expectedOutput": "10",
+      "outputPattern": "10",
+      "requiredStrings": [
+        "int",
+        "x",
+        "Console.WriteLine"
+      ]
+    }
+  ]
+}

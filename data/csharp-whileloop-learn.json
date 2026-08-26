@@ -1,0 +1,293 @@
+{
+  "meta": {
+    "section": "csharp-whileloop",
+    "level": "beginner",
+    "title": "C# While Loops"
+  },
+  "slides": [
+    {
+      "title": "While Loop Basics",
+      "content": "A while loop repeats a block of code while a condition remains true. It checks the condition before each iteration.",
+      "example": "int count = 0;\nwhile (count < 3)\n{\n    Console.WriteLine(count);\n    count++;\n}",
+      "exampleOutput": "0\n1\n2",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "When does a while loop check its condition?",
+        "options": [
+          "Before each iteration",
+          "After each iteration",
+          "Only once",
+          "Never"
+        ],
+        "answer": "Before each iteration"
+      }
+    },
+    {
+      "title": "Loop Condition",
+      "content": "The condition must be a bool expression. If it starts as false, the loop body never runs.",
+      "example": "int x = 5;\nwhile (x < 3)\n{\n    Console.WriteLine(\"Never\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "If the condition is false initially, the loop body runs _____ times",
+        "placeholder": "_____",
+        "answer": "0",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Incrementing",
+      "content": "Loops usually need an update statement inside the body to eventually stop. Forgetting it creates an infinite loop.",
+      "example": "int i = 0;\nwhile (i < 3)\n{\n    Console.WriteLine(i);\n    i++;\n}",
+      "exampleOutput": "0\n1\n2",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the while loop to count to 2",
+        "before": "int i = 0;\nwhile (i < 3)\n{\n    Console.WriteLine(i);\n",
+        "after": ";\n}",
+        "options": [
+          "i++",
+          "i--",
+          "i = 0",
+          "i += 2"
+        ],
+        "answer": "i++"
+      }
+    },
+    {
+      "title": "Infinite Loops",
+      "content": "An infinite loop never ends because its condition never becomes false. Use break to exit manually if needed.",
+      "example": "while (true)\n{\n    Console.WriteLine(\"Running\");\n    break;\n}",
+      "exampleOutput": "Running",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which condition creates an infinite loop?",
+        "options": [
+          "while (true)",
+          "while (false)",
+          "while (0)",
+          "while (null)"
+        ],
+        "answer": "while (true)"
+      }
+    },
+    {
+      "title": "Do-While Loop",
+      "content": "A do-while loop runs its body at least once because the condition is checked after the body.",
+      "example": "int i = 0;\ndo\n{\n    Console.WriteLine(i);\n    i++;\n} while (i < 3);",
+      "exampleOutput": "0\n1\n2",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A do-while always executes its body _____ times",
+        "placeholder": "_____",
+        "answer": "at least one",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Do-While Syntax",
+      "content": "The do-while loop places the condition after the body, terminated with a semicolon. Braces are required when the body has multiple statements.",
+      "example": "int n = 5;\ndo\n{\n    Console.WriteLine(n);\n    n--;\n} while (n > 0);",
+      "exampleOutput": "5\n4\n3\n2\n1",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the do-while loop ending",
+        "before": "do\n{\n    Console.WriteLine(\"Hi\");\n} ",
+        "after": " (runAgain);",
+        "options": [
+          "while",
+          "do",
+          "until",
+          "loop"
+        ],
+        "answer": "while"
+      }
+    },
+    {
+      "title": "Loop Counters",
+      "content": "A counter variable tracks how many times the loop has run. Initialize it before the loop and update it inside.",
+      "example": "int counter = 1;\nwhile (counter <= 3)\n{\n    Console.WriteLine(counter);\n    counter++;\n}",
+      "exampleOutput": "1\n2\n3",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use a while loop to print numbers 2, 4, 6 using int n = 2",
+        "starterCode": "int n = 2;\n// Write your while loop below\n",
+        "expectedOutput": "2\n4\n6",
+        "outputPattern": "2\\n4\\n6",
+        "requiredStrings": [
+          "while",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: while, Console.WriteLine",
+          "When run, your code should output: 2, 4, 6"
+        ]
+      }
+    },
+    {
+      "title": "While with Strings",
+      "content": "You can use while loops to process strings character by character until reaching the end.",
+      "example": "string word = \"Cat\";\nint index = 0;\nwhile (index < word.Length)\n{\n    Console.WriteLine(word[index]);\n    index++;\n}",
+      "exampleOutput": "C\na\nt",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The loop stops when index _____ word.Length",
+        "placeholder": "_____",
+        "answer": "is no longer less than",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Nested While Loops",
+      "content": "A while loop can contain another while loop. The inner loop must complete before the outer loop continues.",
+      "example": "int outer = 1;\nwhile (outer <= 2)\n{\n    int inner = 1;\n    while (inner <= 2)\n    {\n        Console.WriteLine($\"{outer},{inner}\");\n        inner++;\n    }\n    outer++;\n}",
+      "exampleOutput": "1,1\n1,2\n2,1\n2,2",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "How many times does the inner loop run if outer=1 and inner<=2?",
+        "options": [
+          "2",
+          "1",
+          "3",
+          "0"
+        ],
+        "answer": "2"
+      }
+    },
+    {
+      "title": "Break and Continue",
+      "content": "break exits the loop immediately. continue skips the rest of the current iteration and re-evaluates the condition.",
+      "example": "int i = 0;\nwhile (i < 5)\n{\n    i++;\n    if (i == 3)\n        continue;\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "1\n2\n4\n5",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the loop to skip even numbers",
+        "before": "int i = 0;\nwhile (i < 5)\n{\n    i++;\n    if (i % 2 == 0)\n        _____;\n    Console.WriteLine(i);\n}",
+        "after": "",
+        "options": [
+          "continue",
+          "break",
+          "return",
+          "stop"
+        ],
+        "answer": "continue"
+      }
+    },
+    {
+      "title": "Flow Builder: While Loop",
+      "content": "Use the Flow Builder to create a while loop that counts to 2.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares i=0, while i<3 outputs i and increments i",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "i",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "i",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "0"
+            },
+            {
+              "id": "n3",
+              "kind": "while",
+              "condition": "i < 3",
+              "body": [
+                {
+                  "id": "n4",
+                  "kind": "output",
+                  "expression": "i",
+                  "newline": true
+                },
+                {
+                  "id": "n5",
+                  "kind": "assign",
+                  "name": "i",
+                  "dataType": "Integer",
+                  "structure": "Scalar",
+                  "index": "0",
+                  "row": "0",
+                  "col": "0",
+                  "expression": "i + 1"
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int i;\ni = 0;\nwhile (i < 3)\n{\n    output(i);\n    i = i + 1;\n}",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output",
+          "while"
+        ],
+        "flowExample": {
+          "name": "While Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "0"
+              },
+              {
+                "id": "ex3",
+                "kind": "while",
+                "condition": "i < 3",
+                "body": [
+                  {
+                    "id": "ex4",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  },
+                  {
+                    "id": "ex5",
+                    "kind": "assign",
+                    "name": "i",
+                    "dataType": "Integer",
+                    "structure": "Scalar",
+                    "index": "0",
+                    "row": "0",
+                    "col": "0",
+                    "expression": "i + 1"
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

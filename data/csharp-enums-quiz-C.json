@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-enums",
+    "level": "expert",
+    "title": "C# Enums"
+  },
+  "questions": [
+    {
+      "id": "csharp-enums-c-01",
+      "type": "scored",
+      "prompt": "A [Flags] enum is meant to represent:",
+      "options": [
+        "Exclusive single values",
+        "Combinable bit flags",
+        "Strings",
+        "Floats"
+      ],
+      "answerIndex": 1,
+      "explanation": "Flags indicate combinable bit values."
+    },
+    {
+      "id": "csharp-enums-c-02",
+      "type": "scored",
+      "prompt": "Enum.IsDefined checks whether a value:",
+      "options": [
+        "Is numeric",
+        "Exists as a named member",
+        "Is null",
+        "Is string"
+      ],
+      "answerIndex": 1,
+      "explanation": "IsDefined validates membership."
+    },
+    {
+      "id": "csharp-enums-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to parse a string into an enum safely",
+      "blanks": [
+        "Day d = (Day)Enum.Parse(typeof(Day), \"Mon\")"
+      ],
+      "template": "______;",
+      "explanation": "Enum.Parse with the type and name."
+    },
+    {
+      "id": "csharp-enums-c-04",
+      "type": "scored",
+      "prompt": "To get all values of an enum use:",
+      "options": [
+        "Enum.GetValues",
+        "Enum.Names",
+        "GetType",
+        "ToList"
+      ],
+      "answerIndex": 0,
+      "explanation": "Enum.GetValues returns the values."
+    },
+    {
+      "id": "csharp-enums-c-05",
+      "type": "coderunner",
+      "prompt": "Declare [Flags] enum Opt { None=0, A=1, B=2 } and print ((Opt.A|Opt.B).HasFlag(Opt.B))",
+      "starterCode": "using System;\n[Flags] enum Opt { None = 0, A = 1, B = 2 }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "True\n",
+      "outputPattern": "^True\\n$",
+      "explanation": "Combined flag contains B.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-enums-c-06",
+      "type": "scored",
+      "prompt": "Casting an int that is not a defined member to an enum:",
+      "options": [
+        "Throws an exception",
+        "Succeeds (no validation)",
+        "Returns null",
+        "Is disallowed by compiler"
+      ],
+      "answerIndex": 1,
+      "explanation": "Enum casts do not validate values."
+    },
+    {
+      "id": "csharp-enums-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange conversion of enum to int",
+      "items": [
+        "enum E { X = 5 }",
+        "E e = E.X;",
+        "int v = (int)e;",
+        "Console.WriteLine(v);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Explicit cast yields the numeric value."
+    },
+    {
+      "id": "csharp-enums-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank for an enum with a long underlying type",
+      "blanks": [
+        "enum Big : long { Max = 1L << 40 }"
+      ],
+      "template": "______",
+      "explanation": "Enums can use long as base."
+    },
+    {
+      "id": "csharp-enums-c-09",
+      "type": "scored",
+      "prompt": "switch statements can use enums for:",
+      "options": [
+        "Only ints",
+        "Type-safe branching",
+        "Loops",
+        "Casts"
+      ],
+      "answerIndex": 1,
+      "explanation": "Enums make switch branches expressive."
+    },
+    {
+      "id": "csharp-enums-c-10",
+      "type": "coderunner",
+      "prompt": "Declare enum Season { Spring, Summer, Autumn, Winter } and print (int)Season.Autumn",
+      "starterCode": "using System;\nenum Season { Spring, Summer, Autumn, Winter }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "2\n",
+      "outputPattern": "^2\\n$",
+      "explanation": "Autumn is index 2.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

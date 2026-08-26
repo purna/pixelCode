@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "section": "csharp-conditions",
+    "level": "beginner",
+    "title": "C# Conditions B"
+  },
+  "questions": [
+    {
+      "id": "conditions-b-01",
+      "type": "scored",
+      "prompt": "What keyword provides an alternative when if is false?",
+      "options": [
+        "else",
+        "otherwise",
+        "elif",
+        "catch"
+      ],
+      "answerIndex": 0,
+      "explanation": "The else keyword runs when the if condition is false."
+    },
+    {
+      "id": "conditions-b-02",
+      "type": "insert",
+      "prompt": "Write the exact keyword for an additional condition after if.",
+      "template": "if (x > 0) { }\n_____ (x < 0) { }",
+      "options": [
+        "Else if",
+        "else if",
+        "else ifs",
+        "ELSE IF"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "conditions-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange an if-else if-else chain.",
+      "items": [
+        "if (score >= 90)",
+        "{ Console.WriteLine(\"A\"); }",
+        "else if (score >= 80)",
+        "{ Console.WriteLine(\"B\"); }",
+        "else",
+        "{ Console.WriteLine(\"F\"); }"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "explanation": "The chain tests conditions in order and runs the first matching block."
+    },
+    {
+      "id": "conditions-b-04",
+      "type": "scored",
+      "prompt": "What is the ternary operator?",
+      "options": [
+        "? :",
+        "if else",
+        "switch",
+        "&&"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ternary operator uses ? and : as a shorthand for if-else."
+    },
+    {
+      "id": "conditions-b-05",
+      "type": "coderunner",
+      "prompt": "Use a ternary to assign 'Even' or 'Odd' to a string and print it for n = 4.",
+      "starterCode": "int n = 4;\n// use ternary to set result\n",
+      "expectedOutput": "Even",
+      "outputPattern": "^Even$",
+      "requiredStrings": [
+        "if",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "conditions-b-06",
+      "type": "scored",
+      "prompt": "What keyword starts a switch expression in C# 8+?",
+      "options": [
+        "switch",
+        "case",
+        "match",
+        "select"
+      ],
+      "answerIndex": 2,
+      "explanation": "C# 8 introduced switch expressions using the 'expression' after a variable."
+    },
+    {
+      "id": "conditions-b-07",
+      "type": "insert",
+      "prompt": "Write the exact symbol that separates true and false in a ternary.",
+      "template": "result = condition ? trueVal _____ falseVal;",
+      "options": [
+        ":3",
+        ":",
+        ":",
+        ":s"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "conditions-b-08",
+      "type": "scored",
+      "prompt": "What happens if no condition matches in a switch with no default?",
+      "options": [
+        "Nothing runs",
+        "Error",
+        "First case runs",
+        "Program crashes"
+      ],
+      "answerIndex": 0,
+      "explanation": "Without a default, no case executes if none matches."
+    },
+    {
+      "id": "conditions-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange a ternary expression.",
+      "items": [
+        "int max = (a > b)",
+        "? a",
+        ": b",
+        ";"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Ternary syntax: condition ? trueValue : falseValue;"
+    },
+    {
+      "id": "conditions-b-10",
+      "type": "scored",
+      "prompt": "Which is NOT a conditional keyword?",
+      "options": [
+        "switch",
+        "case",
+        "if",
+        "while"
+      ],
+      "answerIndex": 3,
+      "explanation": "while is a loop keyword, not a conditional keyword."
+    }
+  ]
+}

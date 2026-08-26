@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "section": "csharp-forloop",
+    "level": "beginner",
+    "title": "C# For Loops"
+  },
+  "questions": [
+    {
+      "id": "csharp-forloop-01",
+      "type": "scored",
+      "prompt": "How many times will this loop execute: `for (int i = 0; i < 5; i++)`?",
+      "options": [
+        "4",
+        "5",
+        "6",
+        "Infinite"
+      ],
+      "answerIndex": 1,
+      "explanation": "The loop runs while i < 5, starting at 0, so it executes for i = 0, 1, 2, 3, 4 (5 times)."
+    },
+    {
+      "id": "csharp-forloop-02",
+      "type": "insert",
+      "prompt": "Complete the for loop header to iterate 10 times starting at 1",
+      "template": "for (int i = 1; i ______; i++)",
+      "options": [
+        "i <= 10s",
+        "i <= 103",
+        "I <= 10",
+        "i <= 10"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-forloop-03",
+      "type": "dragorder",
+      "prompt": "Arrange the for loop parts in correct order",
+      "items": [
+        "Initialization",
+        "Condition",
+        "Iteration"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "A for loop follows the order: initialization; condition; iteration."
+    },
+    {
+      "id": "csharp-forloop-04",
+      "type": "scored",
+      "prompt": "Which keyword is used to iterate over each element in a collection?",
+      "options": [
+        "for",
+        "foreach",
+        "while",
+        "loop"
+      ],
+      "answerIndex": 1,
+      "explanation": "The foreach keyword iterates over each element in a collection or array."
+    },
+    {
+      "id": "csharp-forloop-05",
+      "type": "coderunner",
+      "prompt": "Write a for loop that prints numbers 1 through 5, each on a new line",
+      "starterCode": "for (int i = 1; i <= 5; i++)\n{\n    // Your code here\n}",
+      "expectedOutput": "1\n2\n3\n4\n5\n",
+      "outputPattern": "^1\\n2\\n3\\n4\\n5\\n$",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-forloop-06",
+      "type": "scored",
+      "prompt": "What is the output of `for (int i = 0; i < 3; i++) { Console.Write(i + \" \"); }`?",
+      "options": [
+        "1 2 3",
+        "0 1 2",
+        "0 1 2 3",
+        "1 2"
+      ],
+      "answerIndex": 1,
+      "explanation": "i starts at 0 and increments while i < 3, printing 0, 1, 2."
+    },
+    {
+      "id": "csharp-forloop-07",
+      "type": "scored",
+      "prompt": "In a foreach loop, the loop variable represents:",
+      "options": [
+        "The index",
+        "The current element",
+        "The collection",
+        "The count"
+      ],
+      "answerIndex": 1,
+      "explanation": "In foreach, the variable holds the current element value, not the index."
+    },
+    {
+      "id": "csharp-forloop-08",
+      "type": "insert",
+      "prompt": "Fill in the blank to decrement from 10 to 1",
+      "template": "for (int i = 10; i >= 1; i______)",
+      "options": [
+        "i--3",
+        "i--",
+        "I--",
+        "i--s"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-forloop-09",
+      "type": "dragorder",
+      "prompt": "Arrange the foreach loop syntax in order",
+      "items": [
+        "foreach (type var in collection)",
+        "{",
+        "// body",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "foreach syntax: keyword, parentheses, opening brace, body, closing brace."
+    },
+    {
+      "id": "csharp-forloop-10",
+      "type": "scored",
+      "prompt": "Which loop is best when you know the exact number of iterations?",
+      "options": [
+        "while",
+        "do-while",
+        "for",
+        "foreach"
+      ],
+      "answerIndex": 2,
+      "explanation": "The for loop is designed for when you know the iteration count beforehand."
+    }
+  ]
+}

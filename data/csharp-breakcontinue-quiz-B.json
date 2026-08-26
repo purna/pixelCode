@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "section": "csharp-breakcontinue",
+    "level": "beginner",
+    "title": "Break and Continue Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-breakcontinue-b-01",
+      "type": "scored",
+      "prompt": "What does the break statement do inside a loop?",
+      "options": [
+        "Pauses the loop for 1 second",
+        "Exits the loop immediately",
+        "Skips the current iteration",
+        "Restarts the loop from the beginning"
+      ],
+      "answerIndex": 1,
+      "explanation": "break immediately terminates the innermost loop and transfers control to the code after the loop."
+    },
+    {
+      "id": "csharp-breakcontinue-b-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: if (x == 5) _____;",
+      "template": "if (x == 5) _____;",
+      "options": [
+        "whle",
+        "IF",
+        "break",
+        "If"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-breakcontinue-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the flow when break is encountered inside a loop.",
+      "items": [
+        "Loop body runs",
+        "Condition is true",
+        "break executes",
+        "Exit loop",
+        "Continue after loop"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-breakcontinue-b-04",
+      "type": "scored",
+      "prompt": "What does continue do inside a loop?",
+      "options": [
+        "Stops the loop entirely",
+        "Skips to the next iteration",
+        "Repeats the current iteration",
+        "Pauses execution"
+      ],
+      "answerIndex": 1,
+      "explanation": "continue skips the remaining code in the current iteration and jumps to the next iteration's condition check."
+    },
+    {
+      "id": "csharp-breakcontinue-b-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: if (i % 2 == 0) _____;",
+      "template": "if (i % 2 == 0) _____;",
+      "options": [
+        "continue",
+        "IF",
+        "whle",
+        "If"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-breakcontinue-b-06",
+      "type": "coderunner",
+      "prompt": "Write a while loop starting at 1 that stops when it finds the first number greater than 10, using break.",
+      "starterCode": "int i = 1;\nwhile (i <= 20)\n{\n    if (i > 10)\n    {\n        _____\n    }\n    i++;\n}",
+      "expectedOutput": "",
+      "outputPattern": "",
+      "hints": [
+        "Use break to exit the loop when i > 10"
+      ],
+      "requiredStrings": [
+        "while"
+      ]
+    },
+    {
+      "id": "csharp-breakcontinue-b-07",
+      "type": "scored",
+      "prompt": "After break executes, what runs next?",
+      "options": [
+        "The next line in the loop body",
+        "The condition check",
+        "The code after the loop",
+        "The program terminates"
+      ],
+      "answerIndex": 2,
+      "explanation": "break transfers control to the statement immediately following the loop."
+    },
+    {
+      "id": "csharp-breakcontinue-b-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; i < 10; i++) { if (i == 5) _____; Console.WriteLine(i); }",
+      "template": "for (int i = 0; i < 10; i++) { if (i == 5) _____; Console.WriteLine(i); }",
+      "options": [
+        "whle",
+        "continue",
+        "IF",
+        "If"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-breakcontinue-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange these steps to find a value and stop the loop.",
+      "items": [
+        "Iterate through values",
+        "Check if match found",
+        "break",
+        "Print result",
+        "Loop ends"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        4,
+        3
+      ]
+    },
+    {
+      "id": "csharp-breakcontinue-b-10",
+      "type": "scored",
+      "prompt": "Can break be used inside a switch statement?",
+      "options": [
+        "No, switch uses exit instead",
+        "Yes, to prevent fall-through",
+        "Yes, but only in loops",
+        "No, it is not allowed"
+      ],
+      "answerIndex": 1,
+      "explanation": "break is commonly used in switch cases to prevent fall-through to the next case."
+    }
+  ]
+}

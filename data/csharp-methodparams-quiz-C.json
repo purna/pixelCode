@@ -1,0 +1,143 @@
+{
+  "meta": {
+    "section": "csharp-methodparams",
+    "level": "beginner",
+    "title": "Method Parameters Quiz C"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodparams-c-01",
+      "type": "scored",
+      "prompt": "What is the difference between a parameter and an argument?",
+      "options": [
+        "They are the same thing",
+        "Parameter is in the definition, argument is the value passed",
+        "Argument is in the definition, parameter is the value",
+        "Parameters are for classes, arguments are for structs"
+      ],
+      "answerIndex": 1,
+      "explanation": "A parameter is the variable in the method signature; an argument is the actual value passed at the call site."
+    },
+    {
+      "id": "csharp-methodparams-c-02",
+      "type": "typing",
+      "prompt": "Fill in the blank: void Connect(_____ server, int port) { ... }",
+      "blanks": [
+        "string"
+      ],
+      "template": "void Connect(_____ server, int port) { ... }"
+    },
+    {
+      "id": "csharp-methodparams-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange the pieces of a method definition with two parameters.",
+      "items": [
+        "void",
+        "Send",
+        "(",
+        "string msg",
+        ",",
+        "int count",
+        ")",
+        "{",
+        "..."
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "csharp-methodparams-c-04",
+      "type": "scored",
+      "prompt": "What does the params keyword allow?",
+      "options": [
+        "Returning multiple values",
+        "Passing a variable number of arguments",
+        "Making parameters optional",
+        "Using reference parameters"
+      ],
+      "answerIndex": 1,
+      "explanation": "params allows a method to accept a variable number of arguments of the same type as an array."
+    },
+    {
+      "id": "csharp-methodparams-c-05",
+      "type": "typing",
+      "prompt": "Fill in the blank: void Log(_____ message) { Console.WriteLine(message); }",
+      "blanks": [
+        "string"
+      ],
+      "template": "void Log(_____ message) { Console.WriteLine(message); }"
+    },
+    {
+      "id": "csharp-methodparams-c-06",
+      "type": "coderunner",
+      "prompt": "Write a method SetName with an optional second parameter title that defaults to \"Mr.\". Print the full name.",
+      "starterCode": "void SetName(string name, _____ title = \"Mr.\")\n{\n    Console.WriteLine(title + \" \" + name);\n}\n\n_____(\"Smith\");",
+      "expectedOutput": "Mr. Smith",
+      "outputPattern": "Mr\\.\\s*Smith",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-methodparams-c-07",
+      "type": "scored",
+      "prompt": "Can named arguments change the order of arguments when calling a method?",
+      "options": [
+        "No, order is always fixed",
+        "Yes, named arguments can appear in any order",
+        "Only for optional parameters",
+        "Only with params"
+      ],
+      "answerIndex": 1,
+      "explanation": "Named arguments allow you to pass values in any order because each value is explicitly matched to a parameter name."
+    },
+    {
+      "id": "csharp-methodparams-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank: Calculate(_____: 10, y: 20);",
+      "blanks": [
+        "x"
+      ],
+      "template": "Calculate(_____: 10, y: 20);"
+    },
+    {
+      "id": "csharp-methodparams-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the call styles for a method with parameters x and y.",
+      "items": [
+        "Positional: Calc(1, 2)",
+        "Named: Calc(x: 1, y: 2)",
+        "Mixed: Calc(1, y: 2)",
+        "Reversed named: Calc(y: 2, x: 1)"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-methodparams-c-10",
+      "type": "scored",
+      "prompt": "Can you pass fewer arguments than required by a params array?",
+      "options": [
+        "Yes, zero arguments are allowed",
+        "No, you must pass at least one",
+        "Only if you use new[]",
+        "Only in debug mode"
+      ],
+      "answerIndex": 0,
+      "explanation": "A params parameter can receive zero arguments. If you pass zero, the method receives an empty array."
+    }
+  ]
+}

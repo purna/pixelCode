@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-classmembers",
+    "level": "intermediate",
+    "title": "C# Class Members"
+  },
+  "questions": [
+    {
+      "id": "csharp-classmembers-c-01",
+      "type": "scored",
+      "prompt": "An instance field is unique to:",
+      "options": [
+        "The type",
+        "Each object instance",
+        "The namespace",
+        "The compiler"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each instance gets its own copy of instance fields."
+    },
+    {
+      "id": "csharp-classmembers-c-02",
+      "type": "scored",
+      "prompt": "Which access is most permissive?",
+      "options": [
+        "private",
+        "protected",
+        "public",
+        "internal"
+      ],
+      "answerIndex": 2,
+      "explanation": "public exposes the member everywhere."
+    },
+    {
+      "id": "csharp-classmembers-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a member accessible only within its class",
+      "blanks": [
+        "private int count"
+      ],
+      "template": "______;",
+      "explanation": "private limits access to the containing type."
+    },
+    {
+      "id": "csharp-classmembers-c-04",
+      "type": "scored",
+      "prompt": "A method marked 'virtual' is intended to be:",
+      "options": [
+        "Hidden",
+        "Overridden in derived classes",
+        "Deleted",
+        "Made static"
+      ],
+      "answerIndex": 1,
+      "explanation": "virtual allows overriding in subclasses."
+    },
+    {
+      "id": "csharp-classmembers-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Counter with public int Value and Increment(int by) adding by, then Increment(3) and print Value",
+      "starterCode": "using System;\nclass Counter {\n  public int Value = 0;\n  public void Increment(int by) { Value += by; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "3\n",
+      "outputPattern": "^3\\n$",
+      "explanation": "Increment by 3 and print.",
+      "requiredStrings": [
+        "Width"
+      ]
+    },
+    {
+      "id": "csharp-classmembers-c-06",
+      "type": "scored",
+      "prompt": "An auto-property 'public int Id { get; set; }' automatically creates:",
+      "options": [
+        "A method",
+        "A backing field",
+        "An event",
+        "A class"
+      ],
+      "answerIndex": 1,
+      "explanation": "The compiler generates a hidden backing field."
+    },
+    {
+      "id": "csharp-classmembers-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange to declare a static method and call it",
+      "items": [
+        "class M {",
+        "  public static int Square(int x) { return x*x; }",
+        "}",
+        "int r = M.Square(4);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Static methods are invoked on the type."
+    },
+    {
+      "id": "csharp-classmembers-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a static readonly field",
+      "blanks": [
+        "static readonly int Max = 100"
+      ],
+      "template": "______;",
+      "explanation": "static readonly is set once and shared."
+    },
+    {
+      "id": "csharp-classmembers-c-09",
+      "type": "scored",
+      "prompt": "Operators can be overloaded as class members using the keyword:",
+      "options": [
+        "operator",
+        "overload",
+        "func",
+        "method"
+      ],
+      "answerIndex": 0,
+      "explanation": "The operator keyword defines operator overloads."
+    },
+    {
+      "id": "csharp-classmembers-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Pair with public int A,B and Sum() returning A+B, then print Sum() for (2,8)",
+      "starterCode": "using System;\nclass Pair {\n  public int A, B;\n  public int Sum() { return A + B; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "10\n",
+      "outputPattern": "^10\\n$",
+      "explanation": "Set A and B then call Sum().",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-abstraction",
+    "level": "expert",
+    "title": "C# Abstraction"
+  },
+  "questions": [
+    {
+      "id": "csharp-abstraction-c-01",
+      "type": "scored",
+      "prompt": "Interfaces and abstract classes both achieve abstraction but an interface:",
+      "options": [
+        "Can hold instance fields",
+        "Defines a contract with no state (traditionally)",
+        "Must be instantiated",
+        "Cannot be implemented"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interfaces specify behavior without state."
+    },
+    {
+      "id": "csharp-abstraction-c-02",
+      "type": "scored",
+      "prompt": "A class can implement:",
+      "options": [
+        "Only one interface",
+        "Multiple interfaces",
+        "No interfaces",
+        "Exactly two interfaces"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# allows multiple interface implementation."
+    },
+    {
+      "id": "csharp-abstraction-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a class implement ILogger",
+      "blanks": [
+        "class FileLogger : ILogger"
+      ],
+      "template": "______ { }",
+      "explanation": "Colon lists interfaces a class implements."
+    },
+    {
+      "id": "csharp-abstraction-c-04",
+      "type": "scored",
+      "prompt": "Default interface methods (C# 8+) allow:",
+      "options": [
+        "Interfaces to have implemented members",
+        "Interfaces to hold fields",
+        "Sealing classes",
+        "Multiple inheritance of state"
+      ],
+      "answerIndex": 0,
+      "explanation": "Default implementations provide behavior in interfaces."
+    },
+    {
+      "id": "csharp-abstraction-c-05",
+      "type": "coderunner",
+      "prompt": "Create abstract class Shape { public abstract double Area(); } and Circle:Shape { public double R=2; public override double Area(){return 3.14*R*R;} }, print new Circle().Area()",
+      "starterCode": "using System;\nabstract class Shape { public abstract double Area(); }\nclass Circle : Shape { public double R = 2; public override double Area() { return 3.14 * R * R; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "12.56\n",
+      "outputPattern": "^12\\.56\\n$",
+      "explanation": "Area computes from radius.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-abstraction-c-06",
+      "type": "scored",
+      "prompt": "Program to an interface rather than an implementation promotes:",
+      "options": [
+        "Tight coupling",
+        "Loose coupling and testability",
+        "No abstraction",
+        "Slower code always"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interface-based design eases substitution and testing."
+    },
+    {
+      "id": "csharp-abstraction-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange an interface and its implementation",
+      "items": [
+        "interface IStore { void Save(); }",
+        "class DbStore : IStore {",
+        "  public void Save() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "DbStore implements IStore's contract."
+    },
+    {
+      "id": "csharp-abstraction-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a sealed override of an abstract method",
+      "blanks": [
+        "public override sealed void Render()"
+      ],
+      "template": "______ { }",
+      "explanation": "sealed override blocks further overrides."
+    },
+    {
+      "id": "csharp-abstraction-c-09",
+      "type": "scored",
+      "prompt": "Abstract classes support constructors:",
+      "options": [
+        "No",
+        "Yes, but they are called via derived constructors",
+        "Only static",
+        "Only private"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract class constructors run through derived constructors."
+    },
+    {
+      "id": "csharp-abstraction-c-10",
+      "type": "coderunner",
+      "prompt": "Create abstract class Service { public string Name='svc'; public abstract string Run(); } and Ping:Service { public override string Run(){return Name+' ok';} }, print new Ping().Run()",
+      "starterCode": "using System;\nabstract class Service { public string Name = \"svc\"; public abstract string Run(); }\nclass Ping : Service { public override string Run() { return Name + \" ok\"; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "svc ok\n",
+      "outputPattern": "^svc ok\\n$",
+      "explanation": "Subclass uses inherited state.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

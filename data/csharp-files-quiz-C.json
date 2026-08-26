@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-files",
+    "level": "expert",
+    "title": "C# Files"
+  },
+  "questions": [
+    {
+      "id": "csharp-files-c-01",
+      "type": "scored",
+      "prompt": "To read a file line-by-line lazily, use:",
+      "options": [
+        "File.ReadAllLines",
+        "File.ReadLines",
+        "Directory.GetFiles",
+        "Path.GetTempPath"
+      ],
+      "answerIndex": 1,
+      "explanation": "ReadLines is lazy (IEnumerable<string>)."
+    },
+    {
+      "id": "csharp-files-c-02",
+      "type": "scored",
+      "prompt": "The 'using' statement on a Stream ensures:",
+      "options": [
+        "Faster code",
+        "Disposal/closing of resources",
+        "Encryption",
+        "Looping"
+      ],
+      "answerIndex": 1,
+      "explanation": "using calls Dispose to release the handle."
+    },
+    {
+      "id": "csharp-files-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to read all lines as an array",
+      "blanks": [
+        "string[] lines = File.ReadAllLines(\"f.txt\")"
+      ],
+      "template": "______;",
+      "explanation": "ReadAllLines returns an array."
+    },
+    {
+      "id": "csharp-files-c-04",
+      "type": "scored",
+      "prompt": "To copy a file use:",
+      "options": [
+        "File.Copy",
+        "File.Move only",
+        "Directory.Move",
+        "Path.Change"
+      ],
+      "answerIndex": 0,
+      "explanation": "File.Copy duplicates the file."
+    },
+    {
+      "id": "csharp-files-c-05",
+      "type": "coderunner",
+      "prompt": "Append 'world' to 'log.txt' using File.AppendAllText (after writing 'hello '), then read all text and print it",
+      "starterCode": "using System;\nusing System.IO;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "hello world\n",
+      "outputPattern": "^hello world\\n$",
+      "explanation": "Write then append then read.",
+      "requiredStrings": [
+        "File.ReadAllText"
+      ]
+    },
+    {
+      "id": "csharp-files-c-06",
+      "type": "scored",
+      "prompt": "Directory.CreateDirectory returns:",
+      "options": [
+        "void",
+        "A DirectoryInfo",
+        "bool",
+        "int"
+      ],
+      "answerIndex": 1,
+      "explanation": "It returns a DirectoryInfo for the created dir."
+    },
+    {
+      "id": "csharp-files-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange reading with StreamReader",
+      "items": [
+        "using (var r = new StreamReader(\"f.txt\")) {",
+        "  string line = r.ReadLine();",
+        "  Console.WriteLine(line);",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Standard read pattern."
+    },
+    {
+      "id": "csharp-files-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to get the current directory",
+      "blanks": [
+        "Directory.GetCurrentDirectory()"
+      ],
+      "template": "string cwd = ______;",
+      "explanation": "Returns the process working directory."
+    },
+    {
+      "id": "csharp-files-c-09",
+      "type": "scored",
+      "prompt": "FileInfo provides:",
+      "options": [
+        "Only static helpers",
+        "Instance members about a specific file",
+        "Directory listing",
+        "Encryption"
+      ],
+      "answerIndex": 1,
+      "explanation": "FileInfo wraps a single file path."
+    },
+    {
+      "id": "csharp-files-c-10",
+      "type": "coderunner",
+      "prompt": "Write lines 'x' and 'y' to 'p.txt' via File.WriteAllLines, read them back and print the second line",
+      "starterCode": "using System;\nusing System.IO;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "y\n",
+      "outputPattern": "^y\\n$",
+      "explanation": "WriteAllLines then index 1.",
+      "requiredStrings": [
+        "StreamWriter"
+      ]
+    }
+  ]
+}

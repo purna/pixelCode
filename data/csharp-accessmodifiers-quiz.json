@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "section": "csharp-accessmodifiers",
+    "level": "intermediate",
+    "title": "C# Access Modifiers"
+  },
+  "questions": [
+    {
+      "id": "csharp-accessmodifiers-01",
+      "type": "scored",
+      "prompt": "Which access modifier makes a member accessible only within the same class?",
+      "options": [
+        "public",
+        "internal",
+        "protected",
+        "private"
+      ],
+      "answerIndex": 3,
+      "explanation": "The 'private' modifier restricts access to the containing class only. Members declared private cannot be accessed from outside the class, even from derived classes."
+    },
+    {
+      "id": "csharp-accessmodifiers-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: Which access modifier allows a member to be accessed from anywhere, including derived classes and other assemblies?",
+      "template": "The _____ modifier allows access from anywhere.",
+      "options": [
+        "public",
+        "protected",
+        "internal",
+        "private"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-accessmodifiers-03",
+      "type": "dragorder",
+      "prompt": "Arrange these access modifiers from most permissive to least permissive (for members of a class):",
+      "items": [
+        "private",
+        "internal",
+        "public",
+        "protected"
+      ],
+      "solution": [
+        2,
+        1,
+        3,
+        0
+      ]
+    },
+    {
+      "id": "csharp-accessmodifiers-04",
+      "type": "coderunner",
+      "prompt": "Given the code below, which lines compile successfully? Select all that apply based on the access modifiers.",
+      "starterCode": "public class Base\n{\n    public int PublicField;\n    private int PrivateField;\n    protected int ProtectedField;\n    internal int InternalField;\n}\n\npublic class Derived : Base\n{\n    public void Test()\n    {\n        var a = PublicField;    // Line 1\n        var b = PrivateField;   // Line 2\n        var c = ProtectedField;  // Line 3\n        var d = InternalField;   // Line 4\n    }\n}\n\nvar ext = new Derived();\nvar e = ext.PublicField;   // Line 5\nvar f = ext.PrivateField;  // Line 6\nvar g = ext.ProtectedField; // Line 7",
+      "expectedOutput": "",
+      "outputPattern": "",
+      "requiredStrings": [
+        "private",
+        "protected",
+        "internal"
+      ]
+    },
+    {
+      "id": "csharp-accessmodifiers-05",
+      "type": "scored",
+      "prompt": "What does the 'internal' access modifier do?",
+      "options": [
+        "Accessible only within the same class",
+        "Accessible within the same assembly and any derived classes in that assembly",
+        "Accessible from any code",
+        "Accessible only from derived classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "'Internal' members are accessible from anywhere within the same assembly. If combined with 'protected' (protected internal), they are also accessible from derived classes in other assemblies."
+    },
+    {
+      "id": "csharp-accessmodifiers-06",
+      "type": "insert",
+      "prompt": "Complete the member declaration to make it accessible only within the same assembly.",
+      "template": "_____ int Count;",
+      "options": [
+        "protected",
+        "internal",
+        "public",
+        "private"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-accessmodifiers-07",
+      "type": "scored",
+      "prompt": "Which of the following is true about 'protected internal'?",
+      "options": [
+        "Accessible only from the same class",
+        "Accessible from within the same assembly OR from derived classes (even in other assemblies)",
+        "Accessible from derived classes only",
+        "Accessible from anywhere"
+      ],
+      "answerIndex": 1,
+      "explanation": "'protected internal' is a combination: it is accessible from within the same assembly, or from a derived class regardless of which assembly the derived class is in. It is a logical OR, not AND."
+    },
+    {
+      "id": "csharp-accessmodifiers-08",
+      "type": "insert",
+      "prompt": "Which keyword restricts a member to be accessible only from derived classes?",
+      "template": "_____ class Derived : Base",
+      "options": [
+        "protected",
+        "private",
+        "public",
+        "internal"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-accessmodifiers-09",
+      "type": "dragorder",
+      "prompt": "Match each access modifier pair to its meaning. Order by: most restrictive, then broader.",
+      "items": [
+        "private protected - accessible within the same assembly and only from derived classes within that assembly",
+        "private - accessible only within the containing class",
+        "public - accessible from anywhere",
+        "protected internal - same assembly or derived classes"
+      ],
+      "solution": [
+        1,
+        0,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "csharp-accessmodifiers-10",
+      "type": "coderunner",
+      "prompt": "In the ExternalClass (not in the same assembly, not a derived class), which fields of MyClass can be accessed? Modify the access modifiers if needed.",
+      "starterCode": "public class MyClass\n{\n    public int A;\n    private int B;\n    protected int C;\n    internal int D;\n}\n\n// External code in a different assembly\nvar obj = new MyClass();\nvar value = obj.A;  // Can access A?",
+      "expectedOutput": "",
+      "outputPattern": "",
+      "requiredStrings": [
+        "private",
+        "protected",
+        "internal",
+        "public"
+      ]
+    }
+  ]
+}

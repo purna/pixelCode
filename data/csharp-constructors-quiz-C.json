@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-constructors",
+    "level": "intermediate",
+    "title": "C# Constructors"
+  },
+  "questions": [
+    {
+      "id": "csharp-constructors-c-01",
+      "type": "scored",
+      "prompt": "A constructor can be:",
+      "options": [
+        "Only parameterless",
+        "Overloaded with different parameters",
+        "Only static",
+        "Only private always"
+      ],
+      "answerIndex": 1,
+      "explanation": "Constructors can be overloaded like methods."
+    },
+    {
+      "id": "csharp-constructors-c-02",
+      "type": "scored",
+      "prompt": "Private constructors are commonly used to:",
+      "options": [
+        "Prevent instantiation",
+        "Force inheritance",
+        "Speed up code",
+        "Create arrays"
+      ],
+      "answerIndex": 0,
+      "explanation": "Private constructors block external instantiation (e.g., singletons)."
+    },
+    {
+      "id": "csharp-constructors-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for a parameterless constructor setting a default",
+      "blanks": [
+        "public Car() { Speed = 0; }"
+      ],
+      "template": "______",
+      "explanation": "Initializes state with a default value."
+    },
+    {
+      "id": "csharp-constructors-c-04",
+      "type": "scored",
+      "prompt": "A base class constructor is called using:",
+      "options": [
+        "this(...)",
+        "base(...)",
+        "super(...)",
+        "parent(...)"
+      ],
+      "answerIndex": 1,
+      "explanation": "base(...) invokes a base class constructor."
+    },
+    {
+      "id": "csharp-constructors-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Point with constructor Point(int x,int y) setting public int X,Y and method Dist() returning X+Y, then print Dist() for (10,5)",
+      "starterCode": "using System;\nclass Point {\n  public int X, Y;\n  public Point(int x, int y) { X = x; Y = y; }\n  public int Dist() { return X + Y; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "15\n",
+      "outputPattern": "^15\\n$",
+      "explanation": "Construct then call Dist().",
+      "requiredStrings": [
+        "class Point",
+        "public int X",
+        "public int Y"
+      ]
+    },
+    {
+      "id": "csharp-constructors-c-06",
+      "type": "scored",
+      "prompt": "Object initializers can set properties after a constructor via:",
+      "options": [
+        "new C() { Prop = 1 }",
+        "new C(Prop=1)",
+        "C.Prop=1",
+        "init C"
+      ],
+      "answerIndex": 0,
+      "explanation": "The { } syntax sets properties right after construction."
+    },
+    {
+      "id": "csharp-constructors-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange a base and derived constructor call",
+      "items": [
+        "class Base { public Base(int x) { } }",
+        "class Der : Base {",
+        "  public Der(int x) : base(x) { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Derived passes argument to base constructor."
+    },
+    {
+      "id": "csharp-constructors-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a static constructor",
+      "blanks": [
+        "static MyClass()"
+      ],
+      "template": "______ { }",
+      "explanation": "Static constructors have no access modifier and no parameters."
+    },
+    {
+      "id": "csharp-constructors-c-09",
+      "type": "scored",
+      "prompt": "When an object is created with 'new', the constructor:",
+      "options": [
+        "Is optional",
+        "Always runs",
+        "Runs at program exit",
+        "Never runs"
+      ],
+      "answerIndex": 1,
+      "explanation": "new triggers the matching constructor."
+    },
+    {
+      "id": "csharp-constructors-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Employee with constructor Employee(string n, int s) setting public string Name and int Salary, then print Name for 'Bo'",
+      "starterCode": "using System;\nclass Employee {\n  public string Name;\n  public int Salary;\n  public Employee(string n, int s) { Name = n; Salary = s; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Bo\n",
+      "outputPattern": "^Bo\\n$",
+      "explanation": "Construct with name 'Bo' and print it.",
+      "requiredStrings": [
+        "public Book("
+      ]
+    }
+  ]
+}

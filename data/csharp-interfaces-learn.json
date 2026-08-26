@@ -1,0 +1,141 @@
+{
+  "section": "csharp-interfaces",
+  "title": "C# Interfaces",
+  "slides": [
+    {
+      "title": "What is an Interface?",
+      "content": "An interface defines a contract: a set of members that implementing classes must provide. It contains only declarations, no implementation.",
+      "example": "public interface IShape\n{\n    double Area();\n    void Draw();\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does an interface define?",
+        "options": [
+          "Method bodies only",
+          "A contract of member signatures",
+          "Fields and constructors",
+          "Only properties"
+        ],
+        "answer": "A contract of member signatures"
+      }
+    },
+    {
+      "title": "Declaring an Interface",
+      "content": "Use the 'interface' keyword. By convention, interface names start with 'I'. Members are implicitly public and abstract.",
+      "example": "public interface IPaymentProcessor\n{\n    void ProcessPayment(decimal amount);\n    bool Refund(string transactionId);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: public _____ IPaymentProcessor",
+        "placeholder": "_____",
+        "answer": "interface",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Implementing an Interface",
+      "content": "A class uses a colon to implement an interface and must provide implementations for all interface members.",
+      "example": "public class StripeProcessor : IPaymentProcessor\n{\n    public void ProcessPayment(decimal amount)\n    {\n        Console.WriteLine($\"Charged {amount}\");\n    }\n\n    public bool Refund(string transactionId)\n    {\n        return true;\n    }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the class declaration to implement the interface.",
+        "before": "public class StripeProcessor ",
+        "after": " IPaymentProcessor",
+        "options": [
+          ":",
+          "implements",
+          "inherits",
+          "extends"
+        ],
+        "answer": ":"
+      }
+    },
+    {
+      "title": "Multiple Interfaces",
+      "content": "A class can implement multiple interfaces separated by commas. This enables flexible composition of behaviors.",
+      "example": "public class SmartDevice : IConnectable, IUpdatable, ITrackable\n{\n    public void Connect() { }\n    public void Update() { }\n    public void Track() { }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: public class Printer : _____, _____",
+        "placeholder": "_____, _____",
+        "answer": "IPrintable, IConnectable",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Interface Properties and Events",
+      "content": "Interfaces can declare properties and events. Implementing classes must implement these members.",
+      "example": "public interface ILogger\n{\n    string Name { get; set; }\n    event Action<string> OnMessageLogged;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which members can an interface declare?",
+        "options": [
+          "Fields only",
+          "Methods, properties, events, indexers",
+          "Constructors and destructors",
+          "Static fields"
+        ],
+        "answer": "Methods, properties, events, indexers"
+      }
+    },
+    {
+      "title": "Interface vs Abstract Class",
+      "content": "Use interfaces for contracts across unrelated types. Use abstract classes for shared base behavior in a class hierarchy.",
+      "example": "// Interface - unrelated types\npublic interface IFlyable { void Fly(); }\npublic class Bird : IFlyable { }\npublic class Airplane : IFlyable { }\n\n// Abstract class - related types\npublic abstract class Animal { public abstract void Speak(); }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Match the scenario to the correct construct.",
+        "before": "",
+        "after": "",
+        "options": [
+          "Interface for unrelated types",
+          "Abstract class for related types",
+          "Interface for Bird and Airplane",
+          "Abstract class for Animal hierarchy"
+        ],
+        "answer": "Interface for unrelated types"
+      }
+    },
+    {
+      "title": "Explicit Interface Implementation",
+      "content": "A class can explicitly implement an interface member, hiding it from the public API and requiring casting to access.",
+      "example": "public interface ILogger { void Log(string msg); }\npublic class DualLogger : ILogger\n{\n    void ILogger.Log(string msg) => Console.WriteLine(msg);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the explicit interface implementation so the Log method is only accessible via ILogger.",
+        "starterCode": "public interface ILogger\n{\n    void Log(string message);\n}\n\npublic class DualLogger : ILogger\n{\n    _____ ILogger.Log(string message)\n    {\n        Console.WriteLine(message);\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        DualLogger logger = new DualLogger();\n        _____ loggerRef = logger;\n        loggerRef.Log(\"Explicit\");\n    }\n}",
+        "expectedOutput": "Explicit",
+        "outputPattern": "Explicit",
+        "requiredStrings": [
+          "ILogger"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: ILogger",
+          "When run, your code should output: Explicit"
+        ]
+      }
+    },
+    {
+      "title": "Interface Best Practices",
+      "content": "Keep interfaces small and focused (Interface Segregation Principle). Name them clearly with the 'I' prefix. Prefer interfaces for dependency injection.",
+      "example": "// Small, focused interfaces\npublic interface IRepository<T> { T Get(int id); void Add(T entity); }\npublic interface IUnitOfWork { void Commit(); }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which principle recommends keeping interfaces small and focused?",
+        "options": [
+          "Open/Closed Principle",
+          "Interface Segregation Principle",
+          "Single Responsibility Principle",
+          "Dependency Inversion Principle"
+        ],
+        "answer": "Interface Segregation Principle"
+      }
+    }
+  ]
+}

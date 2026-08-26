@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "section": "csharp-variables",
+    "level": "beginner",
+    "title": "C# Variables"
+  },
+  "questions": [
+    {
+      "id": "csharp-variables-b-01",
+      "type": "scored",
+      "prompt": "How do you declare a string variable named city with the value \"Paris\"?",
+      "options": [
+        "string city = \"Paris\";",
+        "city string = \"Paris\";",
+        "var city: \"Paris\";",
+        "string: city = \"Paris\";"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# uses the syntax: type name = value; so string city = \"Paris\";"
+    },
+    {
+      "id": "csharp-variables-b-02",
+      "type": "scored",
+      "prompt": "What does the 'var' keyword do?",
+      "options": [
+        "Creates a variant type",
+        "Lets the compiler infer the type from the initializer",
+        "Declares a constant",
+        "Disables type checking"
+      ],
+      "answerIndex": 1,
+      "explanation": "var uses type inference. The compiler determines the variable's type from the right-hand side of the assignment."
+    },
+    {
+      "id": "csharp-variables-b-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a constant named MaxSize",
+      "template": "______;",
+      "options": [
+        "CONST INT MAXSIZE = 100",
+        "const int MaxSize = 100s",
+        "const int MaxSize = 100",
+        "Const int maxsize = 100"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-variables-b-04",
+      "type": "scored",
+      "prompt": "Which naming convention is commonly used for local variables in C#?",
+      "options": [
+        "PascalCase",
+        "camelCase",
+        "UPPER_CASE",
+        "kebab-case"
+      ],
+      "answerIndex": 1,
+      "explanation": "Local variables typically use camelCase, starting with a lowercase letter (e.g., myValue)."
+    },
+    {
+      "id": "csharp-variables-b-05",
+      "type": "coderunner",
+      "prompt": "Declare an int named 'score' with value 50 and print it",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Declare and print\n        \n    }\n}",
+      "expectedOutput": "50\n",
+      "outputPattern": "^50\\n$",
+      "requiredStrings": [
+        "x = 10"
+      ]
+    },
+    {
+      "id": "csharp-variables-b-06",
+      "type": "scored",
+      "prompt": "Can a variable declared with 'const' be reassigned later?",
+      "options": [
+        "Yes, if cast",
+        "No, it is a compile-time constant",
+        "Only in the same method",
+        "Yes, using var"
+      ],
+      "answerIndex": 1,
+      "explanation": "const creates a compile-time constant that cannot be changed after declaration."
+    },
+    {
+      "id": "csharp-variables-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange the lines to declare, assign, and print a variable",
+      "items": [
+        "int level;",
+        "level = 1;",
+        "Console.WriteLine(level);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare the variable, assign a value, then use it."
+    },
+    {
+      "id": "csharp-variables-b-08",
+      "type": "scored",
+      "prompt": "What is the default value of an unassigned bool field in a class?",
+      "options": [
+        "null",
+        "true",
+        "false",
+        "undefined"
+      ],
+      "answerIndex": 2,
+      "explanation": "Unassigned bool fields are automatically initialized to false by the runtime."
+    },
+    {
+      "id": "csharp-variables-b-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a string with type inference",
+      "template": "______;",
+      "options": [
+        "VAR GREETING = \"HI\"",
+        "var greeting = \"Hi\"s",
+        "Var greeting = \"hi\"",
+        "var greeting = \"Hi\""
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-variables-b-10",
+      "type": "scored",
+      "prompt": "Which of the following is a valid variable name in C#?",
+      "options": [
+        "1stPlace",
+        "_score",
+        "total-score",
+        "return"
+      ],
+      "answerIndex": 1,
+      "explanation": "_score is valid. Identifiers cannot start with a digit, contain hyphens, or use keywords."
+    }
+  ]
+}

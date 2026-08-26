@@ -1,0 +1,189 @@
+{
+  "section": "csharp-comments",
+  "title": "C# Comments",
+  "slides": [
+    {
+      "title": "Why Use Comments",
+      "content": "Comments explain code intent to other developers and to your future self. The compiler ignores them entirely.",
+      "example": "// This calculates the total\nint total = price + tax;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What happens to comments when the code is compiled?",
+        "options": [
+          "They are ignored by the compiler",
+          "They become executable code",
+          "They slow down execution",
+          "They are converted to debug symbols"
+        ],
+        "answer": "They are ignored by the compiler"
+      }
+    },
+    {
+      "title": "Single-Line Comments",
+      "content": "Single-line comments start with // and continue to the end of the line. They are the most common comment style.",
+      "example": "// Initialize counter\nint counter = 0; // starting value",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete a single-line comment: _____ This is a comment",
+        "placeholder": "_____",
+        "answer": "//",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Multi-Line Comments",
+      "content": "Multi-line comments use /* to open and */ to close. They can span multiple lines and cannot be nested.",
+      "example": "/*\n * Multi-line comment\n * describing the class\n */\npublic class Demo {}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the closing delimiter for a multi-line comment: /* comment text [?]",
+        "before": "/* comment text ",
+        "after": "",
+        "options": [
+          "*/",
+          "//",
+          "<!--",
+          "*/>"
+        ],
+        "answer": "*/"
+      }
+    },
+    {
+      "title": "XML Documentation Comments",
+      "content": "XML doc comments start with /// and support tags like <summary> and <param> for generating documentation.",
+      "example": "/// <summary>Adds two numbers.</summary>\n/// <param name=\"a\">First number</param>\nint Add(int a, int b) => a + b;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write an XML doc comment opening for a method that gets a user name.",
+        "starterCode": "_____\n/// Gets the user name.\nstring GetName() => \"Alice\";",
+        "expectedOutput": "The compiler ignores the comment and compiles normally.",
+        "outputPattern": "The compiler ignores",
+        "requiredStrings": [
+          "///"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: ///",
+          "When run, your code should output: The compiler ignores the comment and compiles normally."
+        ]
+      }
+    },
+    {
+      "title": "Commenting Out Code",
+      "content": "Developers use comments to temporarily disable code during debugging or testing.",
+      "example": "// Console.WriteLine(\"Debug info: \" + value);\nConsole.WriteLine(\"Production output\");",
+      "exampleOutput": "Production output",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Why might you comment out a line of code?",
+        "options": [
+          "To temporarily disable it",
+          "To make it run faster",
+          "To encrypt it",
+          "To document it forever"
+        ],
+        "answer": "To temporarily disable it"
+      }
+    },
+    {
+      "title": "Best Practices",
+      "content": "Write comments for why, not what. The code already shows what it does; comments should clarify intent and rationale.",
+      "example": "// Use binary search because the list is sorted\nint index = BinarySearch(items, target);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Good comments explain the _____ rather than restating the code.",
+        "placeholder": "_____",
+        "answer": "why",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Avoiding Bad Comments",
+      "content": "Obvious comments add noise. Redundant comments become outdated and misleading. Prefer clear code over explanatory comments.",
+      "example": "// Bad: int i = 0; // set i to zero\n// Good: // Start from first available index\nint i = 0;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the better comment for this code: counter++; [?] counter++;",
+        "before": "counter++; ",
+        "after": " counter++;",
+        "options": [
+          "// increment by one",
+          "// add 1",
+          "// counter",
+          "// why?"
+        ],
+        "answer": "// increment by one"
+      }
+    },
+    {
+      "title": "Comments Review",
+      "content": "Use // for single lines, /* */ for blocks, and /// for XML docs. Keep comments meaningful and up to date.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Write a single-line comment followed by a Console.WriteLine statement.",
+        "starterCode": "// Say hello\n_____(\"Hello!\");",
+        "expectedOutput": "Hello!",
+        "outputPattern": "Hello!",
+        "requiredStrings": [
+          "//"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: //",
+          "When run, your code should output: Hello!"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Comment and Output",
+      "content": "Drag a Comment block then an Output block to show how comments sit beside executable code.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow with a comment 'Hello' then output 'World!'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "comment",
+              "text": "Hello"
+            },
+            {
+              "id": "n2",
+              "kind": "output",
+              "expression": "\"World!\"",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "// Hello\noutput(\"World!\");",
+        "blocksToShow": [
+          "comment",
+          "output"
+        ],
+        "flowExample": {
+          "name": "Hello World",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "output",
+                "expression": "\"Hello, World!\"",
+                "newline": true
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

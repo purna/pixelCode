@@ -1,0 +1,148 @@
+{
+  "section": "csharp-properties",
+  "title": "C# Properties",
+  "slides": [
+    {
+      "title": "What Are Properties?",
+      "content": "A property is a class member that provides a controlled way to read, write, or compute the value of a private field. Properties use 'get' and 'set' accessors (the 'accessors') and look like fields to calling code while allowing you to add logic.",
+      "example": "public class Person\n{\n    private string name;\n\n    public string Name\n    {\n        get { return name; }\n        set { name = value; }\n    }\n}\n\nvar p = new Person();\np.Name = \"Alice\";\nConsole.WriteLine(p.Name);",
+      "exampleOutput": "Alice",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What keyword carries the value being assigned in a set accessor?",
+        "options": [
+          "this",
+          "value",
+          "set",
+          "input"
+        ],
+        "answer": "value"
+      }
+    },
+    {
+      "title": "Auto-Implemented Properties",
+      "content": "An auto-property (or auto-implemented property) automatically creates a hidden backing field, so you do not need to declare one yourself. The compiler generates the field, and you get a full property with just '{ get; set; }'.",
+      "example": "public class Product\n{\n    // Compiler creates a backing field automatically\n    public string Name { get; set; }\n    public decimal Price { get; set; }\n}\n\nvar p = new Product();\np.Name = \"Widget\";\nConsole.WriteLine(p.Name);",
+      "exampleOutput": "Widget",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "An auto-implemented property provides _____ and _____ accessors without requiring an explicit backing field.",
+        "placeholder": "_____",
+        "answer": "get/set",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Read-Only and Write-Only Properties",
+      "content": "If you provide only a 'get' accessor, the property is read-only (can be read but not set from outside). If you provide only a 'set' accessor, it is write-only. A common pattern is '{ get; private set; }'\u2014readable everywhere but settable only within the class.",
+      "example": "public class Counter\n{\n    public int Count { get; private set; }\n\n    public Counter(int start)\n    {\n        Count = start;  // OK - inside the class\n    }\n\n    public void Increment() { Count++; }\n}\n\nvar c = new Counter(10);\nc.Increment();\nConsole.WriteLine(c.Count);  // 11\n// c.Count = 5;  // ERROR - private set",
+      "exampleOutput": "11",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Which accessor combination makes a property readable everywhere but writable only inside the class?",
+        "before": "",
+        "after": "",
+        "options": [
+          "{ get; private set; }",
+          "{ private get; set; }",
+          "{ get; set; }",
+          "{ private get; private set; }"
+        ],
+        "answer": "{ get; private set; }"
+      }
+    },
+    {
+      "title": "Properties with Logic",
+      "content": "The real power of properties is adding logic to the get and set accessors. You can validate input, compute derived values, trigger side effects, or log access\u2014all while the caller still uses simple field-like syntax.",
+      "example": "public class Person\n{\n    private string email;\n\n    public string Email\n    {\n        get { return email; }\n        set\n        {\n            if (value.Contains('@'))\n                email = value.ToLower();\n        }\n    }\n}\n\nvar p = new Person();\np.Email = \"BOB@example.com\";\nConsole.WriteLine(p.Email);",
+      "exampleOutput": "bob@example.com",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the set accessor to only accept positive prices.",
+        "starterCode": "public class Product\n{\n    private decimal price;\n    public decimal Price\n    {\n        get { return price; }\n        set {\n            // Only set if value is positive\n            if (value > _____)\n                price = value;\n        }\n    }\n}\n\nvar p = new Product();\np.Price = 19.99m;\nConsole.WriteLine(p.Price);",
+        "expectedOutput": "19.99",
+        "outputPattern": "19\\.99",
+        "requiredStrings": [
+          "set",
+          "if",
+          "throw"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: set, if, throw",
+          "When run, your code should output: 19.99"
+        ]
+      }
+    },
+    {
+      "title": "Backing Fields",
+      "content": "When you need custom logic in a property, you typically pair it with a private 'backing field'\u2014a separate variable that actually stores the data. By convention, backing fields are named with an underscore prefix like '_name'.",
+      "example": "public class Person\n{\n    private string _name;\n\n    public string Name\n    {\n        get { return _name; }\n        set\n        {\n            if (!string.IsNullOrEmpty(value))\n                _name = value;\n        }\n    }\n}\n\nvar p = new Person();\np.Name = \"Alice\";\np.Name = \"\";\nConsole.WriteLine(p.Name);  // still Alice",
+      "exampleOutput": "Alice",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A backing field is typically a _____ field that stores the actual data for a property.",
+        "placeholder": "_____",
+        "answer": "private",
+        "caseSensitive": true
+      }
+    },
+    {
+      "title": "Expression-Bodied Properties",
+      "content": "For simple properties, C# supports expression-bodied syntax using the '=>' operator. This is compact and ideal for computed or read-only values. You can use it for both get-only and full properties.",
+      "example": "public class Person\n{\n    public string FirstName { get; set; }\n    public string LastName { get; set; }\n\n    public string FullName => FirstName + \" \" + LastName;\n}\n\nvar p = new Person();\np.FirstName = \"John\";\np.LastName = \"Doe\";\nConsole.WriteLine(p.FullName);",
+      "exampleOutput": "John Doe",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Which syntax is the expression-bodied form for a property?",
+        "before": "",
+        "after": "",
+        "options": [
+          "public string Name => name;",
+          "public string Name { get => name; }",
+          "public string Name { return name; }",
+          "public string Name() => name;"
+        ],
+        "answer": "public string Name => name;"
+      }
+    },
+    {
+      "title": "Property Validation and Side Effects",
+      "content": "Properties are the right place to validate incoming data and to trigger notifications (like INotifyPropertyChanged). You keep the caller's code clean while enforcing invariants such as range checks, format validation, or non-null requirements.",
+      "example": "public class Temperature\n{\n    private double _celsius;\n\n    public double Celsius\n    {\n        get => _celsius;\n        set\n        {\n            if (value < -273.15)\n                throw new ArgumentException(\"Below absolute zero!\");\n            _celsius = value;\n        }\n    }\n}\n\nvar t = new Temperature();\n// t.Celsius = -300;  // would throw\n",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Add validation to the set accessor: throw an exception if the name is null or empty.",
+        "starterCode": "public class Person\n{\n    private string _name;\n    public string Name\n    {\n        get { return _name; }\n        set\n        {\n            if (_____)\n                throw new ArgumentException(\"Name required\");\n            _name = value;\n        }\n    }\n}\n\nvar p = new Person();\n// p.Name = null;  // should throw\np.Name = \"Alice\";\nConsole.WriteLine(p.Name);",
+        "expectedOutput": "Alice",
+        "outputPattern": "Alice",
+        "requiredStrings": [
+          "set",
+          "if",
+          "throw"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: set, if, throw",
+          "When run, your code should output: Alice"
+        ]
+      }
+    },
+    {
+      "title": "Property Best Practices",
+      "content": "Keep properties fast and side-effect-free when possible (they should not have surprising behavior). Prefer auto-properties for simple data. Use backing fields when you need validation or computation. Throw exceptions early on invalid input rather than silently ignoring it.",
+      "example": "public class BankAccount\n{\n    public decimal Balance { get; private set; }\n\n    public void Deposit(decimal amount)\n    {\n        if (amount <= 0)\n            throw new ArgumentOutOfRangeException(nameof(amount));\n        Balance += amount;\n    }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which is the best practice for a simple data-holding property?",
+        "options": [
+          "Always use a backing field and custom get/set",
+          "Use an auto-implemented property",
+          "Never use properties, use public fields",
+          "Make every property read-only"
+        ],
+        "answer": "Use an auto-implemented property"
+      }
+    }
+  ]
+}

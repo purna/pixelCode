@@ -1,0 +1,193 @@
+{
+  "section": "csharp-variables",
+  "title": "C# Variables",
+  "slides": [
+    {
+      "title": "What is a Variable?",
+      "content": "A variable is a named container that stores data in memory. Think of it as a labeled box that holds a value you can use and change later.",
+      "example": "int age = 25;",
+      "exampleOutput": ""
+    },
+    {
+      "title": "Declaring Variables",
+      "content": "Declare a variable by specifying its type, then a name, and optionally assigning a value. The syntax is: type variableName = value;",
+      "example": "string name = \"Alice\";\nint score = 100;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Choose the correct keyword to declare an integer.",
+        "before": "",
+        "after": " age = 25;",
+        "options": [
+          "int",
+          "integer",
+          "num",
+          "Int"
+        ],
+        "answer": "int"
+      }
+    },
+    {
+      "title": "Common Data Types",
+      "content": "C# has several built-in types. int stores whole numbers, double stores decimals, bool stores true or false, string stores text, and char stores a single character.",
+      "example": "int count = 10;\ndouble price = 19.99;\nbool isActive = true;\nstring city = \"London\";\nchar grade = 'A';",
+      "exampleOutput": ""
+    },
+    {
+      "title": "Naming Conventions",
+      "content": "Use camelCase for local variables: first word lowercase, subsequent words capitalized. Use PascalCase for methods and classes. Names should be descriptive.",
+      "example": "int studentAge = 20;\nstring firstName = \"John\";",
+      "exampleOutput": ""
+    },
+    {
+      "title": "The var Keyword",
+      "content": "The var keyword lets the compiler infer the type from the assigned value. The variable is still strongly typed\u2014you just don't write the type explicitly.",
+      "example": "var age = 30;\nvar name = \"Bob\";\n// age is int, name is string",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the type inference declaration.",
+        "before": "",
+        "after": " name = \"Alice\";",
+        "options": [
+          "var",
+          "let",
+          "auto",
+          "dynamic"
+        ],
+        "answer": "var"
+      }
+    },
+    {
+      "title": "Constants with const",
+      "content": "Use const to declare a variable whose value cannot change. Constants must be initialized at declaration and are typically named in PascalCase.",
+      "example": "const double Pi = 3.14159;\n// Pi = 3.14; // Error!",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Declare a const double called Pi with value 3.14 and print it.",
+        "starterCode": "class Program\n{\n    static void Main()\n    {\n        _____\n        Console.WriteLine(Pi);\n    }\n}",
+        "expectedOutput": "3.14",
+        "outputPattern": "3\\.14",
+        "requiredStrings": [
+          "class",
+          "static"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: class, static",
+          "When run, your code should output: 3.14"
+        ]
+      }
+    },
+    {
+      "title": "String Interpolation",
+      "content": "String interpolation lets you embed variables directly inside a string using $\"...\". Place the variable name in curly braces to insert its value.",
+      "example": "string name = \"Alice\";\nint age = 25;\nConsole.WriteLine($\"{name} is {age} years old\");",
+      "exampleOutput": "Alice is 25 years old"
+    },
+    {
+      "title": "Type Conversion",
+      "content": "Convert between types using Parse(), ToString(), or Convert.ToXxx(). Be careful\u2014invalid conversions throw exceptions, so validate input when needed.",
+      "example": "string numStr = \"42\";\nint num = int.Parse(numStr);\nConsole.WriteLine(num + 8);",
+      "exampleOutput": "50"
+    },
+    {
+      "title": "Flow Builder: Variables",
+      "content": "Use the Flow Builder to declare an int and a string, then output them.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares int age = 25 and string name = 'Alice', then outputs name",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "age",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "age",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "25"
+            },
+            {
+              "id": "n3",
+              "kind": "declare",
+              "name": "name",
+              "dataType": "String",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n4",
+              "kind": "assign",
+              "name": "name",
+              "dataType": "String",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "\"Alice\""
+            },
+            {
+              "id": "n5",
+              "kind": "output",
+              "expression": "name",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int age;\nage = 25;\nstring name;\nname = \"Alice\";\noutput(name);",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

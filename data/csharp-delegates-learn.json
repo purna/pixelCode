@@ -1,0 +1,140 @@
+{
+  "section": "csharp-delegates",
+  "title": "C# Delegates & Events",
+  "slides": [
+    {
+      "title": "What Is a Delegate?",
+      "content": "A delegate is a type that holds a reference to a method (or methods) with a matching signature. Think of it as a function pointer that the type system can check at compile time.",
+      "example": "delegate int Calculator(int x, int y);\nint Add(int a, int b) { return a + b; }\nCalculator calc = Add;\nint r = calc(3, 4);",
+      "exampleOutput": "7",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "A delegate is:",
+        "options": [
+          "a class method",
+          "a type that references a method",
+          "a variable",
+          "an interface"
+        ],
+        "answer": "a type that references a method"
+      }
+    },
+    {
+      "title": "Multicast Delegates",
+      "content": "A delegate can hold a list of methods. Subscribing with += adds a method; invoking the delegate runs every added method in order and returns the last value.",
+      "example": "Calculator calc = Add;\ncalc += Subtract;\nint r = calc(10, 3);",
+      "exampleOutput": "(Add and Subtract both run; r is the last return value)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Invoking a multicast delegate:",
+        "options": [
+          "calls one method",
+          "calls all methods in the list",
+          "throws an exception",
+          "returns the sum of the results"
+        ],
+        "answer": "calls all methods in the list"
+      }
+    },
+    {
+      "title": "Lambda Expressions",
+      "content": "A lambda (=>) is a concise inline method. You can assign it to a delegate type to create the method on the spot instead of naming a separate method.",
+      "example": "Calculator calc = (x, y) => x + y;\nint r = calc(3, 4);",
+      "exampleOutput": "7",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The lambda operator is ______.",
+        "placeholder": "______",
+        "answer": "=>",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Func and Action",
+      "content": "Func<...> represents a function that returns a value (the last type parameter is the return type). Action<...> represents a delegate that returns void.",
+      "example": "Func<int, int, int> add = (x, y) => x + y;\nAction<string> print = s => Console.WriteLine(s);",
+      "exampleOutput": "(add(3,4) is 7; print writes a line)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Action represents a delegate returning:",
+        "options": [
+          "int",
+          "void",
+          "bool",
+          "T"
+        ],
+        "answer": "void"
+      }
+    },
+    {
+      "title": "Events",
+      "content": "An event is a delegate field exposed for subscribe/unsubscribe. The event keyword prevents external code from assigning to the event or invoking it directly; only the declaring class can raise it.",
+      "example": "public event Action<int> OnChange;",
+      "exampleOutput": "(subscribers can += or -=; external code cannot assign OnChange = ...)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "The event keyword prevents:",
+        "options": [
+          "invoking the event",
+          "subscribing with +=",
+          "external code from assigning the event field directly",
+          "defining the event"
+        ],
+        "answer": "external code from assigning the event field directly"
+      }
+    },
+    {
+      "title": "Subscribing and Unsubscribing",
+      "content": "Attach a handler with += and detach it with -=. The handler must match the delegate's signature (parameters and return type).",
+      "example": "OnChange += Handler;\nOnChange -= Handler;",
+      "exampleOutput": "(adds then removes the handler)",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "A handler is attached to an event with the _____ operator.",
+        "placeholder": "_____",
+        "answer": "+=",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "The EventHandler Pattern",
+      "content": "The standard .NET convention passes (object sender, EventArgs e). Custom data uses an EventArgs subclass as the second argument.",
+      "example": "public event EventHandler OnChange;",
+      "exampleOutput": "(sender is the publisher, e is the event data)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Raise the event from inside the class.",
+        "starterCode": "public event EventHandler OnChange;\n\nvoid Raise()\n{\n  _____(this, EventArgs.Empty);\n}",
+        "expectedOutput": "raises the event",
+        "outputPattern": "OnChange",
+        "requiredStrings": [
+          "OnChange"
+        ],
+        "hints": [
+          "Invoke the event by its name.",
+          "Pass this as the sender and EventArgs.Empty as the args."
+        ]
+      }
+    },
+    {
+      "title": "Delegates Review",
+      "content": "Delegates are types referencing methods; lambdas assign inline; events expose safe subscribe/unsubscribe; Func/Action are built-in delegate types for common signatures.",
+      "example": "delegate int Transform(int x);\nTransform t = (x => x * 2);\nint result = t(5);",
+      "exampleOutput": "10",
+      "exercise": {
+        "type": "code",
+        "prompt": "Assign a lambda that doubles x, then the result is 10.",
+        "starterCode": "delegate int Transform(int x);\nTransform t = _____;\nint result = t(5);",
+        "expectedOutput": "10",
+        "outputPattern": "=>.*2",
+        "requiredStrings": [
+          "=>"
+        ],
+        "hints": [
+          "Assign a lambda such as (x => x * 2).",
+          "t(5) returns 5 * 2 = 10."
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "section": "csharp-breakcontinue",
+    "level": "beginner",
+    "title": "C# Break and Continue"
+  },
+  "questions": [
+    {
+      "id": "csharp-breakcontinue-01",
+      "type": "scored",
+      "prompt": "What does the break statement do?",
+      "options": [
+        "Skips one iteration",
+        "Exits the loop immediately",
+        "Restarts the loop",
+        "Does nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "break terminates the loop and transfers control to the statement following the loop."
+    },
+    {
+      "id": "csharp-breakcontinue-02",
+      "type": "scored",
+      "prompt": "What does the continue statement do?",
+      "options": [
+        "Exits the loop",
+        "Skips to the next iteration",
+        "Pauses the loop",
+        "Restarts from beginning"
+      ],
+      "answerIndex": 1,
+      "explanation": "continue skips the remaining code in the current iteration and moves to the next iteration."
+    },
+    {
+      "id": "csharp-breakcontinue-03",
+      "type": "insert",
+      "prompt": "Complete the code to exit when i equals 3",
+      "template": "if (i == 3) ______;",
+      "options": [
+        "If",
+        "break",
+        "whle",
+        "IF"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-breakcontinue-04",
+      "type": "dragorder",
+      "prompt": "Arrange the loop with break at the right position",
+      "items": [
+        "for (int i = 0; i < 5; i++)",
+        "{",
+        "if (i == 3) break;",
+        "Console.WriteLine(i);",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "break should be placed inside the loop body before the print statement."
+    },
+    {
+      "id": "csharp-breakcontinue-05",
+      "type": "scored",
+      "prompt": "In nested loops, break only exits:",
+      "options": [
+        "All loops",
+        "The innermost loop",
+        "The outermost loop",
+        "The current method"
+      ],
+      "answerIndex": 1,
+      "explanation": "break only exits the loop it is inside. Use labeled breaks for outer loops."
+    },
+    {
+      "id": "csharp-breakcontinue-06",
+      "type": "scored",
+      "prompt": "What is the output: for i=0..4, print i unless i==2 then continue",
+      "options": [
+        "0 1 2 3 4",
+        "0 1 3 4",
+        "0 1 2 3",
+        "1 3 4"
+      ],
+      "answerIndex": 1,
+      "explanation": "When i==2, continue skips the print, so 2 is missing from output."
+    },
+    {
+      "id": "csharp-breakcontinue-07",
+      "type": "coderunner",
+      "prompt": "Write a loop that prints numbers 0-4 but skips 2 using continue",
+      "starterCode": "for (int i = 0; i < 5; i++)\n{\n    if (i == 2)\n        // add continue here\n    Console.WriteLine(i);\n}",
+      "expectedOutput": "0\n1\n3\n4\n",
+      "outputPattern": "^0\\n1\\n3\\n4\\n$",
+      "requiredStrings": [
+        "continue"
+      ]
+    },
+    {
+      "id": "csharp-breakcontinue-08",
+      "type": "scored",
+      "prompt": "A labeled break in C# allows you to:",
+      "options": [
+        "Name a variable",
+        "Break out of an outer loop",
+        "Create a new loop",
+        "Pause execution"
+      ],
+      "answerIndex": 1,
+      "explanation": "Labeled breaks use goto label to exit specific outer loops in nested structures."
+    },
+    {
+      "id": "csharp-breakcontinue-09",
+      "type": "insert",
+      "prompt": "Complete the labeled break target",
+      "template": "goto ______;",
+      "options": [
+        "outerloops",
+        "outerloop",
+        "Outerloop",
+        "OUTERLOOP"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-breakcontinue-10",
+      "type": "scored",
+      "prompt": "Which statement would you use to find an item and stop searching?",
+      "options": [
+        "continue",
+        "break",
+        "return",
+        "goto"
+      ],
+      "answerIndex": 1,
+      "explanation": "break exits the loop immediately when the item is found."
+    }
+  ]
+}

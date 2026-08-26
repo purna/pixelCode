@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-properties",
+    "level": "intermediate",
+    "title": "C# Properties"
+  },
+  "questions": [
+    {
+      "id": "csharp-properties-c-01",
+      "type": "scored",
+      "prompt": "Properties are syntactic sugar over:",
+      "options": [
+        "Loops",
+        "Get/set methods (accessors)",
+        "Namespaces",
+        "Operators"
+      ],
+      "answerIndex": 1,
+      "explanation": "Properties compile to getter/setter methods."
+    },
+    {
+      "id": "csharp-properties-c-02",
+      "type": "scored",
+      "prompt": "An init-only setter allows assignment:",
+      "options": [
+        "Any time",
+        "Only during object initialization",
+        "Never",
+        "Only in static context"
+      ],
+      "answerIndex": 1,
+      "explanation": "init setters permit setting at construction/initialization."
+    },
+    {
+      "id": "csharp-properties-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for an init-only auto-property",
+      "blanks": [
+        "public int Year { get; init; }"
+      ],
+      "template": "______",
+      "explanation": "init allows one-time initialization."
+    },
+    {
+      "id": "csharp-properties-c-04",
+      "type": "scored",
+      "prompt": "Required properties (required modifier) must be:",
+      "options": [
+        "Ignored",
+        "Set by the initializer",
+        "Static",
+        "Deleted"
+      ],
+      "answerIndex": 1,
+      "explanation": "required enforces assignment at construction."
+    },
+    {
+      "id": "csharp-properties-c-05",
+      "type": "coderunner",
+      "prompt": "Define class User with property Name {get;set;} and Age {get;set;}, set Name='Sam' Age=20 and print Name+':'+Age",
+      "starterCode": "using System;\nclass User {\n  public string Name { get; set; }\n  public int Age { get; set; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Sam:20\n",
+      "outputPattern": "^Sam:20\\n$",
+      "explanation": "Set both properties and output.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-properties-c-06",
+      "type": "scored",
+      "prompt": "A computed property does not store data but:",
+      "options": [
+        "Loops",
+        "Returns a computed value",
+        "Throws always",
+        "Casts"
+      ],
+      "answerIndex": 1,
+      "explanation": "Computed properties derive their value."
+    },
+    {
+      "id": "csharp-properties-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange an expression-bodied computed property",
+      "items": [
+        "class C {",
+        "  private int a, b;",
+        "  public int Sum => a + b;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Sum computes from fields."
+    },
+    {
+      "id": "csharp-properties-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to validate assignment in a setter",
+      "blanks": [
+        "set { if (value > 0) x = value; }"
+      ],
+      "template": "public int X { get { return x; } ______ }",
+      "explanation": "Setters can validate input."
+    },
+    {
+      "id": "csharp-properties-c-09",
+      "type": "scored",
+      "prompt": "Properties can be:",
+      "options": [
+        "Only instance",
+        "Instance or static",
+        "Only private",
+        "Only abstract"
+      ],
+      "answerIndex": 1,
+      "explanation": "Properties may be static."
+    },
+    {
+      "id": "csharp-properties-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Price with property Amount {get;set;} and method Tax() returning Amount*0.2m, set Amount=100 and print Tax()",
+      "starterCode": "using System;\nclass Price {\n  public decimal Amount { get; set; }\n  public decimal Tax() { return Amount * 0.2m; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "20\n",
+      "outputPattern": "^20\\n$",
+      "explanation": "Set amount then compute tax.",
+      "requiredStrings": [
+        "set"
+      ]
+    }
+  ]
+}

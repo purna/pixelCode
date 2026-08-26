@@ -1,0 +1,152 @@
+{
+  "meta": {
+    "section": "csharp-forloop",
+    "level": "beginner",
+    "title": "For Loops Quiz C"
+  },
+  "questions": [
+    {
+      "id": "csharp-forloop-c-01",
+      "type": "scored",
+      "prompt": "Which keyword is used for a counting loop in C#?",
+      "options": [
+        "while",
+        "loop",
+        "for",
+        "repeat"
+      ],
+      "answerIndex": 2,
+      "explanation": "The for keyword creates a counting loop with initialization, condition, and iterator expressions."
+    },
+    {
+      "id": "csharp-forloop-c-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; i < 3; _____ ) { Console.WriteLine(i); }",
+      "template": "for (int i = 0; i < 3; _____ ) { Console.WriteLine(i); }",
+      "options": [
+        "i++s",
+        "i++",
+        "I++",
+        "i++3"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-forloop-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these expressions to create a backward counting for loop from 5 to 1.",
+      "items": [
+        "int i = 5",
+        "i > 0",
+        "i--",
+        "for",
+        "(",
+        ")",
+        "{ ... }"
+      ],
+      "solution": [
+        3,
+        4,
+        0,
+        5,
+        1,
+        2,
+        6
+      ]
+    },
+    {
+      "id": "csharp-forloop-c-04",
+      "type": "scored",
+      "prompt": "What happens if the initialization expression is omitted?",
+      "options": [
+        "A compile error occurs",
+        "The variable must be declared beforehand",
+        "The loop runs backwards",
+        "The condition is skipped"
+      ],
+      "answerIndex": 1,
+      "explanation": "If initialization is omitted, the loop variable must already exist outside the for header."
+    },
+    {
+      "id": "csharp-forloop-c-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: for ( _____ ; i < 5; i++) { ... }",
+      "template": "for ( _____ ; i < 5; i++) { ... }",
+      "options": [
+        "int i = 0s",
+        "Int i = 0",
+        "INT I = 0",
+        "int i = 0"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-forloop-c-06",
+      "type": "coderunner",
+      "prompt": "Write a for loop that prints even numbers from 0 to 10 (inclusive), each on a new line.",
+      "starterCode": "// Write your for loop here",
+      "expectedOutput": "0\n2\n4\n6\n8\n10",
+      "outputPattern": "0\\s*2\\s*4\\s*6\\s*8\\s*10",
+      "requiredStrings": [
+        "for",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-forloop-c-07",
+      "type": "scored",
+      "prompt": "Which part of the for loop runs after each iteration of the body?",
+      "options": [
+        "Initialization",
+        "Condition check",
+        "Iterator/Update",
+        "Return statement"
+      ],
+      "answerIndex": 2,
+      "explanation": "The iterator expression executes after the body and before the next condition check."
+    },
+    {
+      "id": "csharp-forloop-c-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; i < 5; _____ ) { ... }",
+      "template": "for (int i = 0; i < 5; _____ ) { ... }",
+      "options": [
+        "i += 1s",
+        "I += 1",
+        "i += 13",
+        "i += 1"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-forloop-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the execution sequence of a for loop.",
+      "items": [
+        "Check condition",
+        "Run body",
+        "Run iterator",
+        "Repeat from condition"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-forloop-c-10",
+      "type": "scored",
+      "prompt": "Can all three expressions in a for loop header be empty?",
+      "options": [
+        "No, at least one is required",
+        "Yes, creating an infinite loop",
+        "Only initialization can be empty",
+        "Only the iterator can be empty"
+      ],
+      "answerIndex": 1,
+      "explanation": "All three expressions are optional. An empty header (for (;;)) creates an infinite loop."
+    }
+  ]
+}

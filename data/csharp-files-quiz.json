@@ -1,0 +1,133 @@
+{
+  "meta": {
+    "section": "csharp-files",
+    "level": "expert",
+    "title": "C# File I/O"
+  },
+  "questions": [
+    {
+      "id": "csharp-files-01",
+      "type": "scored",
+      "prompt": "Which class is used for reading characters from a stream?",
+      "options": [
+        "StreamReader",
+        "StreamWriter",
+        "FileStream",
+        "BinaryReader"
+      ],
+      "answerIndex": 0,
+      "explanation": "StreamReader reads characters from a byte stream in a specific encoding."
+    },
+    {
+      "id": "csharp-files-02",
+      "type": "scored",
+      "prompt": "Which class is used for writing characters to a stream?",
+      "options": [
+        "StreamReader",
+        "StreamWriter",
+        "FileStream",
+        "BinaryWriter"
+      ],
+      "answerIndex": 1,
+      "explanation": "StreamWriter writes characters to a stream in a specific encoding."
+    },
+    {
+      "id": "csharp-files-03",
+      "type": "scored",
+      "prompt": "What is the purpose of the 'using' statement when working with file streams?",
+      "options": [
+        "To compress the file",
+        "To ensure the stream is disposed automatically",
+        "To encrypt the file",
+        "To create a new file"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'using' statement ensures that Dispose() is called on the stream when the block exits, releasing file handles properly."
+    },
+    {
+      "id": "csharp-files-04",
+      "type": "typing",
+      "prompt": "Fill in the blank to create a StreamWriter inside a using statement.",
+      "blanks": [
+        "new StreamWriter(\"output.txt\")"
+      ],
+      "template": "using (var writer = _____) {}"
+    },
+    {
+      "id": "csharp-files-05",
+      "type": "scored",
+      "prompt": "Which method reads the entire content of a text file as a string using File?",
+      "options": [
+        "File.ReadAllText()",
+        "File.ReadAllLines()",
+        "File.ReadText()",
+        "StreamReader.ReadToEnd()"
+      ],
+      "answerIndex": 0,
+      "explanation": "File.ReadAllText() reads all text from the file and returns it as a single string."
+    },
+    {
+      "id": "csharp-files-06",
+      "type": "coderunner",
+      "prompt": "Write all lines to a file and then read them back.",
+      "starterCode": "using System;\nusing System.IO;\n\nclass Program\n{\n    static void Main()\n    {\n        string[] lines = { \"Line1\", \"Line2\", \"Line3\" };\n        _____\n        {\n            var writer = new StreamWriter(\"test.txt\");\n            foreach (string line in lines)\n            {\n                writer._____(line);\n            }\n        }\n\n        using (var reader = new StreamReader(\"test.txt\"))\n        {\n            string content = reader._____();\n            Console.WriteLine(content);\n        }\n    }\n}",
+      "expectedOutput": "Line1\nLine2\nLine3",
+      "outputPattern": "Line1\\nLine2\\nLine3",
+      "requiredStrings": [
+        "File.ReadAllLines"
+      ]
+    },
+    {
+      "id": "csharp-files-07",
+      "type": "scored",
+      "prompt": "Which File method writes all text to a file, overwriting if it exists?",
+      "options": [
+        "File.WriteAllText()",
+        "File.AppendAllText()",
+        "File.CreateText()",
+        "File.Write()"
+      ],
+      "answerIndex": 0,
+      "explanation": "File.WriteAllText() creates a new file or overwrites an existing file with the specified text."
+    },
+    {
+      "id": "csharp-files-08",
+      "type": "insert",
+      "prompt": "Fill in the blank to read a single line from a StreamReader.",
+      "template": "string line = reader._____;",
+      "options": [
+        "ReadLine()2",
+        "ReadLine()s",
+        "ReadLine()",
+        "ReadLine()3"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-files-09",
+      "type": "scored",
+      "prompt": "What happens if you do not close or dispose a FileStream?",
+      "options": [
+        "Nothing, it is automatic",
+        "The file may remain locked until process exit",
+        "The file is deleted",
+        "The file is compressed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Unclosed streams hold OS file handles, which can lock the file and prevent other processes from accessing it."
+    },
+    {
+      "id": "csharp-files-10",
+      "type": "scored",
+      "prompt": "Which statement about File.ReadAllLines() is TRUE?",
+      "options": [
+        "It returns a single string",
+        "It returns a string array with one element per line",
+        "It reads binary data",
+        "It creates the file if missing"
+      ],
+      "answerIndex": 1,
+      "explanation": "File.ReadAllLines() reads all lines of a file into a string array."
+    }
+  ]
+}

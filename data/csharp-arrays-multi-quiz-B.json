@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-arrays-multi",
+    "level": "intermediate",
+    "title": "Multidimensional Arrays Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-arrays-multi-b-01",
+      "type": "scored",
+      "prompt": "What is a 2D array in C#?",
+      "options": [
+        "Two separate 1D arrays",
+        "A rectangular grid with rows and columns",
+        "An array that can change size",
+        "An array of strings only"
+      ],
+      "answerIndex": 1,
+      "explanation": "A 2D array is a rectangular data structure organized in rows and columns, declared with int[,]."
+    },
+    {
+      "id": "csharp-arrays-multi-b-02",
+      "type": "typing",
+      "prompt": "Fill in the blank: int[,] grid = _____ [3,4];",
+      "blanks": [
+        "new int"
+      ],
+      "template": "int[,] grid = _____ [3,4];"
+    },
+    {
+      "id": "csharp-arrays-multi-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the syntax for declaring a 2D array.",
+      "items": [
+        "int",
+        "[,]",
+        "new",
+        "int",
+        "[3,4]"
+      ],
+      "solution": [
+        0,
+        1,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-b-04",
+      "type": "scored",
+      "prompt": "How do you access the element at row 1, column 2?",
+      "options": [
+        "grid[1][2]",
+        "grid(1,2)",
+        "grid[1, 2]",
+        "grid{1,2}"
+      ],
+      "answerIndex": 2,
+      "explanation": "C# 2D arrays use comma-separated indices: grid[row, col]."
+    },
+    {
+      "id": "csharp-arrays-multi-b-05",
+      "type": "typing",
+      "prompt": "Fill in the blank: int[,] matrix = { {1,2}, {3, _____} };",
+      "blanks": [
+        "4"
+      ],
+      "template": "int[,] matrix = { {1,2}, {3, _____} };"
+    },
+    {
+      "id": "csharp-arrays-multi-b-06",
+      "type": "coderunner",
+      "prompt": "Create a 2x2 int array with values 1, 2, 3, 4 and print the element at row 0, col 1.",
+      "starterCode": "int[,] nums = _____ { {1, 2}, {3, 4} };\nConsole.WriteLine(_____[0, 1]);",
+      "expectedOutput": "2",
+      "outputPattern": "2",
+      "requiredStrings": [
+        "new int[2, 2]",
+        "Sum"
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-b-07",
+      "type": "scored",
+      "prompt": "What is a jagged array?",
+      "options": [
+        "A 2D array with equal row lengths",
+        "An array of arrays where each row can have different lengths",
+        "An array with only one dimension",
+        "A sorted array"
+      ],
+      "answerIndex": 1,
+      "explanation": "A jagged array is an array of arrays. Each inner array can have a different length."
+    },
+    {
+      "id": "csharp-arrays-multi-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank: int[][] jagged = new int[_____][];",
+      "blanks": [
+        "3"
+      ],
+      "template": "int[][] jagged = new int[_____][];"
+    },
+    {
+      "id": "csharp-arrays-multi-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the steps to create and use a jagged array.",
+      "items": [
+        "Declare jagged array",
+        "Create inner arrays",
+        "Assign values",
+        "Access element"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-b-10",
+      "type": "scored",
+      "prompt": "How do you get the number of rows in a 2D array named data?",
+      "options": [
+        "data.Length",
+        "data.GetLength(0)",
+        "data.GetLength(1)",
+        "data.Rows"
+      ],
+      "answerIndex": 1,
+      "explanation": "GetLength(0) returns the size of the first dimension (rows). GetLength(1) returns columns."
+    }
+  ]
+}

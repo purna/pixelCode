@@ -1,0 +1,240 @@
+{
+  "section": "csharp-typecasting",
+  "title": "C# Type Casting",
+  "slides": [
+    {
+      "title": "What is Type Casting?",
+      "content": "Type casting converts a variable from one type to another. C# supports implicit casting (safe, automatic) and explicit casting (requires syntax, may lose data).",
+      "example": "int a = 10;\nlong b = a;       // Implicit\ndouble c = 9.8;\nint d = (int)c;   // Explicit",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which cast is implicit?",
+        "options": [
+          "double to int",
+          "int to long",
+          "string to int",
+          "bool to string"
+        ],
+        "answer": "int to long"
+      }
+    },
+    {
+      "title": "Implicit Casting",
+      "content": "Implicit casting happens automatically when converting from a smaller type to a larger type with no risk of data loss. Examples include int to long, float to double, and char to int.",
+      "example": "int small = 100;\nlong big = small; // No cast needed\ndouble d = 3.14;\nfloat f = (float)d; // Needs explicit cast",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What operator or syntax is used for explicit casting?",
+        "placeholder": "_____",
+        "answer": "(type)",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Explicit Casting",
+      "content": "Use explicit casting with parentheses when converting from a larger type to a smaller one. The compiler requires you to acknowledge possible data loss.",
+      "example": "double price = 19.99;\nint rounded = (int)price; // 19\ndecimal precise = 99.95m;\nint val = (int)precise;    // 99",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the explicit cast from double to int.",
+        "before": "double d = 5.7;\nint i = ",
+        "after": " d;",
+        "options": [
+          "(int)",
+          "int",
+          "Convert.ToInt32",
+          "parse"
+        ],
+        "answer": "(int)"
+      }
+    },
+    {
+      "title": "The Convert Class",
+      "content": "System.Convert provides methods for converting between base types. It handles null strings safely and throws exceptions for invalid formats.",
+      "example": "string s = \"123\";\nint n = Convert.ToInt32(s);\ndouble d = Convert.ToDouble(\"3.14\");",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does Convert.ToInt32 return when given a null string?",
+        "options": [
+          "0",
+          "null",
+          "Throws exception",
+          "Empty string"
+        ],
+        "answer": "0"
+      }
+    },
+    {
+      "title": "Parse Method",
+      "content": "Parse methods like int.Parse and double.Parse convert strings to numeric types. They throw FormatException if the string is not in a valid format.",
+      "example": "int x = int.Parse(\"50\");\ndouble y = double.Parse(\"2.5\");\nbool b = bool.Parse(\"true\");",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What exception does int.Parse throw on invalid input?",
+        "placeholder": "_____Exception",
+        "answer": "Format",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "TryParse for Safe Conversion",
+      "content": "TryParse attempts to convert a string and returns true or false instead of throwing exceptions. It is the preferred method when input may be invalid.",
+      "example": "if (int.TryParse(input, out int result)) {\n    Console.WriteLine(result);\n} else {\n    Console.WriteLine(\"Invalid number\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the TryParse pattern.",
+        "before": "int.TryParse(input, out ",
+        "after": " result);",
+        "options": [
+          "int",
+          "var",
+          "int result",
+          "result int"
+        ],
+        "answer": "int result"
+      }
+    },
+    {
+      "title": "Common Casting Errors",
+      "content": "InvalidCastException occurs when an invalid cast is attempted. FormatException occurs when Parse receives malformed input. Always validate input or use TryParse.",
+      "example": "object obj = \"42\";\n// int n = (int)obj; // InvalidCastException\nint n = Convert.ToInt32(obj); // Works",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method avoids exceptions on invalid string input?",
+        "options": [
+          "int.Parse",
+          "Convert.ToInt32",
+          "int.TryParse",
+          "Explicit cast"
+        ],
+        "answer": "int.TryParse"
+      }
+    },
+    {
+      "title": "Practice: Type Casting",
+      "content": "Practice converting between types using explicit casting, Convert class methods, and Parse. Combine these with user input for real-world scenarios.",
+      "example": "double temperature = 36.6;\nint whole = (int)temperature;\nConsole.WriteLine(whole);",
+      "exampleOutput": "36",
+      "exercise": {
+        "type": "code",
+        "prompt": "Parse a string \"45.67\" to a double, cast it to an int, and print the int value.",
+        "starterCode": "using System;\nclass Program {\n    static void Main() {\n        string input = \"45.67\";\n        // Parse, cast, and print here\n        \n    }\n}",
+        "expectedOutput": "45\n",
+        "outputPattern": "^45\\n$",
+        "requiredStrings": [
+          "Parse",
+          "Cast"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: Parse, Cast",
+          "When run, your code should output: 45"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Type Casting",
+      "content": "Use the Flow Builder to cast a double to an int and output the result.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares double d = 5.7, casts to int, and outputs the int",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "d",
+              "dataType": "Real",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "d",
+              "dataType": "Real",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "5.7"
+            },
+            {
+              "id": "n3",
+              "kind": "declare",
+              "name": "i",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n4",
+              "kind": "assign",
+              "name": "i",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "(int)d"
+            },
+            {
+              "id": "n5",
+              "kind": "output",
+              "expression": "i",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "double d;\nd = 5.7;\nint i;\ni = (int)d;\noutput(i);",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "section": "csharp-comments",
+    "level": "beginner",
+    "title": "C# Comments"
+  },
+  "questions": [
+    {
+      "id": "csharp-comments-01",
+      "type": "scored",
+      "prompt": "How do you write a single-line comment in C#?",
+      "options": [
+        "# comment",
+        "// comment",
+        "<!-- comment -->",
+        "/* comment */"
+      ],
+      "answerIndex": 1,
+      "explanation": "Single-line comments in C# start with //."
+    },
+    {
+      "id": "csharp-comments-02",
+      "type": "scored",
+      "prompt": "Which symbols denote a multi-line comment?",
+      "options": [
+        "// and //",
+        "/* and */",
+        "<!-- and -->",
+        "# and #"
+      ],
+      "answerIndex": 1,
+      "explanation": "Multi-line (block) comments are enclosed between /* and */."
+    },
+    {
+      "id": "csharp-comments-03",
+      "type": "insert",
+      "prompt": "Fill in the blank for a single-line comment",
+      "template": "______ This is a note",
+      "options": [
+        "//s",
+        "//3",
+        "//",
+        "//"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-comments-04",
+      "type": "scored",
+      "prompt": "What are /// comments used for?",
+      "options": [
+        "To disable code",
+        "To write XML documentation",
+        "To print output",
+        "To declare variables"
+      ],
+      "answerIndex": 1,
+      "explanation": "Triple-slash /// comments generate XML documentation for members."
+    },
+    {
+      "id": "csharp-comments-05",
+      "type": "coderunner",
+      "prompt": "Add a single-line comment on its own line that says 'todo' and still print Hi",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    ______\n    Console.WriteLine(\"Hi\");\n  }\n}",
+      "expectedOutput": "Hi\n",
+      "outputPattern": "^Hi\\n$",
+      "requiredStrings": [
+        "//"
+      ]
+    },
+    {
+      "id": "csharp-comments-06",
+      "type": "scored",
+      "prompt": "Are comments executed by the program?",
+      "options": [
+        "Yes, always",
+        "No, the compiler ignores them",
+        "Only // comments",
+        "Only on Mondays"
+      ],
+      "answerIndex": 1,
+      "explanation": "Comments are ignored by the compiler and do not affect program execution."
+    },
+    {
+      "id": "csharp-comments-07",
+      "type": "dragorder",
+      "prompt": "Arrange a multi-line comment block",
+      "items": [
+        "/*",
+        "This is",
+        "a comment",
+        "*/"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Open with /*, write the lines, then close with */."
+    },
+    {
+      "id": "csharp-comments-08",
+      "type": "scored",
+      "prompt": "Which XML doc tag describes a method's return value?",
+      "options": [
+        "<param>",
+        "<returns>",
+        "<summary>",
+        "<value>"
+      ],
+      "answerIndex": 1,
+      "explanation": "The <returns> tag documents what a method returns."
+    },
+    {
+      "id": "csharp-comments-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to start an XML documentation comment",
+      "template": "______ <summary>Does a thing</summary>",
+      "options": [
+        "///s",
+        "///3",
+        "///",
+        "///"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-comments-10",
+      "type": "scored",
+      "prompt": "What is a common use of comments?",
+      "options": [
+        "Storing data",
+        "Explaining code intent and notes",
+        "Creating variables",
+        "Running loops"
+      ],
+      "answerIndex": 1,
+      "explanation": "Comments explain code, leave notes, and improve readability for developers."
+    }
+  ]
+}

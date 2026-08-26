@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-oop",
+    "level": "intermediate",
+    "title": "C# Object-Oriented Programming Concepts"
+  },
+  "questions": [
+    {
+      "id": "csharp-oop-01",
+      "type": "scored",
+      "prompt": "What are the four pillars of OOP?",
+      "options": [
+        "Loops, arrays, methods, classes",
+        "Encapsulation, abstraction, inheritance, polymorphism",
+        "Compile, run, debug, test",
+        "Variables, types, fields, props"
+      ],
+      "answerIndex": 1,
+      "explanation": "The four pillars are encapsulation, abstraction, inheritance, and polymorphism."
+    },
+    {
+      "id": "csharp-oop-02",
+      "type": "scored",
+      "prompt": "What is a class?",
+      "options": [
+        "A value",
+        "A blueprint/template for creating objects",
+        "A loop",
+        "A namespace"
+      ],
+      "answerIndex": 1,
+      "explanation": "A class defines a type and serves as a blueprint for objects."
+    },
+    {
+      "id": "csharp-oop-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a class named Car",
+      "blanks": [
+        "class Car"
+      ],
+      "template": "______ { }"
+    },
+    {
+      "id": "csharp-oop-04",
+      "type": "scored",
+      "prompt": "What is an object?",
+      "options": [
+        "The class itself",
+        "An instance of a class",
+        "A method",
+        "A comment"
+      ],
+      "answerIndex": 1,
+      "explanation": "An object is a concrete instance created from a class."
+    },
+    {
+      "id": "csharp-oop-05",
+      "type": "coderunner",
+      "prompt": "Create a class Dog with a method Speak() that prints 'Woof' and call it",
+      "starterCode": "using System;\nclass Dog {\n  public void Speak() { Console.WriteLine(\"Woof\"); }\n}\nclass Program {\n  static void Main() {\n    Dog d = new Dog();\n    ______\n  }\n}",
+      "expectedOutput": "Woof\n",
+      "outputPattern": "^Woof\\n$",
+      "requiredStrings": [
+        "new Dog()"
+      ]
+    },
+    {
+      "id": "csharp-oop-06",
+      "type": "scored",
+      "prompt": "What is encapsulation?",
+      "options": [
+        "Hiding implementation details and controlling access",
+        "Creating many objects",
+        "Using loops",
+        "Compiling code"
+      ],
+      "answerIndex": 0,
+      "explanation": "Encapsulation bundles data and methods and restricts direct access via access modifiers."
+    },
+    {
+      "id": "csharp-oop-07",
+      "type": "dragorder",
+      "prompt": "Arrange a minimal class with a field and method",
+      "items": [
+        "class Person {",
+        "  public string Name;",
+        "  public void Hi() { Console.WriteLine(Name); }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Class declaration, a public field, a method using it, and closing brace."
+    },
+    {
+      "id": "csharp-oop-08",
+      "type": "scored",
+      "prompt": "Which access modifier makes a member accessible only within its class?",
+      "options": [
+        "public",
+        "private",
+        "internal",
+        "protected"
+      ],
+      "answerIndex": 1,
+      "explanation": "private restricts access to the containing type."
+    },
+    {
+      "id": "csharp-oop-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to create an object of class Circle",
+      "blanks": [
+        "new Circle()"
+      ],
+      "template": "Circle c = ______;"
+    },
+    {
+      "id": "csharp-oop-10",
+      "type": "scored",
+      "prompt": "Abstraction means:",
+      "options": [
+        "Showing every detail",
+        "Hiding complex details and showing only essentials",
+        "Using only static methods",
+        "Avoiding classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstraction exposes essential behavior while hiding implementation complexity."
+    }
+  ]
+}

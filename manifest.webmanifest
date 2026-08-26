@@ -1,0 +1,10 @@
+{
+  "name": "Assessment Quiz",
+  "short_name": "Quiz",
+  "description": "Practice numerical, verbal, abstract, personality and situational assessment questions.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F7F7FB",
+  "theme_color": "#1E2340",
+  "icons": []
+}

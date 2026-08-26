@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "section": "csharp-operators",
+    "level": "beginner",
+    "title": "C# Operators B"
+  },
+  "questions": [
+    {
+      "id": "operators-b-01",
+      "type": "scored",
+      "prompt": "What does the - operator do?",
+      "options": [
+        "Adds numbers",
+        "Subtracts numbers",
+        "Multiplies numbers",
+        "Divides numbers"
+      ],
+      "answerIndex": 1,
+      "explanation": "The - operator performs subtraction."
+    },
+    {
+      "id": "operators-b-02",
+      "type": "insert",
+      "prompt": "What is the division operator in C#?",
+      "template": "int result = 10 _____ 2;",
+      "options": [
+        "===",
+        "/",
+        "==",
+        "="
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "operators-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange these assignment operators in order of equivalent operations: =, +=, *=, -=.",
+      "items": [
+        "+=",
+        "=",
+        "*=",
+        "-="
+      ],
+      "solution": [
+        1,
+        0,
+        3,
+        2
+      ],
+      "explanation": "= assigns, += adds then assigns, -= subtracts then assigns, *= multiplies then assigns."
+    },
+    {
+      "id": "operators-b-04",
+      "type": "scored",
+      "prompt": "What is 15 % 4?",
+      "options": [
+        "3",
+        "4",
+        "2",
+        "1"
+      ],
+      "answerIndex": 0,
+      "explanation": "The % operator returns the remainder. 15 divided by 4 is 3 with remainder 3."
+    },
+    {
+      "id": "operators-b-05",
+      "type": "coderunner",
+      "prompt": "Use the *= operator to double a value and print it.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        int x = 5;\n        // double x using *=\n        \n        Console.WriteLine(x);\n    }\n}",
+      "expectedOutput": "10\n",
+      "outputPattern": "^10\\n$",
+      "requiredStrings": [
+        "*",
+        "total ="
+      ]
+    },
+    {
+      "id": "operators-b-06",
+      "type": "scored",
+      "prompt": "Which operator compares for inequality?",
+      "options": [
+        "==",
+        "!=",
+        "!==",
+        "<>"
+      ],
+      "answerIndex": 1,
+      "explanation": "!= checks that two values are not equal."
+    },
+    {
+      "id": "operators-b-07",
+      "type": "insert",
+      "prompt": "What is the symbol for logical OR?",
+      "template": "if (a > 0 _____ b > 0)",
+      "options": [
+        "||",
+        "==",
+        "=",
+        "==="
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "operators-b-08",
+      "type": "scored",
+      "prompt": "What does 5 == 5 evaluate to?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 0,
+      "explanation": "The == operator returns true when both operands are equal."
+    },
+    {
+      "id": "operators-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange these operators from highest to lowest precedence: *, -, &&, ==.",
+      "items": [
+        "==",
+        "&&",
+        "*",
+        "-"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "explanation": "* and - have higher precedence than == and &&."
+    },
+    {
+      "id": "operators-b-10",
+      "type": "scored",
+      "prompt": "What does ! mean?",
+      "options": [
+        "Logical AND",
+        "Logical OR",
+        "Logical NOT",
+        "Not equal"
+      ],
+      "answerIndex": 2,
+      "explanation": "! is the logical NOT operator, which negates a boolean value."
+    }
+  ]
+}

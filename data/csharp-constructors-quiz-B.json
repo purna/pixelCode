@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-constructors",
+    "level": "intermediate",
+    "title": "C# Constructors"
+  },
+  "questions": [
+    {
+      "id": "csharp-constructors-b-01",
+      "type": "scored",
+      "prompt": "A constructor has the same name as the:",
+      "options": [
+        "Namespace",
+        "Class",
+        "Method",
+        "Property"
+      ],
+      "answerIndex": 1,
+      "explanation": "Constructors share the class name and have no return type."
+    },
+    {
+      "id": "csharp-constructors-b-02",
+      "type": "scored",
+      "prompt": "If you do not define a constructor, C# provides:",
+      "options": [
+        "Nothing",
+        "A parameterless default constructor",
+        "A static constructor",
+        "An abstract constructor"
+      ],
+      "answerIndex": 1,
+      "explanation": "The compiler supplies a public parameterless constructor by default."
+    },
+    {
+      "id": "csharp-constructors-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a constructor for class User that sets Name",
+      "blanks": [
+        "public User(string name) { Name = name; }"
+      ],
+      "template": "______",
+      "explanation": "Constructor initializes fields on creation."
+    },
+    {
+      "id": "csharp-constructors-b-04",
+      "type": "scored",
+      "prompt": "A static constructor runs:",
+      "options": [
+        "Every time you create an instance",
+        "Once before first access to the type",
+        "On garbage collection",
+        "Never"
+      ],
+      "answerIndex": 1,
+      "explanation": "Static constructors initialize static state once."
+    },
+    {
+      "id": "csharp-constructors-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Person with constructor Person(string n) setting public string Name, create Person('Jo') and print Name",
+      "starterCode": "using System;\nclass Person {\n  public string Name;\n  public Person(string n) { Name = n; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Jo\n",
+      "outputPattern": "^Jo\\n$",
+      "explanation": "Use the constructor then print Name.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-constructors-b-06",
+      "type": "scored",
+      "prompt": "The 'this' keyword in a constructor can be used to:",
+      "options": [
+        "Call another constructor",
+        "Delete the object",
+        "Make it static",
+        "Hide the class"
+      ],
+      "answerIndex": 0,
+      "explanation": "Constructor chaining uses this(...) to call another constructor."
+    },
+    {
+      "id": "csharp-constructors-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange to use constructor chaining",
+      "items": [
+        "class C {",
+        "  public C() : this(0) { }",
+        "  public C(int x) { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "The parameterless ctor calls the int ctor."
+    },
+    {
+      "id": "csharp-constructors-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to chain to a base constructor",
+      "blanks": [
+        ": base(name)"
+      ],
+      "template": "public Derived(string name) ______ { }",
+      "explanation": "base(...) invokes the base class constructor."
+    },
+    {
+      "id": "csharp-constructors-b-09",
+      "type": "scored",
+      "prompt": "Once you define ANY constructor, the implicit default constructor is:",
+      "options": [
+        "Still provided",
+        "No longer provided automatically",
+        "Made static",
+        "Made private automatically"
+      ],
+      "answerIndex": 1,
+      "explanation": "Defining a constructor removes the automatic default one."
+    },
+    {
+      "id": "csharp-constructors-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Box with constructor Box(int w,int h) setting public int W,H and method Area(), then print Area() for (3,4)",
+      "starterCode": "using System;\nclass Box {\n  public int W, H;\n  public Box(int w, int h) { W = w; H = h; }\n  public int Area() { return W * H; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "12\n",
+      "outputPattern": "^12\\n$",
+      "explanation": "Construct then call Area().",
+      "requiredStrings": [
+        "public Book("
+      ]
+    }
+  ]
+}

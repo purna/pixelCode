@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-whileloop",
+    "level": "beginner",
+    "title": "While Loops Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-whileloop-b-01",
+      "type": "scored",
+      "prompt": "Which keyword starts a while loop in C#?",
+      "options": [
+        "while",
+        "loop",
+        "repeat",
+        "do"
+      ],
+      "answerIndex": 0,
+      "explanation": "The while keyword begins a while loop, which repeats a block while a condition remains true."
+    },
+    {
+      "id": "csharp-whileloop-b-02",
+      "type": "insert",
+      "prompt": "Fill in the blank to create a while loop: _____ (x < 5) { Console.WriteLine(x); x++; }",
+      "template": "_____ (x < 5) { Console.WriteLine(x); x++; }",
+      "options": [
+        "If",
+        "whle",
+        "while",
+        "IF"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-whileloop-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the lines of a while loop in the correct order.",
+      "items": [
+        "while (condition)",
+        "{",
+        "// body",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-whileloop-b-04",
+      "type": "scored",
+      "prompt": "Which loop guarantees its body runs at least once?",
+      "options": [
+        "while",
+        "for",
+        "do-while",
+        "foreach"
+      ],
+      "answerIndex": 2,
+      "explanation": "A do-while loop checks its condition after executing the body, so it always runs at least once."
+    },
+    {
+      "id": "csharp-whileloop-b-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: _____ { Console.WriteLine(\"Hello\"); } while (x > 0);",
+      "template": "_____ { Console.WriteLine(\"Hello\"); } while (x > 0);",
+      "options": [
+        "Do",
+        "dos",
+        "do",
+        "DO"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-whileloop-b-06",
+      "type": "coderunner",
+      "prompt": "Write a while loop that prints the numbers 1, 2, and 3 on separate lines using a counter starting at 1.",
+      "starterCode": "int i = 1;\n// Write your while loop here",
+      "expectedOutput": "1\n2\n3",
+      "outputPattern": "1\\s*2\\s*3",
+      "requiredStrings": [
+        "while"
+      ]
+    },
+    {
+      "id": "csharp-whileloop-b-07",
+      "type": "scored",
+      "prompt": "What causes an infinite loop?",
+      "options": [
+        "The condition is always false",
+        "The condition is always true",
+        "The loop has no body",
+        "The variable is never used"
+      ],
+      "answerIndex": 1,
+      "explanation": "An infinite loop occurs when the loop condition never becomes false, causing the loop to repeat endlessly."
+    },
+    {
+      "id": "csharp-whileloop-b-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: int i = 0; _____ (i < 5) { i++; }",
+      "template": "int i = 0; _____ (i < 5) { i++; }",
+      "options": [
+        "whle",
+        "while",
+        "IF",
+        "If"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-whileloop-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the do-while loop structure in correct order.",
+      "items": [
+        "do",
+        "{",
+        "// body",
+        "}",
+        "while (condition);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-whileloop-b-10",
+      "type": "scored",
+      "prompt": "In a while loop, when is the condition evaluated?",
+      "options": [
+        "After each iteration",
+        "Before each iteration",
+        "Only once at the start",
+        "Only once at the end"
+      ],
+      "answerIndex": 1,
+      "explanation": "In a while loop, the condition is checked before each iteration. If it is false initially, the body never runs."
+    }
+  ]
+}

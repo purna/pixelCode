@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-userinput",
+    "level": "beginner",
+    "title": "C# User Input B"
+  },
+  "questions": [
+    {
+      "id": "userinput-b-01",
+      "type": "scored",
+      "prompt": "Which method reads user input without waiting for Enter?",
+      "options": [
+        "Console.Read",
+        "Console.ReadLine",
+        "Console.ReadKey",
+        "Console.Get"
+      ],
+      "answerIndex": 2,
+      "explanation": "Console.ReadKey captures a single keystroke immediately. Console.Read still waits for Enter because standard console input is line-buffered."
+    },
+    {
+      "id": "userinput-b-02",
+      "type": "insert",
+      "prompt": "What method do you use to prompt the user before reading input?",
+      "template": "_____(\"Enter your name: \");",
+      "options": [
+        "Console.Write",
+        "Console.write",
+        "Console.Writes",
+        "CONSOLE.WRITE"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "userinput-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the steps to safely read and parse an integer.",
+      "items": [
+        "TryParse",
+        "Read input",
+        "Parse result",
+        "Print value"
+      ],
+      "solution": [
+        1,
+        0,
+        2,
+        3
+      ],
+      "explanation": "Read input first, then use TryParse to validate, check the result, then use the value."
+    },
+    {
+      "id": "userinput-b-04",
+      "type": "scored",
+      "prompt": "What happens if int.Parse receives non-numeric input?",
+      "options": [
+        "Returns 0",
+        "Throws FormatException",
+        "Returns null",
+        "Ignores input"
+      ],
+      "answerIndex": 1,
+      "explanation": "int.Parse throws a FormatException if the input cannot be converted to an integer."
+    },
+    {
+      "id": "userinput-b-05",
+      "type": "coderunner",
+      "prompt": "Read an integer from the user and print it doubled.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Prompt, read, parse, and print doubled value\n        \n    }\n}",
+      "expectedOutput": "20\n",
+      "outputPattern": "^20\\n$",
+      "requiredStrings": [
+        "ReadLine",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "userinput-b-06",
+      "type": "scored",
+      "prompt": "Which method converts a string to a double?",
+      "options": [
+        "double.Parse",
+        "Convert.ToDouble",
+        "int.Parse",
+        "string.ToDouble"
+      ],
+      "answerIndex": 1,
+      "explanation": "Convert.ToDouble converts a string to a double-precision floating-point number."
+    },
+    {
+      "id": "userinput-b-07",
+      "type": "insert",
+      "prompt": "Write the exact method to read a single key press.",
+      "template": "Console._____();",
+      "options": [
+        "ReadKey",
+        "ReadKeys",
+        "READKEY",
+        "Readkey"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "userinput-b-08",
+      "type": "scored",
+      "prompt": "What does int.TryParse return when conversion succeeds?",
+      "options": [
+        "true",
+        "1",
+        "The parsed int",
+        "The string"
+      ],
+      "answerIndex": 0,
+      "explanation": "int.TryParse returns a bool: true if conversion succeeded, false otherwise."
+    },
+    {
+      "id": "userinput-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange these to convert user input to int safely.",
+      "items": [
+        "string input = Console.ReadLine();",
+        "int.TryParse(input, out int num);",
+        "Console.WriteLine(num);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Read the string, try parsing it, then use the result."
+    },
+    {
+      "id": "userinput-b-10",
+      "type": "scored",
+      "prompt": "What is the return type of Console.ReadLine()?",
+      "options": [
+        "char",
+        "string",
+        "int",
+        "void"
+      ],
+      "answerIndex": 1,
+      "explanation": "Console.ReadLine returns a string containing the characters typed by the user."
+    }
+  ]
+}

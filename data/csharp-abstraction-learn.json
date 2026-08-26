@@ -1,0 +1,140 @@
+{
+  "section": "csharp-abstraction",
+  "title": "C# Abstraction",
+  "slides": [
+    {
+      "title": "What is Abstraction?",
+      "content": "Abstraction hides implementation details and exposes only essential features. In C#, it is achieved using abstract classes and interfaces.",
+      "example": "public abstract class Animal\n{\n    public abstract void Speak();\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is the main purpose of abstraction?",
+        "options": [
+          "To execute code faster",
+          "To hide complex implementation and expose essentials",
+          "To increase memory usage",
+          "To prevent inheritance"
+        ],
+        "answer": "To hide complex implementation and expose essentials"
+      }
+    },
+    {
+      "title": "Abstract Classes",
+      "content": "An abstract class cannot be instantiated and may contain abstract methods (no body) and concrete methods (with body). Use the 'abstract' keyword.",
+      "example": "public abstract class Vehicle\n{\n    public abstract void Drive();\n    public void Honk() => Console.WriteLine(\"Beep!\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the declaration: public _____ class Vehicle",
+        "placeholder": "_____",
+        "answer": "abstract",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Abstract Methods",
+      "content": "Abstract methods have no implementation. They must be overridden in a non-abstract derived class using the 'override' keyword.",
+      "example": "public abstract class Shape\n{\n    public abstract double Area();\n}\n\npublic class Square : Shape\n{\n    public double Side;\n    public override double Area() => Side * Side;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Drag the correct keyword to override an abstract method.",
+        "before": "public ",
+        "after": " double Area() => Side * Side;",
+        "options": [
+          "override",
+          "abstract",
+          "virtual",
+          "new"
+        ],
+        "answer": "override"
+      }
+    },
+    {
+      "title": "Concrete vs Abstract Members",
+      "content": "Abstract classes can mix abstract members (must be overridden) with concrete members (inherited as-is). This promotes code reuse.",
+      "example": "public abstract class Animal\n{\n    public abstract void Speak();\n    public void Sleep() => Console.WriteLine(\"Zzz...\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which member can an abstract class contain?",
+        "options": [
+          "Only abstract methods",
+          "Only concrete methods",
+          "Both abstract and concrete methods",
+          "Neither abstract nor concrete methods"
+        ],
+        "answer": "Both abstract and concrete methods"
+      }
+    },
+    {
+      "title": "Sealed Override",
+      "content": "A derived class can prevent further overriding of an abstract method by using 'sealed override'.",
+      "example": "public class Dog : Animal\n{\n    public sealed override void Speak()\n    {\n        Console.WriteLine(\"Woof!\");\n    }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: public _____ override void Speak()",
+        "placeholder": "_____",
+        "answer": "sealed",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "When to Use Abstraction",
+      "content": "Use abstraction when multiple classes share a common base but require different implementations of specific operations.",
+      "example": "public abstract class PaymentProcessor\n{\n    public abstract void ProcessPayment(decimal amount);\n}\n\npublic class CreditCardProcessor : PaymentProcessor\n{\n    public override void ProcessPayment(decimal amount)\n    {\n        // credit card logic\n    }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which scenario is best for an abstract class?",
+        "options": [
+          "Defining a simple data structure",
+          "Grouping related classes with shared base behavior",
+          "Storing key-value pairs",
+          "Performing numeric calculations only"
+        ],
+        "answer": "Grouping related classes with shared base behavior"
+      }
+    },
+    {
+      "title": "Abstract Properties",
+      "content": "Abstract classes can also declare abstract properties. The derived class must implement the getter and/or setter.",
+      "example": "public abstract class Vehicle\n{\n    public abstract int Wheels { get; set; }\n}\n\npublic class Car : Vehicle\n{\n    public override int Wheels { get; set; } = 4;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the Car class by overriding the abstract Wheels property with a default value of 4.",
+        "starterCode": "public abstract class Vehicle\n{\n    public abstract int Wheels { get; set; }\n}\n\npublic class Car : Vehicle\n{\n    _____\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Car c = new Car();\n        Console.WriteLine(c.Wheels);\n    }\n}",
+        "expectedOutput": "4",
+        "outputPattern": "4",
+        "requiredStrings": [
+          "override"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: override",
+          "When run, your code should output: 4"
+        ]
+      }
+    },
+    {
+      "title": "Abstraction Best Practices",
+      "content": "Name abstract classes with clear intent, keep them focused, and use them to define contracts for families of related types.",
+      "example": "// Good: clear abstraction for related types\npublic abstract class DatabaseConnection\n{\n    public abstract void Connect();\n    public abstract void Disconnect();\n}\n\n// Derived classes implement specifics\npublic class SqlConnection : DatabaseConnection { ... }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Arrange the correct abstraction hierarchy.",
+        "before": "",
+        "after": "",
+        "options": [
+          "DatabaseConnection",
+          "SqlConnection : DatabaseConnection",
+          "SqlConnection"
+        ],
+        "answer": "DatabaseConnection"
+      }
+    }
+  ]
+}

@@ -1,0 +1,94 @@
+{
+  "section": "csharp-control",
+  "title": "C# Control Flow",
+  "slides": [
+    {
+      "title": "if Statements",
+      "content": "An if statement executes code only when a condition is true. It is the most basic way to make decisions in your program.",
+      "example": "int age = 18;\nif (age >= 18)\n{\n    Console.WriteLine(\"You are an adult.\");\n}",
+      "exampleOutput": "You are an adult.",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the condition to check if score is at least 60.",
+        "before": "if (score ",
+        "after": " 60)",
+        "options": [
+          ">=",
+          ">",
+          "<=",
+          "=="
+        ],
+        "answer": ">="
+      }
+    },
+    {
+      "title": "if-else Statements",
+      "content": "An if-else statement runs one block when the condition is true and another block when it is false.",
+      "example": "int temperature = 15;\nif (temperature > 20)\n{\n    Console.WriteLine(\"It is warm.\");\n}\nelse\n{\n    Console.WriteLine(\"It is cold.\");\n}",
+      "exampleOutput": "It is cold."
+    },
+    {
+      "title": "else if Chains",
+      "content": "Use else if to check multiple conditions in order. The first matching condition runs, and the rest are skipped.",
+      "example": "int score = 85;\nif (score >= 90)\n{\n    Console.WriteLine(\"Grade: A\");\n}\nelse if (score >= 80)\n{\n    Console.WriteLine(\"Grade: B\");\n}\nelse\n{\n    Console.WriteLine(\"Grade: C\");\n}",
+      "exampleOutput": "Grade: B"
+    },
+    {
+      "title": "switch Statements",
+      "content": "A switch statement compares a single value against multiple cases. It is cleaner than long else if chains for exact matches.",
+      "example": "string fruit = \"apple\";\n\nswitch (fruit)\n{\n    case \"banana\":\n        Console.WriteLine(\"Yellow\");\n        break;\n    case \"apple\":\n        Console.WriteLine(\"Red\");\n        break;\n    default:\n        Console.WriteLine(\"Unknown\");\n        break;\n}",
+      "exampleOutput": "Red"
+    },
+    {
+      "title": "for Loops",
+      "content": "A for loop repeats a block of code a fixed number of times. You control the start, end, and step of the loop.",
+      "example": "for (int i = 1; i <= 3; i++)\n{\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "1\n2\n3",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Choose the correct loop keyword.",
+        "before": "",
+        "after": " (int i = 0; i < 5; i++)",
+        "options": [
+          "for",
+          "while",
+          "foreach",
+          "loop"
+        ],
+        "answer": "for"
+      }
+    },
+    {
+      "title": "while Loops",
+      "content": "A while loop repeats code while a condition stays true. Use it when you do not know how many iterations are needed.",
+      "example": "int count = 1;\nwhile (count <= 3)\n{\n    Console.WriteLine(count);\n    count++;\n}",
+      "exampleOutput": "1\n2\n3"
+    },
+    {
+      "title": "break and continue",
+      "content": "break stops a loop early, while continue skips the current iteration and jumps to the next one.",
+      "example": "for (int i = 1; i <= 5; i++)\n{\n    if (i == 3) continue;\n    if (i == 5) break;\n    Console.WriteLine(i);\n}",
+      "exampleOutput": "1\n2\n4"
+    },
+    {
+      "title": "foreach Loops with Collections",
+      "content": "A foreach loop iterates over every element in a collection, such as an array or list. It is the simplest way to process each item.",
+      "example": "int[] numbers = { 10, 20, 30 };\nforeach (int num in numbers)\n{\n    Console.WriteLine(num);\n}",
+      "exampleOutput": "10\n20\n30",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use foreach to print each fruit from the array.",
+        "starterCode": "string[] fruits = { \"Apple\", \"Banana\" };\n_____\n{\n    Console.WriteLine(fruit);\n}",
+        "expectedOutput": "Apple\nBanana",
+        "outputPattern": "Apple",
+        "requiredStrings": [
+          "foreach"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: foreach",
+          "When run, your code should output: Apple, Banana"
+        ]
+      }
+    }
+  ]
+}

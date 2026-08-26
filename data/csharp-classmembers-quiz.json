@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-classmembers",
+    "level": "intermediate",
+    "title": "C# Class Members"
+  },
+  "questions": [
+    {
+      "id": "csharp-classmembers-01",
+      "type": "scored",
+      "prompt": "What is a field?",
+      "options": [
+        "A method",
+        "A variable declared directly in a class",
+        "A namespace",
+        "A loop"
+      ],
+      "answerIndex": 1,
+      "explanation": "A field is a variable that holds data within a class."
+    },
+    {
+      "id": "csharp-classmembers-02",
+      "type": "scored",
+      "prompt": "What is a property?",
+      "options": [
+        "A field with no access control",
+        "A member that provides get/set accessors for a value",
+        "A static method",
+        "A constructor"
+      ],
+      "answerIndex": 1,
+      "explanation": "Properties expose fields via get and set accessors with controlled access."
+    },
+    {
+      "id": "csharp-classmembers-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for an auto-property",
+      "blanks": [
+        "public string Name { get; set; }"
+      ],
+      "template": "______"
+    },
+    {
+      "id": "csharp-classmembers-04",
+      "type": "scored",
+      "prompt": "What does the 'static' keyword mean for a member?",
+      "options": [
+        "It belongs to an instance",
+        "It belongs to the class itself, not instances",
+        "It cannot be used",
+        "It is private"
+      ],
+      "answerIndex": 1,
+      "explanation": "Static members are shared across all instances and accessed via the class name."
+    },
+    {
+      "id": "csharp-classmembers-05",
+      "type": "coderunner",
+      "prompt": "Define class Box with public int Width=3 and a method Area() that prints Width*Width, then call Area",
+      "starterCode": "using System;\nclass Box {\n  public int Width = 3;\n  public void Area() { Console.WriteLine(Width * Width); }\n}\nclass Program {\n  static void Main() {\n    Box b = new Box();\n    ______\n  }\n}",
+      "expectedOutput": "9\n",
+      "outputPattern": "^9\\n$",
+      "requiredStrings": [
+        "Width"
+      ]
+    },
+    {
+      "id": "csharp-classmembers-06",
+      "type": "scored",
+      "prompt": "How do you call a static method Calculate on class MathUtil?",
+      "options": [
+        "new MathUtil().Calculate()",
+        "MathUtil.Calculate()",
+        "Calculate.MathUtil()",
+        "MathUtil->Calculate()"
+      ],
+      "answerIndex": 1,
+      "explanation": "Static members are accessed through the class name, without an instance."
+    },
+    {
+      "id": "csharp-classmembers-07",
+      "type": "dragorder",
+      "prompt": "Arrange a class with field, property, and method",
+      "items": [
+        "class Widget {",
+        "  private int id;",
+        "  public int Id { get { return id; } set { id = value; } }",
+        "  public void Show() { Console.WriteLine(id); }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "Class open, backing field, property, method, close."
+    },
+    {
+      "id": "csharp-classmembers-08",
+      "type": "scored",
+      "prompt": "What keyword refers to the current instance inside a class?",
+      "options": [
+        "this",
+        "self",
+        "me",
+        "base"
+      ],
+      "answerIndex": 0,
+      "explanation": "this refers to the current object instance."
+    },
+    {
+      "id": "csharp-classmembers-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a static field",
+      "blanks": [
+        "static int count"
+      ],
+      "template": "______ = 0;"
+    },
+    {
+      "id": "csharp-classmembers-10",
+      "type": "scored",
+      "prompt": "Which member is invoked automatically when an object is created?",
+      "options": [
+        "A property",
+        "A constructor",
+        "A static field",
+        "An event"
+      ],
+      "answerIndex": 1,
+      "explanation": "The constructor runs automatically during object creation."
+    }
+  ]
+}

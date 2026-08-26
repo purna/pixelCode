@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "section": "csharp-methodparams",
+    "level": "beginner",
+    "title": "Method Parameters Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodparams-b-01",
+      "type": "scored",
+      "prompt": "What are the values passed to a method called?",
+      "options": [
+        "Parameters",
+        "Arguments",
+        "Variables",
+        "Properties"
+      ],
+      "answerIndex": 1,
+      "explanation": "Arguments are the actual values passed to a method. Parameters are the variables in the method definition that receive them."
+    },
+    {
+      "id": "csharp-methodparams-b-02",
+      "type": "typing",
+      "prompt": "Fill in the blank: void SetAge(_____ age) { this.age = age; }",
+      "blanks": [
+        "int"
+      ],
+      "template": "void SetAge(_____ age) { this.age = age; }"
+    },
+    {
+      "id": "csharp-methodparams-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the relationship between parameter definition and argument passing.",
+      "items": [
+        "Parameter: int x",
+        "Argument: 5",
+        "Method definition",
+        "Method call",
+        "Value assigned"
+      ],
+      "solution": [
+        2,
+        0,
+        3,
+        1,
+        4
+      ]
+    },
+    {
+      "id": "csharp-methodparams-b-04",
+      "type": "scored",
+      "prompt": "What is a parameter in a method definition?",
+      "options": [
+        "The value passed in",
+        "A variable that receives the argument",
+        "The return value",
+        "The method name"
+      ],
+      "answerIndex": 1,
+      "explanation": "A parameter is a variable declared in the method signature that receives the passed argument value."
+    },
+    {
+      "id": "csharp-methodparams-b-05",
+      "type": "typing",
+      "prompt": "Fill in the blank: void Print(string msg = \"Hi\") { _____ msg; }",
+      "blanks": [
+        "Console.WriteLine"
+      ],
+      "template": "void Print(string msg = \"Hi\") { _____ msg; }"
+    },
+    {
+      "id": "csharp-methodparams-b-06",
+      "type": "coderunner",
+      "prompt": "Write a method Add that takes two int parameters and returns their sum. Call it with 10 and 20 and print the result.",
+      "starterCode": "_____ Add(int a, int b)\n{\n    _____ a + b;\n}\n\nConsole.WriteLine(_____(10, 20));",
+      "expectedOutput": "30",
+      "outputPattern": "30",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-methodparams-b-07",
+      "type": "scored",
+      "prompt": "What are named arguments?",
+      "options": [
+        "Arguments with variable names",
+        "Specifying the parameter name when calling a method",
+        "Arguments that are strings",
+        "Parameters with default values"
+      ],
+      "answerIndex": 1,
+      "explanation": "Named arguments let you pass values by explicitly naming the parameter: Calculate(x: 10, y: 20);"
+    },
+    {
+      "id": "csharp-methodparams-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank: Greet(name: \"Alice\", age: _____ );",
+      "blanks": [
+        "25"
+      ],
+      "template": "Greet(name: \"Alice\", age: _____ );"
+    },
+    {
+      "id": "csharp-methodparams-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the flow of passing an argument to a method.",
+      "items": [
+        "Define method with parameter",
+        "Call method with argument",
+        "Assign value to parameter",
+        "Execute body",
+        "Return or exit"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-methodparams-b-10",
+      "type": "scored",
+      "prompt": "Can you skip an optional parameter when calling a method?",
+      "options": [
+        "No, all parameters are required",
+        "Yes, if it has a default value",
+        "Only the last parameter",
+        "Only with named arguments"
+      ],
+      "answerIndex": 1,
+      "explanation": "Optional parameters with default values can be omitted; the default is used automatically."
+    }
+  ]
+}

@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "section": "csharp-output",
+    "level": "beginner",
+    "title": "C# Output"
+  },
+  "questions": [
+    {
+      "id": "csharp-output-01",
+      "type": "scored",
+      "prompt": "Which method prints text followed by a newline?",
+      "options": [
+        "Console.Write",
+        "Console.WriteLine",
+        "Console.Print",
+        "Console.Echo"
+      ],
+      "answerIndex": 1,
+      "explanation": "Console.WriteLine writes the text and then appends a newline character."
+    },
+    {
+      "id": "csharp-output-02",
+      "type": "scored",
+      "prompt": "What is the difference between Write and WriteLine?",
+      "options": [
+        "No difference",
+        "WriteLine adds a newline after output; Write does not",
+        "Write is faster",
+        "WriteLine only works with numbers"
+      ],
+      "answerIndex": 1,
+      "explanation": "WriteLine appends a newline; Write keeps the cursor on the same line."
+    },
+    {
+      "id": "csharp-output-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to print without a newline",
+      "template": "______(\"Hello \");",
+      "options": [
+        "Console.Write",
+        "Console.Writes",
+        "Console.write",
+        "CONSOLE.WRITE"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-output-04",
+      "type": "scored",
+      "prompt": "Which escape sequence represents a tab?",
+      "options": [
+        "\\\\n",
+        "\\\\t",
+        "\\\\b",
+        "\\\\r"
+      ],
+      "answerIndex": 1,
+      "explanation": "\\t inserts a horizontal tab character in a string."
+    },
+    {
+      "id": "csharp-output-05",
+      "type": "coderunner",
+      "prompt": "Print two words on two separate lines: 'Line1' then 'Line2'",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Line1\nLine2\n",
+      "outputPattern": "^Line1\\nLine2\\n$",
+      "requiredStrings": [
+        "WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-output-06",
+      "type": "scored",
+      "prompt": "How do you include a double quote inside a regular string?",
+      "options": [
+        "Just type it",
+        "Escape it with \\\\\"",
+        "Use single quotes",
+        "It is not possible"
+      ],
+      "answerIndex": 1,
+      "explanation": "Use the escape sequence \\\" to include a literal double quote inside a string."
+    },
+    {
+      "id": "csharp-output-07",
+      "type": "dragorder",
+      "prompt": "Arrange code to print a formatted line using string interpolation",
+      "items": [
+        "string name = \"Sam\";",
+        "int age = 20;",
+        "Console.WriteLine($\"Name: {name}, Age: {age}\");"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare variables, then output them via the interpolated string."
+    },
+    {
+      "id": "csharp-output-08",
+      "type": "scored",
+      "prompt": "What does the composite formatting index {0} refer to?",
+      "options": [
+        "The 0th character",
+        "The first argument after the format string",
+        "A newline",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "In Console.WriteLine(\"{0}\", value), {0} is replaced by the first supplied argument."
+    },
+    {
+      "id": "csharp-output-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to use string interpolation",
+      "template": "string name = \"Jo\"; Console.WriteLine(______);",
+      "options": [
+        "$\"HELLO {NAME}\"",
+        "$\"Hello {name}\"",
+        "$\"Hello {name}\"s",
+        "$\"hello {name}\""
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-output-10",
+      "type": "scored",
+      "prompt": "What does \\\\n represent in a string?",
+      "options": [
+        "A tab",
+        "A newline",
+        "A backslash",
+        "A quote"
+      ],
+      "answerIndex": 1,
+      "explanation": "\\n is the newline (line feed) escape sequence."
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-comments",
+    "level": "beginner",
+    "title": "C# Comments"
+  },
+  "questions": [
+    {
+      "id": "csharp-comments-c-01",
+      "type": "scored",
+      "prompt": "Which characters start a single-line comment in C#?",
+      "options": [
+        "/*",
+        "#",
+        "//",
+        "<!--"
+      ],
+      "answerIndex": 2,
+      "explanation": "The // characters start a single-line comment that ends at the line break."
+    },
+    {
+      "id": "csharp-comments-c-02",
+      "type": "scored",
+      "prompt": "Which pair of symbols delimits a block comment?",
+      "options": [
+        "// //",
+        "/* */",
+        "# #",
+        "<> <>"
+      ],
+      "answerIndex": 1,
+      "explanation": "Block comments are enclosed by /* and */."
+    },
+    {
+      "id": "csharp-comments-c-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to open a multi-line comment",
+      "template": "______\nThis spans\nmultiple lines\n*/",
+      "options": [
+        "/*",
+        "/*s",
+        "/*3",
+        "/*"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-comments-c-04",
+      "type": "scored",
+      "prompt": "What is the main benefit of XML documentation comments?",
+      "options": [
+        "Faster execution",
+        "IDE IntelliSense support and API documentation",
+        "Smaller binaries",
+        "Better encryption"
+      ],
+      "answerIndex": 1,
+      "explanation": "XML doc comments provide descriptions that tools and IDEs display to developers using your code."
+    },
+    {
+      "id": "csharp-comments-c-05",
+      "type": "coderunner",
+      "prompt": "Add a single-line comment on its own line that says 'review' and still print OK",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        ______\n        Console.WriteLine(\"OK\");\n    }\n}",
+      "expectedOutput": "OK\n",
+      "outputPattern": "^OK\\n$",
+      "requiredStrings": [
+        "//"
+      ]
+    },
+    {
+      "id": "csharp-comments-c-06",
+      "type": "scored",
+      "prompt": "Can block comments be nested in C#?",
+      "options": [
+        "Yes, freely",
+        "No, once /* starts, the next */ ends it",
+        "Only inside methods",
+        "Only with ///"
+      ],
+      "answerIndex": 1,
+      "explanation": "Nested block comments are not allowed. The first */ closes the comment."
+    },
+    {
+      "id": "csharp-comments-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange the XML doc comment for a method named Add",
+      "items": [
+        "/// <summary>",
+        "/// Adds two numbers",
+        "/// </summary>",
+        "/// <param name=\"a\">First number</param>",
+        "/// <param name=\"b\">Second number</param>",
+        "/// <returns>The sum</returns>"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "explanation": "XML doc comments use tags like <summary>, <param>, and <returns> to document the method."
+    },
+    {
+      "id": "csharp-comments-c-08",
+      "type": "scored",
+      "prompt": "Which XML doc tag provides a brief description of a method?",
+      "options": [
+        "<detail>",
+        "<summary>",
+        "<info>",
+        "<desc>"
+      ],
+      "answerIndex": 1,
+      "explanation": "<summary> provides a concise description that appears in IntelliSense."
+    },
+    {
+      "id": "csharp-comments-c-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to add a TODO comment",
+      "template": "______ Implement later",
+      "options": [
+        "// TODO:",
+        "// TODO:",
+        "// TODO:s",
+        "// todo:"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-comments-c-10",
+      "type": "scored",
+      "prompt": "What happens to comments when the program runs?",
+      "options": [
+        "They are printed",
+        "They are ignored by the compiler and do not affect execution",
+        "Only block comments are ignored",
+        "They are stored in the executable"
+      ],
+      "answerIndex": 1,
+      "explanation": "Comments are completely ignored by the compiler and stripped from the compiled output."
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-inheritance",
+    "level": "intermediate",
+    "title": "C# Inheritance"
+  },
+  "questions": [
+    {
+      "id": "csharp-inheritance-01",
+      "type": "scored",
+      "prompt": "How do you declare a class that inherits from another class in C#?",
+      "options": [
+        "public class Derived : Base",
+        "public class Derived -> Base",
+        "public class Derived extends Base",
+        "public class Derived inherits Base"
+      ],
+      "answerIndex": 0,
+      "explanation": "In C#, the colon (:) syntax is used for inheritance. 'public class Derived : Base' means Derived inherits from Base, also called the derived class and base class respectively."
+    },
+    {
+      "id": "csharp-inheritance-02",
+      "type": "typing",
+      "prompt": "Complete the class declaration so that 'Dog' inherits from 'Animal'.",
+      "blanks": [
+        ": Animal"
+      ],
+      "template": "public class Dog _____ {"
+    },
+    {
+      "id": "csharp-inheritance-03",
+      "type": "scored",
+      "prompt": "What is the output of the following code?",
+      "options": [
+        "Animal Speak",
+        "Dog Speak",
+        "Compilation error",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'override' keyword in the Dog class replaces the base class's Speak method. When dog.Speak() is called, the overridden version runs, printing 'Dog Speak'. Without 'override' (using 'new' instead), it would also print 'Dog Speak' when called on a Dog reference.\n\npublic class Animal { public virtual void Speak() { Console.WriteLine(\"Animal Speak\"); } }\npublic class Dog : Animal { public override void Speak() { Console.WriteLine(\"Dog Speak\"); } }\nvar dog = new Dog(); dog.Speak();"
+    },
+    {
+      "id": "csharp-inheritance-04",
+      "type": "insert",
+      "prompt": "Which keyword is used to prevent a method from being overridden further down the inheritance chain?",
+      "template": "public _____ override void Speak() { Console.WriteLine(\"Dog\"); }",
+      "options": [
+        "virtual",
+        "static",
+        "sealed",
+        "abstract"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-inheritance-05",
+      "type": "scored",
+      "prompt": "What is the purpose of the 'base' keyword in a derived class constructor?",
+      "options": [
+        "To create a new instance of the base class",
+        "To call the base class constructor before the derived constructor body runs",
+        "To cast to the base class type",
+        "To inherit the base class fields"
+      ],
+      "answerIndex": 1,
+      "explanation": "The 'base' keyword in a constructor\u2014': base(args)'\u2014explicitly calls a specific base class constructor before the derived constructor's body executes. If omitted, the parameterless base constructor is called automatically."
+    },
+    {
+      "id": "csharp-inheritance-06",
+      "type": "typing",
+      "prompt": "Complete the constructor to call the base class constructor with the 'name' argument.",
+      "blanks": [
+        ": base(name)"
+      ],
+      "template": "public Dog(string name, string breed) _____ {"
+    },
+    {
+      "id": "csharp-inheritance-07",
+      "type": "dragorder",
+      "prompt": "Arrange these steps in the order they execute when 'new Dog()' is called on a derived class with chaining.",
+      "items": [
+        "Dog field initializers run",
+        "Dog constructor body runs",
+        "Animal field initializers run",
+        "Animal constructor body runs"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "csharp-inheritance-08",
+      "type": "coderunner",
+      "prompt": "Complete the Cat class to inherit from Animal, override MakeSound, and call the base constructor with the name.",
+      "starterCode": "public class Animal\n{\n    public string Name;\n    public Animal(string name) { Name = name; }\n    public virtual void MakeSound() { Console.WriteLine(\"Some sound\"); }\n}\n\npublic class Cat : _____\n{\n    public Cat(string name) : _____\n    {\n    }\n\n    public override void MakeSound()\n    {\n        Console.WriteLine(\"{0} says meow\", _____);\n    }\n}\n\nvar c = new Cat(\"Whiskers\");\nc.MakeSound();",
+      "expectedOutput": "Whiskers says meow",
+      "outputPattern": "Whiskers says meow",
+      "requiredStrings": [
+        "override",
+        "MakeSound"
+      ]
+    },
+    {
+      "id": "csharp-inheritance-09",
+      "type": "scored",
+      "prompt": "Which statement about inheritance is false?",
+      "options": [
+        "C# supports multiple inheritance of classes.",
+        "A derived class inherits members from its base class.",
+        "You can prevent inheritance by sealing a class.",
+        "Constructors are not inherited, but their effects are seen through base() calls."
+      ],
+      "answerIndex": 0,
+      "explanation": "C# does NOT support multiple inheritance of classes (a class can have only one direct base class). You can achieve multiple interface inheritance, but not multiple class inheritance. The other statements are all true."
+    },
+    {
+      "id": "csharp-inheritance-10",
+      "type": "insert",
+      "prompt": "Match the keyword to its purpose. What keyword marks a method as overridable in the base class?",
+      "template": "public _____ void Fly() { }",
+      "options": [
+        "abstract",
+        "static",
+        "virtual",
+        "override"
+      ],
+      "answerIndex": 2
+    }
+  ]
+}

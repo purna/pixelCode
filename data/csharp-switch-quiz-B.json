@@ -1,0 +1,161 @@
+{
+  "meta": {
+    "section": "csharp-switch",
+    "level": "beginner",
+    "title": "C# Switch B"
+  },
+  "questions": [
+    {
+      "id": "switch-b-01",
+      "type": "scored",
+      "prompt": "Which keyword tests a variable in a switch statement?",
+      "options": [
+        "switch",
+        "case",
+        "if",
+        "match"
+      ],
+      "answerIndex": 0,
+      "explanation": "switch is the keyword that starts a switch statement."
+    },
+    {
+      "id": "switch-b-02",
+      "type": "insert",
+      "prompt": "What keyword defines a branch inside switch?",
+      "template": "_____ 1:\n    Console.WriteLine(\"One\");",
+      "options": [
+        "If",
+        "case",
+        "whle",
+        "IF"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "switch-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange a switch for day of week.",
+      "items": [
+        "switch (day)",
+        "{",
+        "case 1:",
+        "Console.WriteLine(\"Mon\");",
+        "break;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "explanation": "switch (expression) { case value: ... break; }."
+    },
+    {
+      "id": "switch-b-04",
+      "type": "scored",
+      "prompt": "What keyword ends a case to prevent fall-through?",
+      "options": [
+        "break",
+        "stop",
+        "end",
+        "exit"
+      ],
+      "answerIndex": 0,
+      "explanation": "break exits the switch and prevents fall-through to the next case."
+    },
+    {
+      "id": "switch-b-05",
+      "type": "coderunner",
+      "prompt": "Write a switch that prints 'Tue' when day == 2.",
+      "starterCode": "int day = 2;\n// write switch below\n",
+      "expectedOutput": "Tue",
+      "outputPattern": "^Tue$",
+      "requiredStrings": [
+        "switch"
+      ]
+    },
+    {
+      "id": "switch-b-06",
+      "type": "scored",
+      "prompt": "What runs when no case matches and default is present?",
+      "options": [
+        "The default block",
+        "The first case",
+        "An error",
+        "Nothing"
+      ],
+      "answerIndex": 0,
+      "explanation": "The default block handles unmatched values."
+    },
+    {
+      "id": "switch-b-07",
+      "type": "insert",
+      "prompt": "What symbol follows a case value?",
+      "template": "case 1 _____\n    break;",
+      "options": [
+        ":s",
+        ":",
+        ":3",
+        ":"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "switch-b-08",
+      "type": "scored",
+      "prompt": "Can multiple cases share one block?",
+      "options": [
+        "Yes",
+        "No",
+        "Only with if",
+        "Only with loops"
+      ],
+      "answerIndex": 0,
+      "explanation": "You can stack case labels before a single block."
+    },
+    {
+      "id": "switch-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange a switch with default.",
+      "items": [
+        "switch (x)",
+        "{",
+        "case 1:",
+        "Console.WriteLine(\"One\");",
+        "break;",
+        "default:",
+        "Console.WriteLine(\"Other\");",
+        "break;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "explanation": "The default case runs when no other case matches."
+    },
+    {
+      "id": "switch-b-10",
+      "type": "scored",
+      "prompt": "What type is required for switch expression values?",
+      "options": [
+        "int, string, bool, or enum",
+        "only int",
+        "only string",
+        "any type"
+      ],
+      "answerIndex": 0,
+      "explanation": "Switch works with integral types, string, char, and enums."
+    }
+  ]
+}

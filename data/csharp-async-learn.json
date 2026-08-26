@@ -1,0 +1,148 @@
+{
+  "section": "csharp-async",
+  "title": "C# Async/Await",
+  "slides": [
+    {
+      "title": "What Problem Does Async Solve?",
+      "content": "Synchronous code blocks the calling thread while it waits. During I/O such as a web request or a file read, that means a frozen UI or a server thread that could be doing other work. async/await lets you wait without blocking the thread.",
+      "example": "// synchronous: blocks until the download finishes\nstring s = client.DownloadString(url);",
+      "exampleOutput": "(blocks here; returns only when the download is complete)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "An async method is most useful when:",
+        "options": [
+          "It performs CPU-bound math",
+          "It waits on I/O such as a web or file request",
+          "It must lock shared memory",
+          "It needs to run on a background thread"
+        ],
+        "answer": "It waits on I/O such as a web or file request"
+      }
+    },
+    {
+      "title": "Tasks Represent Asynchronous Work",
+      "content": "A Task represents work that is running or will run and completes later. Task<T> is a Task that will eventually produce a value of type T. Awaiting it gives you that T.",
+      "example": "Task<int> GetLengthAsync(string url)\n{\n  return client.GetStringAsync(url).Result.Length;\n}",
+      "exampleOutput": "(a Task that will eventually yield an int)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What do you get when you await a Task<T>?",
+        "options": [
+          "T",
+          "Task<T>",
+          "void",
+          "Task"
+        ],
+        "answer": "T"
+      }
+    },
+    {
+      "title": "async and await",
+      "content": "The async modifier marks a method as asynchronous and lets you use await inside it. The await operator pauses the method at that point until the Task completes, then resumes where it left off.",
+      "example": "static async Task<string> DownloadAsync()\n{\n  string s = await client.GetStringAsync(url);\n  return s;\n}",
+      "exampleOutput": "Returns the downloaded string",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The keyword that pauses an async method until a Task finishes is ______.",
+        "placeholder": "______",
+        "answer": "await",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Awaiting Returns the Result",
+      "content": "await unwraps the Task: for a Task<T>, the await expression evaluates to T. You can then use the value directly.",
+      "example": "int n = await GetLengthAsync(url);\nConsole.WriteLine(n);",
+      "exampleOutput": "(prints the length)",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the line to await the call and receive its value.",
+        "before": "int n = _____ GetLengthAsync(url);",
+        "after": "",
+        "options": [
+          "await",
+          "return",
+          "yield",
+          "new"
+        ],
+        "answer": "await"
+      }
+    },
+    {
+      "title": "Async Main",
+      "content": "By default Main returns void or int. Since C# 7.1, static async Task Main (or Task<int>) is allowed so you can await at the top level of a console program.",
+      "example": "static async Task Main()\n{\n  await DoAsync();\n}",
+      "exampleOutput": "(compiles and runs with awaits permitted in Main)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which Main signature allows await?",
+        "options": [
+          "static void Main()",
+          "static int Main()",
+          "static async Task Main()",
+          "static Task Main()"
+        ],
+        "answer": "static async Task Main()"
+      }
+    },
+    {
+      "title": "Avoiding Deadlocks",
+      "content": ".Result and .Wait() block the calling thread and can deadlock (especially under a SynchronizationContext such as a UI thread). Prefer await, and use ConfigureAwait(false) in library code to avoid capturing the context.",
+      "example": "// good\nawait client.GetStringAsync(url);\n// bad (can deadlock)\nvar s = client.GetStringAsync(url).Result;",
+      "exampleOutput": "(await is preferred; .Result can deadlock)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which call should you avoid to prevent deadlocks?",
+        "options": [
+          ".Result / .Wait()",
+          "await",
+          "ConfigureAwait(false)",
+          "Task.Run(...).Wait()"
+        ],
+        "answer": ".Result / .Wait()"
+      }
+    },
+    {
+      "title": "Error Handling with Await",
+      "content": "Exceptions thrown by the awaited operation are rethrown where await happens, so wrap await calls in try/catch just like ordinary code.",
+      "example": "try\n{\n  string s = await DownloadAsync();\n}\ncatch (Exception ex)\n{\n  Console.WriteLine(ex.Message);\n}",
+      "exampleOutput": "(prints the error message if the await throws)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Add the missing block so errors from Fetch are caught.",
+        "starterCode": "async Task<string> Load()\n{\n  try\n  {\n    return await Fetch();\n  ______\n  }\n}",
+        "expectedOutput": "error handled on failure",
+        "outputPattern": "catch",
+        "requiredStrings": [
+          "catch",
+          "await Fetch"
+        ],
+        "hints": [
+          "The blank is a keyword that begins an error-handling block.",
+          "It is spelled catch."
+        ]
+      }
+    },
+    {
+      "title": "Awaiting Multiple Operations",
+      "content": "To run awaits concurrently and wait for all of them, start each Task without awaiting it, then await Task.WhenAll. This resumes once every one has finished.",
+      "example": "var t1 = GetDataAsync();\nvar t2 = GetMoreAsync();\nawait Task.WhenAll(t1, t2);",
+      "exampleOutput": "(both start together, resume when both finish)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Fill the second call so both steps run and their sum is printed.",
+        "starterCode": "var a = await StepA();\nvar b = await Step_____();\nConsole.WriteLine(a + b);",
+        "expectedOutput": "prints a + b",
+        "outputPattern": "StepB",
+        "requiredStrings": [
+          "StepB",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "The second call is named the same as the first, but with B.",
+          "Both steps are awaited before the result is printed."
+        ]
+      }
+    }
+  ]
+}

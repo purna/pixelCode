@@ -1,0 +1,144 @@
+{
+  "meta": {
+    "section": "csharp-intro",
+    "level": "beginner",
+    "title": "Introduction to C#"
+  },
+  "questions": [
+    {
+      "id": "csharp-intro-c-01",
+      "type": "scored",
+      "prompt": "What is the primary purpose of the Common Language Runtime (CLR)?",
+      "options": [
+        "To design user interfaces",
+        "To manage memory, security, and execution of .NET code",
+        "To write C# syntax",
+        "To connect to databases"
+      ],
+      "answerIndex": 1,
+      "explanation": "The CLR provides services like memory management, garbage collection, security, and thread management for .NET applications."
+    },
+    {
+      "id": "csharp-intro-c-02",
+      "type": "scored",
+      "prompt": "Which framework is the foundation of modern C# development?",
+      "options": [
+        "Java EE",
+        ".NET",
+        "Django",
+        "Spring"
+      ],
+      "answerIndex": 1,
+      "explanation": ".NET is the development platform created by Microsoft that includes the runtime, libraries, and tools for C#."
+    },
+    {
+      "id": "csharp-intro-c-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to create a class named Game",
+      "template": "______\n{\n}",
+      "options": [
+        "class Games",
+        "Class game",
+        "class Game",
+        "CLASS GAME"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-intro-c-04",
+      "type": "scored",
+      "prompt": "What file extension do C# source code files use?",
+      "options": [
+        ".java",
+        ".cs",
+        ".c",
+        ".py"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# source files use the .cs file extension."
+    },
+    {
+      "id": "csharp-intro-c-05",
+      "type": "coderunner",
+      "prompt": "Write a program that prints two lines: 'Line 1' and 'Line 2'",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Print two lines\n        \n    }\n}",
+      "expectedOutput": "Line 1\nLine 2\n",
+      "outputPattern": "^Line 1\\nLine 2\\n$",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-intro-c-06",
+      "type": "dragorder",
+      "prompt": "Arrange the top of a C# file in the correct order",
+      "items": [
+        "using System;",
+        "using System.Collections.Generic;",
+        "namespace MyApp",
+        "{",
+        "class Program"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "Using directives come first, then the namespace declaration, then the class."
+    },
+    {
+      "id": "csharp-intro-c-07",
+      "type": "scored",
+      "prompt": "What is the key difference between .NET Framework and .NET Core/.NET 5+?",
+      "options": [
+        "No difference",
+        ".NET Core/.NET 5+ is cross-platform; .NET Framework is Windows-only",
+        ".NET Framework is newer",
+        ".NET Core only runs on servers"
+      ],
+      "answerIndex": 1,
+      "explanation": ".NET 5+ (formerly .NET Core) is cross-platform, while .NET Framework only runs on Windows."
+    },
+    {
+      "id": "csharp-intro-c-08",
+      "type": "scored",
+      "prompt": "Which IDE is commonly used for C# development?",
+      "options": [
+        "Eclipse",
+        "Visual Studio / VS Code",
+        "Xcode",
+        "NetBeans"
+      ],
+      "answerIndex": 1,
+      "explanation": "Visual Studio and Visual Studio Code are the primary IDEs for C# development."
+    },
+    {
+      "id": "csharp-intro-c-09",
+      "type": "insert",
+      "prompt": "Fill in the blank for the Main method parameter",
+      "template": "static void Main(______)\n{\n}",
+      "options": [
+        "string[] argss",
+        "STRING[] ARGS",
+        "String[] args",
+        "string[] args"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-intro-c-10",
+      "type": "scored",
+      "prompt": "What does IL (Intermediate Language) code refer to?",
+      "options": [
+        "C# source code",
+        "Compiled code that the CLR executes",
+        "HTML markup",
+        "Binary machine code"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# is compiled to IL (also called MSIL), which the CLR then compiles to native machine code at runtime (JIT compilation)."
+    }
+  ]
+}

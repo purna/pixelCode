@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "section": "csharp-collections",
+    "level": "intermediate",
+    "title": "C# Collections"
+  },
+  "questions": [
+    {
+      "id": "csharp-collections-b-01",
+      "type": "scored",
+      "prompt": "What does the Count property of a List<T> return?",
+      "options": [
+        "The maximum index",
+        "The number of elements stored",
+        "The allocated capacity",
+        "The first element"
+      ],
+      "answerIndex": 1,
+      "explanation": "Count is the number of items actually in the list."
+    },
+    {
+      "id": "csharp-collections-b-02",
+      "type": "scored",
+      "prompt": "Which statement creates an empty, type-safe list of integers?",
+      "options": [
+        "var list = new List<int>();",
+        "int[] list = new int[0];",
+        "var list = new List();",
+        "List<int> list;"
+      ],
+      "answerIndex": 0,
+      "explanation": "new List<int>() creates an empty generic list of ints."
+    },
+    {
+      "id": "csharp-collections-b-03",
+      "type": "scored",
+      "prompt": "After adding items to a List, which statement is TRUE?",
+      "options": [
+        "Count always equals Capacity",
+        "Count is the number stored; Capacity may be larger",
+        "Capacity is always 3",
+        "Count changes the allocated size"
+      ],
+      "answerIndex": 1,
+      "explanation": "Capacity is the allocated room; Count is the items stored. Capacity >= Count."
+    },
+    {
+      "id": "csharp-collections-b-04",
+      "type": "scored",
+      "prompt": "To look up a Dictionary value without risking an exception, use:",
+      "options": [
+        "counts[\"x\"]",
+        "counts.Add(\"x\", 0)",
+        "counts.TryGetValue(\"x\", out int v)",
+        "counts.ContainsKey(\"x\")"
+      ],
+      "answerIndex": 2,
+      "explanation": "TryGetValue returns true and sets the out value when the key exists."
+    },
+    {
+      "id": "csharp-collections-b-05",
+      "type": "typing",
+      "prompt": "A List can hold duplicates and keeps them in ______ order.",
+      "template": "A List can hold duplicates and keeps them in ______ order.",
+      "blanks": [
+        "insertion"
+      ],
+      "explanation": "A List preserves the order in which items were added."
+    },
+    {
+      "id": "csharp-collections-b-06",
+      "type": "scored",
+      "prompt": "Looking up a key that does not exist in a Dictionary throws:",
+      "options": [
+        "IndexOutOfRangeException",
+        "KeyNotFoundException",
+        "NullReferenceException",
+        "ArgumentNullException"
+      ],
+      "answerIndex": 1,
+      "explanation": "Reading a missing key throws KeyNotFoundException."
+    },
+    {
+      "id": "csharp-collections-b-07",
+      "type": "scored",
+      "prompt": "To add an item at a specific position in a List, use:",
+      "options": [
+        "Add",
+        "Insert",
+        "Append",
+        "AddRange"
+      ],
+      "answerIndex": 1,
+      "explanation": "Insert(index, item) places an item at the given position."
+    },
+    {
+      "id": "csharp-collections-b-08",
+      "type": "scored",
+      "prompt": "Which method removes the first occurrence of a value from a List<T>?",
+      "options": [
+        "RemoveAt",
+        "Remove",
+        "Clear",
+        "Delete"
+      ],
+      "answerIndex": 1,
+      "explanation": "Remove(x) removes the first match of x."
+    }
+  ]
+}

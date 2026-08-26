@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "section": "csharp-intro",
+    "level": "beginner",
+    "title": "Introduction to C#"
+  },
+  "questions": [
+    {
+      "id": "csharp-intro-b-01",
+      "type": "scored",
+      "prompt": "What does CLI stand for in the context of .NET?",
+      "options": [
+        "Common Language Infrastructure",
+        "Central Logic Interface",
+        "Coded Language Integration",
+        "Common Library Interface"
+      ],
+      "answerIndex": 0,
+      "explanation": "CLI (Common Language Infrastructure) is an open specification developed by Microsoft that describes the executable code and runtime environment."
+    },
+    {
+      "id": "csharp-intro-b-02",
+      "type": "scored",
+      "prompt": "Which organization standardized C#?",
+      "options": [
+        "IEEE",
+        "ECMA and ISO",
+        "W3C",
+        "ANSI only"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# was standardized by ECMA (ECMA-334) and later by ISO (ISO/IEC 23270)."
+    },
+    {
+      "id": "csharp-intro-b-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a namespace",
+      "template": "______\n{\n    // classes here\n}",
+      "options": [
+        "namespace MyApps",
+        "namespace MyApp",
+        "Namespace myapp",
+        "NAMESPACE MYAPP"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-intro-b-04",
+      "type": "scored",
+      "prompt": "What file extension is used for C# source files?",
+      "options": [
+        ".cs",
+        ".csharp",
+        ".net",
+        ".cpp"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# source files use the .cs extension."
+    },
+    {
+      "id": "csharp-intro-b-05",
+      "type": "coderunner",
+      "prompt": "Write a complete program that prints: Intro Complete",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Write your code here\n        \n    }\n}",
+      "expectedOutput": "Intro Complete\n",
+      "outputPattern": "^Intro Complete\\n$",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-intro-b-06",
+      "type": "dragorder",
+      "prompt": "Arrange the structure of a basic C# program",
+      "items": [
+        "using System;",
+        "namespace MyApp",
+        "{",
+        "class Program",
+        "{",
+        "static void Main()",
+        "{",
+        "Console.WriteLine(\"Hi\");",
+        "}",
+        "}",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "explanation": "A C# program starts with using directives, then namespace, class, and Main method."
+    },
+    {
+      "id": "csharp-intro-b-07",
+      "type": "scored",
+      "prompt": "What is a 'solution' in Visual Studio/.NET?",
+      "options": [
+        "A single code file",
+        "A container for one or more projects",
+        "A type of variable",
+        "A compiler"
+      ],
+      "answerIndex": 1,
+      "explanation": "A solution (.sln) is a container for multiple projects, helping organize related codebases."
+    },
+    {
+      "id": "csharp-intro-b-08",
+      "type": "scored",
+      "prompt": "Which of these is NOT a .NET programming language?",
+      "options": [
+        "F#",
+        "VB.NET",
+        "Python",
+        "C++/CLI"
+      ],
+      "answerIndex": 2,
+      "explanation": "Python is not a .NET language. F#, VB.NET, and C++/CLI are all .NET languages."
+    },
+    {
+      "id": "csharp-intro-b-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a class named App",
+      "template": "______\n{\n}",
+      "options": [
+        "class Apps",
+        "CLASS APP",
+        "class App",
+        "Class app"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-intro-b-10",
+      "type": "scored",
+      "prompt": "What is the primary purpose of the CLR?",
+      "options": [
+        "To edit code",
+        "To manage memory and execute code",
+        "To compile code only",
+        "To create databases"
+      ],
+      "answerIndex": 1,
+      "explanation": "The CLR (Common Language Runtime) manages memory allocation, garbage collection, and code execution."
+    }
+  ]
+}

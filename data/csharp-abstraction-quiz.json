@@ -1,0 +1,154 @@
+{
+  "meta": {
+    "section": "csharp-abstraction",
+    "level": "expert",
+    "title": "C# Abstraction"
+  },
+  "questions": [
+    {
+      "id": "csharp-abstraction-01",
+      "type": "scored",
+      "prompt": "Which keyword is used to declare an abstract class in C#?",
+      "options": [
+        "abstract",
+        "virtual",
+        "sealed",
+        "interface"
+      ],
+      "answerIndex": 0,
+      "explanation": "The 'abstract' keyword marks a class as abstract, meaning it cannot be instantiated directly and may contain abstract members."
+    },
+    {
+      "id": "csharp-abstraction-02",
+      "type": "scored",
+      "prompt": "Which keyword is used to declare an abstract method inside an abstract class?",
+      "options": [
+        "override",
+        "abstract",
+        "virtual",
+        "new"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract methods must be declared with the 'abstract' keyword and have no implementation body."
+    },
+    {
+      "id": "csharp-abstraction-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an abstract class named Vehicle.",
+      "blanks": [
+        "abstract class Vehicle"
+      ],
+      "template": "_____ {}"
+    },
+    {
+      "id": "csharp-abstraction-04",
+      "type": "scored",
+      "prompt": "Can an abstract class be instantiated directly?",
+      "options": [
+        "Yes",
+        "No",
+        "Only if it has no abstract methods",
+        "Only if it is sealed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract classes cannot be instantiated. You must create a concrete subclass and instantiate that instead."
+    },
+    {
+      "id": "csharp-abstraction-05",
+      "type": "dragorder",
+      "prompt": "Arrange the correct order for declaring an abstract class with an abstract method and an overriding implementation.",
+      "items": [
+        "public abstract class Animal",
+        "{",
+        "public abstract void Speak();",
+        "}",
+        "public class Dog : Animal",
+        "{",
+        "public override void Speak()",
+        "{",
+        "Console.WriteLine(\"Bark\");",
+        "}",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "id": "csharp-abstraction-06",
+      "type": "scored",
+      "prompt": "Which access modifier is required for a method to override an abstract method in a derived class?",
+      "options": [
+        "private",
+        "protected",
+        "public",
+        "override"
+      ],
+      "answerIndex": 3,
+      "explanation": "The 'override' keyword is used in the derived class to provide an implementation for an inherited abstract method."
+    },
+    {
+      "id": "csharp-abstraction-07",
+      "type": "insert",
+      "prompt": "Fill in the blank to mark a method as abstract.",
+      "template": "public _____ void Calculate();",
+      "options": [
+        "abstract",
+        "override",
+        "virtual",
+        "sealed"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-abstraction-08",
+      "type": "scored",
+      "prompt": "Which statement about abstract classes is TRUE?",
+      "options": [
+        "They can be instantiated",
+        "They can contain both abstract and non-abstract methods",
+        "All methods must be abstract",
+        "They cannot have constructors"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract classes may contain fully implemented (non-abstract) methods alongside abstract ones, and they can have constructors called by derived classes."
+    },
+    {
+      "id": "csharp-abstraction-09",
+      "type": "coderunner",
+      "prompt": "Write a simple abstract class Shape with an abstract method Area() and a concrete class Circle that overrides it.",
+      "starterCode": "using System;\n\npublic abstract class Shape\n{\n    public abstract double Area();\n}\n\npublic class Circle : Shape\n{\n    public double Radius;\n    public override double Area()\n    {\n        return _____;\n    }\n}\n\nclass Program\n{\n    static void Main()\n    {\n        Circle c = new Circle { Radius = 5 };\n        Console.WriteLine(c.Area());\n    }\n}",
+      "expectedOutput": "78.53981633974483",
+      "outputPattern": "78\\.53981633974483",
+      "requiredStrings": [
+        "override",
+        "Area()",
+        "return",
+        "Math.PI"
+      ]
+    },
+    {
+      "id": "csharp-abstraction-10",
+      "type": "scored",
+      "prompt": "When should you use an abstract class?",
+      "options": [
+        "When you want multiple inheritance of behavior",
+        "When you want to share common code among related classes",
+        "When you need value type semantics",
+        "When you want to define only method signatures"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract classes are ideal when you have a base class relationship with shared implementation, while interfaces are better for defining contracts across unrelated types."
+    }
+  ]
+}

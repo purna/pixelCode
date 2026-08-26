@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-classes",
+    "level": "intermediate",
+    "title": "C# Classes"
+  },
+  "questions": [
+    {
+      "id": "csharp-classes-b-01",
+      "type": "scored",
+      "prompt": "A class is a:",
+      "options": [
+        "Value type",
+        "Blueprint for objects",
+        "Method",
+        "Namespace"
+      ],
+      "answerIndex": 1,
+      "explanation": "A class defines the structure and behavior of objects."
+    },
+    {
+      "id": "csharp-classes-b-02",
+      "type": "scored",
+      "prompt": "By default, a class declared without modifiers is:",
+      "options": [
+        "public",
+        "internal",
+        "private",
+        "protected"
+      ],
+      "answerIndex": 1,
+      "explanation": "Top-level types default to internal accessibility."
+    },
+    {
+      "id": "csharp-classes-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an internal class Box",
+      "blanks": [
+        "class Box"
+      ],
+      "template": "______ { }",
+      "explanation": "Omitting a modifier makes a class internal."
+    },
+    {
+      "id": "csharp-classes-b-04",
+      "type": "scored",
+      "prompt": "Fields are used to:",
+      "options": [
+        "Store state/data",
+        "Only run loops",
+        "Import namespaces",
+        "Throw exceptions"
+      ],
+      "answerIndex": 0,
+      "explanation": "Fields hold the data of a class."
+    },
+    {
+      "id": "csharp-classes-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Rectangle with public int W,H and method Area() returning W*H, then print Area() for (5,6)",
+      "starterCode": "using System;\nclass Rectangle {\n  public int W, H;\n  public int Area() { return W * H; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "30\n",
+      "outputPattern": "^30\\n$",
+      "explanation": "Create rectangle, set dimensions, print area.",
+      "requiredStrings": [
+        "new Counter()"
+      ]
+    },
+    {
+      "id": "csharp-classes-b-06",
+      "type": "scored",
+      "prompt": "A static class can:",
+      "options": [
+        "Be instantiated with new",
+        "Only contain static members and cannot be instantiated",
+        "Inherit from another class",
+        "Have instance fields"
+      ],
+      "answerIndex": 1,
+      "explanation": "Static classes cannot be instantiated and hold only static members."
+    },
+    {
+      "id": "csharp-classes-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange to define a class with a constructor",
+      "items": [
+        "class Student {",
+        "  public string Name;",
+        "  public Student(string n) { Name = n; }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Constructor initializes the field."
+    },
+    {
+      "id": "csharp-classes-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a public class Circle",
+      "blanks": [
+        "public class Circle"
+      ],
+      "template": "______ { }",
+      "explanation": "public makes the class accessible across assemblies."
+    },
+    {
+      "id": "csharp-classes-b-09",
+      "type": "scored",
+      "prompt": "What is the default value of an uninitialized int field in a class?",
+      "options": [
+        "null",
+        "0",
+        "undefined",
+        "-1"
+      ],
+      "answerIndex": 1,
+      "explanation": "Value-type fields are zero-initialized."
+    },
+    {
+      "id": "csharp-classes-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Wallet with public decimal Cash and Add(decimal a) adding to Cash, then add 10 and 5 and print Cash",
+      "starterCode": "using System;\nclass Wallet {\n  public decimal Cash = 0;\n  public void Add(decimal a) { Cash += a; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "15\n",
+      "outputPattern": "^15\\n$",
+      "explanation": "Add both amounts then print Cash.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

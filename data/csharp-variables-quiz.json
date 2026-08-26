@@ -1,0 +1,140 @@
+{
+  "meta": {
+    "section": "csharp-variables",
+    "level": "beginner",
+    "title": "C# Variables"
+  },
+  "questions": [
+    {
+      "id": "csharp-variables-01",
+      "type": "scored",
+      "prompt": "How do you declare an integer variable named count set to 5?",
+      "options": [
+        "int count = 5;",
+        "count int = 5;",
+        "integer count = 5;",
+        "var count = 5int;"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# variable declaration is: type name = value; so int count = 5;."
+    },
+    {
+      "id": "csharp-variables-02",
+      "type": "scored",
+      "prompt": "What does the 'var' keyword do?",
+      "options": [
+        "Declares a constant",
+        "Lets the compiler infer the type from the initializer",
+        "Creates a variant type",
+        "Disables typing"
+      ],
+      "answerIndex": 1,
+      "explanation": "var uses type inference; the compiler determines the type from the assigned value."
+    },
+    {
+      "id": "csharp-variables-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a constant PI",
+      "template": "______;",
+      "options": [
+        "CONST DOUBLE PI = 3.14",
+        "const double PI = 3.14s",
+        "Const double pi = 3.14",
+        "const double PI = 3.14"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-variables-04",
+      "type": "scored",
+      "prompt": "Which naming convention is commonly used for local variables in C#?",
+      "options": [
+        "PascalCase",
+        "camelCase",
+        "UPPER_CASE",
+        "kebab-case"
+      ],
+      "answerIndex": 1,
+      "explanation": "Local variables typically use camelCase (e.g., myValue)."
+    },
+    {
+      "id": "csharp-variables-05",
+      "type": "coderunner",
+      "prompt": "Declare an int x = 10 and print its value",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    int x = 10;\n    ______\n  }\n}",
+      "expectedOutput": "10\n",
+      "outputPattern": "^10\\n$",
+      "requiredStrings": [
+        "x = 10"
+      ]
+    },
+    {
+      "id": "csharp-variables-06",
+      "type": "scored",
+      "prompt": "Can you reassign a variable declared with 'const'?",
+      "options": [
+        "Yes, any time",
+        "No, it is a compile-time constant",
+        "Only inside methods",
+        "Only with var"
+      ],
+      "answerIndex": 1,
+      "explanation": "const creates a compile-time constant that cannot be changed."
+    },
+    {
+      "id": "csharp-variables-07",
+      "type": "dragorder",
+      "prompt": "Arrange code to declare and use a variable",
+      "items": [
+        "int age;",
+        "age = 25;",
+        "Console.WriteLine(age);"
+      ],
+      "solution": [
+        0,
+        1,
+        2
+      ],
+      "explanation": "Declare the variable, assign it, then use it."
+    },
+    {
+      "id": "csharp-variables-08",
+      "type": "scored",
+      "prompt": "What is the default value of an unassigned int field in a class?",
+      "options": [
+        "null",
+        "0",
+        "undefined",
+        "random"
+      ],
+      "answerIndex": 1,
+      "explanation": "Numeric fields are automatically initialized to 0 by the runtime."
+    },
+    {
+      "id": "csharp-variables-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a string with type inference",
+      "template": "______;",
+      "options": [
+        "VAR NAME = \"ADA\"",
+        "var name = \"Ada\"",
+        "var name = \"Ada\"s",
+        "Var name = \"ada\""
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-variables-10",
+      "type": "scored",
+      "prompt": "Which is a valid variable name in C#?",
+      "options": [
+        "1name",
+        "name1",
+        "name-1",
+        "class"
+      ],
+      "answerIndex": 1,
+      "explanation": "Identifiers must start with a letter/underscore; 'name1' is valid."
+    }
+  ]
+}

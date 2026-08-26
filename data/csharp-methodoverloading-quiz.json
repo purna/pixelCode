@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-methodoverloading",
+    "level": "intermediate",
+    "title": "C# Method Overloading"
+  },
+  "questions": [
+    {
+      "id": "csharp-methodoverloading-01",
+      "type": "scored",
+      "prompt": "What is method overloading?",
+      "options": [
+        "Defining a method twice with the same signature",
+        "Defining multiple methods with the same name but different parameters",
+        "Hiding a method",
+        "Making a method static"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overloading means multiple methods share a name but differ in parameter number/type/order."
+    },
+    {
+      "id": "csharp-methodoverloading-02",
+      "type": "scored",
+      "prompt": "Which of these is resolved at compile time?",
+      "options": [
+        "Overloading (static polymorphism)",
+        "Overriding (runtime polymorphism)",
+        "Both",
+        "Neither"
+      ],
+      "answerIndex": 0,
+      "explanation": "Overload resolution happens at compile time, hence 'compile-time polymorphism'."
+    },
+    {
+      "id": "csharp-methodoverloading-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to overload Add for two ints",
+      "blanks": [
+        "static int Add(int a, int b)"
+      ],
+      "template": "______ { return a + b; }"
+    },
+    {
+      "id": "csharp-methodoverloading-04",
+      "type": "scored",
+      "prompt": "Can overloaded methods differ only by return type?",
+      "options": [
+        "Yes",
+        "No, the parameter list must differ",
+        "Only if static",
+        "Only in interfaces"
+      ],
+      "answerIndex": 1,
+      "explanation": "Return type alone is not enough; parameters must differ to overload."
+    },
+    {
+      "id": "csharp-methodoverloading-05",
+      "type": "coderunner",
+      "prompt": "Implement overloads Add(int,int) and Add(int,int,int) returning their sum, and print Add(1,2,3)",
+      "starterCode": "using System;\nclass Program {\n  static int Add(int a, int b) { return a + b; }\n  static int Add(int a, int b, int c) { return a + b + c; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "6\n",
+      "outputPattern": "^6\\n$",
+      "requiredStrings": [
+        "Add(1)"
+      ]
+    },
+    {
+      "id": "csharp-methodoverloading-06",
+      "type": "scored",
+      "prompt": "Which methods can be overloaded together?",
+      "options": [
+        "void F(int x) and int F(int x)",
+        "void F(int x) and void F(string x)",
+        "void F() and void F()",
+        "None of the above"
+      ],
+      "answerIndex": 1,
+      "explanation": "Different parameter types (int vs string) make valid overloads."
+    },
+    {
+      "id": "csharp-methodoverloading-07",
+      "type": "dragorder",
+      "prompt": "Arrange overloads correctly",
+      "items": [
+        "class Calc {",
+        "  int Square(int x) { return x*x; }",
+        "  double Square(double x) { return x*x; }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "A class containing two Square methods differing by parameter type."
+    },
+    {
+      "id": "csharp-methodoverloading-08",
+      "type": "scored",
+      "prompt": "What determines which overload is called?",
+      "options": [
+        "The return type",
+        "The arguments passed at the call site",
+        "The method order",
+        "Random choice"
+      ],
+      "answerIndex": 1,
+      "explanation": "The compiler picks the best match based on the arguments."
+    },
+    {
+      "id": "csharp-methodoverloading-09",
+      "type": "typing",
+      "prompt": "Fill in the blank for an overload that takes no parameters",
+      "blanks": [
+        "static int Add()"
+      ],
+      "template": "______ { return 0; }"
+    },
+    {
+      "id": "csharp-methodoverloading-10",
+      "type": "scored",
+      "prompt": "Why is overloading useful?",
+      "options": [
+        "It slows the program",
+        "It provides intuitive same-name operations for different inputs",
+        "It hides fields",
+        "It removes types"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overloading lets related operations share a name, improving readability."
+    }
+  ]
+}

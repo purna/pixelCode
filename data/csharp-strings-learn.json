@@ -1,0 +1,217 @@
+{
+  "meta": {
+    "section": "csharp-strings",
+    "level": "beginner",
+    "title": "C# Strings"
+  },
+  "slides": [
+    {
+      "title": "What is a String?",
+      "content": "A string in C# is a sequence of characters used to represent text. It is an object of the System.String class.",
+      "example": "string name = \"Alice\";",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which type represents text in C#?",
+        "options": [
+          "string",
+          "char",
+          "int",
+          "bool"
+        ],
+        "answer": "string"
+      }
+    },
+    {
+      "title": "String Length",
+      "content": "The Length property returns the number of characters in a string. It counts every character including spaces.",
+      "example": "string s = \"Hi\";\nConsole.WriteLine(s.Length);",
+      "exampleOutput": "2",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The Length of \"Dog\" is _____",
+        "placeholder": "_____",
+        "answer": "3",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "ToUpper and ToLower",
+      "content": "Use ToUpper() to convert all characters to uppercase and ToLower() to convert them to lowercase.",
+      "example": "Console.WriteLine(\"hello\".ToUpper());",
+      "exampleOutput": "HELLO",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Arrange the code to print lowercase 'test'",
+        "before": "Console.WriteLine(",
+        "after": ".ToLower());",
+        "options": [
+          "'TEST'",
+          "\"TEST\"",
+          "TEST",
+          "\"test\""
+        ],
+        "answer": "\"TEST\""
+      }
+    },
+    {
+      "title": "Concatenation",
+      "content": "Use the + operator to join strings together. You can concatenate variables, literals, and expressions.",
+      "example": "string first = \"Hello\";\nstring last = \"World\";\nConsole.WriteLine(first + \" \" + last);",
+      "exampleOutput": "Hello World",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete the concatenation: \"C#\" + \"\" + \"Fun\"",
+        "placeholder": "_____",
+        "answer": "+",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "String Interpolation",
+      "content": "String interpolation uses the $ prefix and braces {} to embed expressions directly inside a string.",
+      "example": "string name = \"Bob\";\nConsole.WriteLine($\"Hello, {name}!\");",
+      "exampleOutput": "Hello, Bob!",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use interpolation to print 'Age: 25' using int age = 25;",
+        "starterCode": "int age = 25;\n// Write your line below\n",
+        "expectedOutput": "Age: 25",
+        "outputPattern": "^Age: 25$",
+        "requiredStrings": [
+          "$"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: $",
+          "When run, your code should output: Age: 25"
+        ]
+      }
+    },
+    {
+      "title": "String Indexing",
+      "content": "Strings are zero-indexed. Use bracket notation to access individual characters by their position.",
+      "example": "string word = \"Code\";\nConsole.WriteLine(word[0]);",
+      "exampleOutput": "C",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does \"Java\"[2] return?",
+        "options": [
+          "J",
+          "a",
+          "v",
+          "Error"
+        ],
+        "answer": "v"
+      }
+    },
+    {
+      "title": "Escape Characters",
+      "content": "Use backslash escape sequences for special characters like newline (\\n), tab (\\t), and quotes (\\\" and \\').",
+      "example": "Console.WriteLine(\"Line1\\nLine2\");",
+      "exampleOutput": "Line1\nLine2",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "To print a tab use _____",
+        "placeholder": "_____",
+        "answer": "\\t",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Verbatim Strings",
+      "content": "Prefix a string with @ to create a verbatim string. Backslashes are treated literally and line breaks are preserved.",
+      "example": "Console.WriteLine(@\"C:\\Users\\Alice\");",
+      "exampleOutput": "C:\\Users\\Alice",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which prefix creates a verbatim string?",
+        "options": [
+          "@",
+          "$",
+          "#",
+          "&"
+        ],
+        "answer": "@"
+      }
+    },
+    {
+      "title": "Flow Builder: Strings",
+      "content": "Use the Flow Builder to declare a string and output it.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares string name = 'Alice' and outputs it",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "name",
+              "dataType": "String",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "name",
+              "dataType": "String",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "\"Alice\""
+            },
+            {
+              "id": "n3",
+              "kind": "output",
+              "expression": "name",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "string name;\nname = \"Alice\";\noutput(name);",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "output"
+        ],
+        "flowExample": {
+          "name": "For Loop",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "i",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "for",
+                "variable": "i",
+                "start": "1",
+                "end": "3",
+                "direction": "Increasing",
+                "step": "1",
+                "body": [
+                  {
+                    "id": "ex3",
+                    "kind": "output",
+                    "expression": "i",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

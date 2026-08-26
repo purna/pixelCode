@@ -1,0 +1,233 @@
+{
+  "meta": {
+    "section": "csharp-booleans",
+    "level": "beginner",
+    "title": "C# Booleans"
+  },
+  "slides": [
+    {
+      "title": "The bool Type",
+      "content": "C# has a bool type that stores logical values. A bool can only be true or false.",
+      "example": "bool isActive = true;\nConsole.WriteLine(isActive);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which type stores true/false in C#?",
+        "options": [
+          "bool",
+          "boolean",
+          "int",
+          "string"
+        ],
+        "answer": "bool"
+      }
+    },
+    {
+      "title": "Comparison Operators",
+      "content": "Comparison operators compare two values and return a bool. Common ones are ==, !=, >, <, >=, and <=.",
+      "example": "Console.WriteLine(7 > 5);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "5 _____ 5 evaluates to false when using ==",
+        "placeholder": "_____",
+        "answer": "!=",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Logical NOT",
+      "content": "The ! operator inverts a bool value. !true is false, and !false is true.",
+      "example": "bool sunny = false;\nConsole.WriteLine(!sunny);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the statement to make it true",
+        "before": "bool x = !(",
+        "after": ");",
+        "options": [
+          "true",
+          "false",
+          "0",
+          "null"
+        ],
+        "answer": "false"
+      }
+    },
+    {
+      "title": "Logical AND",
+      "content": "The && operator returns true only if both operands are true.",
+      "example": "Console.WriteLine(true && false);",
+      "exampleOutput": "False",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does true && true return?",
+        "options": [
+          "true",
+          "false",
+          "Error",
+          "0"
+        ],
+        "answer": "true"
+      }
+    },
+    {
+      "title": "Logical OR",
+      "content": "The || operator returns true if at least one operand is true.",
+      "example": "Console.WriteLine(false || true);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "false _____ true returns true",
+        "placeholder": "_____",
+        "answer": "||",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Boolean Variables in Conditions",
+      "content": "Bool variables are commonly used in if conditions to control program flow.",
+      "example": "bool loggedIn = true;\nif (loggedIn)\n{\n    Console.WriteLine(\"Welcome\");\n}",
+      "exampleOutput": "Welcome",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use a bool variable to print 'Open' when the door is true",
+        "starterCode": "bool door = true;\n// Write your if below\n",
+        "expectedOutput": "Open",
+        "outputPattern": "^Open$",
+        "requiredStrings": [
+          "if",
+          "Console.WriteLine"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: if, Console.WriteLine",
+          "When run, your code should output: Open"
+        ]
+      }
+    },
+    {
+      "title": "Comparison Chaining",
+      "content": "You can combine multiple comparisons with && and || to build complex conditions.",
+      "example": "int x = 10;\nConsole.WriteLine(x > 5 && x < 20);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does 5 < 10 || 10 > 20 return?",
+        "options": [
+          "true",
+          "false",
+          "Error",
+          "null"
+        ],
+        "answer": "true"
+      }
+    },
+    {
+      "title": "Boolean Expressions",
+      "content": "Any expression that evaluates to true or false is a boolean expression. They are the foundation of decision making.",
+      "example": "string name = \"Anna\";\nbool startsWithA = name.StartsWith(\"A\");\nConsole.WriteLine(startsWithA);",
+      "exampleOutput": "True",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "name.StartsWith('A') returns a _____",
+        "placeholder": "_____",
+        "answer": "bool",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Flow Builder: Booleans",
+      "content": "Use the Flow Builder to create a boolean condition with an if statement.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that declares bool door = true, then if door outputs 'Open'",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "door",
+              "dataType": "Boolean",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "assign",
+              "name": "door",
+              "dataType": "Boolean",
+              "structure": "Scalar",
+              "index": "0",
+              "row": "0",
+              "col": "0",
+              "expression": "true"
+            },
+            {
+              "id": "n3",
+              "kind": "if",
+              "condition": "door",
+              "body": [
+                {
+                  "id": "n4",
+                  "kind": "output",
+                  "expression": "\"Open\"",
+                  "newline": true
+                }
+              ]
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "bool door;\ndoor = true;\nif (door)\n{\n    output(\"Open\");\n}",
+        "blocksToShow": [
+          "assign",
+          "declare",
+          "if",
+          "output"
+        ],
+        "flowExample": {
+          "name": "If-Else",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "score",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "assign",
+                "name": "score",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "index": "0",
+                "row": "0",
+                "col": "0",
+                "expression": "75"
+              },
+              {
+                "id": "ex3",
+                "kind": "if",
+                "condition": "score >= 60",
+                "body": [
+                  {
+                    "id": "ex4",
+                    "kind": "output",
+                    "expression": "\"Pass\"",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

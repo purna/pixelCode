@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "section": "csharp-linq",
+    "level": "expert",
+    "title": "C# LINQ"
+  },
+  "questions": [
+    {
+      "id": "csharp-linq-c-01",
+      "type": "insert",
+      "prompt": "Complete the call to keep numbers greater than 5.",
+      "template": "var result = numbers._______(n => n > 5);",
+      "options": [
+        "Where",
+        "Filter",
+        "Select",
+        "Find"
+      ],
+      "answerIndex": 0,
+      "explanation": "Where applies the filter predicate."
+    },
+    {
+      "id": "csharp-linq-c-02",
+      "type": "typing",
+      "prompt": "The query-syntax keyword for projection is ______.",
+      "template": "The query-syntax keyword for projection is ______.",
+      "blanks": [
+        "select"
+      ],
+      "explanation": "'select' transforms each element in query syntax."
+    },
+    {
+      "id": "csharp-linq-c-03",
+      "type": "scored",
+      "prompt": "Which method removes duplicate values?",
+      "options": [
+        "Distinct",
+        "Unique",
+        "RemoveDuplicates",
+        "Clone"
+      ],
+      "answerIndex": 0,
+      "explanation": "Distinct returns each value once."
+    },
+    {
+      "id": "csharp-linq-c-04",
+      "type": "insert",
+      "prompt": "Complete the call to remove duplicates.",
+      "template": "var set = items._______();",
+      "options": [
+        "Distinct",
+        "Unique",
+        "Clone",
+        "Separate"
+      ],
+      "answerIndex": 0,
+      "explanation": "Distinct() returns each element once."
+    },
+    {
+      "id": "csharp-linq-c-05",
+      "type": "scored",
+      "prompt": "In query syntax, which keyword projects/transforms each element?",
+      "options": [
+        "from",
+        "where",
+        "select",
+        "orderby"
+      ],
+      "answerIndex": 2,
+      "explanation": "'select' projects each element in query syntax."
+    },
+    {
+      "id": "csharp-linq-c-06",
+      "type": "dragorder",
+      "prompt": "Drag these operations into a sensible pipeline order: filter, then project, then materialize.",
+      "items": [
+        "Select — project",
+        "Where — filter",
+        "ToList — materialize"
+      ],
+      "solution": [1, 0, 2],
+      "explanation": "Filter first, then project, then materialize."
+    },
+    {
+      "id": "csharp-linq-c-07",
+      "type": "coderunner",
+      "prompt": "Complete the chain so it builds a List of uppercase 4+ char words and prints the count.",
+      "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nvar result = words._______(w => w.Length >= 4)\n                 ._______(w => w.ToUpper())\n                 ._______();\nConsole.WriteLine(result.Count);",
+      "expectedOutput": "2",
+      "outputPattern": "Where.*Select.*ToList",
+      "requiredStrings": [
+        "ToList",
+        "ToUpper"
+      ],
+      "hints": [
+        "Where filters, Select projects, ToList materializes.",
+        "ToUpper() returns the uppercase string."
+      ]
+    },
+    {
+      "id": "csharp-linq-c-08",
+      "type": "scored",
+      "prompt": "To call LINQ on a List, you need:",
+      "options": [
+        "using System.Collections;",
+        "using System.Collections.Generic;",
+        "using System.Linq;",
+        "No using needed"
+      ],
+      "answerIndex": 2,
+      "explanation": "LINQ extension methods require using System.Linq."
+    }
+  ]
+}

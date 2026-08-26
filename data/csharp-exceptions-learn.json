@@ -1,0 +1,143 @@
+{
+  "section": "csharp-exceptions",
+  "title": "C# Exceptions",
+  "slides": [
+    {
+      "title": "What is an Exception?",
+      "content": "An exception is a runtime error that disrupts the normal flow of a program. C# uses try, catch, finally, and throw to handle them gracefully.",
+      "example": "try\n{\n    int[] numbers = { 1, 2, 3 };\n    Console.WriteLine(numbers[5]); // IndexOutOfRangeException\n}\ncatch (Exception ex)\n{\n    Console.WriteLine(ex.Message);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is an exception?",
+        "options": [
+          "A compile-time error",
+          "A runtime error that disrupts program flow",
+          "A warning",
+          "A syntax issue"
+        ],
+        "answer": "A runtime error that disrupts program flow"
+      }
+    },
+    {
+      "title": "Try-Catch Blocks",
+      "content": "The try block contains code that may throw. Catch blocks handle specific or general exceptions.",
+      "example": "try\n{\n    int result = 10 / 0;\n}\ncatch (DivideByZeroException)\n{\n    Console.WriteLine(\"Cannot divide by zero.\");\n}\ncatch (Exception ex)\n{\n    Console.WriteLine($\"Error: {ex.Message}\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Choose the correct keyword to start an exception-handling block.",
+        "before": "",
+        "after": " { ... } catch ...",
+        "options": [
+          "try",
+          "catch",
+          "finally",
+          "throw"
+        ],
+        "answer": "try"
+      }
+    },
+    {
+      "title": "Multiple Catch Blocks",
+      "content": "You can stack multiple catch blocks to handle specific exception types before the general Exception catch.",
+      "example": "try { ... }\ncatch (FileNotFoundException ex) { ... }\ncatch (IOException ex) { ... }\ncatch (Exception ex) { ... }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "In which order should catch blocks appear?",
+        "options": [
+          "Most general first",
+          "Most specific first",
+          "Any order",
+          "Random order"
+        ],
+        "answer": "Most specific first"
+      }
+    },
+    {
+      "title": "Finally Block",
+      "content": "Finally runs whether an exception occurs or not. Use it for cleanup like closing connections or files.",
+      "example": "FileStream fs = null;\ntry\n{\n    fs = new FileStream(\"file.txt\", FileMode.Open);\n}\nfinally\n{\n    fs?.Dispose();\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: _____ { /* cleanup */ }",
+        "placeholder": "_____",
+        "answer": "finally",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Throwing Exceptions",
+      "content": "Use 'throw new ExceptionType(...)' to raise an exception. You can also rethrow inside a catch block.",
+      "example": "public void SetAge(int age)\n{\n    if (age < 0)\n        throw new ArgumentOutOfRangeException(nameof(age));\n    _age = age;\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Throw an ArgumentException with the message 'Invalid name' when name is null or empty.",
+        "starterCode": "public void SetName(string name)\n{\n    if (string.IsNullOrEmpty(name))\n    {\n        _____ new _____(\"Invalid name\");\n    }\n    _name = name;\n}",
+        "expectedOutput": "",
+        "outputPattern": "",
+        "requiredStrings": [
+          "throw",
+          "new",
+          "ArgumentException"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: throw, new, ArgumentException",
+          "Check that your code uses the required keywords listed in the exercise."
+        ]
+      }
+    },
+    {
+      "title": "Custom Exceptions",
+      "content": "Create custom exceptions by inheriting from Exception. Provide constructors that forward messages to the base class.",
+      "example": "public class InvalidAgeException : Exception\n{\n    public InvalidAgeException(string message) : base(message) { }\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the custom exception class declaration.",
+        "before": "public class InvalidAgeException ",
+        "after": " Exception",
+        "options": [
+          ":",
+          "inherits",
+          "extends",
+          "implements"
+        ],
+        "answer": ":"
+      }
+    },
+    {
+      "title": "Rethrowing and Stack Traces",
+      "content": "Use 'throw;' inside catch to preserve the original stack trace. Avoid 'throw ex;' unless you intentionally want to reset the stack trace.",
+      "example": "catch (Exception ex)\n{\n    Log(ex);\n    throw; // preserves original stack trace\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which preserves the original stack trace when rethrowing?",
+        "options": [
+          "throw ex;",
+          "throw;",
+          "throw new Exception();",
+          "return;"
+        ],
+        "answer": "throw;"
+      }
+    },
+    {
+      "title": "Exception Best Practices",
+      "content": "Catch only exceptions you can handle. Use specific exception types. Do not swallow exceptions silently.",
+      "example": "try\n{\n    ProcessFile(path);\n}\ncatch (FileNotFoundException ex)\n{\n    Console.WriteLine($\"Missing: {ex.FileName}\");\n}\ncatch (UnauthorizedAccessException)\n{\n    Console.WriteLine(\"Access denied.\");\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: catch (_____ ex) { Console.WriteLine($\"Missing: {ex.FileName}\"); }",
+        "placeholder": "_____",
+        "answer": "FileNotFoundException",
+        "caseSensitive": false
+      }
+    }
+  ]
+}

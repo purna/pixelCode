@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "section": "csharp-variables",
+    "level": "beginner",
+    "title": "C# Variables"
+  },
+  "questions": [
+    {
+      "id": "csharp-variables-c-01",
+      "type": "scored",
+      "prompt": "Which is the correct syntax to declare an integer variable named 'count'?",
+      "options": [
+        "count int = 5;",
+        "int count = 5;",
+        "integer count = 5;",
+        "var count int = 5;"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# variable declaration follows the pattern: type identifier = value; so int count = 5; is correct."
+    },
+    {
+      "id": "csharp-variables-c-02",
+      "type": "scored",
+      "prompt": "What does the 'var' keyword require to compile?",
+      "options": [
+        "An explicit type",
+        "An initializer expression",
+        "A constant value",
+        "No requirements"
+      ],
+      "answerIndex": 1,
+      "explanation": "var requires an initializer so the compiler can infer the type. var x; is invalid."
+    },
+    {
+      "id": "csharp-variables-c-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare an integer with value 0",
+      "template": "______;",
+      "options": [
+        "int x = 0",
+        "Int x = 0",
+        "int x = 0s",
+        "INT X = 0"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-variables-c-04",
+      "type": "scored",
+      "prompt": "Which of these is NOT a valid identifier in C#?",
+      "options": [
+        "_temp",
+        "myValue",
+        "my-value",
+        "Value2"
+      ],
+      "answerIndex": 2,
+      "explanation": "my-value is invalid because hyphens are not allowed in identifiers. Identifiers can use letters, digits, and underscores."
+    },
+    {
+      "id": "csharp-variables-c-05",
+      "type": "coderunner",
+      "prompt": "Declare two int variables 'a' and 'b', set them to 3 and 4, and print 'a + b = 7'",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        // Declare variables and print\n        \n    }\n}",
+      "expectedOutput": "a + b = 7\n",
+      "outputPattern": "^a \\+ b = 7\\n$",
+      "requiredStrings": [
+        "x = 10"
+      ]
+    },
+    {
+      "id": "csharp-variables-c-06",
+      "type": "scored",
+      "prompt": "Can local variables be used before they are declared?",
+      "options": [
+        "Yes",
+        "No, they must be declared before use",
+        "Only in Main",
+        "Only with var"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# does not allow forward references for local variables. They must be declared before use."
+    },
+    {
+      "id": "csharp-variables-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange the lines to declare variables of different types",
+      "items": [
+        "int age = 30;",
+        "double price = 9.99;",
+        "bool active = true;",
+        "string name = \"Kim\";"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Order does not matter for independent declarations; any valid order works."
+    },
+    {
+      "id": "csharp-variables-c-08",
+      "type": "scored",
+      "prompt": "What is the default value of a string reference variable in a class?",
+      "options": [
+        "\"\"",
+        "null",
+        "empty string",
+        "undefined"
+      ],
+      "answerIndex": 1,
+      "explanation": "Reference types like string are initialized to null by default if not explicitly assigned."
+    },
+    {
+      "id": "csharp-variables-c-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a boolean with value true",
+      "template": "______;",
+      "options": [
+        "Bool isready = true",
+        "bool isReady = true",
+        "bool isReady = trues",
+        "BOOL ISREADY = TRUE"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-variables-c-10",
+      "type": "scored",
+      "prompt": "What does the 'const' keyword enforce at compile time?",
+      "options": [
+        "Read-only at runtime",
+        "A fixed value that cannot change",
+        "Private access",
+        "Static allocation"
+      ],
+      "answerIndex": 1,
+      "explanation": "const declares a compile-time constant. Its value is baked into the compiled code and cannot change."
+    }
+  ]
+}

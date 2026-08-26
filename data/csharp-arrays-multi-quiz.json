@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "section": "csharp-arrays-multi",
+    "level": "intermediate",
+    "title": "C# Multidimensional and Jagged Arrays"
+  },
+  "questions": [
+    {
+      "id": "csharp-arrays-multi-01",
+      "type": "scored",
+      "prompt": "How do you declare a 2D (rectangular) array with 2 rows and 3 columns?",
+      "options": [
+        "int[][] a = new int[2][3];",
+        "int[,] a = new int[2,3];",
+        "int[2,3] a;",
+        "int[,] a = new int[2][3];"
+      ],
+      "answerIndex": 1,
+      "explanation": "Rectangular 2D arrays use a comma in the type and size: int[,] a = new int[2,3];"
+    },
+    {
+      "id": "csharp-arrays-multi-02",
+      "type": "scored",
+      "prompt": "What is a jagged array?",
+      "options": [
+        "A 2D array with equal row lengths",
+        "An array of arrays where each row can have different lengths",
+        "A sorted array",
+        "A 1D array"
+      ],
+      "answerIndex": 1,
+      "explanation": "A jagged array is an array whose elements are arrays, and each inner array can differ in length."
+    },
+    {
+      "id": "csharp-arrays-multi-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to access row 1, column 2 of a 2D array",
+      "blanks": [
+        "grid[1, 2]"
+      ],
+      "template": "int v = ______;"
+    },
+    {
+      "id": "csharp-arrays-multi-04",
+      "type": "scored",
+      "prompt": "How do you declare a jagged array of int?",
+      "options": [
+        "int[,] a;",
+        "int[][] a;",
+        "int[] a[];",
+        "int[2][] a;"
+      ],
+      "answerIndex": 1,
+      "explanation": "Jagged arrays are declared as int[][] (array of int arrays)."
+    },
+    {
+      "id": "csharp-arrays-multi-05",
+      "type": "coderunner",
+      "prompt": "Create a 2D array [[1,2],[3,4]] and print the element at row 1, column 0",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    int[,] m = { {1,2}, {3,4} };\n    ______\n  }\n}",
+      "expectedOutput": "3\n",
+      "outputPattern": "^3\\n$",
+      "requiredStrings": [
+        "m[1,1]"
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-06",
+      "type": "scored",
+      "prompt": "Which property gives the number of dimensions of an array?",
+      "options": [
+        ".Rank",
+        ".Length",
+        ".Dimension",
+        ".Size"
+      ],
+      "answerIndex": 0,
+      "explanation": "Array.Rank returns the number of dimensions."
+    },
+    {
+      "id": "csharp-arrays-multi-07",
+      "type": "dragorder",
+      "prompt": "Arrange code to build and read a jagged array",
+      "items": [
+        "int[][] j = new int[2][];",
+        "j[0] = new int[] {1, 2};",
+        "j[1] = new int[] {3};",
+        "Console.WriteLine(j[1][0]);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Allocate outer array, then inner arrays of differing lengths, then access an element."
+    },
+    {
+      "id": "csharp-arrays-multi-08",
+      "type": "scored",
+      "prompt": "For a 2D array a, what does a.GetLength(0) return?",
+      "options": [
+        "Total elements",
+        "Number of rows (first dimension)",
+        "Number of columns",
+        "The value at 0"
+      ],
+      "answerIndex": 1,
+      "explanation": "GetLength(dimension) returns the size of that dimension; 0 is the row count."
+    },
+    {
+      "id": "csharp-arrays-multi-09",
+      "type": "typing",
+      "prompt": "Fill in the blank to initialize a 2D array to zeros with 3 rows and 2 cols",
+      "blanks": [
+        "new int[3, 2]"
+      ],
+      "template": "int[,] t = ______;"
+    },
+    {
+      "id": "csharp-arrays-multi-10",
+      "type": "scored",
+      "prompt": "To iterate a 2D array you typically use:",
+      "options": [
+        "A single foreach",
+        "Nested for loops with i and j",
+        "A while loop only",
+        "No loop"
+      ],
+      "answerIndex": 1,
+      "explanation": "Nested for loops using GetLength(0) and GetLength(1) are standard for 2D arrays."
+    }
+  ]
+}

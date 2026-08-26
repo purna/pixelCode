@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "section": "csharp-whileloop",
+    "level": "beginner",
+    "title": "C# While Loops"
+  },
+  "questions": [
+    {
+      "id": "csharp-whileloop-01",
+      "type": "scored",
+      "prompt": "Which keyword starts a while loop?",
+      "options": [
+        "while",
+        "loop",
+        "repeat",
+        "do"
+      ],
+      "answerIndex": 0,
+      "explanation": "The while keyword creates a loop that repeats while a condition remains true."
+    },
+    {
+      "id": "csharp-whileloop-02",
+      "type": "scored",
+      "prompt": "When does a while loop check its condition?",
+      "options": [
+        "Before each iteration",
+        "After each iteration",
+        "Only once",
+        "Never"
+      ],
+      "answerIndex": 0,
+      "explanation": "A while loop is a pre-test loop: it evaluates the condition before running the body."
+    },
+    {
+      "id": "csharp-whileloop-03",
+      "type": "scored",
+      "prompt": "What must eventually become false to avoid an infinite loop?",
+      "options": [
+        "The loop condition",
+        "The loop body",
+        "The variable type",
+        "The return value"
+      ],
+      "answerIndex": 0,
+      "explanation": "If the condition never becomes false, the loop runs forever."
+    },
+    {
+      "id": "csharp-whileloop-04",
+      "type": "dragorder",
+      "prompt": "Arrange the while loop correctly",
+      "items": [
+        "int i = 0;",
+        "while",
+        "(i < 3)",
+        "{",
+        "Console.WriteLine(i);",
+        "i++;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "explanation": "The while loop needs an initializer, a boolean condition, and an increment to avoid infinite loops."
+    },
+    {
+      "id": "csharp-whileloop-05",
+      "type": "scored",
+      "prompt": "What is the main difference between while and do-while?",
+      "options": [
+        "do-while checks after the first run",
+        "while checks after the first run",
+        "do-while cannot be infinite",
+        "while has no condition"
+      ],
+      "answerIndex": 0,
+      "explanation": "A do-while loop runs the body once before checking the condition."
+    },
+    {
+      "id": "csharp-whileloop-06",
+      "type": "insert",
+      "prompt": "Write the exact keyword that ends a do-while statement",
+      "template": "do { ... } _____ (condition);",
+      "options": [
+        "whle",
+        "IF",
+        "If",
+        "while"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-whileloop-07",
+      "type": "scored",
+      "prompt": "Which loop guarantees at least one execution?",
+      "options": [
+        "do-while",
+        "while",
+        "for",
+        "foreach"
+      ],
+      "answerIndex": 0,
+      "explanation": "Because the condition is checked after the body, a do-while always runs at least once."
+    },
+    {
+      "id": "csharp-whileloop-08",
+      "type": "coderunner",
+      "prompt": "Use a while loop to print 0, 1, 2 on separate lines",
+      "starterCode": "int i = 0;\n// Write your while below\n",
+      "expectedOutput": "0\n1\n2",
+      "outputPattern": "0\\n1\\n2",
+      "requiredStrings": [
+        "while",
+        "Console.WriteLine",
+        "i++"
+      ]
+    },
+    {
+      "id": "csharp-whileloop-09",
+      "type": "scored",
+      "prompt": "What is an infinite loop?",
+      "options": [
+        "A loop whose condition never becomes false",
+        "A loop with no body",
+        "A loop with no condition",
+        "A loop that runs once"
+      ],
+      "answerIndex": 0,
+      "explanation": "An infinite loop repeats forever because the exit condition is never met."
+    },
+    {
+      "id": "csharp-whileloop-10",
+      "type": "scored",
+      "prompt": "Which statement is commonly used to exit a loop early?",
+      "options": [
+        "break",
+        "exit",
+        "stop",
+        "return"
+      ],
+      "answerIndex": 0,
+      "explanation": "break immediately terminates the innermost loop or switch."
+    }
+  ]
+}

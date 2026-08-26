@@ -1,0 +1,137 @@
+{
+  "meta": {
+    "section": "csharp-interfaces",
+    "level": "expert",
+    "title": "C# Interfaces"
+  },
+  "questions": [
+    {
+      "id": "csharp-interfaces-b-01",
+      "type": "scored",
+      "prompt": "An interface defines:",
+      "options": [
+        "A concrete implementation",
+        "A contract of members without implementation (traditionally)",
+        "A class",
+        "A struct"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interfaces specify what a type can do."
+    },
+    {
+      "id": "csharp-interfaces-b-02",
+      "type": "scored",
+      "prompt": "A class implements an interface using:",
+      "options": [
+        ": IFoo",
+        "implements IFoo",
+        "extends IFoo",
+        "uses IFoo"
+      ],
+      "answerIndex": 0,
+      "explanation": "C# uses the colon to list interfaces."
+    },
+    {
+      "id": "csharp-interfaces-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare an interface",
+      "blanks": [
+        "interface IAnimal { void Eat(); }"
+      ],
+      "template": "______",
+      "explanation": "interface declares the contract."
+    },
+    {
+      "id": "csharp-interfaces-b-04",
+      "type": "scored",
+      "prompt": "Explicit interface implementation is used to:",
+      "options": [
+        "Hide the member from public view",
+        "Resolve name clashes / control visibility",
+        "Make it static",
+        "Seal it"
+      ],
+      "answerIndex": 1,
+      "explanation": "Explicit implementation avoids ambiguity and public exposure."
+    },
+    {
+      "id": "csharp-interfaces-b-05",
+      "type": "coderunner",
+      "prompt": "Create interface IShape { double Area(); } and class Square:IShape { public double S; public double Area(){return S*S;} }, print new Square(){S=4}.Area()",
+      "starterCode": "using System;\ninterface IShape { double Area(); }\nclass Square : IShape { public double S; public double Area() { return S * S; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "16\n",
+      "outputPattern": "^16\\n$",
+      "explanation": "Implementing type supplies Area.",
+      "requiredStrings": [
+        "is",
+        "switch"
+      ]
+    },
+    {
+      "id": "csharp-interfaces-b-06",
+      "type": "scored",
+      "prompt": "Default interface methods (C# 8+) let interfaces:",
+      "options": [
+        "Hold fields",
+        "Provide implementation bodies",
+        "Be instantiated",
+        "Inherit classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Default methods add behavior to interfaces."
+    },
+    {
+      "id": "csharp-interfaces-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange explicit interface implementation",
+      "items": [
+        "interface I { void M(); }",
+        "class C : I {",
+        "  void I.M() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "void I.M() is explicit implementation."
+    },
+    {
+      "id": "csharp-interfaces-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to implement two interfaces",
+      "blanks": [
+        "class C : IA, IB"
+      ],
+      "template": "______ { }",
+      "explanation": "Comma-separate multiple interfaces."
+    },
+    {
+      "id": "csharp-interfaces-b-09",
+      "type": "scored",
+      "prompt": "Interfaces support:",
+      "options": [
+        "Single inheritance only",
+        "Multiple interface inheritance",
+        "No inheritance",
+        "State fields"
+      ],
+      "answerIndex": 1,
+      "explanation": "Interfaces can extend other interfaces."
+    },
+    {
+      "id": "csharp-interfaces-b-10",
+      "type": "coderunner",
+      "prompt": "Create interface ICalc { int Op(int a,int b); } and Adder:ICalc { public int Op(int a,int b){return a+b;} }, store in ICalc c=new Adder() and print c.Op(5,5)",
+      "starterCode": "using System;\ninterface ICalc { int Op(int a, int b); }\nclass Adder : ICalc { public int Op(int a, int b) { return a + b; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "10\n",
+      "outputPattern": "^10\\n$",
+      "explanation": "Interface reference dispatches to Adder.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

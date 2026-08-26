@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-syntax",
+    "level": "beginner",
+    "title": "C# Syntax \u2014 Beginner"
+  },
+  "questions": [
+    {
+      "id": "csharp-syntax-b-01",
+      "type": "scored",
+      "prompt": "Which character terminates most statements in C#?",
+      "options": [
+        ":",
+        ";",
+        ".",
+        ","
+      ],
+      "answerIndex": 1,
+      "explanation": "The semicolon (;) ends a statement in C#. Blocks of code use braces {} instead."
+    },
+    {
+      "id": "csharp-syntax-b-02",
+      "type": "scored",
+      "prompt": "Which of these is a valid identifier in C#?",
+      "options": [
+        "2value",
+        "my_value",
+        "my-value",
+        "return"
+      ],
+      "answerIndex": 1,
+      "explanation": "Identifiers can contain letters, digits, and underscores but cannot start with a digit. 'return' is a keyword."
+    },
+    {
+      "id": "csharp-syntax-b-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare the entry point method",
+      "template": "class Program\n{\n    _____\n    {\n        // code here\n    }\n}",
+      "options": [
+        "STATIC VOID MAIN(STRING[] ARGS)",
+        "Static void main(string[] args)",
+        "static void Main(string[] args)s",
+        "static void Main(string[] args)"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-syntax-b-04",
+      "type": "scored",
+      "prompt": "What are curly braces {} used for in C#?",
+      "options": [
+        "To end statements",
+        "To define blocks of code like classes and methods",
+        "To declare variables",
+        "To write comments"
+      ],
+      "answerIndex": 1,
+      "explanation": "Braces define the scope and body of classes, methods, loops, and conditionals."
+    },
+    {
+      "id": "csharp-syntax-b-05",
+      "type": "coderunner",
+      "prompt": "Write a complete C# program that prints: Syntax Test",
+      "starterCode": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        // Write your code here\n        \n    }\n}",
+      "expectedOutput": "Syntax Test\n",
+      "outputPattern": "^Syntax Test\\n$",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-syntax-b-06",
+      "type": "dragorder",
+      "prompt": "Arrange the statements to declare and print an integer variable",
+      "items": [
+        "int number = 5;",
+        "Console.WriteLine(number);"
+      ],
+      "solution": [
+        0,
+        1
+      ],
+      "explanation": "Declare and initialize the variable first, then print it."
+    },
+    {
+      "id": "csharp-syntax-b-07",
+      "type": "scored",
+      "prompt": "Is C# case-sensitive?",
+      "options": [
+        "No",
+        "Yes, 'var' and 'VAR' are different identifiers",
+        "Only for built-in types",
+        "Only on Linux"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# is case-sensitive. MyVar, myvar, and MYVAR are all distinct identifiers."
+    },
+    {
+      "id": "csharp-syntax-b-08",
+      "type": "scored",
+      "prompt": "What is a namespace used for?",
+      "options": [
+        "To store variables",
+        "To organize code and prevent naming conflicts",
+        "To print output",
+        "To declare methods"
+      ],
+      "answerIndex": 1,
+      "explanation": "Namespaces group related classes and types, preventing naming collisions between libraries."
+    },
+    {
+      "id": "csharp-syntax-b-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to print Hello World",
+      "template": "_____(\"Hello World\");",
+      "options": [
+        "Console.WriteLines",
+        "Console.writeline",
+        "CONSOLE.WRITELINE",
+        "Console.WriteLine"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-syntax-b-10",
+      "type": "scored",
+      "prompt": "Which symbol starts a single-line comment?",
+      "options": [
+        "#",
+        "//",
+        "/*",
+        "--"
+      ],
+      "answerIndex": 1,
+      "explanation": "Single-line comments in C# start with //."
+    }
+  ]
+}

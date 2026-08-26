@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "section": "csharp-booleans",
+    "level": "beginner",
+    "title": "C# Booleans"
+  },
+  "questions": [
+    {
+      "id": "csharp-booleans-01",
+      "type": "scored",
+      "prompt": "What are the only two possible values of a bool?",
+      "options": [
+        "true and false",
+        "0 and 1",
+        "yes and no",
+        "on and off"
+      ],
+      "answerIndex": 0,
+      "explanation": "In C#, bool variables can only be true or false. They are lowercase, unlike some other languages."
+    },
+    {
+      "id": "csharp-booleans-02",
+      "type": "scored",
+      "prompt": "What type does a comparison like 5 > 3 return?",
+      "options": [
+        "bool",
+        "int",
+        "double",
+        "string"
+      ],
+      "answerIndex": 0,
+      "explanation": "Comparison operators return a bool value: true if the condition holds, false otherwise."
+    },
+    {
+      "id": "csharp-booleans-03",
+      "type": "scored",
+      "prompt": "What is the result of 10 == 10?",
+      "options": [
+        "true",
+        "false",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 0,
+      "explanation": "The == operator checks equality. Since 10 equals 10, the result is true."
+    },
+    {
+      "id": "csharp-booleans-04",
+      "type": "insert",
+      "prompt": "Write the exact result of 5 != 5",
+      "template": "bool result = 5 != 5;  // result is _____",
+      "options": [
+        "FALSE",
+        "True",
+        "TRUE",
+        "false"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-booleans-05",
+      "type": "scored",
+      "prompt": "Which operator checks inequality?",
+      "options": [
+        "!=",
+        "<>",
+        "!==",
+        "Not Equal"
+      ],
+      "answerIndex": 0,
+      "explanation": "The != operator checks whether two values are not equal in C#."
+    },
+    {
+      "id": "csharp-booleans-06",
+      "type": "dragorder",
+      "prompt": "Arrange the bool declaration and assignment",
+      "items": [
+        "bool",
+        "isReady",
+        "=",
+        "true",
+        ";"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "A bool declaration follows the pattern: bool variableName = value;"
+    },
+    {
+      "id": "csharp-booleans-07",
+      "type": "scored",
+      "prompt": "What is the result of !true?",
+      "options": [
+        "false",
+        "true",
+        "Error",
+        "null"
+      ],
+      "answerIndex": 0,
+      "explanation": "The ! operator negates a bool. !true becomes false."
+    },
+    {
+      "id": "csharp-booleans-08",
+      "type": "insert",
+      "prompt": "Write the exact result of (3 > 1) && (2 < 5)",
+      "template": "bool result = (3 > 1) && (2 < 5);  // result is _____",
+      "options": [
+        "true",
+        "FALSE",
+        "False",
+        "TRUE"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-booleans-09",
+      "type": "scored",
+      "prompt": "Which logical operator requires BOTH sides to be true?",
+      "options": [
+        "&&",
+        "||",
+        "!",
+        "^"
+      ],
+      "answerIndex": 0,
+      "explanation": "&& (AND) returns true only when both operands are true."
+    },
+    {
+      "id": "csharp-booleans-10",
+      "type": "coderunner",
+      "prompt": "Write a bool variable isAdult set to the result of age >= 18 using int age = 20",
+      "starterCode": "int age = 20;\n// Declare bool isAdult below\n",
+      "expectedOutput": "true",
+      "outputPattern": "^true$",
+      "requiredStrings": [
+        "bool",
+        "isAdult"
+      ]
+    }
+  ]
+}

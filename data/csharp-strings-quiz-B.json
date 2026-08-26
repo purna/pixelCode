@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "section": "csharp-strings",
+    "level": "beginner",
+    "title": "C# Strings B"
+  },
+  "questions": [
+    {
+      "id": "strings-b-01",
+      "type": "scored",
+      "prompt": "How do you declare an empty string variable?",
+      "options": [
+        "string s = \"\";",
+        "string s;",
+        "char s = \"\";",
+        "string s = null;"
+      ],
+      "answerIndex": 0,
+      "explanation": "An empty string is declared with string s = \"\";."
+    },
+    {
+      "id": "strings-b-02",
+      "type": "insert",
+      "prompt": "What property gives the number of characters in a string?",
+      "template": "int len = myString._____;",
+      "options": [
+        "Length",
+        "Length",
+        "Lengths",
+        "LENGTH"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "strings-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange these steps to concatenate two strings.",
+      "items": [
+        "string a = \"Hello\";",
+        "string b = \" World\";",
+        "string c = a + b;",
+        "Console.WriteLine(c);"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Declare both strings, concatenate with +, then print."
+    },
+    {
+      "id": "strings-b-04",
+      "type": "scored",
+      "prompt": "What is the result of \"C#\".Length?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "answerIndex": 1,
+      "explanation": "\"C#\" contains two characters: 'C' and '#', so Length is 2."
+    },
+    {
+      "id": "strings-b-05",
+      "type": "coderunner",
+      "prompt": "Concatenate \"Code\" and \"Sharp\" with a space and print the result.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        string a = \"Code\";\n        string b = \"Sharp\";\n        // concatenate with space and print\n        \n    }\n}",
+      "expectedOutput": "Code Sharp",
+      "outputPattern": "^Code Sharp$",
+      "requiredStrings": [
+        "Concat("
+      ]
+    },
+    {
+      "id": "strings-b-06",
+      "type": "scored",
+      "prompt": "Which method converts all characters to uppercase?",
+      "options": [
+        ".ToUpper()",
+        ".ToLower()",
+        ".UpperCase()",
+        ".upper()"
+      ],
+      "answerIndex": 0,
+      "explanation": "ToUpper() converts all characters to uppercase."
+    },
+    {
+      "id": "strings-b-07",
+      "type": "insert",
+      "prompt": "Write the exact syntax to start string interpolation.",
+      "template": "string msg = _____$\"Hello {name}\";",
+      "options": [
+        "$3",
+        "$",
+        "$s",
+        "$"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "strings-b-08",
+      "type": "scored",
+      "prompt": "What does \"abc\"[0] return?",
+      "options": [
+        "a",
+        "b",
+        "c",
+        "Error"
+      ],
+      "answerIndex": 0,
+      "explanation": "String indexing is zero-based, so index 0 returns 'a'."
+    },
+    {
+      "id": "strings-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange the interpolation syntax: $ prefix, braces, variable, string.",
+      "items": [
+        "$",
+        "\"Hello \",",
+        "name",
+        "!\"",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "String interpolation uses $ before the quote and {variable} inside."
+    },
+    {
+      "id": "strings-b-10",
+      "type": "scored",
+      "prompt": "What type is a string literal in C#?",
+      "options": [
+        "System.String",
+        "System.Char",
+        "string literal",
+        "object"
+      ],
+      "answerIndex": 0,
+      "explanation": "String literals are instances of System.String, aliased as string."
+    }
+  ]
+}

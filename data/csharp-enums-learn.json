@@ -1,0 +1,145 @@
+{
+  "section": "csharp-enums",
+  "title": "C# Enums",
+  "slides": [
+    {
+      "title": "What is an Enum?",
+      "content": "An enum (enumeration) is a distinct value type consisting of a set of named constants. It improves code readability by replacing magic numbers.",
+      "example": "public enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What is the primary benefit of using enums?",
+        "options": [
+          "Faster execution",
+          "Replacing magic numbers with named constants",
+          "Reducing memory usage",
+          "Enabling multiple inheritance"
+        ],
+        "answer": "Replacing magic numbers with named constants"
+      }
+    },
+    {
+      "title": "Declaring Enums",
+      "content": "Declare enums with the 'enum' keyword inside a namespace or class. By default, the first value is 0 and increments by 1.",
+      "example": "public enum Priority\n{\n    Low = 1,\n    Medium = 2,\n    High = 3\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: public _____ Priority { Low, Medium, High }",
+        "placeholder": "_____",
+        "answer": "enum",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Underlying Types",
+      "content": "You can specify an underlying integral type after a colon: byte, short, int, long, etc. The default is int.",
+      "example": "public enum SmallStatus : byte { Off = 0, On = 1 }",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the enum declaration with the correct underlying type.",
+        "before": "public enum TinyCode : ",
+        "after": " { A = 0, B = 1 }",
+        "options": [
+          "byte",
+          "string",
+          "int",
+          "double"
+        ],
+        "answer": "byte"
+      }
+    },
+    {
+      "title": "Casting Enums",
+      "content": "Cast between enums and their underlying numeric types using standard C# casting syntax.",
+      "example": "Priority p = Priority.High;\nint value = (int)p; // value = 3\nPriority p2 = (Priority)2; // p2 = Medium",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Cast the Color enum value Blue to its underlying integer and print it.",
+        "starterCode": "using System;\n\npublic enum Color { Red = 1, Green = 2, Blue = 3 }\n\nclass Program\n{\n    static void Main()\n    {\n        Color c = Color.Blue;\n        Console.WriteLine(_____);\n    }\n}",
+        "expectedOutput": "3",
+        "outputPattern": "3",
+        "requiredStrings": [
+          "Parse",
+          "Cast"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: Parse, Cast",
+          "When run, your code should output: 3"
+        ]
+      }
+    },
+    {
+      "title": "Enum.Parse and Enum.TryParse",
+      "content": "Enum.Parse converts a string to an enum value. Enum.TryParse is safer, returning a bool indicating success.",
+      "example": "string input = \"Medium\";\nif (Enum.TryParse<Priority>(input, out Priority result))\n{\n    Console.WriteLine(result);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method safely parses a string to an enum without throwing?",
+        "options": [
+          "Enum.Parse",
+          "Enum.TryParse",
+          "Enum.Cast",
+          "Enum.Convert"
+        ],
+        "answer": "Enum.TryParse"
+      }
+    },
+    {
+      "title": "Iterating Over Enums",
+      "content": "Use Enum.GetValues() to iterate over all defined enum constants at runtime.",
+      "example": "foreach (Day d in Enum.GetValues(typeof(Day)))\n{\n    Console.WriteLine(d);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "Complete: foreach (Day d in _____) {}",
+        "placeholder": "_____",
+        "answer": "Enum.GetValues(typeof(Day))",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Flags Enums",
+      "content": "Mark an enum with [Flags] to treat values as bit fields, allowing combination of values using bitwise operators.",
+      "example": "[Flags]\nenum Permissions { Read = 1, Write = 2, Execute = 4 }\n\nPermissions p = Permissions.Read | Permissions.Write;",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Match the Flags enum values to their binary representations.",
+        "before": "Permissions.Read = ",
+        "after": "",
+        "options": [
+          "1",
+          "2",
+          "4",
+          "8"
+        ],
+        "answer": "1"
+      }
+    },
+    {
+      "title": "Enum Best Practices",
+      "content": "Use enums for fixed sets of related constants. Avoid using enum values as strings directly; use ToString() for display and descriptions for user-friendly text.",
+      "example": "public enum Status { Pending = 0, Approved = 1, Rejected = 2 }\n\n// Check with switch or pattern matching\nStatus current = Status.Approved;\nConsole.WriteLine(current switch { Status.Approved => \"Yes\", _ => \"No\" });",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "code",
+        "prompt": "Use a switch expression to convert Status.Rejected to the string \"Denied\" and print it.",
+        "starterCode": "using System;\n\npublic enum Status { Pending = 0, Approved = 1, Rejected = 2 }\n\nclass Program\n{\n    static void Main()\n    {\n        Status s = Status.Rejected;\n        string result = s switch\n        {\n            _____ => \"Denied\",\n            _____ => \"Denied\",\n            _____ => \"Approved\",\n            _____ => \"Pending\"\n        };\n        Console.WriteLine(result);\n    }\n}",
+        "expectedOutput": "Denied",
+        "outputPattern": "Denied",
+        "requiredStrings": [
+          "switch"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: switch",
+          "When run, your code should output: Denied"
+        ]
+      }
+    }
+  ]
+}

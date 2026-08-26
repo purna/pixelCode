@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-properties",
+    "level": "intermediate",
+    "title": "C# Properties"
+  },
+  "questions": [
+    {
+      "id": "csharp-properties-b-01",
+      "type": "scored",
+      "prompt": "A property provides:",
+      "options": [
+        "Storage only",
+        "Controlled access to a value via get/set",
+        "A loop",
+        "A namespace"
+      ],
+      "answerIndex": 1,
+      "explanation": "Properties encapsulate field access with accessors."
+    },
+    {
+      "id": "csharp-properties-b-02",
+      "type": "scored",
+      "prompt": "An auto-implemented property is written as:",
+      "options": [
+        "public int X;",
+        "public int X { get; set; }",
+        "public int X()",
+        "int X => 0;"
+      ],
+      "answerIndex": 1,
+      "explanation": "Auto-properties generate a backing field automatically."
+    },
+    {
+      "id": "csharp-properties-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for a read-only auto-property",
+      "blanks": [
+        "public int Id { get; }"
+      ],
+      "template": "______",
+      "explanation": "Omitting set makes it init/get-only."
+    },
+    {
+      "id": "csharp-properties-b-04",
+      "type": "scored",
+      "prompt": "The 'value' keyword in a setter represents:",
+      "options": [
+        "The property name",
+        "The value being assigned",
+        "The class",
+        "null"
+      ],
+      "answerIndex": 1,
+      "explanation": "value is the incoming assignment in a set accessor."
+    },
+    {
+      "id": "csharp-properties-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Temp with property Celsius {get;set;} and print Celsius after setting 25",
+      "starterCode": "using System;\nclass Temp {\n  public int Celsius { get; set; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "25\n",
+      "outputPattern": "^25\\n$",
+      "explanation": "Set then get the property.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-properties-b-06",
+      "type": "scored",
+      "prompt": "A property with only a get accessor is:",
+      "options": [
+        "Write-only",
+        "Read-only",
+        "Both",
+        "Static only"
+      ],
+      "answerIndex": 1,
+      "explanation": "get-only properties cannot be assigned externally (unless init)."
+    },
+    {
+      "id": "csharp-properties-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange a property with a backing field",
+      "items": [
+        "class C {",
+        "  private int x;",
+        "  public int X { get { return x; } set { x = value; } }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Explicit backing field behind the property."
+    },
+    {
+      "id": "csharp-properties-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank for an expression-bodied property",
+      "blanks": [
+        "public int Double => x * 2"
+      ],
+      "template": "______;",
+      "explanation": "Expression-bodied properties compute a value."
+    },
+    {
+      "id": "csharp-properties-b-09",
+      "type": "scored",
+      "prompt": "get and set can have different access levels, e.g.:",
+      "options": [
+        "public get; private set;",
+        "loop get;",
+        "static get;",
+        "void set;"
+      ],
+      "answerIndex": 0,
+      "explanation": "Accessors can have restricted modifiers."
+    },
+    {
+      "id": "csharp-properties-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Name with property Full {get;set;} and a method Shout() returning Full.ToUpper(), then set 'amy' and print Shout()",
+      "starterCode": "using System;\nclass Name {\n  public string Full { get; set; }\n  public string Shout() { return Full.ToUpper(); }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "AMY\n",
+      "outputPattern": "^AMY\\n$",
+      "explanation": "Set property then transform via method.",
+      "requiredStrings": [
+        "set"
+      ]
+    }
+  ]
+}

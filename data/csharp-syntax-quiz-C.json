@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-syntax",
+    "level": "beginner",
+    "title": "C# Syntax \u2014 Beginner"
+  },
+  "questions": [
+    {
+      "id": "csharp-syntax-c-01",
+      "type": "scored",
+      "prompt": "Which character is used to terminate a statement in C#?",
+      "options": [
+        ".",
+        ";",
+        ":",
+        "!"
+      ],
+      "answerIndex": 1,
+      "explanation": "The semicolon (;) terminates statements in C#."
+    },
+    {
+      "id": "csharp-syntax-c-02",
+      "type": "scored",
+      "prompt": "Which keyword is used to define a method in C#?",
+      "options": [
+        "func",
+        "method",
+        "void",
+        "define"
+      ],
+      "answerIndex": 2,
+      "explanation": "Methods are defined using the void keyword (for no return) or a return type like int, string, etc."
+    },
+    {
+      "id": "csharp-syntax-c-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to declare a class named Car",
+      "template": "______\n{\n    // members here\n}",
+      "options": [
+        "Class car",
+        "class Car",
+        "class Cars",
+        "CLASS CAR"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-syntax-c-04",
+      "type": "scored",
+      "prompt": "What is the purpose of a namespace?",
+      "options": [
+        "To execute code",
+        "To group related types and avoid naming conflicts",
+        "To declare variables",
+        "To create loops"
+      ],
+      "answerIndex": 1,
+      "explanation": "Namespaces organize code into logical groups and prevent naming collisions between types."
+    },
+    {
+      "id": "csharp-syntax-c-05",
+      "type": "coderunner",
+      "prompt": "Write a program that declares an int variable 'age' = 30 and prints it",
+      "starterCode": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        // Declare and print\n        \n    }\n}",
+      "expectedOutput": "30\n",
+      "outputPattern": "^30\\n$",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-syntax-c-06",
+      "type": "dragorder",
+      "prompt": "Arrange the lines inside a method body in order",
+      "items": [
+        "int x = 10;",
+        "Console.WriteLine(x);"
+      ],
+      "solution": [
+        0,
+        1
+      ],
+      "explanation": "Declare and initialize the variable before using it."
+    },
+    {
+      "id": "csharp-syntax-c-07",
+      "type": "scored",
+      "prompt": "Can a variable name in C# start with a digit?",
+      "options": [
+        "Yes",
+        "No, it must start with a letter or underscore",
+        "Only in .NET 6+",
+        "Only if quoted"
+      ],
+      "answerIndex": 1,
+      "explanation": "Identifiers must start with a letter (a-z, A-Z) or underscore (_). They cannot start with a digit."
+    },
+    {
+      "id": "csharp-syntax-c-08",
+      "type": "scored",
+      "prompt": "What does the 'static' keyword mean in the Main method?",
+      "options": [
+        "It is temporary",
+        "It belongs to the class itself, not an instance",
+        "It is private",
+        "It cannot be called"
+      ],
+      "answerIndex": 1,
+      "explanation": "static means the method belongs to the class itself, allowing it to be called without creating an object instance."
+    },
+    {
+      "id": "csharp-syntax-c-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to import the System namespace",
+      "template": "______;",
+      "options": [
+        "USING SYSTEM",
+        "using System",
+        "Using system",
+        "using Systems"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-syntax-c-10",
+      "type": "scored",
+      "prompt": "Which of the following is a reserved keyword in C#?",
+      "options": [
+        "myVar",
+        "class",
+        "myClass",
+        "_count"
+      ],
+      "answerIndex": 1,
+      "explanation": "class is a reserved keyword. myVar, myClass, and _count are valid identifiers."
+    }
+  ]
+}

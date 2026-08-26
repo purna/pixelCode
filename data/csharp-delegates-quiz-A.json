@@ -1,0 +1,113 @@
+{
+  "meta": {
+    "section": "csharp-delegates",
+    "level": "expert",
+    "title": "C# Delegates & Events"
+  },
+  "questions": [
+    {
+      "id": "csharp-delegates-a-01",
+      "type": "scored",
+      "prompt": "A delegate is:",
+      "options": [
+        "a class method",
+        "a type that references a method",
+        "a variable",
+        "an interface"
+      ],
+      "answerIndex": 1,
+      "explanation": "A delegate is a type whose value is a reference to a method."
+    },
+    {
+      "id": "csharp-delegates-a-02",
+      "type": "scored",
+      "prompt": "Invoking a multicast delegate:",
+      "options": [
+        "calls one method",
+        "calls all methods in the list",
+        "throws an exception",
+        "returns the sum of the results"
+      ],
+      "answerIndex": 1,
+      "explanation": "A multicast delegate invocation runs every subscribed method."
+    },
+    {
+      "id": "csharp-delegates-a-03",
+      "type": "scored",
+      "prompt": "Func<int,int,int> represents:",
+      "options": [
+        "two ints in, int out",
+        "void",
+        "bool",
+        "one int in, void"
+      ],
+      "answerIndex": 0,
+      "explanation": "The last type is the return type; the rest are parameters."
+    },
+    {
+      "id": "csharp-delegates-a-04",
+      "type": "insert",
+      "prompt": "Complete the line to invoke the delegate.",
+      "template": "var r = _____(3, 4);",
+      "options": [
+        "calc",
+        "calc.Invoke",
+        "Add",
+        "Call"
+      ],
+      "answerIndex": 0,
+      "explanation": "Calling the delegate instance invokes its method."
+    },
+    {
+      "id": "csharp-delegates-a-05",
+      "type": "typing",
+      "prompt": "The lambda operator is ______.",
+      "template": "The lambda operator is ______.",
+      "blanks": [
+        "=>"
+      ],
+      "explanation": "=> separates the lambda parameters from the body."
+    },
+    {
+      "id": "csharp-delegates-a-06",
+      "type": "scored",
+      "prompt": "The event keyword prevents:",
+      "options": [
+        "invoking the event",
+        "subscribing with +=",
+        "external code from assigning the event field directly",
+        "defining the event"
+      ],
+      "answerIndex": 2,
+      "explanation": "event restricts external code from assigning or invoking the field."
+    },
+    {
+      "id": "csharp-delegates-a-07",
+      "type": "coderunner",
+      "prompt": "Assign a lambda that doubles x, then the result is 10.",
+      "starterCode": "delegate int Transform(int x);\nTransform t = _____;\nint result = t(5);",
+      "expectedOutput": "10",
+      "outputPattern": "=>.*2",
+      "requiredStrings": [
+        "=>"
+      ],
+      "hints": [
+        "Assign a lambda such as (x => x * 2).",
+        "t(5) returns 5 * 2 = 10."
+      ]
+    },
+    {
+      "id": "csharp-delegates-a-08",
+      "type": "scored",
+      "prompt": "Action represents a delegate returning:",
+      "options": [
+        "int",
+        "void",
+        "bool",
+        "T"
+      ],
+      "answerIndex": 1,
+      "explanation": "Action delegates return void."
+    }
+  ]
+}

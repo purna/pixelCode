@@ -1,0 +1,148 @@
+{
+  "section": "csharp-generics",
+  "title": "C# Generics",
+  "slides": [
+    {
+      "title": "Why Use Generics?",
+      "content": "Without generics you store items as object and cast back, losing type safety at compile time. A generic type or method works with any type T the caller chooses, and the compiler checks types for you.",
+      "example": "var ints = new List<int>();\nints.Add(1);\nints.Add(2);\nint first = ints[0]; // no cast needed",
+      "exampleOutput": "(List<int> holds ints; ints[0] is already an int)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Generics give you:",
+        "options": [
+          "Runtime type checking only",
+          "Type safety with code reuse",
+          "Automatic casting",
+          "Faster execution"
+        ],
+        "answer": "Type safety with code reuse"
+      }
+    },
+    {
+      "title": "Generic Methods",
+      "content": "A generic method declares its own type parameter in angle brackets after its name. The caller supplies the type, or the compiler infers it from the arguments.",
+      "example": "T FirstOrDefault<T>(T[] items)\n{\n  return items.Length > 0 ? items[0] : default(T);\n}",
+      "exampleOutput": "(works for T = int, string, or any type)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "A generic method's type parameter is:",
+        "options": [
+          "Fixed to int",
+          "Chosen by the caller at compile time",
+          "Always string",
+          "Ignored by the compiler"
+        ],
+        "answer": "Chosen by the caller at compile time"
+      }
+    },
+    {
+      "title": "Type Constraints",
+      "content": "A where clause restricts which types are allowed for a type parameter. where T : class means T must be a reference type; where T : struct means a value type; where T : new() means T must have a public parameterless constructor.",
+      "example": "void Process<T>(T item) where T : class\n{\n  Console.WriteLine(item);\n}",
+      "exampleOutput": "(only reference types can be passed as T)",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "The 'where' clause adds a _____ to a type parameter.",
+        "placeholder": "_____",
+        "answer": "constraint",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Generic Classes",
+      "content": "A generic class has a type parameter that its members can use. Each instantiation fixes T to one specific type, giving you a distinct, type-safe class.",
+      "example": "class Box<T>\n{\n  public T Value { get; set; }\n}",
+      "exampleOutput": "Box<int> and Box<string> are different, type-safe types",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Box<int> and Box<string> are:",
+        "options": [
+          "the same type",
+          "different types",
+          "invalid",
+          "both object"
+        ],
+        "answer": "different types"
+      }
+    },
+    {
+      "title": "The new() Constraint",
+      "content": "The new() constraint requires T to have a public parameterless constructor, so you can create instances of T inside the method with new T().",
+      "example": "T CreateInstance<T>() where T : new()\n{\n  return new T();\n}",
+      "exampleOutput": "(compiles only for types with a public parameterless constructor)",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "The new() constraint requires T to:",
+        "options": [
+          "be a class",
+          "be a struct",
+          "have a public parameterless constructor",
+          "be numeric"
+        ],
+        "answer": "have a public parameterless constructor"
+      }
+    },
+    {
+      "title": "default(T)",
+      "content": "Inside generic code you often need an uninitialized value of T. default(T) returns null for reference types, 0 for numeric types, and a zero-initialized struct for value types.",
+      "example": "T GetDefault<T>()\n{\n  return default(T);\n}",
+      "exampleOutput": "(null for reference types, 0 for numerics)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the method to return the default value of T.",
+        "starterCode": "public static T GetDefault<T>()\n{\n  return _____;\n}",
+        "expectedOutput": "(default value of T)",
+        "outputPattern": "default",
+        "requiredStrings": [
+          "default(T)"
+        ],
+        "hints": [
+          "Use the default keyword with the type parameter T.",
+          "default(T) returns null for reference types and 0 for numerics."
+        ]
+      }
+    },
+    {
+      "title": "Generic Collections",
+      "content": "List<T>, Dictionary<TKey,TValue>, and HashSet<T> are all generic. The type parameters are checked at compile time, so you avoid casting and get IntelliSense for the stored type.",
+      "example": "var names = new List<string>();\nnames.Add(\"Ada\");\nConsole.WriteLine(names[0]);",
+      "exampleOutput": "Ada",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the type so the list holds integers.",
+        "starterCode": "var numbers = new List<_____>();\nnumbers.Add(5);\nConsole.WriteLine(numbers.Count);",
+        "expectedOutput": "2",
+        "outputPattern": "List<int>",
+        "requiredStrings": [
+          "List<int>"
+        ],
+        "hints": [
+          "The list should hold int values.",
+          "Use List<int>."
+        ]
+      }
+    },
+    {
+      "title": "Generics Review",
+      "content": "Generics let you write type-safe, reusable code: declare T on classes or methods, constrain it with where, use default(T) for uninitialized values, and rely on generic collections for strongly-typed storage.",
+      "example": "bool Contains<T>(List<T> list, T target)\n{\n  foreach (var item in list)\n    if (item.Equals(target)) return true;\n  return false;\n}",
+      "exampleOutput": "(true if target is in the list)",
+      "exercise": {
+        "type": "code",
+        "prompt": "Complete the method so it returns true when target is found.",
+        "starterCode": "public static bool Contains<T>(List<T> list, T target)\n{\n  _____ (var item in list)\n    if (item._____ (target)) return true;\n  return false;\n}",
+        "expectedOutput": "true if target is found",
+        "outputPattern": "foreach|Equals",
+        "requiredStrings": [
+          "foreach",
+          "Equals"
+        ],
+        "hints": [
+          "Loop over the list with foreach.",
+          "Compare each element with .Equals(target)."
+        ]
+      }
+    }
+  ]
+}

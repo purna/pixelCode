@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "section": "csharp-polymorphism",
+    "level": "intermediate",
+    "title": "C# Polymorphism"
+  },
+  "questions": [
+    {
+      "id": "csharp-polymorphism-c-01",
+      "type": "scored",
+      "prompt": "Which keyword enables a derived class to provide its own implementation?",
+      "options": [
+        "new",
+        "override",
+        "static",
+        "const"
+      ],
+      "answerIndex": 1,
+      "explanation": "override re-implements a virtual member."
+    },
+    {
+      "id": "csharp-polymorphism-c-02",
+      "type": "scored",
+      "prompt": "A method marked 'abstract' in a base class:",
+      "options": [
+        "Has a body",
+        "Has no body and must be overridden",
+        "Is static",
+        "Is sealed"
+      ],
+      "answerIndex": 1,
+      "explanation": "Abstract members declare but do not implement."
+    },
+    {
+      "id": "csharp-polymorphism-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a virtual property",
+      "blanks": [
+        "public virtual int Value { get; set; }"
+      ],
+      "template": "______",
+      "explanation": "Properties can be virtual too."
+    },
+    {
+      "id": "csharp-polymorphism-c-04",
+      "type": "scored",
+      "prompt": "Pattern matching with 'is' can also declare a variable, e.g.:",
+      "options": [
+        "if (o is Dog d)",
+        "if (o as Dog)",
+        "if (Dog o)",
+        "if (o => Dog)"
+      ],
+      "answerIndex": 0,
+      "explanation": "is patterns both test and bind a variable."
+    },
+    {
+      "id": "csharp-polymorphism-c-05",
+      "type": "coderunner",
+      "prompt": "Define class Payment { public virtual string Status(){return \"pending\";} } and Card:Payment { public override string Status(){return \"paid\";} }, list of Payment with new Card() and print first.Status()",
+      "starterCode": "using System;\nusing System.Collections.Generic;\nclass Payment { public virtual string Status() { return \"pending\"; } }\nclass Card : Payment { public override string Status() { return \"paid\"; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "paid\n",
+      "outputPattern": "^paid\\n$",
+      "explanation": "Polymorphic list dispatches to Card.",
+      "requiredStrings": [
+        "is",
+        "switch"
+      ]
+    },
+    {
+      "id": "csharp-polymorphism-c-06",
+      "type": "scored",
+      "prompt": "Dynamic dispatch chooses the method based on:",
+      "options": [
+        "Compile-time type only",
+        "Runtime object type",
+        "Variable name",
+        "Namespace"
+      ],
+      "answerIndex": 1,
+      "explanation": "Virtual calls resolve at runtime."
+    },
+    {
+      "id": "csharp-polymorphism-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange an abstract method and its override",
+      "items": [
+        "abstract class A { public abstract void Go(); }",
+        "class B : A {",
+        "  public override void Go() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "B must implement abstract Go."
+    },
+    {
+      "id": "csharp-polymorphism-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to perform a safe cast to Dog",
+      "blanks": [
+        "Dog d = a as Dog"
+      ],
+      "template": "______;",
+      "explanation": "as yields null if the cast fails."
+    },
+    {
+      "id": "csharp-polymorphism-c-09",
+      "type": "scored",
+      "prompt": "Interfaces provide polymorphism through:",
+      "options": [
+        "Multiple implementations of a contract",
+        "Single inheritance only",
+        "Fields",
+        "Constants"
+      ],
+      "answerIndex": 0,
+      "explanation": "Many classes can implement one interface."
+    },
+    {
+      "id": "csharp-polymorphism-c-10",
+      "type": "coderunner",
+      "prompt": "Define class Creature { public virtual string Move(){return \"?\";} } and Bird:Creature { public override string Move(){return \"fly\";} }, print ((Creature)new Bird()).Move()",
+      "starterCode": "using System;\nclass Creature { public virtual string Move() { return \"?\"; } }\nclass Bird : Creature { public override string Move() { return \"fly\"; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "fly\n",
+      "outputPattern": "^fly\\n$",
+      "explanation": "Runtime picks Bird's Move.",
+      "requiredStrings": [
+        "new Dog()",
+        "new Cat()"
+      ]
+    }
+  ]
+}

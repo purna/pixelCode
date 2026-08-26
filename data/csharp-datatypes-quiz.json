@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "section": "csharp-datatypes",
+    "level": "beginner",
+    "title": "C# Data Types"
+  },
+  "questions": [
+    {
+      "id": "datatypes-01",
+      "type": "scored",
+      "prompt": "Which C# type is used to store whole numbers like 10 or -5?",
+      "options": [
+        "int",
+        "double",
+        "bool",
+        "string"
+      ],
+      "answerIndex": 0,
+      "explanation": "int is used for 32-bit signed integers. double is for decimals, bool for true/false, and string for text."
+    },
+    {
+      "id": "datatypes-02",
+      "type": "insert",
+      "prompt": "What is the default value of a bool variable in C#?",
+      "template": "The default value is _____.",
+      "options": [
+        "false",
+        "FALSE",
+        "TRUE",
+        "True"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "datatypes-03",
+      "type": "dragorder",
+      "prompt": "Arrange the C# data types from smallest to largest memory footprint (char < int < double < string).",
+      "items": [
+        "double",
+        "string",
+        "char",
+        "int"
+      ],
+      "solution": [
+        2,
+        3,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "datatypes-04",
+      "type": "scored",
+      "prompt": "Which type is best for storing the value 3.14159?",
+      "options": [
+        "int",
+        "double",
+        "char",
+        "bool"
+      ],
+      "answerIndex": 1,
+      "explanation": "double is a 64-bit floating-point type suitable for decimal values like 3.14159."
+    },
+    {
+      "id": "datatypes-05",
+      "type": "coderunner",
+      "prompt": "Declare an int, double, bool, and string variable, then print their default values using Console.WriteLine.",
+      "starterCode": "class Program {\n    static void Main() {\n        // Declare variables here\n        \n    }\n}",
+      "expectedOutput": "0\n0\nFalse\n",
+      "outputPattern": "^0\\n0\\nFalse\\n$",
+      "requiredStrings": [
+        "int",
+        "double",
+        "bool"
+      ]
+    },
+    {
+      "id": "datatypes-06",
+      "type": "scored",
+      "prompt": "How many bytes does a char occupy in C#?",
+      "options": [
+        "1 byte",
+        "2 bytes",
+        "4 bytes",
+        "8 bytes"
+      ],
+      "answerIndex": 1,
+      "explanation": "char is a Unicode character that occupies 2 bytes (16 bits)."
+    },
+    {
+      "id": "datatypes-07",
+      "type": "insert",
+      "prompt": "What is the default value of a string reference variable?",
+      "template": "The default value is _____.",
+      "options": [
+        "NULL",
+        "null",
+        "nulls",
+        "Null"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "datatypes-08",
+      "type": "scored",
+      "prompt": "Which data type represents true or false values?",
+      "options": [
+        "int",
+        "string",
+        "bool",
+        "double"
+      ],
+      "answerIndex": 2,
+      "explanation": "bool is the C# type for Boolean values (true or false)."
+    },
+    {
+      "id": "datatypes-09",
+      "type": "dragorder",
+      "prompt": "Arrange the default values for these types: bool, int, string, char.",
+      "items": [
+        "False",
+        "0",
+        "null",
+        "'\\0'"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "datatypes-10",
+      "type": "scored",
+      "prompt": "How many bytes does an int use in C#?",
+      "options": [
+        "2 bytes",
+        "4 bytes",
+        "8 bytes",
+        "Depends on OS"
+      ],
+      "answerIndex": 1,
+      "explanation": "int is a 32-bit signed integer and always uses 4 bytes in C#."
+    }
+  ]
+}

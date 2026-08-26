@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-exceptions",
+    "level": "expert",
+    "title": "C# Exceptions"
+  },
+  "questions": [
+    {
+      "id": "csharp-exceptions-c-01",
+      "type": "scored",
+      "prompt": "The 'using' statement also guarantees disposal even if:",
+      "options": [
+        "Code is fast",
+        "An exception is thrown",
+        "No stream",
+        "Compilation fails"
+      ],
+      "answerIndex": 1,
+      "explanation": "using wraps in try/finally for disposal."
+    },
+    {
+      "id": "csharp-exceptions-c-02",
+      "type": "scored",
+      "prompt": "A finally block is useful for:",
+      "options": [
+        "Returning values",
+        "Cleanup like closing resources",
+        "Throwing only",
+        "Looping"
+      ],
+      "answerIndex": 1,
+      "explanation": "finally ensures cleanup runs."
+    },
+    {
+      "id": "csharp-exceptions-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a custom exception class",
+      "blanks": [
+        "class MyException : Exception { }"
+      ],
+      "template": "______",
+      "explanation": "Derive from Exception."
+    },
+    {
+      "id": "csharp-exceptions-c-04",
+      "type": "scored",
+      "prompt": "When catching, you should generally catch:",
+      "options": [
+        "All exceptions blindly",
+        "Specific expected exceptions",
+        "Nothing",
+        "Only Exception"
+      ],
+      "answerIndex": 1,
+      "explanation": "Catch specific, expected exceptions."
+    },
+    {
+      "id": "csharp-exceptions-c-05",
+      "type": "coderunner",
+      "prompt": "Use try/catch to attempt int.Parse('42'), print the parsed value; if it fails print 'err'",
+      "starterCode": "using System;\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "42\n",
+      "outputPattern": "^42\\n$",
+      "explanation": "Parse succeeds and prints 42.",
+      "requiredStrings": [
+        "int.Parse"
+      ]
+    },
+    {
+      "id": "csharp-exceptions-c-06",
+      "type": "scored",
+      "prompt": "e.Message provides:",
+      "options": [
+        "The stack trace",
+        "A human-readable error description",
+        "The type name only",
+        "The line number"
+      ],
+      "answerIndex": 1,
+      "explanation": "Message describes the error."
+    },
+    {
+      "id": "csharp-exceptions-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange nested exception handling",
+      "items": [
+        "try {",
+        "  try { throw new Exception(); }",
+        "  catch { Console.WriteLine(\"inner\"); }",
+        "} catch { Console.WriteLine(\"outer\"); }"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Inner catch handles first."
+    },
+    {
+      "id": "csharp-exceptions-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to catch only format exceptions",
+      "blanks": [
+        "catch (FormatException ex)"
+      ],
+      "template": "try { } ______ { }",
+      "explanation": "Typed catch filters by exception type."
+    },
+    {
+      "id": "csharp-exceptions-c-09",
+      "type": "scored",
+      "prompt": "Exception filters in C# use the keyword:",
+      "options": [
+        "when",
+        "if",
+        "filter",
+        "where"
+      ],
+      "answerIndex": 0,
+      "explanation": "catch (...) when (condition) filters."
+    },
+    {
+      "id": "csharp-exceptions-c-10",
+      "type": "coderunner",
+      "prompt": "Write a method Max(int a,int b) throwing ArgumentException if a<0, else returning the larger; call Max(3,9) and print result",
+      "starterCode": "using System;\nclass Program {\n  static int Max(int a, int b) { if (a < 0) throw new ArgumentException(); return a > b ? a : b; }\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "9\n",
+      "outputPattern": "^9\\n$",
+      "explanation": "Returns 9 without throwing.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

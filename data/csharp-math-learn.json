@@ -1,0 +1,181 @@
+{
+  "section": "csharp-math",
+  "title": "C# Math Class",
+  "slides": [
+    {
+      "title": "Introduction to System.Math",
+      "content": "The System.Math class provides static methods for mathematical operations. It includes rounding, powers, roots, and min/max comparisons.",
+      "example": "Console.WriteLine(Math.Max(3, 7));\nConsole.WriteLine(Math.Sqrt(25));",
+      "exampleOutput": "7\n5",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which namespace contains the Math class?",
+        "options": [
+          "System",
+          "System.Math",
+          "Microsoft",
+          "Global"
+        ],
+        "answer": "System"
+      }
+    },
+    {
+      "title": "Math.Max and Math.Min",
+      "content": "Math.Max returns the larger of two numbers, and Math.Min returns the smaller. Both work with int, double, decimal, and other numeric types.",
+      "example": "int high = Math.Max(10, 20); // 20\nint low = Math.Min(10, 20);  // 10",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What method returns the smaller of two numbers?",
+        "placeholder": "_____",
+        "answer": "Math.Min",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Math.Sqrt",
+      "content": "Math.Sqrt returns the square root of a number. It accepts and returns a double. Passing a negative number returns NaN.",
+      "example": "double root = Math.Sqrt(49); // 7.0\ndouble bad = Math.Sqrt(-1);   // NaN",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the square root call.",
+        "before": "Math.",
+        "after": "(81)",
+        "options": [
+          "Sqrt",
+          "Sqr",
+          "SquareRoot",
+          "Root"
+        ],
+        "answer": "Sqrt"
+      }
+    },
+    {
+      "title": "Math.Round",
+      "content": "Math.Round rounds a number to the nearest integer or specified decimal places. It uses banker's rounding by default (rounds .5 to the nearest even number).",
+      "example": "Console.WriteLine(Math.Round(2.5)); // 2\nConsole.WriteLine(Math.Round(3.5)); // 4\nConsole.WriteLine(Math.Round(2.5, MidpointRounding.AwayFromZero)); // 3",
+      "exampleOutput": "2\n4",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does Math.Round(2.5) return by default?",
+        "options": [
+          "2",
+          "2.5",
+          "3",
+          "2 or 3"
+        ],
+        "answer": "2"
+      }
+    },
+    {
+      "title": "Math.Pow",
+      "content": "Math.Pow(base, exponent) computes the value of a number raised to a power. Both parameters are doubles, and the result is a double.",
+      "example": "double square = Math.Pow(5, 2); // 25\ndouble cube = Math.Pow(3, 3);   // 27",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What method computes base raised to an exponent?",
+        "placeholder": "_____",
+        "answer": "Math.Pow",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Other Math Methods",
+      "content": "Math.Abs returns absolute value, Math.Ceiling rounds up, Math.Floor rounds down, and Math.Truncate removes the decimal portion.",
+      "example": "Console.WriteLine(Math.Abs(-10));    // 10\nConsole.WriteLine(Math.Ceiling(2.1));  // 3\nConsole.WriteLine(Math.Floor(2.9));    // 2",
+      "exampleOutput": "10\n3\n2",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Match the method to its behavior.",
+        "before": "Math.Ceiling(2.1) returns ",
+        "after": "",
+        "options": [
+          "2",
+          "2.1",
+          "3",
+          "2.9"
+        ],
+        "answer": "3"
+      }
+    },
+    {
+      "title": "Practical Examples",
+      "content": "Combine Math methods to solve real problems like finding the range of a dataset, computing distance, or normalizing scores.",
+      "example": "int[] scores = { 72, 85, 90, 60, 95 };\nint max = Math.Max(scores[0], scores[1]);\nint min = Math.Min(scores[0], scores[1]);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method finds the larger of two values?",
+        "options": [
+          "Math.Min",
+          "Math.Max",
+          "Math.Big",
+          "Math.Top"
+        ],
+        "answer": "Math.Max"
+      }
+    },
+    {
+      "title": "Practice: Math Class",
+      "content": "Use Math methods to compute statistics like max, min, square root, and power. Practice chaining methods for complex calculations.",
+      "example": "int a = 16;\nint b = 25;\nConsole.WriteLine(Math.Max(a, b));\nConsole.WriteLine(Math.Sqrt(b));",
+      "exampleOutput": "25\n5",
+      "exercise": {
+        "type": "code",
+        "prompt": "Calculate 5 squared using Math.Pow and 25 square-rooted using Math.Sqrt. Print both results.",
+        "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Use Math.Pow(5, 2) and Math.Sqrt(25)\n        \n    }\n}",
+        "expectedOutput": "25\n5\n",
+        "outputPattern": "^25\\n5\\n$",
+        "requiredStrings": [
+          "Math.Pow",
+          "Math.Sqrt"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: Math.Pow, Math.Sqrt",
+          "When run, your code should output: 25, 5"
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Math",
+      "content": "Use the Flow Builder to call Math.Max and output the result.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that outputs Math.Max(3, 7)",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "output",
+              "expression": "Math.Max(3, 7)",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "output(Math.Max(3, 7));",
+        "blocksToShow": [
+          "output"
+        ],
+        "flowExample": {
+          "name": "Hello World",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "output",
+                "expression": "\"Hello, World!\"",
+                "newline": true
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

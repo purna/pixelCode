@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "section": "csharp-arrays",
+    "level": "beginner",
+    "title": "Arrays Quiz B"
+  },
+  "questions": [
+    {
+      "id": "csharp-arrays-b-01",
+      "type": "scored",
+      "prompt": "How do you declare an array of 5 integers in C#?",
+      "options": [
+        "int arr[5];",
+        "int[] arr = new int[5];",
+        "array<int> arr = 5;",
+        "int arr = new array(5);"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# uses int[] for array types and new int[5] to allocate space for 5 integers."
+    },
+    {
+      "id": "csharp-arrays-b-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: int[] nums = _____ [5];",
+      "template": "int[] nums = _____ [5];",
+      "options": [
+        "new int",
+        "New int",
+        "new ints",
+        "NEW INT"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-arrays-b-03",
+      "type": "dragorder",
+      "prompt": "Arrange the pieces of array declaration syntax in order.",
+      "items": [
+        "Type",
+        "[]",
+        "new",
+        "Type again",
+        "[size]"
+      ],
+      "solution": [
+        0,
+        1,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "csharp-arrays-b-04",
+      "type": "scored",
+      "prompt": "What is the first valid index of a C# array?",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "Depends on the array"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# arrays are zero-based, meaning the first element is at index 0."
+    },
+    {
+      "id": "csharp-arrays-b-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: string[] names = { \"Alice\", \"Bob\", _____ };",
+      "template": "string[] names = { \"Alice\", \"Bob\", _____ };",
+      "options": [
+        "\"charlie\"",
+        "\"Charlie\"s",
+        "\"CHARLIE\"",
+        "\"Charlie\""
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-arrays-b-06",
+      "type": "coderunner",
+      "prompt": "Declare an int array named scores with 3 elements, set index 1 to 90, and print it.",
+      "starterCode": "// Declare array\n_____\n\n// Set value\n_____ = 90;\n\n// Print\nConsole.WriteLine(scores[1]);",
+      "expectedOutput": "90",
+      "outputPattern": "90",
+      "requiredStrings": [
+        "int[] scores",
+        "scores[1]"
+      ]
+    },
+    {
+      "id": "csharp-arrays-b-07",
+      "type": "scored",
+      "prompt": "What does Array.Length return?",
+      "options": [
+        "The last index",
+        "The total number of elements",
+        "The size in bytes",
+        "The rank of the array"
+      ],
+      "answerIndex": 1,
+      "explanation": "Length returns the total number of elements in all dimensions of the array."
+    },
+    {
+      "id": "csharp-arrays-b-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: for (int i = 0; i < _____.Length; i++) { Console.WriteLine(arr[i]); }",
+      "template": "for (int i = 0; i < _____.Length; i++) { Console.WriteLine(arr[i]); }",
+      "options": [
+        "ARR",
+        "Arr",
+        "arr",
+        "arrs"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-arrays-b-09",
+      "type": "dragorder",
+      "prompt": "Arrange these array operations in a typical workflow.",
+      "items": [
+        "Declare array",
+        "Assign values",
+        "Access element",
+        "Modify element",
+        "Print result"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-arrays-b-10",
+      "type": "scored",
+      "prompt": "Are C# arrays fixed in size after creation?",
+      "options": [
+        "Yes, size cannot change",
+        "No, use Resize()",
+        "Only string arrays are fixed",
+        "Depends on the compiler"
+      ],
+      "answerIndex": 0,
+      "explanation": "Standard C# arrays have a fixed length. To change size, create a new array or use a List<T>."
+    }
+  ]
+}

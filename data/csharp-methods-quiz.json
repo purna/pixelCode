@@ -1,0 +1,146 @@
+{
+  "meta": {
+    "section": "csharp-methods",
+    "level": "beginner",
+    "title": "C# Methods"
+  },
+  "questions": [
+    {
+      "id": "csharp-methods-01",
+      "type": "scored",
+      "prompt": "Which keyword defines a method in C#?",
+      "options": [
+        "function",
+        "method",
+        "void",
+        "None of these"
+      ],
+      "answerIndex": 3,
+      "explanation": "C# uses the method syntax directly without a special keyword like 'function'."
+    },
+    {
+      "id": "csharp-methods-02",
+      "type": "scored",
+      "prompt": "What does the void keyword indicate?",
+      "options": [
+        "The method returns nothing",
+        "The method is private",
+        "The method is static",
+        "The method has no parameters"
+      ],
+      "answerIndex": 0,
+      "explanation": "void means the method does not return a value."
+    },
+    {
+      "id": "csharp-methods-03",
+      "type": "insert",
+      "prompt": "Complete the method header",
+      "template": "______ (int a, int b)",
+      "options": [
+        "INT ADD",
+        "Int add",
+        "int Adds",
+        "int Add"
+      ],
+      "answerIndex": 3
+    },
+    {
+      "id": "csharp-methods-04",
+      "type": "dragorder",
+      "prompt": "Arrange the method definition parts",
+      "items": [
+        "Access modifier",
+        "Return type",
+        "Method name",
+        "Parameters",
+        "Body"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "explanation": "Method syntax order: access modifier, return type, name, parameters, body."
+    },
+    {
+      "id": "csharp-methods-05",
+      "type": "scored",
+      "prompt": "How do you call a method named Calculate that takes two ints?",
+      "options": [
+        "Calculate(5, 10);",
+        "call Calculate(5, 10);",
+        "Calculate[5, 10];",
+        "run Calculate(5, 10);"
+      ],
+      "answerIndex": 0,
+      "explanation": "Methods are called by name followed by parentheses with arguments."
+    },
+    {
+      "id": "csharp-methods-06",
+      "type": "coderunner",
+      "prompt": "Write a method called Greet that prints 'Hello World'",
+      "starterCode": "______ Greet()\n{\n    Console.WriteLine(\"Hello World\");\n}\n\n// Call the method\n______();",
+      "expectedOutput": "Hello World\n",
+      "outputPattern": "^Hello World\\n$",
+      "requiredStrings": [
+        "string",
+        "Greet()",
+        "Greet()"
+      ]
+    },
+    {
+      "id": "csharp-methods-07",
+      "type": "scored",
+      "prompt": "What is the method body enclosed in?",
+      "options": [
+        "[]",
+        "{}",
+        "()",
+        "<>"
+      ],
+      "answerIndex": 1,
+      "explanation": "Method bodies are enclosed in curly braces {}."
+    },
+    {
+      "id": "csharp-methods-08",
+      "type": "scored",
+      "prompt": "Which part of a method specifies what it gives back?",
+      "options": [
+        "Method name",
+        "Parameter list",
+        "Return type",
+        "Access modifier"
+      ],
+      "answerIndex": 2,
+      "explanation": "The return type (before the method name) specifies what the method returns."
+    },
+    {
+      "id": "csharp-methods-09",
+      "type": "insert",
+      "prompt": "Complete the method call",
+      "template": "______(\"Welcome\");",
+      "options": [
+        "Displaymessage",
+        "DISPLAYMESSAGE",
+        "DisplayMessage",
+        "DisplayMessages"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-methods-10",
+      "type": "scored",
+      "prompt": "Can a method have the same name as a variable?",
+      "options": [
+        "Yes, always",
+        "No, it is an error",
+        "Only if static",
+        "Only if in different classes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Method names and variable names in the same scope must be unique."
+    }
+  ]
+}

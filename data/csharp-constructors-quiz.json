@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "section": "csharp-constructors",
+    "level": "intermediate",
+    "title": "C# Constructors"
+  },
+  "questions": [
+    {
+      "id": "csharp-constructors-01",
+      "type": "scored",
+      "prompt": "Which statement about constructors is correct?",
+      "options": [
+        "A constructor must always have a return type of void.",
+        "A constructor is called automatically when an object is created.",
+        "A constructor must have the same name as the class in lowercase.",
+        "A constructor can return a value using the return statement."
+      ],
+      "answerIndex": 1,
+      "explanation": "A constructor is a special method that runs automatically when an instance of a class is created. It has no return type\u2014not even void\u2014and its name must match the class name exactly with the same casing."
+    },
+    {
+      "id": "csharp-constructors-02",
+      "type": "typing",
+      "prompt": "Complete the default constructor for the Person class. The body should contain just a comment.",
+      "blanks": [
+        "public Person()"
+      ],
+      "template": "_____ {\n    // Default constructor\n}"
+    },
+    {
+      "id": "csharp-constructors-03",
+      "type": "dragorder",
+      "prompt": "Arrange these constructor declarations in the order they are typically defined: default constructor first, then parameterized constructor.",
+      "items": [
+        "public Person(string name, int age) { Name = name; Age = age; }",
+        "public Person() { Name = \"Unknown\"; Age = 0; }"
+      ],
+      "solution": [
+        1,
+        0
+      ]
+    },
+    {
+      "id": "csharp-constructors-04",
+      "type": "coderunner",
+      "prompt": "Given the class below, which line uses 'this' to distinguish a constructor parameter from a class field? Run the code and verify the output.",
+      "starterCode": "public class Product\n{\n    public string Name;\n    public decimal Price;\n\n    public Product(string name, decimal price)\n    {\n        Name = name;\n        Price = price;\n    }\n}\n\nvar p = new Product(\"Widget\", 9.99m);\nConsole.WriteLine($\"{p.Name} - {p.Price:C}\");",
+      "expectedOutput": "Widget - $9.99",
+      "outputPattern": "Widget - \\$9\\.99",
+      "requiredStrings": [
+        "this.Name",
+        "this.Price"
+      ]
+    },
+    {
+      "id": "csharp-constructors-05",
+      "type": "scored",
+      "prompt": "What is the output of the following code?",
+      "options": [
+        "Alice",
+        "Bob",
+        "Charlie",
+        "Compilation error"
+      ],
+      "answerIndex": 2,
+      "explanation": "The default constructor sets name to \"Alice\". The parameterized constructor uses 'this(name, age)' to chain to another constructor that sets name to \"Charlie\". The last assignment in the chain wins: \"Charlie\".\n\npublic class Person { string name = \"Alice\"; public Person() {} public Person(string name) { this.name = name; Console.WriteLine(this.name); } public Person(string name, int age) : this(name) { name = \"Bob\"; } }\nvar p = new Person(\"Charlie\");"
+    },
+    {
+      "id": "csharp-constructors-06",
+      "type": "insert",
+      "prompt": "Fill in the blank to chain to the default constructor using the 'this' keyword.",
+      "template": "public Person(string name, int age) : _____ {\n    Name = name;\n    Age = age;\n}",
+      "options": [
+        "this()3",
+        "this()",
+        "this()2",
+        "this()s"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-constructors-07",
+      "type": "scored",
+      "prompt": "Which statement about static constructors is true?",
+      "options": [
+        "A static constructor can have parameters.",
+        "A static constructor is called every time an object is created.",
+        "A static constructor is called once per type, before any instance is created or static members are accessed.",
+        "A static constructor must be public."
+      ],
+      "answerIndex": 2,
+      "explanation": "A static constructor runs exactly once per type, automatically, before the type's first use\u2014whether that is creating an instance, accessing a static field, or invoking a static method. It takes no parameters and has no access modifiers."
+    },
+    {
+      "id": "csharp-constructors-08",
+      "type": "typing",
+      "prompt": "Complete the constructor so it accepts a person's name and age, assigning both to the class fields.",
+      "blanks": [
+        "string",
+        "int",
+        "this.Name = name",
+        "this.Age = age"
+      ],
+      "template": "public Person(_____ name, _____ age)\n{\n    _____;\n    _____;\n}"
+    },
+    {
+      "id": "csharp-constructors-09",
+      "type": "dragorder",
+      "prompt": "Arrange in execution order: which constructor body runs first when 'new Derived()' is called?",
+      "items": [
+        "Base class constructor body",
+        "Derived class constructor body",
+        "Field initializers in derived class",
+        "Field initializers in base class"
+      ],
+      "solution": [
+        3,
+        0,
+        2,
+        1
+      ]
+    },
+    {
+      "id": "csharp-constructors-10",
+      "type": "coderunner",
+      "prompt": "Write a parameterized constructor that uses 'this' to avoid name shadowing, then verify the output.",
+      "starterCode": "public class Book\n{\n    public string Title;\n    public string Author;\n\n    // Add a parameterized constructor here using 'this' for disambiguation\n}\n\nvar b = new Book(\"1984\", \"Orwell\");\nConsole.WriteLine(b.Title + \" by \" + b.Author);",
+      "expectedOutput": "1984 by Orwell",
+      "outputPattern": "1984 by Orwell",
+      "requiredStrings": [
+        "public Book("
+      ]
+    }
+  ]
+}

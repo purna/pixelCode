@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "section": "csharp-comments",
+    "level": "beginner",
+    "title": "C# Comments"
+  },
+  "questions": [
+    {
+      "id": "csharp-comments-b-01",
+      "type": "scored",
+      "prompt": "How do you start a single-line comment in C#?",
+      "options": [
+        "#",
+        "//",
+        "<!--",
+        "/*"
+      ],
+      "answerIndex": 1,
+      "explanation": "Single-line comments begin with // and continue to the end of the line."
+    },
+    {
+      "id": "csharp-comments-b-02",
+      "type": "scored",
+      "prompt": "Which symbols are used for a multi-line (block) comment?",
+      "options": [
+        "// and //",
+        "/* and */",
+        "# and #",
+        "<!-- and -->"
+      ],
+      "answerIndex": 1,
+      "explanation": "Block comments are enclosed between /* and */ and can span multiple lines."
+    },
+    {
+      "id": "csharp-comments-b-03",
+      "type": "insert",
+      "prompt": "Fill in the blank to start a single-line comment",
+      "template": "______ This is a comment",
+      "options": [
+        "//",
+        "//3",
+        "//",
+        "//s"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-comments-b-04",
+      "type": "scored",
+      "prompt": "What is the purpose of /// comments?",
+      "options": [
+        "To hide code",
+        "To generate XML documentation",
+        "To print messages",
+        "To import namespaces"
+      ],
+      "answerIndex": 1,
+      "explanation": "/// comments produce XML documentation that tools like IntelliSense can display."
+    },
+    {
+      "id": "csharp-comments-b-05",
+      "type": "coderunner",
+      "prompt": "Add a single-line comment that says 'debug' and still print Done",
+      "starterCode": "using System;\nclass Program\n{\n    static void Main()\n    {\n        ______\n        Console.WriteLine(\"Done\");\n    }\n}",
+      "expectedOutput": "Done\n",
+      "outputPattern": "^Done\\n$",
+      "requiredStrings": [
+        "//"
+      ]
+    },
+    {
+      "id": "csharp-comments-b-06",
+      "type": "scored",
+      "prompt": "Are comments executed by the compiler?",
+      "options": [
+        "Yes",
+        "No, they are ignored",
+        "Only block comments",
+        "Only XML comments"
+      ],
+      "answerIndex": 1,
+      "explanation": "Comments are completely ignored by the compiler and do not affect execution."
+    },
+    {
+      "id": "csharp-comments-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange the lines of a multi-line comment",
+      "items": [
+        "/*",
+        "Line 1",
+        "Line 2",
+        "*/"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Open with /*, write the content, then close with */."
+    },
+    {
+      "id": "csharp-comments-b-08",
+      "type": "scored",
+      "prompt": "Which XML doc tag describes a method parameter?",
+      "options": [
+        "<returns>",
+        "<param>",
+        "<summary>",
+        "<see>"
+      ],
+      "answerIndex": 1,
+      "explanation": "<param name=\"x\"> documents a method parameter. <returns> documents the return value."
+    },
+    {
+      "id": "csharp-comments-b-09",
+      "type": "insert",
+      "prompt": "Fill in the blank to start an XML documentation comment",
+      "template": "______ <summary>Greets the user</summary>",
+      "options": [
+        "///",
+        "///s",
+        "///3",
+        "///"
+      ],
+      "answerIndex": 0
+    },
+    {
+      "id": "csharp-comments-b-10",
+      "type": "scored",
+      "prompt": "What is a common use of comments?",
+      "options": [
+        "Storing user data",
+        "Explaining code logic and leaving notes",
+        "Creating variables",
+        "Running queries"
+      ],
+      "answerIndex": 1,
+      "explanation": "Comments explain why code exists, leave TODOs, and improve maintainability."
+    }
+  ]
+}

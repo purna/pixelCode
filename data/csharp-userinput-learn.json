@@ -1,0 +1,220 @@
+{
+  "section": "csharp-userinput",
+  "title": "C# User Input",
+  "slides": [
+    {
+      "title": "Reading Input",
+      "content": "Console.ReadLine reads text input from the user. It pauses execution until the user presses Enter, then returns the entered text as a string.",
+      "example": "Console.Write(\"Enter your name: \");\nstring name = Console.ReadLine();\nConsole.WriteLine(\"Hello, \" + name);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What method reads a line of text from the console?",
+        "placeholder": "_____",
+        "answer": "Console.ReadLine",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Prompting Users",
+      "content": "Always prompt the user before calling ReadLine so they know what to enter. Use Console.Write to keep the cursor on the same line as the prompt.",
+      "example": "Console.Write(\"Enter age: \");\nstring input = Console.ReadLine();",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method keeps the cursor on the same line as your prompt?",
+        "options": [
+          "Console.WriteLine",
+          "Console.Write",
+          "Console.ReadLine",
+          "Console.Input"
+        ],
+        "answer": "Console.Write"
+      }
+    },
+    {
+      "title": "Parsing Input",
+      "content": "Since ReadLine returns a string, use int.Parse, double.Parse, or Convert methods to convert the input to numeric types.",
+      "example": "Console.Write(\"Enter price: \");\nstring s = Console.ReadLine();\ndouble price = double.Parse(s);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the parsing code.",
+        "before": "string s = Console.ReadLine();\nint n = ",
+        "after": "(\"42\");",
+        "options": [
+          "int.Parse",
+          "Parse.int",
+          "(int)s",
+          "Convert.ToInt32"
+        ],
+        "answer": "int.Parse"
+      }
+    },
+    {
+      "title": "Safe Parsing with TryParse",
+      "content": "TryParse attempts to convert a string and returns a boolean. It is safer than Parse because it does not throw exceptions on invalid input.",
+      "example": "Console.Write(\"Enter a number: \");\nstring input = Console.ReadLine();\nif (int.TryParse(input, out int num)) {\n    Console.WriteLine(num);\n}",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "What does int.TryParse return on success?",
+        "options": [
+          "The parsed number",
+          "true",
+          "false",
+          "null"
+        ],
+        "answer": "true"
+      }
+    },
+    {
+      "title": "Combining Input and Output",
+      "content": "Real programs combine prompts, input, parsing, and output. Chain these steps to build interactive console applications.",
+      "example": "Console.Write(\"Enter radius: \");\ndouble r = double.Parse(Console.ReadLine());\ndouble area = Math.PI * r * r;\nConsole.WriteLine(area);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "fillblank",
+        "prompt": "What does Console.ReadLine return?",
+        "placeholder": "_____",
+        "answer": "string",
+        "caseSensitive": false
+      }
+    },
+    {
+      "title": "Reading Multiple Inputs",
+      "content": "You can read multiple values by calling ReadLine multiple times or by reading one line and splitting it into parts.",
+      "example": "Console.Write(\"Enter x and y: \");\nstring line = Console.ReadLine();\nstring[] parts = line.Split(' ');\nint x = int.Parse(parts[0]);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "dragdrop",
+        "prompt": "Complete the split and parse sequence.",
+        "before": "string[] parts = line.Split(' ');\nint x = ",
+        "after": "(parts[0]);",
+        "options": [
+          "int.Parse",
+          "Parse.int",
+          "(int)parts[0]",
+          "Convert.ToInt32"
+        ],
+        "answer": "int.Parse"
+      }
+    },
+    {
+      "title": "Converting Input Types",
+      "content": "Use Parse, TryParse, or Convert classes to turn string input into the desired type. Choose based on whether you need exception handling or safe failure.",
+      "example": "int a = int.Parse(s);\nint b = Convert.ToInt32(s);\nint c; bool ok = int.TryParse(s, out c);",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "multiplechoice",
+        "prompt": "Which method does NOT throw on invalid input?",
+        "options": [
+          "int.Parse",
+          "Convert.ToInt32",
+          "int.TryParse",
+          "(int)"
+        ],
+        "answer": "int.TryParse"
+      }
+    },
+    {
+      "title": "Practice: User Input",
+      "content": "Build a small program that asks for a user's birth year, calculates their age, and prints it. Use int.Parse and arithmetic.",
+      "example": "int currentYear = 2024;\nint birthYear = int.Parse(Console.ReadLine());\nint age = currentYear - birthYear;\nConsole.WriteLine(age);",
+      "exampleOutput": "30",
+      "exercise": {
+        "type": "code",
+        "prompt": "Prompt for a number, parse it, add 10, and print the result.",
+        "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Prompt, read, parse, add 10, print\n        \n    }\n}",
+        "expectedOutput": "",
+        "outputPattern": "",
+        "requiredStrings": [
+          "Parse",
+          "Cast"
+        ],
+        "hints": [
+          "Make sure your code includes the required keywords/elements: Parse, Cast",
+          "Check that your code uses the required keywords listed in the exercise."
+        ]
+      }
+    },
+    {
+      "title": "Flow Builder: Input and Output",
+      "content": "Use the Flow Builder to read a value and print it back out.",
+      "example": "",
+      "exampleOutput": "",
+      "exercise": {
+        "type": "flowbuilder",
+        "prompt": "Build a flow that inputs an Integer into x and outputs x",
+        "flow": {
+          "flow": [
+            {
+              "id": "n1",
+              "kind": "declare",
+              "name": "x",
+              "dataType": "Integer",
+              "structure": "Scalar",
+              "size": "5"
+            },
+            {
+              "id": "n2",
+              "kind": "input",
+              "variable": "x",
+              "dataType": "Integer",
+              "testValue": "0"
+            },
+            {
+              "id": "n3",
+              "kind": "output",
+              "expression": "x",
+              "newline": true
+            }
+          ],
+          "selectedId": null
+        },
+        "expectedCode": "int x;\nx = inputValue();\noutput(x);",
+        "blocksToShow": [
+          "declare",
+          "input",
+          "output"
+        ],
+        "flowExample": {
+          "name": "If-Else",
+          "flow": {
+            "flow": [
+              {
+                "id": "ex1",
+                "kind": "declare",
+                "name": "score",
+                "dataType": "Integer",
+                "structure": "Scalar",
+                "size": "5"
+              },
+              {
+                "id": "ex2",
+                "kind": "input",
+                "variable": "score",
+                "dataType": "Integer",
+                "testValue": "75"
+              },
+              {
+                "id": "ex3",
+                "kind": "if",
+                "condition": "score >= 60",
+                "body": [
+                  {
+                    "id": "ex4",
+                    "kind": "output",
+                    "expression": "\"Pass\"",
+                    "newline": true
+                  }
+                ]
+              }
+            ],
+            "selectedId": null
+          }
+        }
+      }
+    }
+  ]
+}

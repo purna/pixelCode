@@ -1,0 +1,135 @@
+{
+  "meta": {
+    "section": "csharp-arrays-multi",
+    "level": "intermediate",
+    "title": "Multidimensional Arrays Quiz C"
+  },
+  "questions": [
+    {
+      "id": "csharp-arrays-multi-c-01",
+      "type": "scored",
+      "prompt": "What is the rank of int[,]?",
+      "options": [
+        "1",
+        "2",
+        "3",
+        "Variable"
+      ],
+      "answerIndex": 1,
+      "explanation": "The rank is the number of dimensions. int[,] has two dimensions, so its rank is 2."
+    },
+    {
+      "id": "csharp-arrays-multi-c-02",
+      "type": "typing",
+      "prompt": "Fill in the blank: int[,] table = _____ { {1,2}, {3,4} };",
+      "blanks": [
+        "new int[,]"
+      ],
+      "template": "int[,] table = _____ { {1,2}, {3,4} };"
+    },
+    {
+      "id": "csharp-arrays-multi-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange the steps for declaring and initializing a 2D array.",
+      "items": [
+        "Type with commas",
+        "new",
+        "Type",
+        "{ {values} }",
+        "Assign to variable"
+      ],
+      "solution": [
+        2,
+        0,
+        1,
+        3,
+        4
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-c-04",
+      "type": "scored",
+      "prompt": "Can jagged array rows have different lengths?",
+      "options": [
+        "No, all rows must match",
+        "Yes, that is the defining feature",
+        "Only if declared with new",
+        "Only for string jagged arrays"
+      ],
+      "answerIndex": 1,
+      "explanation": "Jagged arrays allow each row to have a different length, unlike rectangular 2D arrays."
+    },
+    {
+      "id": "csharp-arrays-multi-c-05",
+      "type": "typing",
+      "prompt": "Fill in the blank: int[][] arr = { new int[] {1,2}, new int[] {3,4, _____} };",
+      "blanks": [
+        "5"
+      ],
+      "template": "int[][] arr = { new int[] {1,2}, new int[] {3,4, _____} };"
+    },
+    {
+      "id": "csharp-arrays-multi-c-06",
+      "type": "coderunner",
+      "prompt": "Create a jagged array with two rows (lengths 2 and 3), set row 1 col 2 to 9, and print it.",
+      "starterCode": "int[][] jagged = new int[2][];\njagged[0] = new int[] { 1, 2 };\njagged[1] = new int[3];\n\n// Set value\n_____[1][2] = 9;\n\n// Print\nConsole.WriteLine(_____[1][2]);",
+      "expectedOutput": "9",
+      "outputPattern": "9",
+      "requiredStrings": [
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-c-07",
+      "type": "scored",
+      "prompt": "What does GetLength(1) return for a 2D array?",
+      "options": [
+        "Total elements",
+        "Number of rows",
+        "Number of columns",
+        "The second row length"
+      ],
+      "answerIndex": 2,
+      "explanation": "GetLength(0) returns the first dimension (rows), and GetLength(1) returns the second dimension (columns)."
+    },
+    {
+      "id": "csharp-arrays-multi-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank: for (int i = 0; i < matrix._____(0); i++) { ... }",
+      "blanks": [
+        "GetLength"
+      ],
+      "template": "for (int i = 0; i < matrix._____(0); i++) { ... }"
+    },
+    {
+      "id": "csharp-arrays-multi-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the nested loop structure for iterating a 2D array.",
+      "items": [
+        "Outer loop over rows",
+        "Inner loop over columns",
+        "Access matrix[i,j]",
+        "Print value"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-arrays-multi-c-10",
+      "type": "scored",
+      "prompt": "Are jagged arrays generally faster than rectangular 2D arrays?",
+      "options": [
+        "Yes, due to less memory overhead",
+        "No, 2D arrays are always faster",
+        "They are the same speed",
+        "It depends on the data type"
+      ],
+      "answerIndex": 0,
+      "explanation": "Jagged arrays can be faster because they avoid the row offset calculations used by rectangular 2D arrays."
+    }
+  ]
+}

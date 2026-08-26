@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-oop",
+    "level": "intermediate",
+    "title": "C# Object-Oriented Programming"
+  },
+  "questions": [
+    {
+      "id": "csharp-oop-c-01",
+      "type": "scored",
+      "prompt": "Objects are instances of:",
+      "options": [
+        "Namespaces",
+        "Classes",
+        "Methods",
+        "Interfaces only"
+      ],
+      "answerIndex": 1,
+      "explanation": "A class is a blueprint; objects are its instances."
+    },
+    {
+      "id": "csharp-oop-c-02",
+      "type": "scored",
+      "prompt": "Which keyword creates a new object at runtime?",
+      "options": [
+        "make",
+        "new",
+        "create",
+        "alloc"
+      ],
+      "answerIndex": 1,
+      "explanation": "The new operator instantiates a class."
+    },
+    {
+      "id": "csharp-oop-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to declare a method that returns nothing",
+      "blanks": [
+        "public void Run()"
+      ],
+      "template": "______ { }",
+      "explanation": "void indicates no return value."
+    },
+    {
+      "id": "csharp-oop-c-04",
+      "type": "scored",
+      "prompt": "Inheritance promotes:",
+      "options": [
+        "Code duplication",
+        "Code reuse",
+        "Slower code",
+        "No relationships"
+      ],
+      "answerIndex": 1,
+      "explanation": "Derived classes reuse base class behavior."
+    },
+    {
+      "id": "csharp-oop-c-05",
+      "type": "coderunner",
+      "prompt": "Define class BankAccount with public decimal Balance and Deposit(decimal a) adding to Balance, then deposit 50 and print Balance",
+      "starterCode": "using System;\nclass BankAccount {\n  public decimal Balance = 0;\n  public void Deposit(decimal a) { Balance += a; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "50\n",
+      "outputPattern": "^50\\n$",
+      "explanation": "Deposit 50 then print Balance.",
+      "requiredStrings": [
+        "new Dog()"
+      ]
+    },
+    {
+      "id": "csharp-oop-c-06",
+      "type": "scored",
+      "prompt": "A namespace is used to:",
+      "options": [
+        "Store data",
+        "Organize and avoid name conflicts",
+        "Compile faster",
+        "Encrypt code"
+      ],
+      "answerIndex": 1,
+      "explanation": "Namespaces group related types."
+    },
+    {
+      "id": "csharp-oop-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange to define a simple class with a field and method",
+      "items": [
+        "class Dog {",
+        "  public string Name;",
+        "  public void Bark() { }",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Standard class structure."
+    },
+    {
+      "id": "csharp-oop-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a field private",
+      "blanks": [
+        "private int age"
+      ],
+      "template": "______;",
+      "explanation": "private restricts access to the containing class."
+    },
+    {
+      "id": "csharp-oop-c-09",
+      "type": "scored",
+      "prompt": "The 'this' keyword refers to:",
+      "options": [
+        "The base class",
+        "The current instance",
+        "A static field",
+        "The method name"
+      ],
+      "answerIndex": 1,
+      "explanation": "this references the current object instance."
+    },
+    {
+      "id": "csharp-oop-c-10",
+      "type": "coderunner",
+      "prompt": "Create class Greeter with method Hello(string n) returning 'Hello '+n, then print Hello('Lee')",
+      "starterCode": "using System;\nclass Greeter {\n  public string Hello(string n) { return \"Hello \" + n; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Hello Lee\n",
+      "outputPattern": "^Hello Lee\\n$",
+      "explanation": "Call Hello with 'Lee'.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

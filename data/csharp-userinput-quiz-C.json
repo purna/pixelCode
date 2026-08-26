@@ -1,0 +1,148 @@
+{
+  "meta": {
+    "section": "csharp-userinput",
+    "level": "beginner",
+    "title": "C# User Input C"
+  },
+  "questions": [
+    {
+      "id": "userinput-c-01",
+      "type": "scored",
+      "prompt": "Which class provides console input methods?",
+      "options": [
+        "Console",
+        "Input",
+        "System.IO",
+        "TextReader"
+      ],
+      "answerIndex": 0,
+      "explanation": "The Console class in the System namespace provides Read, ReadLine, and ReadKey methods."
+    },
+    {
+      "id": "userinput-c-02",
+      "type": "insert",
+      "prompt": "What parameter does int.TryParse take for the output variable?",
+      "template": "int.TryParse(input, _____ int result);",
+      "options": [
+        "OUT",
+        "Out",
+        "out",
+        "outs"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "userinput-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these to print two prompts and read two inputs.",
+      "items": [
+        "Console.Write(\"First: \");",
+        "string a = Console.ReadLine();",
+        "Console.Write(\"Second: \");",
+        "string b = Console.ReadLine();"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Prompt before each ReadLine call so the user knows what to enter."
+    },
+    {
+      "id": "userinput-c-04",
+      "type": "scored",
+      "prompt": "Why use Convert.ToInt32 instead of int.Parse?",
+      "options": [
+        "It is faster",
+        "It handles null by returning 0",
+        "It is shorter",
+        "It doesn't need using System"
+      ],
+      "answerIndex": 1,
+      "explanation": "Convert.ToInt32 returns 0 for null input instead of throwing an exception."
+    },
+    {
+      "id": "userinput-c-05",
+      "type": "coderunner",
+      "prompt": "Read two integers and print their sum.",
+      "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Read a, read b, print sum\n        \n    }\n}",
+      "expectedOutput": "8\n",
+      "outputPattern": "^8\\n$",
+      "requiredStrings": [
+        "ReadLine",
+        "Console.WriteLine"
+      ]
+    },
+    {
+      "id": "userinput-c-06",
+      "type": "scored",
+      "prompt": "What does Console.ReadKey() return?",
+      "options": [
+        "string",
+        "char",
+        "ConsoleKeyInfo",
+        "int"
+      ],
+      "answerIndex": 2,
+      "explanation": "Console.ReadKey returns a ConsoleKeyInfo object containing key, modifier, and character info."
+    },
+    {
+      "id": "userinput-c-07",
+      "type": "insert",
+      "prompt": "What is the namespace for Console?",
+      "template": "using _____;",
+      "options": [
+        "Systems",
+        "SYSTEM",
+        "System",
+        "System"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "userinput-c-08",
+      "type": "scored",
+      "prompt": "Which parsing method is safest for invalid user input?",
+      "options": [
+        "int.Parse",
+        "Convert.ToInt32",
+        "int.TryParse",
+        "(int)"
+      ],
+      "answerIndex": 2,
+      "explanation": "int.TryParse is safest because it returns false instead of throwing on invalid input."
+    },
+    {
+      "id": "userinput-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the safe read-parse-use pattern.",
+      "items": [
+        "Read input",
+        "TryParse",
+        "Check bool result",
+        "Use value"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Always validate input with TryParse before trusting the value."
+    },
+    {
+      "id": "userinput-c-10",
+      "type": "scored",
+      "prompt": "What happens if you press Enter without typing anything?",
+      "options": [
+        "ReadLine returns \"\"",
+        "ReadLine returns null",
+        "ReadLine throws",
+        "ReadLine waits forever"
+      ],
+      "answerIndex": 0,
+      "explanation": "Console.ReadLine returns an empty string when the user presses Enter without typing anything."
+    }
+  ]
+}

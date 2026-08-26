@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "section": "csharp-interfaces",
+    "level": "expert",
+    "title": "C# Interfaces"
+  },
+  "questions": [
+    {
+      "id": "csharp-interfaces-c-01",
+      "type": "scored",
+      "prompt": "An interface can extend other interfaces using:",
+      "options": [
+        ": IBase",
+        "extends IBase",
+        "inherits IBase",
+        "uses IBase"
+      ],
+      "answerIndex": 0,
+      "explanation": "Interfaces compose via the colon too."
+    },
+    {
+      "id": "csharp-interfaces-c-02",
+      "type": "scored",
+      "prompt": "Generic interfaces such as IEnumerable<T> enable:",
+      "options": [
+        "Strongly typed enumeration",
+        "Only arrays",
+        "No typing",
+        "Static only"
+      ],
+      "answerIndex": 0,
+      "explanation": "Generic interfaces provide typed contracts."
+    },
+    {
+      "id": "csharp-interfaces-c-03",
+      "type": "typing",
+      "prompt": "Fill in the blank for a generic interface",
+      "blanks": [
+        "interface IRepository<T> { T Get(int id); }"
+      ],
+      "template": "______",
+      "explanation": "Generic parameter T makes it reusable."
+    },
+    {
+      "id": "csharp-interfaces-c-04",
+      "type": "scored",
+      "prompt": "A struct can implement interfaces:",
+      "options": [
+        "No",
+        "Yes",
+        "Only abstract ones",
+        "Only static ones"
+      ],
+      "answerIndex": 1,
+      "explanation": "Value types can implement interfaces."
+    },
+    {
+      "id": "csharp-interfaces-c-05",
+      "type": "coderunner",
+      "prompt": "Create interface IName { string Name(); } and class Person:IName { public string N; public string Name(){return N;} }, print new Person(){N=\"Al\"}.Name()",
+      "starterCode": "using System;\ninterface IName { string Name(); }\nclass Person : IName { public string N; public string Name() { return N; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "Al\n",
+      "outputPattern": "^Al\\n$",
+      "explanation": "Implementing Name returns N.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-interfaces-c-06",
+      "type": "scored",
+      "prompt": "Covariance (out T) is used with interfaces to allow:",
+      "options": [
+        "Wider return types",
+        "Narrower parameter types",
+        "Static methods",
+        "Sealing"
+      ],
+      "answerIndex": 0,
+      "explanation": "out enables returning more derived types."
+    },
+    {
+      "id": "csharp-interfaces-c-07",
+      "type": "dragorder",
+      "prompt": "Arrange a generic interface and implementation",
+      "items": [
+        "interface IBox<T> { T Value { get; } }",
+        "class IntBox : IBox<int> {",
+        "  public int Value => 1;",
+        "}"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "IntBox closes the generic with int."
+    },
+    {
+      "id": "csharp-interfaces-c-08",
+      "type": "typing",
+      "prompt": "Fill in the blank for an interface with a default method",
+      "blanks": [
+        "interface ILog { void Write(); default void Trace(){Write();} }"
+      ],
+      "template": "______",
+      "explanation": "default provides a body."
+    },
+    {
+      "id": "csharp-interfaces-c-09",
+      "type": "scored",
+      "prompt": "To call an explicitly implemented interface member, you typically:",
+      "options": [
+        "Call it publicly",
+        "Cast to the interface type",
+        "Use base",
+        "Cannot call it"
+      ],
+      "answerIndex": 1,
+      "explanation": "Explicit members are reached via the interface reference."
+    },
+    {
+      "id": "csharp-interfaces-c-10",
+      "type": "coderunner",
+      "prompt": "Create interface IMath { int Apply(int x); } and Doubler:IMath { public int Apply(int x){return x*2;} }, then print new Doubler().Apply(21)",
+      "starterCode": "using System;\ninterface IMath { int Apply(int x); }\nclass Doubler : IMath { public int Apply(int x) { return x * 2; } }\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "42\n",
+      "outputPattern": "^42\\n$",
+      "explanation": "Apply doubles the input.",
+      "requiredStrings": [
+        "class"
+      ]
+    }
+  ]
+}

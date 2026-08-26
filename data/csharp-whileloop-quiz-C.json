@@ -1,0 +1,151 @@
+{
+  "meta": {
+    "section": "csharp-whileloop",
+    "level": "beginner",
+    "title": "While Loops Quiz C"
+  },
+  "questions": [
+    {
+      "id": "csharp-whileloop-c-01",
+      "type": "scored",
+      "prompt": "What is the correct syntax for a while loop?",
+      "options": [
+        "while condition { }",
+        "while (condition) { }",
+        "while { condition }",
+        "loop while condition"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# requires parentheses around the condition: while (condition) { }."
+    },
+    {
+      "id": "csharp-whileloop-c-02",
+      "type": "insert",
+      "prompt": "Fill in the blank: int count = 0; _____ (count < 3) { Console.WriteLine(count); count++; }",
+      "template": "int count = 0; _____ (count < 3) { Console.WriteLine(count); count++; }",
+      "options": [
+        "If",
+        "while",
+        "whle",
+        "IF"
+      ],
+      "answerIndex": 1
+    },
+    {
+      "id": "csharp-whileloop-c-03",
+      "type": "dragorder",
+      "prompt": "Arrange these steps in the order a while loop executes.",
+      "items": [
+        "Initialize variable",
+        "Check condition",
+        "Run body",
+        "Update variable"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "id": "csharp-whileloop-c-04",
+      "type": "scored",
+      "prompt": "Which loop checks the condition after the body executes?",
+      "options": [
+        "while",
+        "for",
+        "do-while",
+        "foreach"
+      ],
+      "answerIndex": 2,
+      "explanation": "The do-while loop is a post-test loop; it checks the condition after running the body."
+    },
+    {
+      "id": "csharp-whileloop-c-05",
+      "type": "insert",
+      "prompt": "Fill in the blank: _____ { Console.WriteLine(\"Hi\"); } while (true);",
+      "template": "_____ { Console.WriteLine(\"Hi\"); } while (true);",
+      "options": [
+        "DO",
+        "dos",
+        "do",
+        "Do"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-whileloop-c-06",
+      "type": "coderunner",
+      "prompt": "Write a while loop that counts down from 3 to 1 and prints each number on a new line.",
+      "starterCode": "int i = 3;\n// Write your while loop here",
+      "expectedOutput": "3\n2\n1",
+      "outputPattern": "3\\s*2\\s*1",
+      "requiredStrings": [
+        "while"
+      ]
+    },
+    {
+      "id": "csharp-whileloop-c-07",
+      "type": "scored",
+      "prompt": "What happens if the while condition is false on the first check?",
+      "options": [
+        "The body runs once anyway",
+        "The body never runs",
+        "The program crashes",
+        "The condition is ignored"
+      ],
+      "answerIndex": 1,
+      "explanation": "Because while is a pre-test loop, if the condition is false initially, the loop body is skipped entirely."
+    },
+    {
+      "id": "csharp-whileloop-c-08",
+      "type": "insert",
+      "prompt": "Fill in the blank: int x = 5; _____ (x > 0) { x--; }",
+      "template": "int x = 5; _____ (x > 0) { x--; }",
+      "options": [
+        "whle",
+        "IF",
+        "while",
+        "If"
+      ],
+      "answerIndex": 2
+    },
+    {
+      "id": "csharp-whileloop-c-09",
+      "type": "dragorder",
+      "prompt": "Arrange the do-while syntax pieces in the correct order.",
+      "items": [
+        "do",
+        "{",
+        "// body",
+        "}",
+        "while",
+        "(condition)",
+        ";"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "id": "csharp-whileloop-c-10",
+      "type": "scored",
+      "prompt": "Can a while loop have an empty condition expression?",
+      "options": [
+        "Yes, it becomes an infinite loop",
+        "No, the compiler rejects it",
+        "Yes, but only in debug mode",
+        "No, unless while(true) is used"
+      ],
+      "answerIndex": 1,
+      "explanation": "C# requires a boolean expression inside the parentheses. while(true) is the idiomatic way to write an infinite loop."
+    }
+  ]
+}

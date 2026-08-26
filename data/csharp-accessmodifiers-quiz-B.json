@@ -1,0 +1,139 @@
+{
+  "meta": {
+    "section": "csharp-accessmodifiers",
+    "level": "intermediate",
+    "title": "C# Access Modifiers"
+  },
+  "questions": [
+    {
+      "id": "csharp-accessmodifiers-b-01",
+      "type": "scored",
+      "prompt": "Which modifier makes a member accessible from any code?",
+      "options": [
+        "private",
+        "protected",
+        "public",
+        "internal"
+      ],
+      "answerIndex": 2,
+      "explanation": "public has no accessibility restrictions."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-02",
+      "type": "scored",
+      "prompt": "internal restricts access to:",
+      "options": [
+        "The same class",
+        "The same assembly",
+        "Derived classes only",
+        "Nothing"
+      ],
+      "answerIndex": 1,
+      "explanation": "internal limits visibility to the current assembly."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-03",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a field accessible only within its class",
+      "blanks": [
+        "private int secret"
+      ],
+      "template": "______;",
+      "explanation": "private is the most restrictive member access."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-04",
+      "type": "scored",
+      "prompt": "protected members are accessible to:",
+      "options": [
+        "Only the class",
+        "The class and its derived classes",
+        "All assemblies",
+        "No one"
+      ],
+      "answerIndex": 1,
+      "explanation": "protected spans the type and its subtypes."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-05",
+      "type": "coderunner",
+      "prompt": "Define class Safe with private int Code=1234 and public bool Check(int c) returning c==Code, then print Check(1234)",
+      "starterCode": "using System;\nclass Safe {\n  private int Code = 1234;\n  public bool Check(int c) { return c == Code; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "True\n",
+      "outputPattern": "^True\\n$",
+      "explanation": "Public method reads private field.",
+      "requiredStrings": [
+        "class"
+      ]
+    },
+    {
+      "id": "csharp-accessmodifiers-b-06",
+      "type": "scored",
+      "prompt": "protected internal is accessible to:",
+      "options": [
+        "Only derived classes",
+        "Derived classes OR same assembly",
+        "Only same assembly",
+        "Everywhere"
+      ],
+      "answerIndex": 1,
+      "explanation": "It is the union of protected and internal."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-07",
+      "type": "dragorder",
+      "prompt": "Arrange from most to least restrictive typical modifiers",
+      "items": [
+        "private",
+        "protected",
+        "internal",
+        "public"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "private is most restrictive, public least."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-08",
+      "type": "typing",
+      "prompt": "Fill in the blank to make a member accessible in same assembly and derived classes anywhere",
+      "blanks": [
+        "protected internal int x"
+      ],
+      "template": "______;",
+      "explanation": "protected internal is the union of both."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-09",
+      "type": "scored",
+      "prompt": "private protected is accessible to:",
+      "options": [
+        "Everywhere",
+        "Derived classes within the same assembly",
+        "All assemblies",
+        "No one"
+      ],
+      "answerIndex": 1,
+      "explanation": "It is the intersection of private and protected."
+    },
+    {
+      "id": "csharp-accessmodifiers-b-10",
+      "type": "coderunner",
+      "prompt": "Define class Gate with internal int Open=1 and public int Get() returning Open, then print Get()",
+      "starterCode": "using System;\nclass Gate {\n  internal int Open = 1;\n  public int Get() { return Open; }\n}\nclass Program {\n  static void Main() {\n    ______\n  }\n}",
+      "expectedOutput": "1\n",
+      "outputPattern": "^1\\n$",
+      "explanation": "public method exposes internal field.",
+      "requiredStrings": [
+        "private",
+        "protected",
+        "internal",
+        "public"
+      ]
+    }
+  ]
+}
