@@ -9,7 +9,7 @@
     fetch(path)
       .then(function (res) {
         if (!res.ok) {
-          const fallbackPath = 'data/' + section + '-quiz.json';
+          const fallbackPath = 'data/' + section + '-quiz-A.json';
           return fetch(fallbackPath).then(function (r) {
             if (!r.ok) throw new Error('Could not load ' + path + ' or ' + fallbackPath);
             return r.json();
