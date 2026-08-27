@@ -6,7 +6,7 @@
   },
   "questions": [
     {
-      "id": "csharp-async-a-01",
+      "id": "csharp-async-01",
       "type": "scored",
       "prompt": "What does the async modifier allow in a method?",
       "options": [
@@ -19,7 +19,7 @@
       "explanation": "async enables the await operator inside a method."
     },
     {
-      "id": "csharp-async-a-02",
+      "id": "csharp-async-02",
       "type": "scored",
       "prompt": "Awaiting a Task<T> yields:",
       "options": [
@@ -32,7 +32,7 @@
       "explanation": "await unwraps Task<T> to its result T."
     },
     {
-      "id": "csharp-async-a-03",
+      "id": "csharp-async-03",
       "type": "insert",
       "prompt": "Complete the line to await the call.",
       "template": "string s = _____ DownloadAsync();",
@@ -46,7 +46,7 @@
       "explanation": "await waits for the Task and returns its result."
     },
     {
-      "id": "csharp-async-a-04",
+      "id": "csharp-async-04",
       "type": "typing",
       "prompt": "An async method returning no result has return type ______.",
       "template": "An async method returning no result has return type ______.",
@@ -56,7 +56,7 @@
       "explanation": "Use Task (not void) for async methods."
     },
     {
-      "id": "csharp-async-a-05",
+      "id": "csharp-async-05",
       "type": "scored",
       "prompt": "Which call risks a deadlock and should be avoided in async code?",
       "options": [
@@ -69,7 +69,7 @@
       "explanation": ".Result and .Wait() block the thread and can deadlock."
     },
     {
-      "id": "csharp-async-a-06",
+      "id": "csharp-async-06",
       "type": "dragorder",
       "prompt": "Arrange the await lifecycle in order:",
       "items": [
@@ -87,7 +87,7 @@
       "explanation": "A Task is returned, awaited, then the caller resumes."
     },
     {
-      "id": "csharp-async-a-07",
+      "id": "csharp-async-07",
       "type": "coderunner",
       "prompt": "Complete the code to wait 100ms, then print done.",
       "starterCode": "await Task.Delay(_____);\nConsole.WriteLine(\"done\");",
@@ -103,7 +103,7 @@
       ]
     },
     {
-      "id": "csharp-async-a-08",
+      "id": "csharp-async-08",
       "type": "scored",
       "prompt": "Which Main signature allows await?",
       "options": [

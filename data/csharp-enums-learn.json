@@ -6,7 +6,7 @@
       "title": "What is an Enum?",
       "content": "An enum (enumeration) is a distinct value type consisting of a set of named constants. It improves code readability by replacing magic numbers.",
       "example": "public enum Day { Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday }",
-      "exampleOutput": "",
+      "exampleOutput": "Enum definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What is the primary benefit of using enums?",
@@ -23,7 +23,7 @@
       "title": "Declaring Enums",
       "content": "Declare enums with the 'enum' keyword inside a namespace or class. By default, the first value is 0 and increments by 1.",
       "example": "public enum Priority\n{\n    Low = 1,\n    Medium = 2,\n    High = 3\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Enum definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete: public _____ Priority { Low, Medium, High }",
@@ -36,7 +36,7 @@
       "title": "Underlying Types",
       "content": "You can specify an underlying integral type after a colon: byte, short, int, long, etc. The default is int.",
       "example": "public enum SmallStatus : byte { Off = 0, On = 1 }",
-      "exampleOutput": "",
+      "exampleOutput": "Enum definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the enum declaration with the correct underlying type.",
@@ -55,7 +55,7 @@
       "title": "Casting Enums",
       "content": "Cast between enums and their underlying numeric types using standard C# casting syntax.",
       "example": "Priority p = Priority.High;\nint value = (int)p; // value = 3\nPriority p2 = (Priority)2; // p2 = Medium",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Cast the Color enum value Blue to its underlying integer and print it.",
@@ -76,7 +76,7 @@
       "title": "Enum.Parse and Enum.TryParse",
       "content": "Enum.Parse converts a string to an enum value. Enum.TryParse is safer, returning a bool indicating success.",
       "example": "string input = \"Medium\";\nif (Enum.TryParse<Priority>(input, out Priority result))\n{\n    Console.WriteLine(result);\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Medium",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which method safely parses a string to an enum without throwing?",
@@ -93,7 +93,7 @@
       "title": "Iterating Over Enums",
       "content": "Use Enum.GetValues() to iterate over all defined enum constants at runtime.",
       "example": "foreach (Day d in Enum.GetValues(typeof(Day)))\n{\n    Console.WriteLine(d);\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Sunday\nMonday\nTuesday\nWednesday\nThursday\nFriday\nSaturday",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete: foreach (Day d in _____) {}",
@@ -106,7 +106,7 @@
       "title": "Flags Enums",
       "content": "Mark an enum with [Flags] to treat values as bit fields, allowing combination of values using bitwise operators.",
       "example": "[Flags]\nenum Permissions { Read = 1, Write = 2, Execute = 4 }\n\nPermissions p = Permissions.Read | Permissions.Write;",
-      "exampleOutput": "",
+      "exampleOutput": "Enum definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Match the Flags enum values to their binary representations.",
@@ -125,7 +125,7 @@
       "title": "Enum Best Practices",
       "content": "Use enums for fixed sets of related constants. Avoid using enum values as strings directly; use ToString() for display and descriptions for user-friendly text.",
       "example": "public enum Status { Pending = 0, Approved = 1, Rejected = 2 }\n\n// Check with switch or pattern matching\nStatus current = Status.Approved;\nConsole.WriteLine(current switch { Status.Approved => \"Yes\", _ => \"No\" });",
-      "exampleOutput": "",
+      "exampleOutput": "Yes",
       "exercise": {
         "type": "code",
         "prompt": "Use a switch expression to convert Status.Rejected to the string \"Denied\" and print it.",

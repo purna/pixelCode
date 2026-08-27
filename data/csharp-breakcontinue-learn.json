@@ -121,7 +121,7 @@
       "title": "Best Practices",
       "content": "Use break when you have found what you need. Use continue to skip invalid data. Avoid overusing goto with labels.",
       "example": "for (int i = 0; i < data.Length; i++)\n{\n    if (data[i] == null) continue;\n    Process(data[i]);\n    if (data[i].IsLast) break;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Loop with no console output in this example.",
       "exercise": {
         "type": "code",
         "prompt": "Write a loop that prints 0-4 but stops at 3 using break",

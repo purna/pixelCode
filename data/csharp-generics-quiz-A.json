@@ -6,7 +6,7 @@
   },
   "questions": [
     {
-      "id": "csharp-generics-a-01",
+      "id": "csharp-generics-01",
       "type": "scored",
       "prompt": "What do generics give you?",
       "options": [
@@ -19,7 +19,7 @@
       "explanation": "Generics let one implementation work for many types with compile-time type safety."
     },
     {
-      "id": "csharp-generics-a-02",
+      "id": "csharp-generics-02",
       "type": "scored",
       "prompt": "A generic method's type parameter is:",
       "options": [
@@ -32,7 +32,7 @@
       "explanation": "The caller (or the compiler) supplies the type for T."
     },
     {
-      "id": "csharp-generics-a-03",
+      "id": "csharp-generics-03",
       "type": "insert",
       "prompt": "Complete the constraint.",
       "template": "void Process<T>(T item) where T : _____",
@@ -46,7 +46,7 @@
       "explanation": "where T : class requires a reference type."
     },
     {
-      "id": "csharp-generics-a-04",
+      "id": "csharp-generics-04",
       "type": "typing",
       "prompt": "The 'where' clause adds a _____ to a type parameter.",
       "template": "The 'where' clause adds a _____ to a type parameter.",
@@ -56,7 +56,7 @@
       "explanation": "Constraints restrict which types T can be."
     },
     {
-      "id": "csharp-generics-a-05",
+      "id": "csharp-generics-05",
       "type": "scored",
       "prompt": "The new() constraint requires T to:",
       "options": [
@@ -69,7 +69,7 @@
       "explanation": "new() lets you write new T() inside the method."
     },
     {
-      "id": "csharp-generics-a-06",
+      "id": "csharp-generics-06",
       "type": "dragorder",
       "prompt": "Arrange the steps to use a generic method:",
       "items": [
@@ -87,7 +87,7 @@
       "explanation": "The caller picks T; the compiler and JIT specialize the method."
     },
     {
-      "id": "csharp-generics-a-07",
+      "id": "csharp-generics-07",
       "type": "coderunner",
       "prompt": "Complete the method to return the default value of T.",
       "starterCode": "public static T GetDefault<T>()\n{\n  return _____;\n}",
@@ -102,7 +102,7 @@
       ]
     },
     {
-      "id": "csharp-generics-a-08",
+      "id": "csharp-generics-08",
       "type": "scored",
       "prompt": "default(T) returns null for:",
       "options": [

@@ -6,7 +6,7 @@
       "title": "What is an Interface?",
       "content": "An interface defines a contract: a set of members that implementing classes must provide. It contains only declarations, no implementation.",
       "example": "public interface IShape\n{\n    double Area();\n    void Draw();\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What does an interface define?",
@@ -23,7 +23,7 @@
       "title": "Declaring an Interface",
       "content": "Use the 'interface' keyword. By convention, interface names start with 'I'. Members are implicitly public and abstract.",
       "example": "public interface IPaymentProcessor\n{\n    void ProcessPayment(decimal amount);\n    bool Refund(string transactionId);\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete: public _____ IPaymentProcessor",
@@ -36,7 +36,7 @@
       "title": "Implementing an Interface",
       "content": "A class uses a colon to implement an interface and must provide implementations for all interface members.",
       "example": "public class StripeProcessor : IPaymentProcessor\n{\n    public void ProcessPayment(decimal amount)\n    {\n        Console.WriteLine($\"Charged {amount}\");\n    }\n\n    public bool Refund(string transactionId)\n    {\n        return true;\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition with a method that writes to the console; produces no output unless the method is invoked.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the class declaration to implement the interface.",
@@ -55,7 +55,7 @@
       "title": "Multiple Interfaces",
       "content": "A class can implement multiple interfaces separated by commas. This enables flexible composition of behaviors.",
       "example": "public class SmartDevice : IConnectable, IUpdatable, ITrackable\n{\n    public void Connect() { }\n    public void Update() { }\n    public void Track() { }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete: public class Printer : _____, _____",
@@ -68,7 +68,7 @@
       "title": "Interface Properties and Events",
       "content": "Interfaces can declare properties and events. Implementing classes must implement these members.",
       "example": "public interface ILogger\n{\n    string Name { get; set; }\n    event Action<string> OnMessageLogged;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which members can an interface declare?",
@@ -85,7 +85,7 @@
       "title": "Interface vs Abstract Class",
       "content": "Use interfaces for contracts across unrelated types. Use abstract classes for shared base behavior in a class hierarchy.",
       "example": "// Interface - unrelated types\npublic interface IFlyable { void Fly(); }\npublic class Bird : IFlyable { }\npublic class Airplane : IFlyable { }\n\n// Abstract class - related types\npublic abstract class Animal { public abstract void Speak(); }",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Match the scenario to the correct construct.",
@@ -104,7 +104,7 @@
       "title": "Explicit Interface Implementation",
       "content": "A class can explicitly implement an interface member, hiding it from the public API and requiring casting to access.",
       "example": "public interface ILogger { void Log(string msg); }\npublic class DualLogger : ILogger\n{\n    void ILogger.Log(string msg) => Console.WriteLine(msg);\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition with a method that writes to the console; produces no output unless the method is invoked.",
       "exercise": {
         "type": "code",
         "prompt": "Complete the explicit interface implementation so the Log method is only accessible via ILogger.",
@@ -124,7 +124,7 @@
       "title": "Interface Best Practices",
       "content": "Keep interfaces small and focused (Interface Segregation Principle). Name them clearly with the 'I' prefix. Prefer interfaces for dependency injection.",
       "example": "// Small, focused interfaces\npublic interface IRepository<T> { T Get(int id); void Add(T entity); }\npublic interface IUnitOfWork { void Commit(); }",
-      "exampleOutput": "",
+      "exampleOutput": "Interface definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which principle recommends keeping interfaces small and focused?",

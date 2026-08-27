@@ -6,7 +6,7 @@
       "title": "What Are Multi-Dimensional Arrays",
       "content": "Multi-dimensional arrays store data in a grid-like structure. A 2D array uses two indices: row and column.",
       "example": "int[,] matrix = new int[2, 3];",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "How many dimensions does int[,] have?",
@@ -23,7 +23,7 @@
       "title": "Declaring and Initializing 2D Arrays",
       "content": "You can declare a 2D array with new int[rows, cols] or initialize it with values directly.",
       "example": "int[,] grid = { {1, 2}, {3, 4} };",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete the declaration: int[,] board = new int[3, _____];",
@@ -36,7 +36,7 @@
       "title": "Accessing 2D Array Elements",
       "content": "Elements are accessed using two indices: matrix[row, col]. The first index is the row, the second is the column.",
       "example": "int[,] grid = { {1, 2}, {3, 4} };\nint value = grid[1, 0]; // 3",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the correct syntax to get row 0, column 1 from grid: grid[?, ?]",
@@ -75,7 +75,7 @@
       "title": "What Are Jagged Arrays",
       "content": "Jagged arrays are arrays of arrays. Each inner array can have a different length, unlike 2D arrays.",
       "example": "int[][] jagged = new int[2][];\njagged[0] = new int[] {1, 2};\njagged[1] = new int[] {3, 4, 5};",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which syntax defines a jagged array?",
@@ -92,7 +92,7 @@
       "title": "Accessing Jagged Array Elements",
       "content": "Jagged arrays use two pairs of brackets. First for the outer array, second for the inner array.",
       "example": "int[][] jagged = { new[] {1, 2}, new[] {3} };\nint x = jagged[0][1]; // 2",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Access value 3: jagged[_____][_____];",
@@ -105,7 +105,7 @@
       "title": "2D vs Jagged Arrays",
       "content": "2D arrays have a fixed rectangular shape. Jagged arrays allow irregular rows but have slightly more overhead.",
       "example": "int[,] rect = new int[2, 3]; // always 2x3\nint[][] jag = new int[2][]; // rows can differ",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the correct array type when each row can have a different length: [?]",

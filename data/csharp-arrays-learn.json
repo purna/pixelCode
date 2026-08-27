@@ -23,7 +23,7 @@
       "title": "Declaring Arrays",
       "content": "Use square brackets to declare an array type. The `new` keyword creates the array in memory.",
       "example": "int[] scores = new int[5];\ndouble[] temps = { 20.5, 21.0, 19.8 };\nstring[] names = new string[] { \"A\", \"B\", \"C\" };",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the array declaration",

@@ -434,10 +434,32 @@ validator pass against wrong data.
   `expectedOutput`). Verified: `exampleout_validate.py` now reports 0
   `code exercise: no hints`; canonical `learn_validate.py` still reports 0
   problems.
-- **Empty `exampleOutput`** on runnable code-example slides whose printed output
-  was left blank — 142 slides remain. Fill each with the snippet's actual output.
-  (Slides whose `example` is a class/struct/type definition have no output and
-  legitimately stay empty — skip those.)
+- **Empty `exampleOutput`** — populated. Each code-example slide was compiled and
+  executed via `dotnet` (SDK 8.0.401) with `using System;` + common `using`s
+  prepended, and the real stdout (trailing newline stripped) was written back in
+  a format-preserving edit. Result: **7 exampleOutput values filled** with
+  verified ground-truth output:
+  - `enums Enum.Parse and Enum.TryParse` → `Medium`
+  - `enums Iterating Over Enums` → `Sunday\nMonday\n…\nSaturday`
+  - `enums Enum Best Practices` → `Yes`
+  - `exceptions Try-Catch Blocks` → `Cannot divide by zero.` (the `10/0` example
+    is a compile-time error; made the divisor a variable so the runtime
+    `DivideByZeroException` fires and is caught — the intended behavior)
+  - `exceptions What is an Exception?` → `Index was outside the bounds of the array.`
+  - `typecasting TryParse for Safe Conversion` → `45`
+  - `oop Polymorphism Overview` → `0` (`Square.Area()` = `Side*Side`, `Side` = 0)
+   The remaining **135** produce no deterministic console output (class/struct/
+   type definitions, code fragments referencing types defined in other slides,
+   illustrative `...`/placeholder sketches, the 7 interactive `ReadLine`
+   examples, false-condition loops, file-dependent reads, or `Console.WriteLine`
+   calls inside methods that are never invoked). For these the example cannot be
+   executed to a concrete value, so each `exampleOutput` holds an honest,
+   one-line description of what it shows instead (e.g. `Class definition; produces
+   no console output.`, `Interactive: reads user input, so output depends on
+   input.`, `Illustrative sketch (contains placeholders); not directly
+   executable.`) — following the same descriptive style already used by the
+   `csharp-async-learn` slides. `exampleout_validate.py` now reports **0** empty
+   `exampleOutput`, and `learn_validate.py` still reports 0 problems.
 - **Remaining phase-2 topics** (§3 decision): nullable reference types, records,
   and pattern matching (the extended list). async/await, generics, and
   delegates/events are now implemented.

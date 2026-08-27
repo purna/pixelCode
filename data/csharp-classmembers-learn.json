@@ -6,7 +6,7 @@
       "title": "What Are Class Members",
       "content": "Class members are the fields, methods, properties, and other members declared inside a class.",
       "example": "class Person\n{\n  public string Name;\n  public void Greet() { }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which of these is a class member?",
@@ -23,7 +23,7 @@
       "title": "Fields",
       "content": "Fields store data for each object. They can be any type and are typically private or public depending on encapsulation needs.",
       "example": "class Counter\n{\n  public int Count;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "A variable declared inside a class is called a _____.",
@@ -36,7 +36,7 @@
       "title": "Methods",
       "content": "Methods define behavior. They can accept parameters, return values, and be called on object instances.",
       "example": "class Calculator\n{\n  public int Add(int a, int b) { return a + b; }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the keyword that returns a value from a method: public int Add(int a, int b) { [?] a + b; }",
@@ -55,7 +55,7 @@
       "title": "Properties",
       "content": "Properties expose fields with get and set accessors. They allow validation and controlled access while looking like fields.",
       "example": "class User\n{\n  private int age;\n  public int Age\n  {\n    get { return age; }\n    set { if (value >= 0) age = value; }\n  }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Write a property Name with a getter that returns _name and a setter that assigns it.",
@@ -76,7 +76,7 @@
       "title": "Static Members",
       "content": "Static members belong to the class itself, not instances. Use them for shared data or utility methods.",
       "example": "class Logger\n{\n  public static void Log(string msg)\n  {\n    Console.WriteLine(msg);\n  }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition with a method that writes to the console; produces no output unless the method is invoked.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "How do you call a static method?",
@@ -93,7 +93,7 @@
       "title": "Instance vs Static",
       "content": "Instance members require an object. Static members are accessed through the class type directly.",
       "example": "class Settings\n{\n  public static string AppName = \"Quiz3\";\n  public int Id;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete the access: Console.WriteLine(Settings._____);",
@@ -106,7 +106,7 @@
       "title": "Access Modifiers",
       "content": "public, private, protected, and internal control visibility. private is the default for class members.",
       "example": "class Box\n{\n  private int width; // hidden\n  public int Height;  // exposed\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the most restrictive access modifier: [?] int width;",

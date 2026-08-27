@@ -6,7 +6,7 @@
   },
   "questions": [
     {
-      "id": "csharp-delegates-a-01",
+      "id": "csharp-delegates-01",
       "type": "scored",
       "prompt": "A delegate is:",
       "options": [
@@ -19,7 +19,7 @@
       "explanation": "A delegate is a type whose value is a reference to a method."
     },
     {
-      "id": "csharp-delegates-a-02",
+      "id": "csharp-delegates-02",
       "type": "scored",
       "prompt": "Invoking a multicast delegate:",
       "options": [
@@ -32,20 +32,7 @@
       "explanation": "A multicast delegate invocation runs every subscribed method."
     },
     {
-      "id": "csharp-delegates-a-03",
-      "type": "scored",
-      "prompt": "Func<int,int,int> represents:",
-      "options": [
-        "two ints in, int out",
-        "void",
-        "bool",
-        "one int in, void"
-      ],
-      "answerIndex": 0,
-      "explanation": "The last type is the return type; the rest are parameters."
-    },
-    {
-      "id": "csharp-delegates-a-04",
+      "id": "csharp-delegates-03",
       "type": "insert",
       "prompt": "Complete the line to invoke the delegate.",
       "template": "var r = _____(3, 4);",
@@ -59,17 +46,17 @@
       "explanation": "Calling the delegate instance invokes its method."
     },
     {
-      "id": "csharp-delegates-a-05",
+      "id": "csharp-delegates-04",
       "type": "typing",
-      "prompt": "The lambda operator is ______.",
-      "template": "The lambda operator is ______.",
+      "prompt": "_____ delegates can hold references to multiple methods.",
+      "template": "_____ delegates can hold references to multiple methods.",
       "blanks": [
-        "=>"
+        "Multicast"
       ],
-      "explanation": "=> separates the lambda parameters from the body."
+      "explanation": "Multicast delegates hold a list of methods."
     },
     {
-      "id": "csharp-delegates-a-06",
+      "id": "csharp-delegates-05",
       "type": "scored",
       "prompt": "The event keyword prevents:",
       "options": [
@@ -82,22 +69,40 @@
       "explanation": "event restricts external code from assigning or invoking the field."
     },
     {
-      "id": "csharp-delegates-a-07",
+      "id": "csharp-delegates-06",
+      "type": "dragorder",
+      "prompt": "Arrange event handling in order:",
+      "items": [
+        "Define the event",
+        "Subscribe a handler with +=",
+        "Raise/invoke the event",
+        "The handler method runs"
+      ],
+      "solution": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "explanation": "Define, subscribe, raise, then the handler runs."
+    },
+    {
+      "id": "csharp-delegates-07",
       "type": "coderunner",
-      "prompt": "Assign a lambda that doubles x, then the result is 10.",
-      "starterCode": "delegate int Transform(int x);\nTransform t = _____;\nint result = t(5);",
-      "expectedOutput": "10",
-      "outputPattern": "=>.*2",
+      "prompt": "Attach a handler to the event using a lambda.",
+      "starterCode": "public event Action<int> OnChange;\nOnChange _____ (v => Console.WriteLine(v));",
+      "expectedOutput": "handler attached",
+      "outputPattern": "\\+=",
       "requiredStrings": [
-        "=>"
+        "+="
       ],
       "hints": [
-        "Assign a lambda such as (x => x * 2).",
-        "t(5) returns 5 * 2 = 10."
+        "Use the += operator to attach a handler.",
+        "The lambda prints the int value v."
       ]
     },
     {
-      "id": "csharp-delegates-a-08",
+      "id": "csharp-delegates-08",
       "type": "scored",
       "prompt": "Action represents a delegate returning:",
       "options": [

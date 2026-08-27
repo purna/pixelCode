@@ -72,18 +72,18 @@ recommended default (see §9).
 
 ## 5. Ordered task list
 
-- [ ] T1. Lint all learn files: every code-example slide must have `exampleOutput`;
+- [x] T1. Lint all learn files: every code-example slide must have `exampleOutput`;
       every `code` exercise must list `requiredStrings` that prove intent.
-- [ ] T2. Add 5 new learn+json+quiz section pairs (collections, LINQ, async/await,
+- [x] T2. Add 5 new learn+json+quiz section pairs (collections, LINQ, async/await,
       generics, delegates/events), following `SOURCE_OF_TRUTH.md` §3.4 / §3.2.
-- [ ] T3. Add the 5 new `.section-card`s to `index.html` (level: intermediate/expert).
-- [ ] T4. Harden existing `code` validators: tighten `requiredStrings` +
+- [x] T3. Add the 5 new `.section-card`s to `index.html` (level: intermediate/expert).
+- [x] T4. Harden existing `code` validators: tighten `requiredStrings` +
       `outputPattern`; add `hints` arrays to learn `code` exercises.
-- [ ] T5. `script.js`: render `hints` in `renderLearnCode`; persist
+- [x] T5. `script.js`: render `hints` in `renderLearnCode`; persist
       `learnProgress`; draw a "started" badge on cards.
-- [ ] T6. Populate `exampleOutput` on all code-example slides.
-- [ ] T7. Repo hygiene: remove empty `examoles/`, add `.gitignore` (`*.DS_Store`).
-- [ ] T8. Validate: walk every new + repaired learn file; confirm the hardened
+- [x] T6. Populate `exampleOutput` on all code-example slides.
+- [x] T7. Repo hygiene: remove empty `examoles/`, add `.gitignore` (`*.DS_Store`).
+- [x] T8. Validate: walk every new + repaired learn file; confirm the hardened
       `code` exercise now **rejects** the old false-positive code above.
 
 ## 6. Risks

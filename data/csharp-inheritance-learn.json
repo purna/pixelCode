@@ -23,7 +23,7 @@
       "title": "The Base and Derived Classes",
       "content": "The base class (or parent/superclass) is the class being inherited from. The derived class (or child/subclass) is the one doing the inheriting. In C#, you use the colon syntax: 'class Derived : Base'. A class can have only ONE base class (no multiple inheritance).",
       "example": "public class Vehicle  // base class\n{\n    public string Brand;\n}\n\npublic class Car : Vehicle  // derived class\n{\n    public int Doors;\n}\n\nvar car = new Car();\ncar.Brand = \"Toyota\";  // inherited\ncar.Doors = 4;         // own",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Which syntax correctly declares Car inheriting from Vehicle?",
@@ -42,7 +42,7 @@
       "title": "Calling the Base Constructor",
       "content": "When you create an object of the derived class, its constructor implicitly calls a base class constructor. You can use ': base(args)' to explicitly choose which base constructor runs. If the base class only has a parameterized constructor, you must call it explicitly.",
       "example": "public class Animal\n{\n    public string Name;\n    public Animal(string name) { Name = name; }\n}\n\npublic class Dog : Animal\n{\n    public string Breed;\n    // Must call base(name) explicitly\n    public Dog(string name, string breed) : base(name)\n    {\n        Breed = breed;\n    }\n}\n\nvar d = new Dog(\"Rex\", \"Labrador\");",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "To explicitly call a base class constructor, use ': _____' in the derived constructor declaration.",
@@ -96,7 +96,7 @@
       "title": "Sealed Classes and Methods",
       "content": "You can prevent a class from being inherited by marking it 'sealed'. You can also prevent a method from being overridden further by marking an override 'sealed'. This is useful for security and to preserve implementation invariants.",
       "example": "public sealed class DatabaseConnection\n{\n    public string ConnectionString;\n    // Cannot be derived from - sealed\n}\n\n// This would NOT compile:\n// public class MyConn : DatabaseConnection { }\n\npublic class Logger\n{\n    public virtual void Log() { }\n}\n\npublic class FileLogger : Logger\n{\n    public sealed override void Log() { }\n    // Cannot override Log() further\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What keyword prevents a class from being inherited?",
@@ -113,7 +113,7 @@
       "title": "Inheritance and Member Access",
       "content": "A derived class inherits public, protected, internal, and protected internal members from its base class. Private members are inherited in the sense that they exist in the object, but they are not accessible by name from the derived class. Constructors are never inherited directly.",
       "example": "public class Animal\n{\n    public void PublicMethod() { }\n    protected void ProtectedMethod() { }\n    private void PrivateMethod() { }\n}\n\npublic class Dog : Animal\n{\n    public void Test()\n    {\n        PublicMethod();     // OK\n        ProtectedMethod();  // OK\n        // PrivateMethod();  // ERROR!\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Private members from the base class are NOT accessible in the derived class because they have _____ access.",

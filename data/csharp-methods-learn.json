@@ -23,7 +23,7 @@
       "title": "Defining Methods",
       "content": "A method needs an access modifier, return type, name, parameters, and a body in curly braces.",
       "example": "public int Add(int a, int b)\n{\n    int sum = a + b;\n    return sum;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the method signature",

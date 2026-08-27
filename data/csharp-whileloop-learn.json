@@ -26,7 +26,7 @@
       "title": "Loop Condition",
       "content": "The condition must be a bool expression. If it starts as false, the loop body never runs.",
       "example": "int x = 5;\nwhile (x < 3)\n{\n    Console.WriteLine(\"Never\");\n}",
-      "exampleOutput": "",
+      "exampleOutput": "No output: the loop condition is false, so the body never runs.",
       "exercise": {
         "type": "fillblank",
         "prompt": "If the condition is false initially, the loop body runs _____ times",

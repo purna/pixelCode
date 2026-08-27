@@ -6,7 +6,7 @@
       "title": "Why Use Comments",
       "content": "Comments explain code intent to other developers and to your future self. The compiler ignores them entirely.",
       "example": "// This calculates the total\nint total = price + tax;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What happens to comments when the code is compiled?",
@@ -23,7 +23,7 @@
       "title": "Single-Line Comments",
       "content": "Single-line comments start with // and continue to the end of the line. They are the most common comment style.",
       "example": "// Initialize counter\nint counter = 0; // starting value",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Complete a single-line comment: _____ This is a comment",
@@ -36,7 +36,7 @@
       "title": "Multi-Line Comments",
       "content": "Multi-line comments use /* to open and */ to close. They can span multiple lines and cannot be nested.",
       "example": "/*\n * Multi-line comment\n * describing the class\n */\npublic class Demo {}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the closing delimiter for a multi-line comment: /* comment text [?]",
@@ -55,7 +55,7 @@
       "title": "XML Documentation Comments",
       "content": "XML doc comments start with /// and support tags like <summary> and <param> for generating documentation.",
       "example": "/// <summary>Adds two numbers.</summary>\n/// <param name=\"a\">First number</param>\nint Add(int a, int b) => a + b;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Write an XML doc comment opening for a method that gets a user name.",
@@ -92,7 +92,7 @@
       "title": "Best Practices",
       "content": "Write comments for why, not what. The code already shows what it does; comments should clarify intent and rationale.",
       "example": "// Use binary search because the list is sorted\nint index = BinarySearch(items, target);",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Good comments explain the _____ rather than restating the code.",
@@ -105,7 +105,7 @@
       "title": "Avoiding Bad Comments",
       "content": "Obvious comments add noise. Redundant comments become outdated and misleading. Prefer clear code over explanatory comments.",
       "example": "// Bad: int i = 0; // set i to zero\n// Good: // Start from first available index\nint i = 0;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the better comment for this code: counter++; [?] counter++;",

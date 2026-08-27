@@ -58,7 +58,7 @@
       "title": "Base Class References and Runtime Dispatch",
       "content": "When you call a virtual method through a base class reference, the runtime uses the actual object's type to decide which method to call. This is the heart of polymorphism\u2014the most derived override always wins, regardless of the reference type.",
       "example": "Animal a = new Dog();  // base ref, derived object\na.Speak();  // Calls Dog.Speak(), not Animal.Speak()\n\na = new Cat();\na.Speak();  // Now calls Cat.Speak()",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Animal a = new Dog(); a.Speak(); \u2014 if Speak is virtual+override, which version runs?",

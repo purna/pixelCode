@@ -6,7 +6,7 @@
       "title": "System.IO Overview",
       "content": "File operations in C# live in System.IO. The main types are File, FileStream, StreamReader, and StreamWriter for text I/O.",
       "example": "using System.IO;\n\nclass FileDemo { }",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which namespace contains file I/O classes?",
@@ -23,7 +23,7 @@
       "title": "FileStream Basics",
       "content": "FileStream provides raw byte-level access to files. You specify the path, mode, and access when creating it.",
       "example": "FileStream fs = new FileStream(\"data.txt\", FileMode.OpenOrCreate, FileAccess.ReadWrite);",
-      "exampleOutput": "",
+      "exampleOutput": "Reads or writes a file; output depends on file contents.",
       "exercise": {
         "type": "fillblank",
         "prompt": "To create a file if missing or open existing, use FileMode._____.",
@@ -36,7 +36,7 @@
       "title": "Reading with StreamReader",
       "content": "StreamReader reads characters from a file stream. ReadLine reads one line at a time until the end of the stream.",
       "example": "using (StreamReader sr = new StreamReader(\"input.txt\"))\n{\n  string line = sr.ReadLine();\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Interactive: reads user input, so output depends on input.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the method that reads one line from a text file: sr [?]().",
@@ -55,7 +55,7 @@
       "title": "Writing with StreamWriter",
       "content": "StreamWriter writes characters to a file. WriteLine adds a newline after each call. The using statement ensures the file is closed.",
       "example": "using (StreamWriter sw = new StreamWriter(\"output.txt\"))\n{\n  sw.WriteLine(\"Hello file!\");\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Reads or writes a file; output depends on file contents.",
       "exercise": {
         "type": "code",
         "prompt": "Write a StreamWriter line to save the text 'Saved' into log.txt.",
@@ -76,7 +76,7 @@
       "title": "Reading an Entire File",
       "content": "ReadToEnd returns all remaining text as a single string. It is useful for small files but can use a lot of memory.",
       "example": "using (StreamReader sr = new StreamReader(\"notes.txt\"))\n{\n  string all = sr.ReadToEnd();\n  Console.WriteLine(all);\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Reads a file and prints its contents; output depends on the file.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which method reads all text at once?",
@@ -93,7 +93,7 @@
       "title": "File Modes and Access",
       "content": "FileMode controls creation and opening behavior: Open, Create, Append, OpenOrCreate. FileAccess controls read, write, or read/write.",
       "example": "FileStream fs = new FileStream(\"log.txt\", FileMode.Append, FileAccess.Write);",
-      "exampleOutput": "",
+      "exampleOutput": "Reads or writes a file; output depends on file contents.",
       "exercise": {
         "type": "fillblank",
         "prompt": "Use FileMode._____ to add to the end of an existing file.",
@@ -106,7 +106,7 @@
       "title": "Using Statements and Disposal",
       "content": "StreamReader and StreamWriter implement IDisposable. The using statement automatically closes and flushes the stream.",
       "example": "using (StreamReader sr = new StreamReader(\"input.txt\"))\n{\n  string text = sr.ReadToEnd();\n} // closed automatically",
-      "exampleOutput": "",
+      "exampleOutput": "Reads or writes a file; output depends on file contents.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the statement that ensures a stream is closed: [?] (StreamReader sr = ...)",

@@ -1,10 +1,21 @@
 {
   "name": "Assessment Quiz",
-  "short_name": "Quiz",
-  "description": "Practice numerical, verbal, abstract, personality and situational assessment questions.",
+  "short_name": "C# Quiz",
+  "description": "Practice C# programming questions.",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#F7F7FB",
   "theme_color": "#1E2340",
-  "icons": []
+  "icons": [
+    {
+      "src": "web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }

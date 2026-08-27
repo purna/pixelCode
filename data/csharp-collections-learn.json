@@ -116,7 +116,7 @@
       "title": "Choosing a Collection",
       "content": "Use a List<T> when you access items by position. Use a Dictionary<TKey,TValue> when you look up by key. Both grow automatically and are type-safe.",
       "example": "var todo = new List<string>();            // ordered, by index\nvar byId = new Dictionary<int, string>();   // by key",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Complete the code to count how many 'a' letters are in the list.",

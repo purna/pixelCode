@@ -6,13 +6,13 @@
       "title": "What is a Variable?",
       "content": "A variable is a named container that stores data in memory. Think of it as a labeled box that holds a value you can use and change later.",
       "example": "int age = 25;",
-      "exampleOutput": ""
+      "exampleOutput": "Declaration or expression only; produces no console output."
     },
     {
       "title": "Declaring Variables",
       "content": "Declare a variable by specifying its type, then a name, and optionally assigning a value. The syntax is: type variableName = value;",
       "example": "string name = \"Alice\";\nint score = 100;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Choose the correct keyword to declare an integer.",
@@ -31,19 +31,19 @@
       "title": "Common Data Types",
       "content": "C# has several built-in types. int stores whole numbers, double stores decimals, bool stores true or false, string stores text, and char stores a single character.",
       "example": "int count = 10;\ndouble price = 19.99;\nbool isActive = true;\nstring city = \"London\";\nchar grade = 'A';",
-      "exampleOutput": ""
+      "exampleOutput": "Declaration or expression only; produces no console output."
     },
     {
       "title": "Naming Conventions",
       "content": "Use camelCase for local variables: first word lowercase, subsequent words capitalized. Use PascalCase for methods and classes. Names should be descriptive.",
       "example": "int studentAge = 20;\nstring firstName = \"John\";",
-      "exampleOutput": ""
+      "exampleOutput": "Declaration or expression only; produces no console output."
     },
     {
       "title": "The var Keyword",
       "content": "The var keyword lets the compiler infer the type from the assigned value. The variable is still strongly typed\u2014you just don't write the type explicitly.",
       "example": "var age = 30;\nvar name = \"Bob\";\n// age is int, name is string",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the type inference declaration.",
@@ -62,7 +62,7 @@
       "title": "Constants with const",
       "content": "Use const to declare a variable whose value cannot change. Constants must be initialized at declaration and are typically named in PascalCase.",
       "example": "const double Pi = 3.14159;\n// Pi = 3.14; // Error!",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Declare a const double called Pi with value 3.14 and print it.",

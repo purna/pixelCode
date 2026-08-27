@@ -6,7 +6,7 @@
       "title": "What Is a Constructor?",
       "content": "A constructor is a special method that runs automatically when you create an object with 'new'. It has no return type and its name must match the class name. Constructors initialize fields and set default state.",
       "example": "public class Person\n{\n    public string Name;\n    public int Age;\n\n    // Constructor\n    public Person()\n    {\n        Name = \"Unknown\";\n        Age = 0;\n    }\n}\n\nvar p = new Person(); // Constructor runs automatically",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "When does a constructor execute?",
@@ -36,7 +36,7 @@
       "title": "Parameterized Constructors",
       "content": "You can pass arguments to a constructor, allowing each object to start with different values. This creates constructor overloads when combined with a parameterless version.",
       "example": "public class Person\n{\n    public string Name;\n    public int Age;\n\n    public Person(string name, int age)\n    {\n        Name = name;\n        Age = age;\n    }\n}\n\nvar p = new Person(\"Alice\", 30);",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Complete the constructor so it accepts a name and sets the Name field. Starter code has the class and fields already defined.",
@@ -56,7 +56,7 @@
       "title": "The this Keyword",
       "content": "When a constructor parameter has the same name as a class field, use 'this.field' to refer to the field and plain 'param' for the parameter. This avoids ambiguity.",
       "example": "public class Person\n{\n    public string Name;\n    public int Age;\n\n    public Person(string name, int age)\n    {\n        this.Name = name;  // 'this.Name' is the field\n        this.Age = age;    // 'name' is the parameter\n    }\n}\n\nvar p = new Person(\"Carol\", 25);",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Which line correctly uses 'this' to assign a parameter to a field?",
@@ -88,7 +88,7 @@
       "title": "Constructor Chaining in Inheritance",
       "content": "In a class hierarchy, the derived class constructor calls the base class constructor using 'base(args)'. If you omit it, the parameterless base constructor is called automatically.",
       "example": "public class Animal\n{\n    public string Name;\n    public Animal(string name) { Name = name; }\n}\n\npublic class Dog : Animal\n{\n    public string Breed;\n    public Dog(string name, string breed) : base(name)\n    {\n        Breed = breed;\n    }\n}\n\nvar d = new Dog(\"Rex\", \"Lab\");",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "How do you explicitly call a base class constructor from a derived class constructor?",

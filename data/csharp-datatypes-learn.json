@@ -6,7 +6,7 @@
       "title": "Introduction to Data Types",
       "content": "C# is a statically typed language, meaning every variable must have a declared type. Common types include int for integers, double for decimals, bool for true/false, string for text, and char for single characters.",
       "example": "int age = 30;\ndouble price = 19.99;\nbool isActive = true;\nstring name = \"Alice\";\nchar letter = 'A';",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which keyword declares a variable that can hold 'Hello'?",
@@ -23,7 +23,7 @@
       "title": "Numeric Types",
       "content": "C# provides several numeric types. int stores 32-bit whole numbers, double stores 64-bit floating-point numbers, and decimal is used for financial calculations requiring high precision.",
       "example": "int count = 100;\ndouble ratio = 3.14;\ndecimal money = 99.95m;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What keyword declares a 64-bit floating-point number?",
@@ -36,7 +36,7 @@
       "title": "Boolean Type",
       "content": "The bool type represents truth values and can only be true or false. It is commonly used in conditional statements and loops.",
       "example": "bool isFinished = false;\nif (isFinished) {\n    Console.WriteLine(\"Done\");\n}",
-      "exampleOutput": "",
+      "exampleOutput": "No output: the shown condition is false.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What is the default value of an uninitialized bool variable?",
@@ -49,7 +49,7 @@
       "title": "String and Char",
       "content": "string represents text as a sequence of Unicode characters, while char represents a single Unicode character. Strings use double quotes, and chars use single quotes.",
       "example": "string greeting = \"Hello, World!\";\nchar firstLetter = 'H';",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the declaration of a char variable.",
@@ -85,7 +85,7 @@
       "title": "Default Values",
       "content": "In C#, fields (class-level variables) are automatically initialized to default values: numeric types to 0, bool to false, char to '\\0', and reference types like string to null.",
       "example": "class Example {\n    int number;      // 0\n    bool flag;       // false\n    string text;     // null\n    char symbol;     // '\\0'\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What is the default value of an uninitialized string field?",
@@ -102,7 +102,7 @@
       "title": "Declaring Variables",
       "content": "Use the var keyword for implicit typing when the compiler can infer the type from the initializer. You can also declare multiple variables of the same type in one statement.",
       "example": "var age = 25;\nvar price = 9.99;\nint x = 1, y = 2, z = 3;",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Declare an int named 'score' with value 100 and a string named 'player' with value \"Hero\".",

@@ -6,7 +6,7 @@
       "title": "Basic Structure of a C# Program",
       "content": "A C# program consists of one or more classes. Each program needs at least one class with a Main method that serves as the entry point when the application runs.",
       "example": "class Program\n{\n    static void Main()\n    {\n        // code goes here\n    }\n}",
-      "exampleOutput": ""
+      "exampleOutput": "Class definition; produces no console output."
     },
     {
       "title": "Statements and Semicolons",

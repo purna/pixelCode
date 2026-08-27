@@ -6,7 +6,7 @@
   },
   "questions": [
     {
-      "id": "csharp-collections-a-01",
+      "id": "csharp-collections-01",
       "type": "scored",
       "prompt": "What does the Count property of a List<T> return?",
       "options": [
@@ -19,7 +19,7 @@
       "explanation": "Count is the number of items actually in the list."
     },
     {
-      "id": "csharp-collections-a-02",
+      "id": "csharp-collections-02",
       "type": "scored",
       "prompt": "Which statement creates an empty, type-safe list of integers?",
       "options": [
@@ -32,7 +32,7 @@
       "explanation": "new List<int>() creates an empty generic list of ints."
     },
     {
-      "id": "csharp-collections-a-03",
+      "id": "csharp-collections-03",
       "type": "insert",
       "prompt": "Complete the code to create an empty list of integers.",
       "template": "var list = _______;",
@@ -46,7 +46,7 @@
       "explanation": "Use new List<int>() with the element type."
     },
     {
-      "id": "csharp-collections-a-04",
+      "id": "csharp-collections-04",
       "type": "typing",
       "prompt": "A Dictionary<TKey, TValue> stores items as ______ pairs.",
       "template": "A Dictionary<TKey, TValue> stores items as ______ pairs.",
@@ -56,7 +56,7 @@
       "explanation": "Each entry maps a unique key to a value."
     },
     {
-      "id": "csharp-collections-a-05",
+      "id": "csharp-collections-05",
       "type": "scored",
       "prompt": "Looking up a key that does not exist in a Dictionary throws:",
       "options": [
@@ -69,7 +69,7 @@
       "explanation": "Reading a missing key throws KeyNotFoundException."
     },
     {
-      "id": "csharp-collections-a-06",
+      "id": "csharp-collections-06",
       "type": "dragorder",
       "prompt": "Drag these lines into the order a program needs them.",
       "items": [
@@ -81,7 +81,7 @@
       "explanation": "Declare, add, then read."
     },
     {
-      "id": "csharp-collections-a-07",
+      "id": "csharp-collections-07",
       "type": "coderunner",
       "prompt": "Complete the loop so it adds each number to sum and the program prints 6.",
       "starterCode": "var nums = new List<int> { 1, 2, 3 };\nint sum = 0;\nforeach (_______ in nums)\n  sum _______;\nConsole.WriteLine(sum);",
@@ -97,7 +97,7 @@
       ]
     },
     {
-      "id": "csharp-collections-a-08",
+      "id": "csharp-collections-08",
       "type": "scored",
       "prompt": "Which method removes the first occurrence of a value from a List<T>?",
       "options": [

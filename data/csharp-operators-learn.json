@@ -6,7 +6,7 @@
       "title": "Introduction to Operators",
       "content": "Operators perform operations on variables and values. C# includes arithmetic, assignment, comparison, and logical operators.",
       "example": "int a = 10 + 5;  // 15\nbool same = (a == 15); // true",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which category does the + operator belong to?",
@@ -23,7 +23,7 @@
       "title": "Arithmetic Operators",
       "content": "Arithmetic operators perform math: + (add), - (subtract), * (multiply), / (divide), and % (modulo/remainder).",
       "example": "int sum = 10 + 5;    // 15\nint diff = 10 - 5;   // 5\nint prod = 10 * 5;   // 50\nint rem = 10 % 3;    // 1",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What operator gives the remainder of division?",
@@ -36,7 +36,7 @@
       "title": "Assignment Operators",
       "content": "Assignment operators store values. += adds and assigns, -= subtracts and assigns, *= multiplies and assigns, and /= divides and assigns.",
       "example": "int x = 10;\nx += 5;  // x is now 15\nx *= 2;  // x is now 30",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the compound assignment.",
@@ -55,7 +55,7 @@
       "title": "Comparison Operators",
       "content": "Comparison operators compare two values and return a bool: == (equal), != (not equal), >, <, >=, <=.",
       "example": "int a = 5;\nint b = 10;\nbool isLess = a < b;   // true\nbool isEqual = a == b; // false",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which operator checks inequality?",
@@ -72,7 +72,7 @@
       "title": "Logical Operators",
       "content": "Logical operators combine boolean expressions: && (AND), || (OR), and ! (NOT). && and || use short-circuit evaluation.",
       "example": "bool a = true;\nbool b = false;\nbool c = a && b; // false\nbool d = a || b; // true\nbool e = !a;     // false",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What is the logical AND operator?",
@@ -85,7 +85,7 @@
       "title": "Increment and Decrement",
       "content": "++ increments by 1, -- decrements by 1. They can be used as prefix (++x) or postfix (x++), affecting evaluation order.",
       "example": "int x = 5;\nint y = ++x; // x is 6, y is 6\nint z = x++; // x is 7, z is 6",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the increment code.",
@@ -104,7 +104,7 @@
       "title": "Operator Precedence",
       "content": "Operators follow precedence rules: multiplicative (* / %) before additive (+ -), which are before comparison (== !=), which are before logical (&& ||). Use parentheses to override.",
       "example": "int result = 2 + 3 * 4; // 14, not 20\nbool test = (2 + 3) == 5; // true",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Add parentheses to make the expression evaluate to true: 5 + 3 * 2 == 11.",

@@ -121,7 +121,7 @@
       "title": "Best Practices",
       "content": "Use meaningful parameter names. Keep parameter count reasonable. Prefer named arguments for clarity with many parameters.",
       "example": "// Clear and readable\nSendEmail(to: \"alice@example.com\", subject: \"Hello\", body: \"Hi there\");\n\n// Order does not matter with named args\nSendEmail(body: \"Hi there\", to: \"alice@example.com\", subject: \"Hello\");",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Call the method using a named argument: `SetValue(count: 42)`",

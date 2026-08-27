@@ -109,7 +109,7 @@
       "title": "Property Validation and Side Effects",
       "content": "Properties are the right place to validate incoming data and to trigger notifications (like INotifyPropertyChanged). You keep the caller's code clean while enforcing invariants such as range checks, format validation, or non-null requirements.",
       "example": "public class Temperature\n{\n    private double _celsius;\n\n    public double Celsius\n    {\n        get => _celsius;\n        set\n        {\n            if (value < -273.15)\n                throw new ArgumentException(\"Below absolute zero!\");\n            _celsius = value;\n        }\n    }\n}\n\nvar t = new Temperature();\n// t.Celsius = -300;  // would throw\n",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Add validation to the set accessor: throw an exception if the name is null or empty.",
@@ -131,7 +131,7 @@
       "title": "Property Best Practices",
       "content": "Keep properties fast and side-effect-free when possible (they should not have surprising behavior). Prefer auto-properties for simple data. Use backing fields when you need validation or computation. Throw exceptions early on invalid input rather than silently ignoring it.",
       "example": "public class BankAccount\n{\n    public decimal Balance { get; private set; }\n\n    public void Deposit(decimal amount)\n    {\n        if (amount <= 0)\n            throw new ArgumentOutOfRangeException(nameof(amount));\n        Balance += amount;\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which is the best practice for a simple data-holding property?",

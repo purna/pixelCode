@@ -9,7 +9,7 @@
       "title": "What is a String?",
       "content": "A string in C# is a sequence of characters used to represent text. It is an object of the System.String class.",
       "example": "string name = \"Alice\";",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which type represents text in C#?",

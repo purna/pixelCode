@@ -6,7 +6,7 @@
       "title": "What Is Object-Oriented Programming",
       "content": "OOP organizes software around objects that combine data and behavior. The four main pillars are encapsulation, inheritance, polymorphism, and abstraction.",
       "example": "class Car { int Speed; void Accelerate() { } }",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which of these is NOT a core OOP pillar?",
@@ -23,7 +23,7 @@
       "title": "Objects and Classes",
       "content": "A class is a blueprint. An object is an instance created from that blueprint with its own data.",
       "example": "class Dog { public string Name; }\nDog d = new Dog();\nd.Name = \"Rex\";",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "A _____ is created from a class using the new keyword.",
@@ -36,7 +36,7 @@
       "title": "Encapsulation Basics",
       "content": "Encapsulation hides internal state and exposes only necessary operations through public methods or properties.",
       "example": "class BankAccount\n{\n  private decimal balance;\n  public void Deposit(decimal amount) { balance += amount; }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the access modifier that hides the balance field: [?] decimal balance;",
@@ -55,7 +55,7 @@
       "title": "State and Behavior",
       "content": "Objects store state in fields and expose behavior through methods. This keeps related data and logic together.",
       "example": "class Circle\n{\n  double radius;\n  double Area() => Math.PI * radius * radius;\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Add a field 'radius' and a method 'Diameter' that returns 2 * radius.",
@@ -77,7 +77,7 @@
       "title": "Abstraction in OOP",
       "content": "Abstraction exposes only essential features and hides complexity. Abstract classes and interfaces are common tools.",
       "example": "abstract class Shape { public abstract double Area(); }\nclass Square : Shape { public override double Area() => Side * Side; }",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Abstraction focuses on:",
@@ -94,7 +94,7 @@
       "title": "Inheritance Basics",
       "content": "Inheritance allows a derived class to reuse and extend a base class. It supports an is-a relationship.",
       "example": "class Animal { public void Eat() { } }\nclass Cat : Animal { public void Meow() { } }",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "A Cat _____ Animal, so Cat inherits Eat().",
@@ -107,7 +107,7 @@
       "title": "Polymorphism Overview",
       "content": "Polymorphism lets you treat different objects through a common interface. Overriding base methods enables runtime behavior selection.",
       "example": "Shape s = new Square();\nConsole.WriteLine(s.Area());",
-      "exampleOutput": "",
+      "exampleOutput": "0",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Drag the keyword used to override a base method: public override double Area() [?]",

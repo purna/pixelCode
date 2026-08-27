@@ -23,7 +23,7 @@
       "title": "Math.Max and Math.Min",
       "content": "Math.Max returns the larger of two numbers, and Math.Min returns the smaller. Both work with int, double, decimal, and other numeric types.",
       "example": "int high = Math.Max(10, 20); // 20\nint low = Math.Min(10, 20);  // 10",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What method returns the smaller of two numbers?",
@@ -36,7 +36,7 @@
       "title": "Math.Sqrt",
       "content": "Math.Sqrt returns the square root of a number. It accepts and returns a double. Passing a negative number returns NaN.",
       "example": "double root = Math.Sqrt(49); // 7.0\ndouble bad = Math.Sqrt(-1);   // NaN",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Complete the square root call.",
@@ -72,7 +72,7 @@
       "title": "Math.Pow",
       "content": "Math.Pow(base, exponent) computes the value of a number raised to a power. Both parameters are doubles, and the result is a double.",
       "example": "double square = Math.Pow(5, 2); // 25\ndouble cube = Math.Pow(3, 3);   // 27",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "What method computes base raised to an exponent?",
@@ -104,7 +104,7 @@
       "title": "Practical Examples",
       "content": "Combine Math methods to solve real problems like finding the range of a dataset, computing distance, or normalizing scores.",
       "example": "int[] scores = { 72, 85, 90, 60, 95 };\nint max = Math.Max(scores[0], scores[1]);\nint min = Math.Min(scores[0], scores[1]);",
-      "exampleOutput": "",
+      "exampleOutput": "Declaration or expression only; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which method finds the larger of two values?",

@@ -6,7 +6,7 @@
       "title": "What Are Access Modifiers?",
       "content": "Access modifiers control the visibility and accessibility of your code members (fields, methods, properties, etc.). They define who can read or call a member, helping you enforce encapsulation.",
       "example": "public class Person\n{\n    private string secret;       // only within Person\n    public string Name;          // anyone\n    protected int Age;           // Person + derived classes\n    internal string Email;       // same assembly\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What is the primary purpose of access modifiers?",
@@ -23,7 +23,7 @@
       "title": "public vs private",
       "content": "'public' means the member is accessible from anywhere\u2014inside the class, in derived classes, in other assemblies. 'private' means it is accessible only within the containing class, providing the strongest encapsulation.",
       "example": "public class BankAccount\n{\n    private decimal balance;   // hidden from outside\n    public decimal Balance      // anyone can read\n    {\n        get { return balance; }\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Which modifier would you use for the 'balance' field to hide it from other classes?",
@@ -42,7 +42,7 @@
       "title": "protected",
       "content": "'protected' members are accessible within the containing class and within any class that derives from it. This is key for inheritance\u2014you expose data to subclasses but not to unrelated external code.",
       "example": "public class Animal\n{\n    protected string Name;\n}\n\npublic class Dog : Animal\n{\n    public void Bark()\n    {\n        Console.WriteLine(Name); // OK - protected\n    }\n}\n\nvar d = new Dog();\n// d.Name = \"Rex\";  // ERROR - protected!",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition with a method that writes to the console; produces no output unless the method is invoked.",
       "exercise": {
         "type": "fillblank",
         "prompt": "A _____ member is accessible in the containing class and derived classes, but not in unrelated classes.",
@@ -55,7 +55,7 @@
       "title": "internal",
       "content": "'internal' means a member is accessible from anywhere within the same assembly (the compiled DLL or EXE). External assemblies cannot access it. This is useful for exposing APIs to your own library without exposing them publicly.",
       "example": "internal class Helper\n{\n    internal void DoWork() { }\n}\n\n// Same assembly:\nvar h = new Helper();\nh.DoWork();  // OK\n\n// Different assembly: ERROR",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "code",
         "prompt": "Mark the class and method as internal so they are only accessible within this assembly.",
@@ -75,7 +75,7 @@
       "title": "protected internal and private protected",
       "content": "'protected internal' means accessible from the same assembly OR from derived classes (even in other assemblies) \u2014 a logical OR. 'private protected' means accessible only from within the same assembly AND only from derived classes within that assembly.",
       "example": "public class Base\n{\n    protected internal int Value1;\n    private protected int Value2;\n}\n\n// In same assembly:\nclass Derived : Base\n{\n    void Test() {\n        var v1 = Value1;  // OK - same assembly\n        var v2 = Value2;  // OK - derived + same assembly\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "What does 'protected internal' mean?",
@@ -92,7 +92,7 @@
       "title": "Default Access Modifiers",
       "content": "When you omit an access modifier, types default to 'internal' and class members default to 'private'. It is always best practice to explicitly specify the modifier rather than relying on defaults.",
       "example": "class MyType      // defaults to internal\n{\n    int MyField;    // defaults to private\n\n    void MyMethod() // defaults to private\n    {\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "fillblank",
         "prompt": "A top-level class with no access modifier defaults to ______.",
@@ -105,7 +105,7 @@
       "title": "Access Modifiers in Inheritance",
       "content": "When inheriting from a class, you can access public, protected, internal, and protected internal members\u2014but never private members. Private members are invisible to derived classes.",
       "example": "public class Animal\n{\n    public void Eat() { }\n    protected void Sleep() { }\n    private void Think() { }\n}\n\npublic class Cat : Animal\n{\n    public void Life()\n    {\n        Eat();    // OK\n        Sleep();  // OK\n        // Think(); // ERROR - private!\n    }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "dragdrop",
         "prompt": "Which access modifier CANNOT be accessed from a derived class?",
@@ -124,7 +124,7 @@
       "title": "Best Practices and Assemblies",
       "content": "Use the most restrictive modifier that still allows your code to work. Mark classes 'internal' by default unless you need them public. Keep fields 'private' and expose them through 'public' properties for validation and control.",
       "example": "internal class OrderService\n{\n    private string apiKey;\n    public decimal Total { get; private set; }\n}\n\n// In a separate project, a DTO:\npublic class OrderDto\n{\n    public int Id { get; set; }\n    public decimal Amount { get; set; }\n}",
-      "exampleOutput": "",
+      "exampleOutput": "Class definition; produces no console output.",
       "exercise": {
         "type": "multiplechoice",
         "prompt": "Which principle guides choosing the right access modifier?",
