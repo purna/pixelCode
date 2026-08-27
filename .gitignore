@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Firebase local config (contains real API keys)
+js/firebase-config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Build outputs
+dist/
+build/
+
+# Local testing
+*.local
+
+# Environment
+.env
+.env.local
+.env.*.local

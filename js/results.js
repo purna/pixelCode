@@ -86,6 +86,8 @@
     const pct = Math.round((correct / questions.length) * 100);
     app.state.score = pct;
     app.state.passed = pct >= 80;
+    app.state.correct = correct;
+    app.state.total = questions.length;
 
     app.saveQuizResult(app.state.section, app.state.level, app.state.quizVariant, pct, correct, questions.length);
 

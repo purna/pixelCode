@@ -26,84 +26,14 @@
   const fb = new FlowBuilder(container, {
     flow: { flow: [], selectedId: null },
     expectedCode: '',
-    examples: [
-      {
-        name: 'Hello World',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'output', expression: '"Hello, World!"', newline: true }
-          ],
-          selectedId: null
-        }
-      },
-      {
-        name: 'For Loop',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'declare', name: 'i', dataType: 'Integer', structure: 'Scalar', size: '5' },
-            { id: 'n2', kind: 'for', variable: 'i', start: '1', end: '3', direction: 'Increasing', step: '1', body: [
-              { id: 'n3', kind: 'output', expression: 'i', newline: true }
-            ]}
-          ],
-          selectedId: null
-        }
-      },
-      {
-        name: 'If-Else',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'declare', name: 'score', dataType: 'Integer', structure: 'Scalar', size: '5' },
-            { id: 'n2', kind: 'assign', name: 'score', dataType: 'Integer', structure: 'Scalar', index: '0', row: '0', col: '0', expression: '75' },
-            { id: 'n3', kind: 'if', condition: 'score >= 60', body: [
-              { id: 'n4', kind: 'output', expression: '"Pass"', newline: true }
-            ]}
-          ],
-          selectedId: null
-        }
-      },
-      {
-        name: 'While Loop',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'declare', name: 'i', dataType: 'Integer', structure: 'Scalar', size: '5' },
-            { id: 'n2', kind: 'assign', name: 'i', dataType: 'Integer', structure: 'Scalar', index: '0', row: '0', col: '0', expression: '0' },
-            { id: 'n3', kind: 'while', condition: 'i < 3', body: [
-              { id: 'n4', kind: 'output', expression: 'i', newline: true },
-              { id: 'n5', kind: 'assign', name: 'i', dataType: 'Integer', structure: 'Scalar', index: '0', row: '0', col: '0', expression: 'i + 1' }
-            ]}
-          ],
-          selectedId: null
-        }
-      },
-      {
-        name: 'Switch',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'declare', name: 'level', dataType: 'Integer', structure: 'Scalar', size: '5' },
-            { id: 'n2', kind: 'assign', name: 'level', dataType: 'Integer', structure: 'Scalar', index: '0', row: '0', col: '0', expression: '2' },
-            { id: 'n3', kind: 'switch', expression: 'level', caseValue: '2', isDefault: false, body: [
-              { id: 'n4', kind: 'output', expression: '"Medium"', newline: true }
-            ]}
-          ],
-          selectedId: null
-        }
-      },
-      {
-        name: 'Foreach',
-        flow: {
-          flow: [
-            { id: 'n1', kind: 'declare', name: 'colors', dataType: 'String', structure: 'Array', size: '3' },
-            { id: 'n2', kind: 'assign', name: 'colors', dataType: 'String', structure: 'Array', index: '0', row: '0', col: '0', expression: '"red"' },
-            { id: 'n3', kind: 'assign', name: 'colors', dataType: 'String', structure: 'Array', index: '1', row: '0', col: '0', expression: '"green"' },
-            { id: 'n4', kind: 'assign', name: 'colors', dataType: 'String', structure: 'Array', index: '2', row: '0', col: '0', expression: '"blue"' },
-            { id: 'n5', kind: 'foreach', variable: 'color', collection: 'colors', body: [
-              { id: 'n6', kind: 'output', expression: 'color', newline: true }
-            ]}
-          ],
-          selectedId: null
-        }
-      }
-    ]
+      examples: [
+        { name: 'Hello World', flow: { flow: [], selectedId: null } },
+        { name: 'For Loop', flow: { flow: [], selectedId: null } },
+        { name: 'If-Else', flow: { flow: [], selectedId: null } },
+        { name: 'While Loop', flow: { flow: [], selectedId: null } },
+        { name: 'Switch', flow: { flow: [], selectedId: null } },
+        { name: 'Foreach', flow: { flow: [], selectedId: null } }
+      ]
   });
 </script>
 </body>

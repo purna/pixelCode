@@ -60,85 +60,84 @@ class FlowBuilder {
     style.id = 'flow-builder-styles';
     style.textContent = `
 .fb-root { display: flex; flex-direction: column; gap: 0.75rem; height: 100%; min-height: 0;
-  font-family: var(--font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
-  color: var(--ink, #1f2937); }
+  font-family: var(--font-body); color: var(--ink); }
 .fb-toolbar { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; }
-.fb-toolbar select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid var(--border, #d1d5db);
-  background: var(--surface, #fff); color: inherit; font-size: 0.82rem; }
-.fb-add-btn { padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--border, #d1d5db);
-  background: var(--surface, #fff); color: inherit; font-size: 0.78rem; cursor: pointer; }
-.fb-add-btn:hover { background: var(--surface-hover, #f3f4f6); }
+.fb-toolbar select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--surface); color: inherit; font-size: 0.82rem; }
+.fb-add-btn { padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--surface); color: inherit; font-size: 0.78rem; cursor: pointer; }
+.fb-add-btn:hover { background: var(--surface-raised); }
 .fb-main { display: flex; gap: 0.75rem; flex: 1; min-height: 220px; }
-.fb-canvas-col { flex: 1.4; min-width: 0; overflow: auto; border: 1px solid var(--border, #e5e7eb);
-  border-radius: 8px; padding: 0.6rem; background: var(--surface-soft, #f9fafb); }
+.fb-canvas-col { flex: 1.4; min-width: 0; overflow: auto; border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.6rem; background: var(--bg); }
 .fb-props-col { flex: 1; min-width: 220px; max-width: 320px; overflow: auto;
-  border: 1px solid var(--border, #e5e7eb); border-radius: 8px; padding: 0.6rem;
-  background: var(--surface, #fff); }
+  border: 1px solid var(--border); border-radius: 8px; padding: 0.6rem;
+  background: var(--surface); }
 .fb-props-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.03em; color: var(--ink-soft, #6b7280); margin-bottom: 0.5rem; }
-.fb-empty-hint { color: var(--ink-soft, #9ca3af); font-size: 0.82rem; }
+  letter-spacing: 0.03em; color: var(--ink-soft); margin-bottom: 0.5rem; }
+.fb-empty-hint { color: var(--ink-soft); font-size: 0.82rem; }
 .fb-seq { display: flex; flex-direction: column; gap: 0.35rem; }
 .fb-seq.fb-seq-root { min-height: 40px; }
-.flow-block { border: 1px solid var(--border, #d1d5db); border-radius: 6px; background: var(--surface, #fff); }
-.flow-block.selected { border-color: var(--accent, #B5792A); box-shadow: 0 0 0 1px var(--accent, #B5792A); }
-.flow-block.active-step { border-color: #16a34a; box-shadow: 0 0 0 1px #16a34a; }
+.flow-block { border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+.flow-block.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.flow-block.active-step { border-color: var(--good); box-shadow: 0 0 0 1px var(--good); }
 .fb-block-header { display: flex; align-items: center; gap: 0.35rem; padding: 0.35rem 0.5rem;
-  cursor: pointer; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.78rem; }
+  cursor: pointer; font-family: var(--font-mono); font-size: 0.78rem; }
 .fb-block-header .fb-kind-tag { font-size: 0.65rem; font-weight: 700; text-transform: uppercase;
-  padding: 0.05rem 0.35rem; border-radius: 4px; background: var(--chip-bg, #eef2ff); color: var(--accent, #B5792A); }
+  padding: 0.05rem 0.35rem; border-radius: 4px; background: var(--accent-soft); color: var(--accent); }
 .fb-block-label { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .fb-block-moves { display: flex; gap: 0.15rem; }
-.fb-move-btn { border: none; background: none; cursor: pointer; font-size: 0.7rem; color: var(--ink-soft, #9ca3af);
+.fb-move-btn { border: none; background: none; cursor: pointer; font-size: 0.7rem; color: var(--ink-soft);
   padding: 0 0.15rem; line-height: 1; }
-.fb-move-btn:hover { color: var(--ink, #1f2937); }
+.fb-move-btn:hover { color: var(--ink); }
 .fb-block-body { margin: 0 0.5rem 0.5rem 1rem; padding-left: 0.5rem;
-  border-left: 2px dashed var(--border, #d1d5db); display: flex; flex-direction: column; gap: 0.35rem; }
+  border-left: 2px dashed var(--border); display: flex; flex-direction: column; gap: 0.35rem; }
 .fb-add-into-body { align-self: flex-start; font-size: 0.7rem; padding: 0.15rem 0.4rem; margin-top: 0.1rem; }
 .field-row { display: flex; flex-direction: column; gap: 0.2rem; margin-bottom: 0.5rem; font-size: 0.78rem; }
-.field-row label { font-weight: 600; color: var(--ink-soft, #6b7280); }
+.field-row label { font-weight: 600; color: var(--ink-soft); }
 .field-row input[type="text"], .field-row select { padding: 0.3rem 0.4rem; border-radius: 5px;
-  border: 1px solid var(--border, #d1d5db); background: var(--surface, #fff); color: inherit; font-size: 0.8rem; }
+  border: 1px solid var(--border); background: var(--surface); color: inherit; font-size: 0.8rem; }
 .field-2col { display: flex; gap: 0.5rem; }
 .field-2col .field-row { flex: 1; }
 .fb-checkbox-row { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; margin-bottom: 0.5rem; }
-.btn { padding: 0.35rem 0.7rem; border-radius: 6px; border: 1px solid var(--border, #d1d5db);
-  background: var(--surface, #fff); color: inherit; font-size: 0.8rem; cursor: pointer; }
-.btn:hover { background: var(--surface-hover, #f3f4f6); }
-.btn-danger { border-color: #ef4444; color: #ef4444; background: none; }
-.btn-danger:hover { background: #fef2f2; }
-.fb-output { border: 1px solid var(--border, #e5e7eb); border-radius: 8px; overflow: hidden; }
-.fb-tabs { display: flex; border-bottom: 1px solid var(--border, #e5e7eb); background: var(--surface-soft, #f9fafb); }
+.fb-btn { padding: 0.35rem 0.7rem; border-radius: 6px; border: 1px solid var(--border);
+  background: var(--surface); color: var(--ink); font-size: 0.8rem; cursor: pointer; }
+.fb-btn:hover { background: var(--surface-raised); }
+.fb-btn-danger { border-color: var(--bad); color: var(--bad); background: none; }
+.fb-btn-danger:hover { background: var(--bad-soft); }
+.fb-output { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+.fb-tabs { display: flex; border-bottom: 1px solid var(--border); background: var(--surface); }
 .tab-btn { padding: 0.45rem 0.9rem; border: none; background: none; cursor: pointer; font-size: 0.8rem;
-  color: var(--ink-soft, #6b7280); border-bottom: 2px solid transparent; }
-.tab-btn.active { color: var(--accent, #B5792A); border-bottom-color: var(--accent, #B5792A); font-weight: 600; }
+  color: var(--ink-soft); border-bottom: 2px solid transparent; }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); font-weight: 600; }
 .tab-panel { display: none; padding: 0.6rem; }
 .tab-panel.active { display: block; }
-.fb-code-view { margin: 0; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.8rem;
+.fb-code-view { margin: 0; font-family: var(--font-mono); font-size: 0.8rem;
   white-space: pre; overflow: auto; max-height: 260px; }
 .code-line { display: block; padding: 0 0.25rem; }
-.code-line.active { background: #fef3c7; }
+.code-line.active { background: var(--accent-soft); }
 .fb-run-controls { display: flex; gap: 0.4rem; align-items: center; margin-bottom: 0.5rem; flex-wrap: wrap; }
-.fb-run-step-label { font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.78rem; color: var(--ink-soft, #6b7280); }
+.fb-run-step-label { font-family: var(--font-mono); font-size: 0.78rem; color: var(--ink-soft); }
 .fb-run-desc { font-size: 0.8rem; margin-bottom: 0.5rem; min-height: 1.2em; }
 .fb-run-columns { display: flex; gap: 0.75rem; }
 .fb-vars-view { flex: 1; min-width: 0; }
-.var-row { display: flex; justify-content: space-between; gap: 0.5rem; font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.78rem; padding: 0.1rem 0; border-bottom: 1px dashed var(--border, #e5e7eb); }
-.var-name { color: var(--ink-soft, #6b7280); }
+.var-row { display: flex; justify-content: space-between; gap: 0.5rem; font-family: var(--font-mono);
+  font-size: 0.78rem; padding: 0.1rem 0; border-bottom: 1px dashed var(--border); }
+.var-name { color: var(--ink-soft); }
 .var-value { font-weight: 600; }
-.fb-console-view { flex: 1; min-width: 0; font-family: var(--font-mono, ui-monospace, monospace);
-  font-size: 0.78rem; white-space: pre-wrap; background: #111827; color: #e5e7eb; border-radius: 6px;
+.fb-console-view { flex: 1; min-width: 0; font-family: var(--font-mono);
+  font-size: 0.78rem; white-space: pre-wrap; background: var(--bg); color: var(--ink); border-radius: 6px;
   padding: 0.4rem; min-height: 60px; max-height: 200px; overflow: auto; }
 .fb-compare-cols { display: flex; gap: 0.75rem; }
 .fb-compare-col { flex: 1; min-width: 0; }
 .fb-compare-col h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em;
-  color: var(--ink-soft, #6b7280); margin-bottom: 0.3rem; }
-.fb-compare-col pre { margin: 0; font-family: var(--font-mono, ui-monospace, monospace); font-size: 0.78rem;
-  white-space: pre-wrap; max-height: 220px; overflow: auto; border: 1px solid var(--border, #e5e7eb);
+  color: var(--ink-soft); margin-bottom: 0.3rem; }
+.fb-compare-col pre { margin: 0; font-family: var(--font-mono); font-size: 0.78rem;
+  white-space: pre-wrap; max-height: 220px; overflow: auto; border: 1px solid var(--border);
   border-radius: 6px; padding: 0.4rem; }
 .fb-compare-status { font-size: 0.82rem; font-weight: 700; margin-bottom: 0.5rem; }
-.fb-compare-status.match { color: #16a34a; }
-.fb-compare-status.mismatch { color: #ef4444; }
+.fb-compare-status.match { color: var(--good); }
+.fb-compare-status.mismatch { color: var(--bad); }
 `;
     document.head.appendChild(style);
   }
@@ -238,19 +237,19 @@ class FlowBuilder {
     const runControls = document.createElement('div');
     runControls.className = 'fb-run-controls';
     const resetBtn = document.createElement('button');
-    resetBtn.className = 'btn';
+    resetBtn.className = 'fb-btn';
     resetBtn.type = 'button';
     resetBtn.textContent = 'Reset';
     const prevBtn = document.createElement('button');
-    prevBtn.className = 'btn';
+    prevBtn.className = 'fb-btn';
     prevBtn.type = 'button';
     prevBtn.textContent = '◀ Step Back';
     const nextBtn = document.createElement('button');
-    nextBtn.className = 'btn';
+    nextBtn.className = 'fb-btn';
     nextBtn.type = 'button';
     nextBtn.textContent = 'Step ▶';
     const playBtn = document.createElement('button');
-    playBtn.className = 'btn';
+    playBtn.className = 'fb-btn';
     playBtn.type = 'button';
     playBtn.textContent = 'Play';
     const stepLabel = document.createElement('span');
@@ -655,7 +654,7 @@ class FlowBuilder {
     }
 
     const delBtn = document.createElement('button');
-    delBtn.className = 'btn btn-danger';
+    delBtn.className = 'fb-btn fb-btn-danger';
     delBtn.style.marginTop = '0.5rem';
     delBtn.textContent = 'Delete Block';
     delBtn.addEventListener('click', () => this._deleteNode(node.id));
@@ -1112,7 +1111,7 @@ class FlowBuilder {
     if (this.currentStep < 0 || this.steps.length === 0) {
       stepLabel.textContent = 'Step 0 / ' + Math.max(this.steps.length - 1, 0);
       stepDesc.textContent = this.steps.length === 0 ? 'Nothing to run yet — build a flow first.' : 'Press Play or Step to run the flow.';
-      varsView.innerHTML = '<div style="color:#9ca3af;font-size:0.8rem;">No variables</div>';
+      varsView.innerHTML = '<div class="fb-empty-hint">No variables</div>';
       consoleView.textContent = '';
       return;
     }
@@ -1134,7 +1133,7 @@ class FlowBuilder {
     varsView.innerHTML = '';
     const keys = Object.keys(step.vars);
     if (keys.length === 0) {
-      varsView.innerHTML = '<div style="color:#9ca3af;font-size:0.8rem;">No variables</div>';
+      varsView.innerHTML = '<div class="fb-empty-hint">No variables</div>';
     } else {
       keys.forEach(k => {
         const row = document.createElement('div');

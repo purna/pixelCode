@@ -1,68 +1,124 @@
 /**
- * Firebase Configuration
- * This file initializes Firebase using config from config.js
+ * Firebase Configuration & Auth
+ * Replace the placeholder values below with your actual Firebase config.
  */
 
-// Firebase is initialized using appFirebaseConfig from config.js
-// Expose on window for cross-script access
-window.firebaseApp = null;
-window.firebaseAuth = null;
-window.firebaseDb = null;
+window.FIREBASE_CONFIG = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_PROJECT_ID.appspot.com",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
 
-// Check if Firebase is configured (config.js must be loaded first)
-if (typeof appFirebaseConfig !== 'undefined' && appFirebaseConfig.apiKey && !appFirebaseConfig.apiKey.startsWith('YOUR_')) {
-    try {
-        window.firebaseApp = firebase.initializeApp(appFirebaseConfig);
-        window.firebaseAuth = firebase.auth();
-        window.firebaseDb = firebase.firestore();
-        console.log('Firebase initialized successfully (App, Auth, Firestore)');
-    } catch (error) {
-        console.warn('Firebase initialization failed:', error.message);
-    }
-} else {
-    console.warn('Firebase not configured. Please add your Firebase config to js/config.js');
+if (!window.firebaseApp && typeof firebase !== 'undefined' && window.FIREBASE_CONFIG.apiKey && !window.FIREBASE_CONFIG.apiKey.startsWith('YOUR_')) {
+  try {
+    window.firebaseApp = firebase.initializeApp(window.FIREBASE_CONFIG);
+    window.firebaseAuth = firebase.auth();
+    window.firebaseDb = firebase.firestore();
+    console.log('Firebase initialized successfully (App, Auth, Firestore)');
+  } catch (error) {
+    console.warn('Firebase initialization failed:', error.message);
+  }
 }
 
-// Google Auth Provider - initialize only if firebaseAuth exists
-let googleProvider = null;
-if (typeof firebase !== 'undefined' && window.firebaseAuth) {
-    googleProvider = new firebase.auth.GoogleAuthProvider();
-}
+if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth.GoogleAuthProvider) {
+  const googleProvider = new firebase.auth.GoogleAuthProvider();
+  googleProvider.addScope('https://www.googleapis.com/auth/classroom.coursework.me');
 
-// Sign in with Google
-async function signInWithGoogle() {
+  window.signInWithGoogle = async function () {
     if (!window.firebaseAuth) {
-        alert('Firebase is not configured. Please add your Firebase config to js/config.js');
-        return null;
+      alert('Firebase is not configured.');
+      return null;
     }
-    
     try {
-        const result = await window.firebaseAuth.signInWithPopup(googleProvider);
-        const user = result.user;
-        console.log('Google sign-in successful:', user.displayName);
-        return user;
+      const result = await window.firebaseAuth.signInWithPopup(googleProvider);
+      const user = result.user;
+      console.log('Google sign-in successful:', user.displayName);
+      return user;
     } catch (error) {
-        console.error('Google sign-in error:', error);
-        throw error;
+      console.error('Google sign-in error:', error);
+      throw error;
     }
+  };
+} else {
+  window.signInWithGoogle = async function () {
+    alert('Firebase SDK not loaded. Check your internet connection or ad blocker.');
+    return null;
+  };
 }
 
-// Sign out
-async function signOut() {
-    if (!window.firebaseAuth) return;
-    
+window.signOut = async function () {
+  if (!window.firebaseAuth) return;
+  try {
+    await window.firebaseAuth.signOut();
+    console.log('Signed out successfully');
+  } catch (error) {
+    console.error('Sign out error:', error);
+  }
+};
+
+window.getCurrentFirebaseUser = function () {
+  return window.firebaseAuth ? window.firebaseAuth.currentUser : null;
+};
+
+window.getFreshClassroomAccessToken = async function () {
+  const user = window.getCurrentFirebaseUser();
+  if (!user) return null;
+  try {
+    const result = await user.getIdTokenResult();
+    const accessToken = result.signInAttributes?.access_token;
+    if (accessToken) return accessToken;
+  } catch (e) {
+    console.warn('Failed to get cached classroom access token:', e);
+  }
+  if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth.GoogleAuthProvider) {
     try {
-        await window.firebaseAuth.signOut();
-        console.log('Signed out successfully');
-    } catch (error) {
-        console.error('Sign out error:', error);
+      const credential = firebase.auth.GoogleAuthProvider.credentialFromResult(user);
+      if (credential && credential.accessToken) {
+        return credential.accessToken;
+      }
+    } catch (e) {
+      console.warn('Failed to get fresh access token:', e);
     }
+  }
+  return null;
+};
+
+if (window.firebaseAuth) {
+  window.firebaseAuth.onAuthStateChanged(function (user) {
+    const signInBtn = document.getElementById('signInBtn');
+    const signOutBtn = document.getElementById('signOutBtn');
+    if (user && app && app.state) {
+      app.state.user = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName,
+        photoURL: user.photoURL
+      };
+      console.log('Auth state changed: signed in as', user.email);
+      if (signInBtn) signInBtn.classList.add('hidden');
+      if (signOutBtn) signOutBtn.classList.remove('hidden');
+    } else if (app && app.state) {
+      app.state.user = null;
+      console.log('Auth state changed: signed out');
+      if (signInBtn) signInBtn.classList.remove('hidden');
+      if (signOutBtn) signOutBtn.classList.add('hidden');
+    }
+  });
 }
 
-// Get current user
-function getCurrentFirebaseUser() {
-    return window.firebaseAuth ? window.firebaseAuth.currentUser : null;
-}
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('signInBtn')?.addEventListener('click', async () => {
+    try {
+      await window.signInWithGoogle();
+    } catch (e) {
+      console.error('Sign in failed:', e);
+    }
+  });
 
-// Export for use in other scripts (do not redeclare isFirebaseConfigured)
-// Use config.js's isFirebaseConfigured() which now checks window.firebaseAuth
+  document.getElementById('signOutBtn')?.addEventListener('click', async () => {
+    await window.signOut();
+  });
+});
