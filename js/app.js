@@ -155,6 +155,28 @@
         });
       });
     }
+
+    app.fallbackIcons();
+  };
+
+  app.fallbackIcons = function () {
+    setTimeout(function () {
+      var test = document.createElement('i');
+      test.className = 'fa-solid fa-circle-question menu-icon';
+      test.style.display = 'none';
+      document.body.appendChild(test);
+      var fontFamily = getComputedStyle(test).fontFamily;
+      document.body.removeChild(test);
+      var faLoaded = fontFamily.indexOf('Font Awesome') !== -1;
+      if (!faLoaded) {
+        document.querySelectorAll('.icon-btn i, .btn-close i').forEach(function (icon) {
+          var emoji = icon.getAttribute('data-emoji');
+          if (emoji) {
+            icon.replaceWith(document.createTextNode(emoji));
+          }
+        });
+      }
+    }, 500);
   };
 
   app.init();

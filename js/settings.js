@@ -10,7 +10,7 @@
 
   app.applyTheme = function (theme) {
     document.documentElement.setAttribute('data-theme', theme);
-    app.el.themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+    app.el.themeToggle.innerHTML = theme === 'dark' ? '<i class="fa-solid fa-sun menu-icon"></i>' : '<i class="fa-solid fa-moon menu-icon"></i>';
     localStorage.setItem('quizTheme', theme);
   };
 

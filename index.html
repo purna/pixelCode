@@ -13,8 +13,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css">
-<link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="container">
@@ -23,11 +23,11 @@
     <div class="header-top">
       <p class="eyebrow">Learn C#</p>
       <div class="header-actions">
-        <button class="icon-btn" id="helpBtn" aria-label="How it works" title="How it works">❔</button>
-        <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings">⚙️</button>
-        <button class="icon-btn" id="themeToggle" aria-label="Toggle night mode" title="Toggle night mode">🌙</button>
-        <button class="icon-btn" id="signInBtn" aria-label="Sign in with Google" title="Sign in">🔑</button>
-        <button class="icon-btn hidden" id="signOutBtn" aria-label="Sign out" title="Sign out">🚪</button>
+        <button class="icon-btn" id="helpBtn" aria-label="How it works" title="How it works"><i class="fa-solid fa-circle-question menu-icon" data-emoji="❔"></i></button>
+        <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings"><i class="fa-solid fa-gear menu-icon" data-emoji="⚙️"></i></button>
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle night mode" title="Toggle night mode"><i class="fa-solid fa-moon menu-icon" data-emoji="🌙"></i></button>
+        <button class="icon-btn" id="signInBtn" aria-label="Sign in with Google" title="Sign in"><i class="fa-solid fa-key menu-icon" data-emoji="🔑"></i></button>
+        <button class="icon-btn hidden" id="signOutBtn" aria-label="Sign out" title="Sign out"><i class="fa-solid fa-right-from-bracket menu-icon" data-emoji="🚪"></i></button>
       </div>
     </div>
     <h1>C# Quiz</h1>
@@ -56,7 +56,7 @@
     <div class="modal-content">
       <div class="modal-head">
         <h2>Settings</h2>
-        <button class="btn-close" id="closeSettings" aria-label="Close settings">✕</button>
+        <button class="btn-close" id="closeSettings" aria-label="Close settings"><i class="fa-solid fa-xmark menu-icon" data-emoji="✕"></i></button>
       </div>
 
       <div class="modal-body">
@@ -108,7 +108,7 @@
     <div class="modal-content" style="max-width: 400px;">
       <div class="modal-head">
         <h2>Reset all progress?</h2>
-        <button class="btn-close" id="closeResetConfirm" aria-label="Close">✕</button>
+        <button class="btn-close" id="closeResetConfirm" aria-label="Close"><i class="fa-solid fa-xmark menu-icon" data-emoji="✕"></i></button>
       </div>
       <p style="margin: 0 0 1rem; line-height: 1.6;">This will permanently delete:</p>
       <ul style="margin: 0 0 1rem; padding-left: 1.25rem; line-height: 1.8;">
