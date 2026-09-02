@@ -17,6 +17,7 @@ if (!window.firebaseApp && typeof firebase !== 'undefined' && window.FIREBASE_CO
     window.firebaseApp = firebase.initializeApp(window.FIREBASE_CONFIG);
     window.firebaseAuth = firebase.auth();
     window.firebaseDb = firebase.firestore();
+    window.notifications = window.notifications || new Notifications();
     console.log('Firebase initialized successfully (App, Auth, Firestore)');
   } catch (error) {
     console.warn('Firebase initialization failed:', error.message);
@@ -36,9 +37,11 @@ if (typeof firebase !== 'undefined' && firebase.auth && firebase.auth.GoogleAuth
       const result = await window.firebaseAuth.signInWithPopup(googleProvider);
       const user = result.user;
       console.log('Google sign-in successful:', user.displayName);
+      (window.notifications || new Notifications()).success(`Signed in as ${user.displayName || user.email}`);
       return user;
     } catch (error) {
       console.error('Google sign-in error:', error);
+      (window.notifications || new Notifications()).error('Sign-in failed. Please try again.');
       throw error;
     }
   };
@@ -54,8 +57,10 @@ window.signOut = async function () {
   try {
     await window.firebaseAuth.signOut();
     console.log('Signed out successfully');
+    (window.notifications || new Notifications()).info('Signed out successfully');
   } catch (error) {
     console.error('Sign out error:', error);
+    (window.notifications || new Notifications()).error('Sign-out failed. Please try again.');
   }
 };
 
@@ -105,6 +110,7 @@ window.getFreshClassroomAccessToken = async function () {
       var signOutBtn = document.getElementById('signOutBtn');
       if (signInBtn) signInBtn.classList.add('hidden');
       if (signOutBtn) signOutBtn.classList.remove('hidden');
+      (window.notifications || new Notifications()).success('Signed in successfully');
       return true;
     }
     return false;
@@ -123,6 +129,7 @@ window.getFreshClassroomAccessToken = async function () {
   }
 
   if (window.firebaseAuth) {
+  const _notif = () => window.notifications || new Notifications();
   window.firebaseAuth.onAuthStateChanged(function (user) {
     const signInBtn = document.getElementById('signInBtn');
     const signOutBtn = document.getElementById('signOutBtn');
@@ -134,12 +141,14 @@ window.getFreshClassroomAccessToken = async function () {
         photoURL: user.photoURL
       };
       console.log('Auth state changed: signed in as', user.email);
+      _notif().success(`Signed in as ${user.displayName || user.email}`);
       saveUserDoc(user);
       if (signInBtn) signInBtn.classList.add('hidden');
       if (signOutBtn) signOutBtn.classList.remove('hidden');
     } else if (app && app.state) {
       app.state.user = null;
       console.log('Auth state changed: signed out');
+      _notif().info('Signed out');
       if (!checkGisToken()) {
         if (signInBtn) signInBtn.classList.remove('hidden');
         if (signOutBtn) signOutBtn.classList.add('hidden');
@@ -165,8 +174,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (app && app.state) app.state.user = null;
         document.getElementById('signInBtn')?.classList.remove('hidden');
         signOutBtn.classList.add('hidden');
+        (window.notifications || new Notifications()).info('Signed out');
       } catch (e) {
         console.error('Sign out error:', e);
+        (window.notifications || new Notifications()).error('Sign-out failed');
       }
     });
   }

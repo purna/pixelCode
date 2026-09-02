@@ -33,6 +33,7 @@
     </div>
   </div>
 
+  <script src="js/notifications.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
     (function () {
@@ -85,11 +86,13 @@
               localStorage.setItem('google_access_token', response.access_token);
               var expiry = Date.now() + (response.expires_in || 3600) * 1000;
               localStorage.setItem('google_token_expiry', String(expiry));
+              new Notifications().success('Signed in successfully');
               redirectToApp();
             }
           },
           error: function (e) {
             console.error('GIS error:', e);
+            new Notifications().error('Sign-in failed. Please try again.');
             showError();
           }
         });
