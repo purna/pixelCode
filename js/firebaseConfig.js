@@ -148,7 +148,6 @@ window.getFreshClassroomAccessToken = async function () {
   });
 }
 
-/* ── Check GIS token on DOM ready ── */
 document.addEventListener('DOMContentLoaded', () => {
   checkGisToken();
 
@@ -156,12 +155,19 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location.href = 'login.html';
   });
 
-  document.getElementById('signOutBtn')?.addEventListener('click', async () => {
-    localStorage.removeItem('google_access_token');
-    localStorage.removeItem('google_token_expiry');
-    await window.signOut();
-    if (app && app.state) app.state.user = null;
-    document.getElementById('signInBtn')?.classList.remove('hidden');
-    document.getElementById('signOutBtn')?.classList.add('hidden');
-  });
+  const signOutBtn = document.getElementById('signOutBtn');
+  if (signOutBtn) {
+    signOutBtn.addEventListener('click', async () => {
+      try {
+        localStorage.removeItem('google_access_token');
+        localStorage.removeItem('google_token_expiry');
+        if (typeof window.signOut === 'function') await window.signOut();
+        if (app && app.state) app.state.user = null;
+        document.getElementById('signInBtn')?.classList.remove('hidden');
+        signOutBtn.classList.add('hidden');
+      } catch (e) {
+        console.error('Sign out error:', e);
+      }
+    });
+  }
 });
