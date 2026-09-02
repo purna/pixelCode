@@ -41,6 +41,17 @@ class DatabaseManager {
     });
   }
 
+  async saveLearnProgressToFirestore(uid, section, level, progress) {
+    if (!this.isFirebaseConfigured() || !uid) return;
+    const docRef = window.firebaseDb.collection(this.getUserDocPath(uid, 'learn_progress')).doc(`${section}|${level}`);
+    await docRef.set({
+      lastSlide: progress.lastSlide,
+      total: progress.total,
+      completed: progress.completed || false,
+      lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true });
+  }
+
   async savePreferencesToFirestore(uid, prefs) {
     if (!this.isFirebaseConfigured() || !uid) return;
     await window.firebaseDb.collection(this.getUserDocPath(uid, 'preferences')).doc('settings').set({
@@ -51,17 +62,23 @@ class DatabaseManager {
 
   async loadUserData(uid) {
     if (!this.isFirebaseConfigured() || !uid) return null;
-    const [resultsSnap, prefsSnap] = await Promise.all([
+    const [resultsSnap, prefsSnap, learnSnap] = await Promise.all([
       window.firebaseDb.collection(this.getUserDocPath(uid, 'results')).get(),
-      window.firebaseDb.collection(this.getUserDocPath(uid, 'preferences')).doc('settings').get()
+      window.firebaseDb.collection(this.getUserDocPath(uid, 'preferences')).doc('settings').get(),
+      window.firebaseDb.collection(this.getUserDocPath(uid, 'learn_progress')).get()
     ]);
     const results = {};
     resultsSnap.forEach(doc => {
       results[doc.id] = doc.data();
     });
+    const learnProgress = {};
+    learnSnap.forEach(doc => {
+      learnProgress[doc.id] = doc.data();
+    });
     return {
       results,
-      preferences: prefsSnap.exists ? prefsSnap.data() : null
+      preferences: prefsSnap.exists ? prefsSnap.data() : null,
+      learnProgress
     };
   }
 
@@ -91,10 +108,30 @@ class DatabaseManager {
       });
       await Promise.all(syncPromises);
       console.log('Synced quiz results to Firestore');
+      await this.syncLearnProgressToFirestore();
     } catch (error) {
       console.error('Firestore sync error:', error);
     } finally {
       this.syncing = false;
+    }
+  }
+
+  async syncLearnProgressToFirestore() {
+    const user = this.getCurrentUser();
+    if (!user || !this.isFirebaseConfigured()) return;
+    if (!this.app.getAllLearnProgress) return;
+    const learnProgress = this.app.getAllLearnProgress();
+    const syncPromises = [];
+    Object.keys(learnProgress).forEach(key => {
+      const entry = learnProgress[key];
+      const [section, level] = key.split('|');
+      syncPromises.push(
+        this.saveLearnProgressToFirestore(user.uid, section, level, entry)
+      );
+    });
+    if (syncPromises.length) {
+      await Promise.all(syncPromises);
+      console.log('Synced learn progress to Firestore');
     }
   }
 
@@ -109,6 +146,9 @@ class DatabaseManager {
       }
       if (data.results && this.app.mergeResults) {
         this.app.mergeResults(data.results);
+      }
+      if (data.learnProgress && this.app.mergeLearnProgress) {
+        this.app.mergeLearnProgress(data.learnProgress);
       }
     } catch (error) {
       console.error('Hydration error:', error);

@@ -9,6 +9,23 @@
     }
   };
 
+  app.mergeResults = function (remoteResults) {
+    try {
+      const local = JSON.parse(localStorage.getItem('quizResults')) || {};
+      Object.keys(remoteResults).forEach(key => {
+        const remote = remoteResults[key];
+        const existing = local[key];
+        if (!existing || (remote.lastUpdated && (!existing.lastUpdated || remote.lastUpdated > existing.lastUpdated))) {
+          local[key] = remote;
+        } else if (existing.bestPct < (remote.bestPct || 0)) {
+          local[key].bestPct = Math.max(existing.bestPct, remote.bestPct || 0);
+          local[key].passed = local[key].bestPct >= 80;
+        }
+      });
+      localStorage.setItem('quizResults', JSON.stringify(local));
+    } catch (e) {}
+  };
+
   app.saveQuizResult = function (section, level, variant, pct, correct, total) {
     const results = app.getResults();
     const key = section + '|' + level;
@@ -36,6 +53,28 @@
     } catch (e) {
       return null;
     }
+  };
+
+  app.getAllLearnProgress = function () {
+    try {
+      return JSON.parse(localStorage.getItem('learnProgress')) || {};
+    } catch (e) {
+      return {};
+    }
+  };
+
+  app.mergeLearnProgress = function (progress) {
+    try {
+      const existing = JSON.parse(localStorage.getItem('learnProgress')) || {};
+      Object.keys(progress).forEach(key => {
+        const remote = progress[key];
+        const local = existing[key];
+        if (!local || (remote.lastUpdated && (!local.lastUpdated || remote.lastUpdated > local.lastUpdated))) {
+          existing[key] = remote;
+        }
+      });
+      localStorage.setItem('learnProgress', JSON.stringify(existing));
+    } catch (e) {}
   };
 
   app.saveLearnProgress = function (section, level, idx, completed, total) {

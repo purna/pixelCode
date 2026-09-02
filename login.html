@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — C# Quiz</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" style="max-width: 420px; margin: 0 auto; padding-top: 5rem; text-align: center;">
+    <h1 style="font-family: var(--font-display); font-size: 1.85rem; margin: 0 0 0.35rem;">C# Quiz</h1>
+    <p style="color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 2rem;">
+      Sign in to save your progress and sync with Google Classroom
+    </p>
+
+    <div id="loginPrompt">
+      <button id="loginBtn" class="btn" style="width: 100%; padding: 0.75rem 1rem; font-size: 0.95rem;">
+        <i class="fa-solid fa-google" style="margin-right: 0.5rem; vertical-align: middle;"></i>
+        Sign in with Google
+      </button>
+    </div>
+
+    <div id="loadingState" class="hidden" style="color: var(--ink-soft); font-size: 0.88rem;">
+      <i class="fa-solid fa-spinner fa-spin" style="margin-right: 0.6rem;"></i>
+      Redirecting to Google&hellip;
+    </div>
+
+    <div id="errorMsg" class="hidden">
+      <div style="color: var(--bad); font-size: 0.88rem; margin-top: 1rem;">
+        Sign-in failed. Please refresh and try again.
+      </div>
+    </div>
+  </div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    (function () {
+      'use strict';
+
+      var CLIENT_ID = '516293793015-t7tkd7o08mot2750mkbg29tlah8im01r.apps.googleusercontent.com';
+      var SCOPES = 'openid email profile https://www.googleapis.com/auth/classroom.coursework.me';
+
+      var loginBtn     = document.getElementById('loginBtn');
+      var loginPrompt  = document.getElementById('loginPrompt');
+      var loadingState = document.getElementById('loadingState');
+      var errorMsg     = document.getElementById('errorMsg');
+
+      function showLoading() {
+        loginPrompt.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+        loadingState.classList.remove('hidden');
+      }
+
+      function showError() {
+        loginPrompt.classList.remove('hidden');
+        loadingState.classList.add('hidden');
+        errorMsg.classList.remove('hidden');
+      }
+
+      function redirectToApp() {
+        window.location.href = 'index.html';
+      }
+
+      /* ── Check if already signed in (token stored from prior session) ── */
+      var token = localStorage.getItem('google_access_token');
+      var tokenExpiry = localStorage.getItem('google_token_expiry');
+      if (token && tokenExpiry && Date.now() < parseInt(tokenExpiry, 10)) {
+        redirectToApp();
+      }
+
+      /* ── Initialize Google Identity Services token client ── */
+      function initGIS() {
+        if (!window.google || !google.accounts || !google.accounts.oauth2) {
+          console.error('Google Identity Services not loaded');
+          showError();
+          return;
+        }
+
+        var tokenClient = google.accounts.oauth2.initTokenClient({
+          client_id: CLIENT_ID,
+          scope: SCOPES,
+          callback: function (response) {
+            if (response && response.access_token) {
+              localStorage.setItem('google_access_token', response.access_token);
+              var expiry = Date.now() + (response.expires_in || 3600) * 1000;
+              localStorage.setItem('google_token_expiry', String(expiry));
+              redirectToApp();
+            }
+          },
+          error: function (e) {
+            console.error('GIS error:', e);
+            showError();
+          }
+        });
+
+        if (loginBtn) {
+          loginBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            showLoading();
+            try {
+              tokenClient.requestAccessToken();
+            } catch (err) {
+              console.error('Token request error:', err);
+              showError();
+            }
+          });
+        }
+      }
+
+      /* ── GIS script loads async — wait for it ── */
+      if (window.google && google.accounts && google.accounts.oauth2) {
+        initGIS();
+      } else {
+        /* Poll for google.accounts */
+        var attempts = 0;
+        var poll = setInterval(function () {
+          if (window.google && google.accounts && google.accounts.oauth2) {
+            clearInterval(poll);
+            initGIS();
+          } else if (++attempts > 50) {
+            clearInterval(poll);
+            console.error('Google Identity Services failed to load');
+            showError();
+          }
+        }, 100);
+      }
+    })();
+  </script>
+  <footer style="text-align: center; margin-top: 2rem;">
+    <p style="color: var(--ink-soft); font-size: 0.82rem; margin-bottom: 0.25rem;">&copy; 2026 Assessment Quiz</p>
+    <nav style="display: flex; gap: 1rem; justify-content: center; font-size: 0.8rem;">
+      <a href="privacy-policy.html" style="color: var(--ink-soft); text-decoration: none;">Privacy Policy</a>
+      <a href="terms-of-service.html" style="color: var(--ink-soft); text-decoration: none;">Terms of Service</a>
+    </nav>
+  </footer>
+</body>
+</html>

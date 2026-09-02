@@ -25,6 +25,7 @@
       <div class="header-actions">
         <button class="icon-btn" id="helpBtn" aria-label="How it works" title="How it works"><i class="fa-solid fa-circle-question menu-icon" data-emoji="❔"></i></button>
         <button class="icon-btn" id="settingsBtn" aria-label="Open settings" title="Settings"><i class="fa-solid fa-gear menu-icon" data-emoji="⚙️"></i></button>
+        <button class="icon-btn" id="a11yBtn" aria-label="Accessibility settings" title="Accessibility"><i class="fa-solid fa-universal-access menu-icon" data-emoji="♿"></i></button>
         <button class="icon-btn" id="themeToggle" aria-label="Toggle night mode" title="Toggle night mode"><i class="fa-solid fa-moon menu-icon" data-emoji="🌙"></i></button>
         <button class="icon-btn" id="signInBtn" aria-label="Sign in with Google" title="Sign in"><i class="fa-solid fa-key menu-icon" data-emoji="🔑"></i></button>
         <button class="icon-btn hidden" id="signOutBtn" aria-label="Sign out" title="Sign out"><i class="fa-solid fa-right-from-bracket menu-icon" data-emoji="🚪"></i></button>
@@ -628,11 +629,97 @@
 
 </div>
 
+    <!-- ACCESSIBILITY MODAL -->
+    <div id="a11yModal" class="modal hidden">
+      <div class="modal-content a11y-modal-content">
+        <div class="modal-head">
+          <h2>Accessibility</h2>
+          <button class="btn-close" id="closeA11y" aria-label="Close accessibility settings"><i
+              class="fa-solid fa-xmark menu-icon" data-emoji="✕"></i></button>
+        </div>
+
+        <div class="modal-body">
+          <p class="a11y-subtitle">Adjust for your needs</p>
+
+          <div class="a11y-section-title">Vision</div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-eye a11y-icon" aria-hidden="true"></i> High Contrast</div>
+              <div class="a11y-row-desc">Stronger borders, brighter text</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="high_contrast"
+              aria-label="Toggle high contrast"></button>
+          </div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-text-height a11y-icon" aria-hidden="true"></i> Large Text</div>
+              <div class="a11y-row-desc">Increase text size throughout</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="large_text"
+              aria-label="Toggle large text"></button>
+          </div>
+
+          <div class="a11y-section-title">Hearing / Speech</div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-volume-high a11y-icon" aria-hidden="true"></i> Read Aloud (TTS)</div>
+              <div class="a11y-row-desc">Speaks dialogue and results</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="tts"
+              aria-label="Toggle text to speech"></button>
+          </div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-gauge-simple a11y-icon" aria-hidden="true"></i> Slow Speech</div>
+              <div class="a11y-row-desc">Slower reading speed</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="slow_speech"
+              aria-label="Toggle slow speech"></button>
+          </div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-volume-up a11y-icon" aria-hidden="true"></i> Sound</div>
+              <div class="a11y-row-desc">Background ambience and effects</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="sound"
+              aria-label="Toggle sound"></button>
+          </div>
+
+          <div class="a11y-section-title">Reading / Cognition</div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-book-open a11y-icon" aria-hidden="true"></i> Simple Language</div>
+              <div class="a11y-row-desc">Uses easier, shorter words</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="simple_mode"
+              aria-label="Toggle simple language"></button>
+          </div>
+          <div class="a11y-row">
+            <div class="a11y-row-info">
+              <div class="a11y-row-label"><i class="fa-solid fa-pause a11y-icon" aria-hidden="true"></i> Reduce Motion</div>
+              <div class="a11y-row-desc">Removes animations</div>
+            </div>
+            <button class="toggle-btn" role="switch" aria-checked="false" data-feature="reduce_motion"
+              aria-label="Toggle reduce motion"></button>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="closeA11yFooter">Done</button>
+        </div>
+      </div>
+    </div>
+
 <footer>
   <p>&copy; 2026 Assessment Quiz — practice tool, not an official test.</p>
+  <nav style="margin-top: 0.5rem; display: flex; gap: 1rem; justify-content: center; font-size: 0.82rem;">
+    <a href="privacy-policy.html" style="color: var(--ink-soft); text-decoration: none;">Privacy Policy</a>
+    <a href="terms-of-service.html" style="color: var(--ink-soft); text-decoration: none;">Terms of Service</a>
+  </nav>
 </footer>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Howler/2.2.4/Howler.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
@@ -646,8 +733,9 @@
   <script src="js/settings.js"></script>
   <script src="js/flow-builder.js"></script>
   <script src="js/learn.js"></script>
-<script src="js/quiz.js"></script>
-<script src="js/results.js"></script>
-<script src="js/progress.js"></script>
+  <script src="js/quiz.js"></script>
+  <script src="js/results.js"></script>
+  <script src="js/progress.js"></script>
+  <script src="js/accessibility.js"></script>
 </body>
 </html>

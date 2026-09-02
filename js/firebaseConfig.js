@@ -64,6 +64,13 @@ window.getCurrentFirebaseUser = function () {
 };
 
 window.getFreshClassroomAccessToken = async function () {
+  var gisToken = localStorage.getItem('google_access_token');
+  var gisExpiry = localStorage.getItem('google_token_expiry');
+  if (gisToken && gisExpiry && Date.now() < parseInt(gisExpiry, 10)) {
+    return gisToken;
+  }
+  localStorage.removeItem('google_access_token');
+  localStorage.removeItem('google_token_expiry');
   const user = window.getCurrentFirebaseUser();
   if (!user) return null;
   try {
@@ -86,7 +93,36 @@ window.getFreshClassroomAccessToken = async function () {
   return null;
 };
 
-if (window.firebaseAuth) {
+  /* ── Check for GIS token from login.html ── */
+  function checkGisToken() {
+    var gisToken = localStorage.getItem('google_access_token');
+    var gisExpiry = localStorage.getItem('google_token_expiry');
+    if (gisToken && gisExpiry && Date.now() < parseInt(gisExpiry, 10)) {
+      if (app && app.state) {
+        app.state.user = { uid: 'gis-user', email: null, displayName: null, photoURL: null };
+      }
+      var signInBtn = document.getElementById('signInBtn');
+      var signOutBtn = document.getElementById('signOutBtn');
+      if (signInBtn) signInBtn.classList.add('hidden');
+      if (signOutBtn) signOutBtn.classList.remove('hidden');
+      return true;
+    }
+    return false;
+  }
+
+  function saveUserDoc(user) {
+    if (!window.firebaseDb || !user) return;
+    window.firebaseDb.collection('users').doc(user.uid).set({
+      email: user.email || null,
+      displayName: user.displayName || null,
+      photoURL: user.photoURL || null,
+      lastLoginAt: firebase.firestore.FieldValue.serverTimestamp()
+    }, { merge: true }).catch(function (e) {
+      console.warn('Failed to save user doc:', e.message);
+    });
+  }
+
+  if (window.firebaseAuth) {
   window.firebaseAuth.onAuthStateChanged(function (user) {
     const signInBtn = document.getElementById('signInBtn');
     const signOutBtn = document.getElementById('signOutBtn');
@@ -98,27 +134,31 @@ if (window.firebaseAuth) {
         photoURL: user.photoURL
       };
       console.log('Auth state changed: signed in as', user.email);
+      saveUserDoc(user);
       if (signInBtn) signInBtn.classList.add('hidden');
       if (signOutBtn) signOutBtn.classList.remove('hidden');
     } else if (app && app.state) {
       app.state.user = null;
       console.log('Auth state changed: signed out');
-      if (signInBtn) signInBtn.classList.remove('hidden');
-      if (signOutBtn) signOutBtn.classList.add('hidden');
+      if (!checkGisToken()) {
+        if (signInBtn) signInBtn.classList.remove('hidden');
+        if (signOutBtn) signOutBtn.classList.add('hidden');
+      }
     }
   });
 }
 
+/* ── Check GIS token on DOM ready ── */
 document.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('signInBtn')?.addEventListener('click', async () => {
-    try {
-      await window.signInWithGoogle();
-    } catch (e) {
-      console.error('Sign in failed:', e);
-    }
+  checkGisToken();
+
+  document.getElementById('signInBtn')?.addEventListener('click', () => {
+    window.location.href = 'login.html';
   });
 
   document.getElementById('signOutBtn')?.addEventListener('click', async () => {
+    localStorage.removeItem('google_access_token');
+    localStorage.removeItem('google_token_expiry');
     await window.signOut();
   });
 });

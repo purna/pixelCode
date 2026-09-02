@@ -1309,6 +1309,193 @@ html[data-theme="dark"] .btn-danger:hover {
   border-radius: 0 0 var(--radius) var(--radius);
 }
 
+/* ===== Accessibility Modal ===== */
+.a11y-modal-content {
+  max-width: 480px;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.a11y-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  padding: 0 0.25rem;
+}
+
+.a11y-section-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+  margin: 1rem 0 0.4rem;
+  padding: 0 0.25rem;
+}
+
+.a11y-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.a11y-row:last-child { border-bottom: none; }
+
+.a11y-row-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.a11y-row-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.1rem;
+}
+
+.a11y-icon {
+  font-size: 1.05rem;
+  color: var(--accent);
+  width: 1.1rem;
+  text-align: center;
+}
+
+.a11y-row-desc {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  line-height: 1.4;
+}
+
+.toggle-btn {
+  width: 44px;
+  height: 24px;
+  border: none;
+  border-radius: 999px;
+  background: var(--border);
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.2s ease;
+}
+
+.toggle-btn::before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg);
+  transition: transform 0.2s ease;
+}
+
+.toggle-btn.active {
+  background: var(--accent);
+}
+
+.toggle-btn.active::before {
+  transform: translateX(20px);
+}
+
+.toggle-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ===== Accessibility body classes ===== */
+body.high-contrast {
+  --bg: #0F1117;
+  --surface: #1A1D29;
+  --surface-raised: #222639;
+  --border: #2E3260;
+  --ink: #FFFFFF;
+  --ink-soft: #C7CCD9;
+  --accent: #FFD166;
+  --accent-soft: #FFE9B8;
+  --good: #6BCB77;
+  --good-soft: #DCF4E1;
+  --bad: #FF7878;
+  --bad-soft: #FFD6D6;
+}
+
+body.high-contrast .learn-content pre,
+body.high-contrast .exercise-code-line {
+  background: var(--bg);
+}
+
+body.high-contrast .completion-badge.passed {
+  box-shadow:
+    inset -0.6rem -0.6rem 0 var(--black-25),
+    inset 0.3rem 0.3rem 0 var(--white-15),
+    0 8px 24px var(--good-glow-50),
+    0 2px 8px var(--black-20);
+}
+
+body.high-contrast .completion-badge.failed,
+body.high-contrast .completion-badge.failed-low {
+  box-shadow:
+    inset -0.5rem -0.5rem 0 var(--black-20),
+    inset 0.2rem 0.2rem 0 var(--white-10),
+     0 6px 20px var(--bad-glow-40),
+     0 2px 6px var(--black-15);
+}
+
+body.high-contrast .completion-badge.failed-mid {
+  box-shadow:
+    inset -0.5rem -0.5rem 0 var(--black-20),
+    inset 0.2rem 0.2rem 0 var(--white-10),
+     0 6px 20px var(--mid-glow-40),
+     0 2px 6px var(--black-15);
+}
+
+body.high-contrast .completion-badge.failed-high {
+  box-shadow:
+    inset -0.5rem -0.5rem 0 var(--black-15),
+    inset 0.2rem 0.2rem 0 var(--white-15),
+     0 6px 20px var(--high-glow-40),
+     0 2px 6px var(--black-15);
+}
+
+body.simple-mode .learn-content p,
+body.simple-mode .tutorial-step p,
+body.simple-mode .section-card > p,
+body.simple-mode .question-prompt,
+body.simple-mode .exercise-prompt {
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+body.simple-mode .a11y-row-desc,
+body.simple-mode .learn-progress,
+body.simple-mode .overall-progress-label,
+body.simple-mode .progress-label {
+  font-size: 0.85rem;
+}
+
+html.large-text {
+  font-size: 120%;
+}
+
+body.reduce-motion *,
+body.reduce-motion *::before,
+body.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
 .settings-section {
   margin-bottom: 1.5rem;
 }

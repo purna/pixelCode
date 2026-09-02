@@ -12,7 +12,7 @@ This document explains how to provision the Firebase project, enable the require
 
 ```bash
 # 1.1 Create a new project in the Firebase console (or use an existing one).
-# 1.2 Note the project ID; you will need it below.
+# 1.2 Note the project ID; you will need it below. //pixelcode-507420
 
 # 1.3 Enable required services in Firebase console:
 #     - Authentication → Sign-in method → Google (enable)
@@ -96,6 +96,10 @@ In **Firebase Console → Firestore → Rules** (or deploy via CLI), use:
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    match /users/{uid} {
+      allow read, write: if request.auth != null
+                         && request.auth.uid == uid;
+    }
     match /users/{uid}/{document=**} {
       allow read, write: if request.auth != null
                          && request.auth.uid == uid;
@@ -104,10 +108,56 @@ service cloud.firestore {
 }
 ```
 
-To deploy via CLI:
+The project includes a `firestore.rules` file that can be deployed via CLI:
 
 ```bash
 firebase deploy --only firestore:rules
+```
+
+### 5.1 Firestore data structure
+
+Firestore is schema-less — collections are created implicitly when data is first written. No manual collection creation is needed. The application writes to the following paths:
+
+| Path | Document fields |
+|---|---|
+| `users/{uid}` | `email`, `displayName`, `photoURL`, `lastLoginAt` |
+| `users/{uid}/results/{section\|level}` | `attempts`, `bestPct`, `passed`, `lastVariant`, `history[]`, `updatedAt` |
+| `users/{uid}/learn_progress/{section\|level}` | `lastSlide`, `total`, `completed`, `lastUpdated` |
+| `users/{uid}/preferences/settings` | User preferences (synced from `storage.js`) |
+| `users/{uid}/attempts/{attemptId}` | Full quiz attempt details |
+
+**Cloud Shell — set up the project:**
+
+```bash
+# Install Firebase CLI (if not already installed)
+npm install -g firebase-tools
+
+# Authenticate with your Google account
+firebase login
+
+# Set your Firebase project (replace <PROJECT_ID> with your actual project ID)
+firebase use <PROJECT_ID>
+
+# Or create a .firebaserc file:
+echo '{"projects":["<PROJECT_ID>"]}' > .firebaserc
+
+# Deploy Firestore security rules
+firebase deploy --only firestore:rules
+
+# Create the Firebase config file (replace with real values from Console)
+cp js/firebase-config.example.js js/firebase-config.js
+# Then edit js/firebase-config.js with your actual API key, project ID, etc.
+```
+
+**Verify in Cloud Shell:**
+
+```bash
+# List collections (requires gcloud)
+gcloud firestore databases list --project <PROJECT_ID>
+
+# After signing in and using the app, verify data:
+# Check Firestore in Firebase Console or via REST:
+gcloud firestore indexes composite list --project=<PROJECT_ID>
 ```
 
 ## 6. Deploy the Classroom submission Cloud Function
@@ -272,11 +322,16 @@ No code changes are needed by teachers.
 
 ## 11. Files modified / created
 
-- `js/firebase-config.js` — Firebase init, Google sign-in, Classroom scope
-- `js/firebase-config.example.js` — committed template (git-ignored real file)
-- `js/databaseManager.js` — Firestore sync for results, attempts, preferences
+- `js/firebase-config.js` — Firebase init, Google sign-in, Classroom scope (git-ignored, use `.example.js` template)
+- `js/firebase-config.example.js` — committed template
+- `js/firebaseConfig.js` — Firebase init, Google sign-in with redirect, Classroom scope, GIS token support
+- `js/databaseManager.js` — Firestore sync for results, attempts, preferences, **learn progress**
 - `js/classroom.js` — Classroom submission button and callable Function call
 - `js/results.js` — stores `correct`/`total` in state for submission payload
-- `index.html` — loads Firebase SDKs, GIS client, sign-in/out buttons
-- `functions/index.js` — callable `createClassroomSubmission`
-- `firestore.rules` — security rules (or deploy via console)
+- `js/storage.js` — local storage for quiz results, learn progress, preferences, with `mergeResults`/`mergeLearnProgress`
+- `index.html` — loads Firebase SDKs, GIS client, sign-in/out buttons (redirects to `login.html`)
+- `login.html` — standalone login page using Google Identity Services (GIS) with redirect flow
+- `js/accessibility.js` — full a11y layer (toggle UI, TTS, keyboard navigation)
+- `firestore.rules` — Firestore security rules
+- `firebase.json` — Firebase hosting config
+- `styles.css` — theme tokens, a11y modal styles, body-level accessibility classes
