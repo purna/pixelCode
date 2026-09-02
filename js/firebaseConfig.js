@@ -160,5 +160,8 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.removeItem('google_access_token');
     localStorage.removeItem('google_token_expiry');
     await window.signOut();
+    if (app && app.state) app.state.user = null;
+    document.getElementById('signInBtn')?.classList.remove('hidden');
+    document.getElementById('signOutBtn')?.classList.add('hidden');
   });
 });
