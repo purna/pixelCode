@@ -583,13 +583,38 @@
 
     if (pattern) {
       const regex = new RegExp(pattern);
-      if (regex.test(code)) {
+      const simulatedOutput = app.extractLiteralCSharpOutput(code);
+      if (regex.test(code) || (simulatedOutput !== null && regex.test(simulatedOutput))) {
         return { output: expected || 'Pattern matched!', ok: true };
       }
       return { output: 'Output did not match the expected pattern.', ok: false };
     }
 
     return { output: expected, ok: true };
+  };
+
+  // Coderunner data contains a mix of patterns for source code and patterns for
+  // program output. Extract simple literal output so both formats keep working.
+  app.extractLiteralCSharpOutput = function (code) {
+    const callPattern = /Console\.(WriteLine|Write)\(\s*"((?:\\.|[^"\\])*)"\s*\)\s*;?/g;
+    let output = '';
+    let matched = false;
+    let match;
+
+    while ((match = callPattern.exec(code)) !== null) {
+      matched = true;
+      const text = match[2].replace(/\\([\\"'0abfnrtv])/g, function (_, escape) {
+        const values = {
+          '0': '\0', a: '\x07', b: '\b', f: '\f', n: '\n', r: '\r',
+          t: '\t', v: '\x0b', '\\': '\\', '"': '"', "'": "'"
+        };
+        return values[escape];
+      });
+      output += text;
+      if (match[1] === 'WriteLine') output += '\n';
+    }
+
+    return matched ? output : null;
   };
 
   app.renderMatrix3x3 = function (card, q) {
@@ -960,26 +985,4 @@
     item.appendChild(wrap);
   };
 
-  app.el.prevBtn.addEventListener('click', function () {
-    if (app.state.index > 0) {
-      app.state.index--;
-      app.state.pqLocked = false;
-      app.renderQuestion();
-      app.resetPqTimer();
-    }
-  });
-
-  app.el.nextBtn.addEventListener('click', function () {
-    const total = app.state.data.questions.length;
-    if (app.state.index < total - 1) {
-      app.state.index++;
-      app.state.pqLocked = false;
-      app.renderQuestion();
-      app.resetPqTimer();
-    } else {
-      app.stopPqTimer();
-      app.stopTimer();
-      app.showResults();
-    }
-  });
 })();
