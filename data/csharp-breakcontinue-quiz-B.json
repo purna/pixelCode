@@ -82,12 +82,12 @@
       "prompt": "Write a while loop starting at 1 that stops when it finds the first number greater than 10, using break.",
       "starterCode": "int i = 1;\nwhile (i <= 20)\n{\n    if (i > 10)\n    {\n        _____\n    }\n    i++;\n}",
       "expectedOutput": "",
-      "outputPattern": "",
+      "outputPattern": "\\bbreak\\s*;",
       "hints": [
         "Use break to exit the loop when i > 10"
       ],
       "requiredStrings": [
-        "while"
+        "break"
       ]
     },
     {

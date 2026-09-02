@@ -87,7 +87,7 @@
       "prompt": "Complete the chain so it builds a List of uppercase 4+ char words and prints the count.",
       "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nvar result = words._______(w => w.Length >= 4)\n                 ._______(w => w.ToUpper())\n                 ._______();\nConsole.WriteLine(result.Count);",
       "expectedOutput": "2",
-      "outputPattern": "Where.*Select.*ToList",
+      "outputPattern": "Where[\\s\\S]*Select[\\s\\S]*ToList",
       "requiredStrings": [
         "ToList",
         "ToUpper"

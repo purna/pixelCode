@@ -50,16 +50,16 @@
     },
     {
       "id": "csharp-accessmodifiers-04",
-      "type": "coderunner",
-      "prompt": "Given the code below, which lines compile successfully? Select all that apply based on the access modifiers.",
-      "starterCode": "public class Base\n{\n    public int PublicField;\n    private int PrivateField;\n    protected int ProtectedField;\n    internal int InternalField;\n}\n\npublic class Derived : Base\n{\n    public void Test()\n    {\n        var a = PublicField;    // Line 1\n        var b = PrivateField;   // Line 2\n        var c = ProtectedField;  // Line 3\n        var d = InternalField;   // Line 4\n    }\n}\n\nvar ext = new Derived();\nvar e = ext.PublicField;   // Line 5\nvar f = ext.PrivateField;  // Line 6\nvar g = ext.ProtectedField; // Line 7",
-      "expectedOutput": "",
-      "outputPattern": "",
-      "requiredStrings": [
-        "private",
-        "protected",
-        "internal"
-      ]
+      "type": "scored",
+      "prompt": "A derived class accesses inherited fields on itself, and external code accesses fields through an instance. Which set of lines compiles?",
+      "options": [
+        "Lines 1, 3, 4, and 5",
+        "Lines 1, 2, 3, and 4",
+        "Lines 1, 3, 5, and 7",
+        "All seven lines"
+      ],
+      "answerIndex": 0,
+      "explanation": "The derived class can access public, protected, and same-assembly internal fields (lines 1, 3, and 4). External code can access only the public field (line 5)."
     },
     {
       "id": "csharp-accessmodifiers-05",
@@ -132,17 +132,16 @@
     },
     {
       "id": "csharp-accessmodifiers-10",
-      "type": "coderunner",
-      "prompt": "In the ExternalClass (not in the same assembly, not a derived class), which fields of MyClass can be accessed? Modify the access modifiers if needed.",
-      "starterCode": "public class MyClass\n{\n    public int A;\n    private int B;\n    protected int C;\n    internal int D;\n}\n\n// External code in a different assembly\nvar obj = new MyClass();\nvar value = obj.A;  // Can access A?",
-      "expectedOutput": "",
-      "outputPattern": "",
-      "requiredStrings": [
-        "private",
-        "protected",
-        "internal",
-        "public"
-      ]
+      "type": "scored",
+      "prompt": "Which field can unrelated code in a different assembly access through an instance of MyClass?",
+      "options": [
+        "Only the public field A",
+        "The public field A and internal field D",
+        "The public field A and protected field C",
+        "All fields"
+      ],
+      "answerIndex": 0,
+      "explanation": "Unrelated code in another assembly can access only public members. Private, protected, and internal fields are not accessible there."
     }
   ]
 }

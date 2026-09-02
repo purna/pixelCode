@@ -127,13 +127,13 @@
         "prompt": "Prompt for a number, parse it, add 10, and print the result.",
         "starterCode": "using System;\nclass Program {\n    static void Main() {\n        // Prompt, read, parse, add 10, print\n        \n    }\n}",
         "expectedOutput": "",
-        "outputPattern": "",
+        "outputPattern": "(?=[\\s\\S]*(?:int\\.Parse\\(\\s*Console\\.ReadLine\\(\\s*\\)\\s*\\)|Convert\\.ToInt32\\(\\s*Console\\.ReadLine\\(\\s*\\)\\s*\\)))(?=[\\s\\S]*\\+\\s*10)(?=[\\s\\S]*Console\\.WriteLine)",
         "requiredStrings": [
-          "Parse",
-          "Cast"
+          "Console.ReadLine",
+          "Console.WriteLine"
         ],
         "hints": [
-          "Make sure your code includes the required keywords/elements: Parse, Cast",
+          "Read with Console.ReadLine, convert the value, add 10, and print it.",
           "Check that your code uses the required keywords listed in the exercise."
         ]
       }

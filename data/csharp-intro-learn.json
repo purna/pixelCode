@@ -78,15 +78,16 @@
       "exercise": {
         "type": "code",
         "prompt": "Complete the code to create a simple program that prints Starting...",
-        "starterCode": "class Program\n{\n    static void Main()\n    {\n        _____(\"Starting...\")\n    }\n}",
+        "starterCode": "class Program\n{\n    static void Main()\n    {\n        _____(\"Starting...\");\n    }\n}",
         "expectedOutput": "Starting...",
         "outputPattern": "Starting\\.\\.\\.",
         "requiredStrings": [
           "class",
-          "static"
+          "static",
+          "Console.WriteLine"
         ],
         "hints": [
-          "Make sure your code includes the required keywords/elements: class, static",
+          "Replace the blank with Console.WriteLine to print the message.",
           "When run, your code should output: Starting..."
         ]
       }

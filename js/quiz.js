@@ -567,12 +567,9 @@
   };
 
   app.simulateCSharp = function (code, q) {
-    const expected = (q.expectedOutput || '').trim();
+    const expectedOutput = q.expectedOutput || '';
+    const expected = expectedOutput.trim();
     const pattern = q.outputPattern;
-
-    if (!expected && !pattern) {
-      return { output: 'No expected output defined for this question.', ok: false };
-    }
 
     if (q.requiredStrings) {
       const missing = q.requiredStrings.filter(function (s) { return code.indexOf(s) === -1; });
@@ -582,12 +579,36 @@
     }
 
     if (pattern) {
-      const regex = new RegExp(pattern);
+      const sourceMatches = new RegExp(pattern).test(code);
       const simulatedOutput = app.extractLiteralCSharpOutput(code);
-      if (regex.test(code) || (simulatedOutput !== null && regex.test(simulatedOutput))) {
+      const outputMatches = simulatedOutput !== null && new RegExp(pattern).test(simulatedOutput);
+      const patternTargetsOutput = expectedOutput && new RegExp(pattern).test(expectedOutput);
+      const codeWasEdited = code.trim() !== (q.starterCode || '').trim();
+      const hasPlaceholder = /_{3,}|\bTODO\b/i.test(code);
+      const malformedLiteralOutputCall = /Console\.(?:WriteLine|Write)\(\s*"(?:\\.|[^"\\])*"\s*\)(?!\s*;)/.test(code);
+
+      // Literal output can be checked directly. For output patterns involving
+      // variables or calculations, require the requested constructs and a
+      // completed edit because this browser runner does not compile C#.
+      if ((!patternTargetsOutput && sourceMatches) || outputMatches ||
+          (patternTargetsOutput && simulatedOutput === null && codeWasEdited &&
+           !hasPlaceholder && !malformedLiteralOutputCall)) {
         return { output: expected || 'Pattern matched!', ok: true };
       }
       return { output: 'Output did not match the expected pattern.', ok: false };
+    }
+
+    if (q.requiredStrings && q.requiredStrings.length) {
+      const codeWasEdited = code.trim() !== (q.starterCode || '').trim();
+      const hasPlaceholder = /_{3,}|\bTODO\b/i.test(code);
+      if (codeWasEdited && !hasPlaceholder) {
+        return { output: expected || 'Code requirements matched!', ok: true };
+      }
+      return { output: 'Complete the code before running it.', ok: false };
+    }
+
+    if (!expected) {
+      return { output: 'No validation rules defined for this question.', ok: false };
     }
 
     return { output: expected, ok: true };
@@ -596,7 +617,7 @@
   // Coderunner data contains a mix of patterns for source code and patterns for
   // program output. Extract simple literal output so both formats keep working.
   app.extractLiteralCSharpOutput = function (code) {
-    const callPattern = /Console\.(WriteLine|Write)\(\s*"((?:\\.|[^"\\])*)"\s*\)\s*;?/g;
+    const callPattern = /Console\.(WriteLine|Write)\(\s*"((?:\\.|[^"\\])*)"\s*\)\s*;/g;
     let output = '';
     let matched = false;
     let match;

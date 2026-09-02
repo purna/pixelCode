@@ -78,7 +78,7 @@
         "prompt": "Throw an ArgumentException with the message 'Invalid name' when name is null or empty.",
         "starterCode": "public void SetName(string name)\n{\n    if (string.IsNullOrEmpty(name))\n    {\n        _____ new _____(\"Invalid name\");\n    }\n    _name = name;\n}",
         "expectedOutput": "",
-        "outputPattern": "",
+        "outputPattern": "throw\\s+new\\s+ArgumentException\\(\\s*\"Invalid name\"\\s*\\)\\s*;",
         "requiredStrings": [
           "throw",
           "new",

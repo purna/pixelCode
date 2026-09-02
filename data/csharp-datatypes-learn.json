@@ -108,15 +108,15 @@
         "prompt": "Declare an int named 'score' with value 100 and a string named 'player' with value \"Hero\".",
         "starterCode": "class Program {\n    static void Main() {\n        // Write your code here\n        \n    }\n}",
         "expectedOutput": "",
-        "outputPattern": "",
+        "outputPattern": "(?=[\\s\\S]*\\bint\\s+score\\s*=\\s*100\\s*;)(?=[\\s\\S]*\\bstring\\s+player\\s*=\\s*\"Hero\"\\s*;)",
         "requiredStrings": [
           "int",
+          "score",
           "string",
-          "double",
-          "bool"
+          "player"
         ],
         "hints": [
-          "Make sure your code includes the required keywords/elements: int, string, double, bool",
+          "Declare score as int with value 100 and player as string with value \"Hero\".",
           "Check that your code uses the required keywords listed in the exercise."
         ]
       }
@@ -131,15 +131,17 @@
         "prompt": "Declare variables for an int 'level', a double 'health', and a bool 'hasKey'. Initialize them to 1, 100.5, and false respectively.",
         "starterCode": "class Program {\n    static void Main() {\n        // Declare and initialize variables here\n        \n    }\n}",
         "expectedOutput": "",
-        "outputPattern": "",
+        "outputPattern": "(?=[\\s\\S]*\\bint\\s+level\\s*=\\s*1\\s*;)(?=[\\s\\S]*\\bdouble\\s+health\\s*=\\s*100\\.5\\s*;)(?=[\\s\\S]*\\bbool\\s+hasKey\\s*=\\s*false\\s*;)",
         "requiredStrings": [
           "int",
-          "string",
+          "level",
           "double",
-          "bool"
+          "health",
+          "bool",
+          "hasKey"
         ],
         "hints": [
-          "Make sure your code includes the required keywords/elements: int, string, double, bool",
+          "Declare level, health, and hasKey using the requested types and values.",
           "Check that your code uses the required keywords listed in the exercise."
         ]
       }

@@ -86,7 +86,7 @@
       "prompt": "Complete the code to print how many words have length > 3.",
       "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nint n = words.Where(_______).Count();\nConsole.WriteLine(n);",
       "expectedOutput": "2",
-      "outputPattern": "w => w\\.Length",
+      "outputPattern": "w\\s*=>\\s*w\\.Length",
       "requiredStrings": [
         "Length"
       ],

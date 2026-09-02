@@ -126,7 +126,7 @@
         "prompt": "Assign a lambda that doubles x, then the result is 10.",
         "starterCode": "delegate int Transform(int x);\nTransform t = _____;\nint result = t(5);",
         "expectedOutput": "10",
-        "outputPattern": "=>.*2",
+        "outputPattern": "=>\\s*[^;\\n]*\\*\\s*2",
         "requiredStrings": [
           "=>"
         ],

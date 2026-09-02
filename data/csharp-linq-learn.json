@@ -48,7 +48,7 @@
         "prompt": "Complete the code to count words longer than 3 characters.",
         "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nint n = words.Where(_______).Count();\nConsole.WriteLine(n);",
         "expectedOutput": "2",
-        "outputPattern": "Length > 3",
+        "outputPattern": "Length\\s*>\\s*3",
         "requiredStrings": [
           "w =>",
           "Length"
@@ -99,7 +99,7 @@
         "prompt": "Complete the chain so it returns a List of uppercase 4+ char words.",
         "starterCode": "var words = new List<string> { \"cat\", \"dog\", \"fish\", \"bear\" };\nvar result = words._______(w => w.Length >= 4)\n                 ._______(w => w.ToUpper())\n                 ._______();\nConsole.WriteLine(result.Count);",
         "expectedOutput": "2",
-        "outputPattern": "Where.*Select.*ToList",
+        "outputPattern": "Where[\\s\\S]*Select[\\s\\S]*ToList",
         "requiredStrings": [
           "ToList",
           "ToUpper"

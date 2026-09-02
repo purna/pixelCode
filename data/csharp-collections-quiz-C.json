@@ -87,7 +87,7 @@
       "prompt": "Complete the loop so it adds each number to sum and the program prints 6.",
       "starterCode": "var nums = new List<int> { 1, 2, 3 };\nint sum = 0;\nforeach (_______ in nums)\n  sum _______;\nConsole.WriteLine(sum);",
       "expectedOutput": "6",
-      "outputPattern": "sum.*\\+.*n",
+      "outputPattern": "sum\\s*\\+=\\s*n",
       "requiredStrings": [
         "sum",
         "nums"
