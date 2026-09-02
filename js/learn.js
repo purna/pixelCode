@@ -536,11 +536,19 @@
       || (exercise.flowExample ? [exercise.flowExample] : []);
 
     const fb = new FlowBuilder(container, {
-      flow: exercise.flow || {},
+      // Lessons always begin with a blank canvas. The configured flow remains
+      // available through the explicit example selector instead of being
+      // inserted before the learner has made a choice.
+      flow: { flow: [], selectedId: null },
       expectedCode: exercise.expectedCode || '',
       examples: examples,
       blocksToShow: exercise.blocksToShow || null
     });
+
+    app.el.exerciseCheckBtn.textContent = 'Check Answer';
+    app.el.exerciseCheckBtn.onclick = function () {
+      fb.showCompare();
+    };
 
     if (exercise.expectedCode) {
       const hint = document.createElement('p');

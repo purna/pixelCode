@@ -65,7 +65,8 @@ class FlowBuilder {
 .fb-toolbar select { padding: 0.3rem 0.5rem; border-radius: 6px; border: 1px solid var(--border);
   background: var(--surface); color: inherit; font-size: 0.82rem; }
 .fb-add-btn { padding: 0.3rem 0.6rem; border-radius: 6px; border: 1px solid var(--border);
-  background: var(--surface); color: inherit; font-size: 0.78rem; cursor: pointer; }
+  background: var(--surface); color: inherit; font-size: 0.78rem; cursor: grab; }
+.fb-add-btn:active { cursor: grabbing; }
 .fb-add-btn:hover { background: var(--surface-raised); }
 .fb-main { display: flex; gap: 0.75rem; flex: 1; min-height: 220px; }
 .fb-canvas-col { flex: 1.4; min-width: 0; overflow: auto; border: 1px solid var(--border);
@@ -179,6 +180,12 @@ class FlowBuilder {
       btn.className = 'fb-add-btn';
       btn.type = 'button';
       btn.textContent = '+ ' + FlowBuilder._KIND_LABELS[kind];
+      btn.draggable = true;
+      btn.addEventListener('dragstart', event => {
+        event.dataTransfer.effectAllowed = 'copy';
+        event.dataTransfer.setData('application/x-flow-block-kind', kind);
+        event.dataTransfer.setData('text/plain', kind);
+      });
       btn.addEventListener('click', () => this._addNode(kind));
       toolbar.appendChild(btn);
     });
@@ -191,6 +198,20 @@ class FlowBuilder {
     canvasCol.className = 'fb-canvas-col';
     const canvas = document.createElement('div');
     canvas.className = 'fb-canvas';
+    canvas.addEventListener('dragover', event => {
+      if (Array.from(event.dataTransfer.types || []).includes('application/x-flow-block-kind')) {
+        event.preventDefault();
+        event.dataTransfer.dropEffect = 'copy';
+      }
+    });
+    canvas.addEventListener('drop', event => {
+      const kind = event.dataTransfer.getData('application/x-flow-block-kind');
+      const kinds = this.blocksToShow || FlowBuilder._NODE_KINDS;
+      if (!kinds.includes(kind)) return;
+      event.preventDefault();
+      this.selectedId = null;
+      this._addNode(kind);
+    });
     canvasCol.appendChild(canvas);
 
     const propsCol = document.createElement('div');
@@ -1090,6 +1111,16 @@ class FlowBuilder {
   _switchTab(name) {
     this.root.querySelectorAll('.tab-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
     this.root.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.dataset.tab === name));
+    if (name === 'run' && this.steps.length === 0 && this.flowRoot.length > 0) {
+      this.steps = this._buildSteps();
+      this.currentStep = -1;
+      this._updateRunView();
+    }
+  }
+
+  showCompare() {
+    this._renderCompare();
+    this._switchTab('compare');
   }
 
   rerenderAll() {
@@ -1117,7 +1148,7 @@ class FlowBuilder {
     }
 
     const step = this.steps[this.currentStep];
-    stepLabel.textContent = 'Step ' + this.currentStep + ' / ' + (this.steps.length - 1);
+    stepLabel.textContent = 'Step ' + (this.currentStep + 1) + ' / ' + this.steps.length;
     stepDesc.textContent = step.desc || '';
 
     if (step.nodeId && this.nodeHeaderEls[step.nodeId]) {
@@ -1155,11 +1186,15 @@ class FlowBuilder {
   _resetRun() {
     this.stopPlay();
     this.steps = this._buildSteps();
-    this.currentStep = this.steps.length > 0 ? 0 : -1;
+    this.currentStep = -1;
     this._updateRunView();
   }
 
   _nextStep() {
+    if (this.steps.length === 0 && this.flowRoot.length > 0) {
+      this.steps = this._buildSteps();
+      this.currentStep = -1;
+    }
     if (this.currentStep < this.steps.length - 1) {
       this.currentStep++;
       this._updateRunView();
@@ -1177,7 +1212,13 @@ class FlowBuilder {
   }
 
   _startPlay() {
-    if (this.playing || this.steps.length === 0) return;
+    if (this.playing) return;
+    if (this.steps.length === 0 && this.flowRoot.length > 0) {
+      this.steps = this._buildSteps();
+      this.currentStep = -1;
+      this._updateRunView();
+    }
+    if (this.steps.length === 0) return;
     this.playing = true;
     this.els.playBtn.textContent = 'Pause';
     const tick = () => {
